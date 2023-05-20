@@ -1,0 +1,8 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃SuccessorOrdinal⦄
+		⦃⦃Type⦄.HasInstance(⦃SuccessorOrdinal⦄)⦄
+	and:
+		⦃⦃⦃SuccessorOrdinal⦄.MapToClass()⦄.IsEqualTo(⦃⦃unaryFunction ⦃Ordinal⦄.GetSuccessor⦄.GetCoDomain()⦄)⦄

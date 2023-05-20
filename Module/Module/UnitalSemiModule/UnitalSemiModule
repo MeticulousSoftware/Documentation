@@ -1,0 +1,68 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnitalSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃UnitalSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃UnitalSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitalSemiModule⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftUnitalSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃LeftUnitalSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃LeftUnitalSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃LeftSemiModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃module⦄.GetClass()⦄.Has(⦃x⦄)⦄
+						then:
+							let:
+								⟦identity⟧:
+									⦃⦃{⦃identity⦄}⦄.IsEqualTo(⦃⦃⦃⦃module⦄.GetScalarStructure()⦄.GetMultiplicationStructure()⦄.GetIdentities()⦄)⦄
+							⦃⦃⦃⦃⦃module⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃identity⦄,⦃x⦄)⦄.IsEqualTo(⦃x⦄)⦄
+
+
+
+define ⦃RightUnitalSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃RightUnitalSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃RightUnitalSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃RightPartialModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃LeftUnitalSemiModule⦄.HasInstance(⦃⦃module⦄.GetConverse()⦄)⦄
+
+
+
+define ⦃BiUnitalSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃BiUnitalSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃BiUnitalSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃BiSemiModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitalSemiModule⦄.HasInstance(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄)⦄

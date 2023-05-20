@@ -1,0 +1,18 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃OrdinalRange⦄,⦃CardinalRange⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			let:
+				⟦relation⟧:
+						⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+					and:
+						⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.IsInferiorOrEqualTo⦄)⦄
+			⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inalRange⦄.IsEqualTo(⦃⦃RangeType⦄(⦃relation⦄)⦄)⦄

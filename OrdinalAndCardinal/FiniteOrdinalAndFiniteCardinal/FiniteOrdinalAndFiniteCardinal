@@ -1,0 +1,109 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FiniteOrdinal⦄,⦃FiniteCardinal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃Finite⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄)⦄
+			and:
+				for all ⟦x⟧:
+						⦃⦃Finite⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+						and:
+							⦃⦃x⦄.IsFinite()⦄
+
+define ⦃method ⦃Ordinal⦄.MapToReal⦄,⦃method ⦃Cardinal⦄.MapToReal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+				then:
+					if:
+						⦃⦃Finite⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+					then:
+							⦃⦃⦃⦃x⦄.MapToReal⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							⦃⦃⦃x⦄.MapToReal()⦄.IsEqualTo(⦃⦃⦃integer 1⦄.Repeat(⦃⦃Ordinal⦄(⦃x⦄)⦄)⦄.AddAllReals()⦄)⦄
+					else:
+						⦃⦃⦃⦃x⦄.MapToReal⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+
+
+define ⦃method ⦃FiniteOrdinal⦄.MapToRepresentationInBase⦄
+	for all ⟦ordinal⟧:
+		if:
+			⦃⦃FiniteOrdinal⦄.HasInstance(⦃ordinal⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃ordinal⦄.MapToRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦base⟧,⟦length⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃⦃base⦄.MapToOrdinal()⦄,⦃length⦄)⦄,⦃⦃⦃⦃ordinal⦄.MapToReal()⦄.MapToNonNegativeIntegerRepresentationInBase(⦃base⦄,⦃length⦄)⦄.MapWith(⦃unaryFunction MapToOrdinal⦄)⦄)⦄)⦄
+
+define ⦃method ⦃{⦃FiniteOrdinal⦄}⦄.GetFromRepresentationInBase⦄
+	for all ⟦x⟧:
+			⦃⦃⦃⦃FiniteOrdinal⦄.GetFromRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+		if and only if:
+			there exists ⟦representation⟧,⟦base⟧:
+				⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃⦃representation⦄.MapWith(⦃unaryFunction MapToReal⦄)⦄,⦃⦃base⦄.MapToReal()⦄)⦄,⦃⦃⦃NonNegativeInteger⦄.GetFromRepresentationInBase(⦃representation⦄,⦃base⦄)⦄.MapToReal()⦄)⦄)⦄
+
+define ⦃method ⦃{⦃FiniteOrdinal⦄}⦄.MapToCanonicalRepresentationInBase⦄
+	for all ⟦x⟧:
+			⦃⦃⦃⦃FiniteOrdinal⦄.MapToCanonicalRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+		if and only if:
+			there exists ⟦representation⟧,⟦base⟧:
+				⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃⦃representation⦄.MapWith(⦃unaryFunction MapToReal⦄)⦄,⦃⦃base⦄.MapToReal()⦄)⦄,⦃⦃⦃NonNegativeInteger⦄.MapToCanonicalRepresentationInBase(⦃representation⦄,⦃base⦄)⦄.MapWith(⦃unaryFunction MapToReal⦄)⦄)⦄)⦄
+
+define ⦃method ⦃FiniteOrdinal⦄.MapToUnicodeRepresentationInBase⦄,⦃method ⦃FiniteOrdinal⦄.MapToUnicodeLowerCaseRepresentationInBase⦄,⦃method ⦃FiniteOrdinal⦄.MapToUnicodeUpperCaseRepresentationInBase⦄
+	for all ⟦ordinal⟧:
+		if:
+			⦃⦃FiniteOrdinal⦄.HasInstance(⦃ordinal⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints LowerCase⦄,
+						⦃unicodeCodePoints UpperCase⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃ordinal⦄.MapToUnicode⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦base⟧,⟦length⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃⦃base⦄.MapToOrdinal()⦄,⦃length⦄)⦄,⦃⦃⦃ordinal⦄.MapToReal()⦄.MapToNonNegativeIntegerUnicode⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase(⦃base⦄,⦃length⦄)⦄)⦄)⦄
+
+define ⦃method ⦃{⦃FiniteOrdinal⦄}⦄.GetFromUnicodeRepresentationInBase⦄
+	for all ⟦x⟧:
+			⦃⦃⦃⦃FiniteOrdinal⦄.GetFromUnicodeRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+		if and only if:
+			there exists ⟦representation⟧,⟦base⟧:
+				⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃representation⦄,⦃⦃base⦄.MapToReal()⦄)⦄,⦃⦃⦃NonNegativeInteger⦄.GetFromUnicodeRepresentationInBase(⦃representation⦄,⦃base⦄)⦄.MapToReal()⦄)⦄)⦄
+
+define ⦃method ⦃{⦃FiniteOrdinal⦄}⦄.MapToCanonicalUnicodeRepresentationInBase⦄,⦃method ⦃{⦃FiniteOrdinal⦄}⦄.MapToCanonicalUnicodeLowerCaseRepresentationInBase⦄,⦃method ⦃{⦃FiniteOrdinal⦄}⦄.MapToCanonicalUnicodeUpperCaseRepresentationInBase⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints LowerCase⦄,
+				⦃unicodeCodePoints UpperCase⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃FiniteOrdinal⦄.MapToCanonicalUnicode⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦representation⟧,⟦base⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃representation⦄,⦃⦃base⦄.MapToReal()⦄)⦄,⦃⦃NonNegativeInteger⦄.MapToCanonicalUnicode⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase(⦃representation⦄,⦃base⦄)⦄)⦄)⦄

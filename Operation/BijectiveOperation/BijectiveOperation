@@ -1,0 +1,33 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃BijectiveOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃BijectiveOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃BijectiveOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Total⦄,
+							⦃unicodeCodePoints Injective⦄,
+							⦃unicodeCodePoints Surjective⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.HasInstance(⦃operation⦄)⦄
+
+define ⦃method ⦃BijectiveOperation⦄.GetInverse⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃BijectiveOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃⦃⦃operation⦄.GetInverse⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦inverse⟧:
+						⦃⦃inverse⦄.IsEqualTo(⦃⦃operation⦄.GetInverse()⦄)⦄
+					⦃⦃BijectiveOperation⦄.HasInstance(⦃inverse⦄)⦄
+				and:
+					⦃⦃⦃inverse⦄.GetFunction()⦄.IsEqualTo(⦃⦃⦃operation⦄.GetFunction()⦄.GetInverse()⦄)⦄

@@ -1,0 +1,29 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃CompatibleWithRelationStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃CompatibleWithRelationStructure⦄)⦄
+	and:
+		for all ⟦type⟧:
+			if:
+				⦃⦃{
+					⦃InternalUnaryCoDomainOperation⦄,
+					⦃AlgebraicStructure⦄,
+					⦃ScalarMultiplicationStructure⦄
+				}⦄.Has(⦃type⦄)⦄
+			then:
+				⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃type⦄,⦃CompatibleWithRelationStructure⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃CompatibleWithRelationStructure⦄.IsCompatibleWithTheRelation⦄
+-	for all ⟦structure⟧:
+		if:
+			⦃⦃CompatibleWithRelationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.IsCompatibleWithTheRelation⦄.GetDomain()⦄.IsEqualTo(⦃⦃HomogeneousRelation⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦relation⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.IsCompatibleWithTheRelation⦄.GetDomain()⦄.Has(⦃relation⦄)⦄
+					then:
+						⦃⦃Boolean⦄.HasInstance(⦃⦃structure⦄.IsCompatibleWithTheRelation(⦃relation⦄)⦄)⦄

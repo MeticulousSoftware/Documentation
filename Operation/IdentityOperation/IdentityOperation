@@ -1,0 +1,15 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃IdentityOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃IdentityOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃IdentityOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+					⦃⦃TotalOperation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					⦃⦃⦃operation⦄.GetDomainSignature()⦄.IsEqualTo(⦃⦃operation⦄.GetCoDomainSignature()⦄)⦄
+				and:
+					⦃⦃⦃operation⦄.GetFunction()⦄.IsIdentity()⦄

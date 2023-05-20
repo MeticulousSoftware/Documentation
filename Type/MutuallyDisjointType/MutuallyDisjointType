@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MutuallyDisjointType⦄
+		⦃⦃Type⦄.HasInstance(⦃MutuallyDisjointType⦄)⦄
+	and:
+		for all ⟦type⟧:
+				⦃⦃MutuallyDisjointType⦄.HasInstance(⦃type⦄)⦄
+			if and only if:
+					⦃⦃Type⦄.HasInstance(⦃type⦄)⦄
+				and:
+					for all ⟦mutuallyDisjointType⟧:
+						if:
+								⦃⦃MutuallyDisjointType⦄.HasInstance(⦃mutuallyDisjointType⦄)⦄
+							and:
+								not:
+									⦃⦃mutuallyDisjointType⦄.IsEqualTo(⦃type⦄)⦄
+						then:
+							⦃⦃⦃{⦃type⦄,⦃mutuallyDisjointType⦄}⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.AreMutuallyDisjoint()⦄

@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Sequence⦄
+		⦃⦃Type⦄.HasInstance(⦃Sequence⦄)⦄
+	and:
+		for all ⟦sequence⟧:
+				⦃⦃Sequence⦄.HasInstance(⦃sequence⦄)⦄
+			if and only if:
+					⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+				and:
+					⦃⦃⦃sequence⦄.GetLength()⦄.IsInferiorOrEqualTo(⦃ω⦄)⦄

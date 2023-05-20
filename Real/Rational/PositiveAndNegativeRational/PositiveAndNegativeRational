@@ -1,0 +1,28 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PositiveRational⦄,⦃NegativeRational⦄,
+⦃NonPositiveRational⦄,⦃NonNegativeRational⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Non⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Positive⦄,
+						⦃unicodeCodePoints Negative⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦Rational⦄)⦄
+					and:
+						for all ⟦integer⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦Rational⦄.HasInstance(⦃integer⦄)⦄
+							if and only if:
+									⦃⦃Rational⦄.HasInstance(⦃integer⦄)⦄
+								and:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦Real⦄.HasInstance(⦃integer⦄)⦄

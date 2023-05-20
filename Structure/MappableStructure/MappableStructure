@@ -1,0 +1,153 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MappableStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃MappableStructure⦄)⦄
+	and:
+		for all ⟦type⟧:
+			if:
+				⦃⦃{
+					⦃InternalUnaryCoDomainOperation⦄,
+					⦃HomogeneousRelation⦄,
+					⦃AlgebraicStructure⦄,
+					⦃AlgebraicStructureEquippedWithRelation⦄,
+					⦃AlgebraicStructureEquippedWithInvolution⦄,
+					⦃ScalarMultiplicationStructure⦄,
+					⦃ModuleEquippedWithPartialMultiLinearForm⦄,
+					⦃ModuleEquippedWithPartialQuadraticForm⦄,
+					⦃InvolutionAlgebra⦄,
+					⦃CompositionAlgebra⦄
+				}⦄.Has(⦃type⦄)⦄
+			then:
+				⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃type⦄,⦃MappableStructure⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃MappableStructure⦄.GetSimilarStructures⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MappableStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetSimilarStructures⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦structures⟧:
+						⦃⦃structures⦄.IsEqualTo(⦃⦃structure⦄.GetSimilarStructures()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃structures⦄)⦄
+				and:
+					for all ⟦structure0⟧:
+						if:
+							⦃⦃structures⦄.Has(⦃structure0⦄)⦄
+						then:
+								⦃⦃MappableStructure⦄.HasInstance(⦃structure0⦄)⦄
+							and:
+								⦃⦃⦃structure0⦄.GetSimilarStructures()⦄.Has(⦃structure⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				for all ⟦structures⟧:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+					if and only if:
+						there exists ⟦structure0⟧,⟦structure1⟧:
+								⦃⦃structures⦄.IsEqualTo(⦃(⦃structure0⦄,⦃structure1⦄)⦄)⦄
+							and:
+								for all ⟦index⟧:
+									if:
+										⦃⦃⦃structures⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃MappableStructure⦄.HasInstance(⦃structure⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+							and:
+								⦃⦃⦃structure0⦄.GetSimilarStructures()⦄.Has(⦃structure1⦄)⦄
+			and:
+				for all ⟦structures⟧:
+					if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+					then:
+						⦃⦃Boolean⦄.HasInstance(⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃structures⦄)⦄)⦄
+
+define ⦃method ⦃TotalUnaryUnaryOperation⦄.IsStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃⦃operation⦄.IsStructurePreversingMapOf⦄,
+				⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄
+			)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+define ⦃method ⦃TotalUnaryUnaryOperation⦄.IsIsoMorphicStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf⦄,
+					⦃⦃operation⦄.IsStructurePreversingMapOf⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦structures⟧:
+					if:
+						⦃⦃⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+					then:
+						let:
+							⟦isIsoMorphicStructurePreversingMap⟧:
+								⦃⦃isIsoMorphicStructurePreversingMap⦄.IsEqualTo(⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf(⦃structures⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isIsoMorphicStructurePreversingMap⦄)⦄
+						and:
+								⦃isIsoMorphicStructurePreversingMap⦄
+							if and only if:
+									⦃⦃operation⦄.IsStructurePreversingMapOf(⦃structures⦄)⦄
+								and:
+									⦃⦃BijectiveOperation⦄.HasInstance(⦃operation⦄)⦄
+								and:
+									⦃⦃⦃operation⦄.GetInverse()⦄.IsStructurePreversingMapOf(⦃⦃structures⦄.GetReverse()⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.IsPartialMultiStructurePreversingMapOf⦄,⦃method ⦃UnaryCoDomainOperation⦄.IsMultiStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Partial⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃operation⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧MultiStructurePreversingMapOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦sequence⟧,⟦y⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃sequence⦄,⦃y⦄)⦄)⦄
+								and:
+									⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+								and:
+									⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+								and:
+									for all ⟦index⟧:
+										if:
+											⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+										then:
+											let:
+												⟦domainSignature⟧:
+													⦃⦃domainSignature⦄.IsEqualTo(⦃⦃operation⦄.GetDomainSignature()⦄)⦄
+											for all ⟦sequence0⟧:
+												if:
+													⦃⦃⦃domainSignature⦄.GetCartesianProduct()⦄.Has(⦃sequence0⦄)⦄
+												then:
+													let:
+														⟦map⟧:
+																⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+															and:
+																for all ⟦sequence0⟧:
+																		⦃⦃⦃map⦄.GetGraph()⦄.Has(⦃(⦃index0⦄,⦃x⦄)⦄)⦄
+																	if and only if:
+																			⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index0⦄)⦄
+																		and:
+																			not:
+																				⦃⦃index0⦄.IsEqualTo(⦃index⦄)⦄
+																		and:
+																			⦃⦃x⦄.IsEqualTo(⦃⦃sequence0⦄(⦃index0⦄)⦄)⦄
+													⦃⦃⦃operation⦄.GetStructureGeneratedBy(⦃map⦄)⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧StructurePreversingMapOf(⦃⦃sequence⦄(⦃index⦄)⦄,⦃y⦄)⦄

@@ -1,0 +1,49 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃InDecomposableModule⦄
+		⦃⦃Type⦄.HasInstance(⦃InDecomposableModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃InDecomposableModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InDecomposableModule⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftInDecomposableModule⦄,⦃RightInDecomposableModule⦄,⦃BiInDecomposableModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄,
+				⦃unicodeCodePoints Bi⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧InDecomposableModule⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InDecomposableModule⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+						and:
+							not:
+									⦃⦃module⦄.HasOneElement()⦄
+								or:
+									there exists ⟦module0⟧,⟦module1⟧:
+											⦃⦃⦃module⦄.GetInternalDirectSums()⦄.Has(⦃(⦃module0⦄,⦃module1⦄)⦄)⦄
+										and:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													not:
+														⦃⦃module⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.HasOneElement()⦄

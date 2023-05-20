@@ -1,0 +1,43 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃SimpleModule⦄
+		⦃⦃Type⦄.HasInstance(⦃SimpleModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃SimpleModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SimpleModule⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftSimpleModule⦄,⦃RightSimpleModule⦄,⦃BiSimpleModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄,
+				⦃unicodeCodePoints Bi⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧SimpleModule⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SimpleModule⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+						and:
+							let:
+								⟦subModules⟧:
+									⦃⦃subModules⦄.IsEqualTo(⦃⦃⦃module⦄.GetSubStructures()⦄.GetIntersectionWith(⦃⦃Module⦄.MapToClass()⦄)⦄)⦄
+								⦃⦃ClassWithSize⦄.HasInstance(⦃subModules⦄)⦄
+							and:
+								⦃⦃⦃subModules⦄.GetSize()⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃2⦄)⦄)⦄

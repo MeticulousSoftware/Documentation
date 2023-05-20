@@ -1,0 +1,53 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnitalPartialModule⦄,⦃UnitalModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃Unital⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃Unital⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Unital⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftUnitalPartialModule⦄,⦃RightUnitalPartialModule⦄,⦃BiUnitalPartialModule⦄,
+⦃LeftUnitalModule⦄,⦃RightUnitalModule⦄,⦃BiUnitalModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Unital⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Unital⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+								and:
+									⦃⦃UnitalPartialMagma⦄.HasInstance(⦃⦃module⦄.GetStructure()⦄)⦄

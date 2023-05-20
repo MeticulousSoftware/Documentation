@@ -1,0 +1,378 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Module⦄
+		⦃⦃Type⦄.HasInstance(⦃Module⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃Module⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftModule⦄
+		⦃⦃Type⦄.HasInstance(⦃LeftModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃LeftModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃LeftSemiModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃Ring⦄.HasInstance(⦃⦃module⦄.GetScalarStructure()⦄)⦄
+
+
+
+define ⦃RightModule⦄
+		⦃⦃Type⦄.HasInstance(⦃RightModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃RightModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃RightPartialModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃LeftModule⦄.HasInstance(⦃⦃module⦄.GetConverse()⦄)⦄
+
+
+
+define ⦃BiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃BiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃BiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃BiSemiModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄)⦄
+
+
+
+define ⦃method ⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃Module⦄)⦄.GetTensorProduct⦄
+	for all ⟦modules⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃Module⦄)⦄.HasInstance(⦃modules⦄)⦄
+		then:
+			if:
+				let:
+					⟦length⟧:
+						⦃⦃length⦄.IsEqualTo(⦃⦃modules⦄.GetLength()⦄)⦄
+					⦃⦃2⦄.IsInferiorOrEqualTo(⦃length⦄)⦄
+				and:
+					there exists ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Bi⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃⦃modules⦄(⦃0⦄)⦄)⦄
+				and:
+					let:
+						⟦endingIndex⟧:
+							⦃⦃endingIndex⦄.IsEqualTo(⦃⦃length⦄.Subtract(⦃1⦄)⦄)⦄
+						⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃BiModule⦄)⦄.HasInstance(⦃⦃modules⦄.GetSubSequence(⦃⦃FiniteOrdinalRange⦄(⦃1⦄,⦃endingIndex⦄)⦄)⦄)⦄
+					and:
+						there exists ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃⦃modules⦄(⦃endingIndex⦄)⦄)⦄
+					and:
+						for all ⟦index⟧:
+							if:
+								⦃⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃endingIndex⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃index⦄)⦄
+							then:
+								let:
+									⟦scalars0⟧,⟦scalars1⟧:
+										for all ⟦index0⟧:
+											if:
+												⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index0⦄)⦄
+											then:
+												let:
+													⟦typeIdentifier⟧:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index0⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+													⟦typeIdentifier0⟧:
+														if:
+															⦃⦃index0⦄.IsEqualTo(⦃0⦄)⦄
+														then:
+															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Right⦄)⦄
+														else:
+															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+													⟦module⟧:
+														⦃⦃module⦄.IsEqualTo(⦃⦃modules⦄(⦃⦃index⦄.Add(⦃index0⦄)⦄)⦄)⦄
+												if:
+													⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+												then:
+													⦃⦃scalars⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃module⦄.GetScalars()⦄)⦄
+												else:
+													⦃⦃scalars⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Scalars()⦄)⦄
+								⦃⦃scalars0⦄.IsEqualTo(⦃scalars1⦄)⦄
+			then:
+					⦃⦃⦃⦃modules⦄.GetTensorProduct⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦tensorProduct⟧:
+							⦃⦃tensorProduct⦄.IsEqualTo(⦃⦃modules⦄.GetTensorProduct()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃tensorProduct⦄)⦄
+					and:
+						for all ⟦x⟧:
+								⦃⦃tensorProduct⦄.Has(⦃x⦄)⦄
+							if and only if:
+								there exists ⟦tensorProductOrTensorProductModule⟧,⟦balancedProduct⟧:
+										⦃⦃x⦄.IsEqualTo(⦃(⦃tensorProductOrTensorProductModule⦄,⦃balancedProduct⦄)⦄)⦄
+									and:
+										there exists ⟦tensorProduct⟧:
+											let:
+												⟦length⟧:
+													⦃⦃length⦄.IsEqualTo(⦃⦃modules⦄.GetLength()⦄)⦄
+												⟦endingIndex⟧:
+													⦃⦃endingIndex⦄.IsEqualTo(⦃⦃length⦄.Subtract(⦃1⦄)⦄)⦄
+												let:
+													⟦class⟧:
+															⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+														and:
+															for all ⟦x⟧:
+																	⦃⦃class⦄.Has(⦃x⦄)⦄
+																if and only if:
+																	there exists ⟦commutativeGroup⟧,⟦balancedProduct⟧:
+																			⦃⦃x⦄.IsEqualTo(⦃(⦃commutativeGroup⦄,⦃balancedProduct⦄)⦄)⦄
+																		and:
+																			⦃⦃CommutativeGroup⦄.HasInstance(⦃commutativeGroup⦄)⦄
+																		and:
+																			⦃⦃TotalOperation⦄.HasInstance(⦃balancedProduct⦄)⦄
+																		and:
+																			⦃⦃⦃balancedProduct⦄.GetDomainSignature()⦄.IsEqualTo(⦃⦃modules⦄.MapWith(⦃unaryFunction GetClass⦄)⦄)⦄
+																		and:
+																			⦃⦃⦃balancedProduct⦄.GetCoDomainSignature()⦄.IsEqualTo(⦃(
+																				⦃⦃commutativeGroup⦄.GetClass()⦄
+																			)⦄)⦄
+																		and:
+																			let:
+																				⟦function⟧:
+																					⦃⦃function⦄.IsEqualTo(⦃⦃balancedProduct⦄.GetSimplifiedFunction()⦄)⦄
+																				for all ⟦index⟧:
+																					if:
+																						⦃⦃⦃modules⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																					then:
+																						let:
+																							⟦module⟧:
+																								⦃⦃module⦄.IsEqualTo(⦃⦃modules⦄(⦃index⦄)⦄)⦄
+																						for all ⟦sequence⟧,⟦x⟧:
+																							if:
+																									⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+																								and:
+																									⦃⦃⦃module⦄.GetClass()⦄.Has(⦃x⦄)⦄
+																							then:
+																								let:
+																									⟦moduleFunction⟧:
+																										⦃⦃moduleFunction⦄.IsEqualTo(⦃⦃⦃module⦄.GetAddition()⦄.GetSimplifiedFunction()⦄)⦄
+																									⟦sequenceBeginning⟧:
+																										⦃⦃sequenceBeginning⦄.IsEqualTo(⦃⦃sequence⦄.GetBeginningSubSequence(⦃index⦄)⦄)⦄
+																									⟦sequenceEnding⟧:
+																										⦃⦃sequenceEnding⦄.IsEqualTo(⦃⦃sequence⦄.GetEndingSubSequence(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄)⦄
+																								⦃⦃⦃function⦄(⦃⦃(
+																									⦃sequenceBeginning⦄,
+																									⦃(
+																										⦃⦃moduleFunction⦄(
+																											⦃⦃sequence⦄(⦃index⦄)⦄,
+																											⦃x⦄
+																										)⦄
+																									)⦄,
+																									⦃sequenceEnding⦄
+																								)⦄.GetConcatenation()⦄)⦄.IsEqualTo(⦃⦃⦃commutativeGroup⦄.GetSimplifiedFunction()⦄(⦃⦃(
+																									⦃sequence⦄,
+																									⦃⦃(
+																										⦃sequenceBeginning⦄,
+																										⦃(⦃x⦄)⦄,
+																										⦃sequenceEnding⦄
+																									)⦄.GetConcatenation()⦄
+																								)⦄.MapWith(⦃function⦄)⦄)⦄)⦄
+																			and:
+																				for all ⟦index⟧:
+																					if:
+																						⦃⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃endingIndex⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃index⦄)⦄
+																					then:
+																						for all ⟦sequence⟧,⟦x⟧:
+																							if:
+																									⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+																								and:
+																									let:
+																										⟦scalars⟧:
+																											let:
+																												⟦module⟧:
+																													⦃⦃module⦄.IsEqualTo(⦃⦃modules⦄(⦃index⦄)⦄)⦄
+																											if:
+																												⦃⦃RightModule⦄.HasInstance(⦃module⦄)⦄
+																											then:
+																												⦃⦃scalars⦄.IsEqualTo(⦃⦃module⦄.GetScalars()⦄)⦄
+																											else:
+																												⦃⦃scalars⦄.IsEqualTo(⦃⦃module⦄.GetRightScalars()⦄)⦄
+																									⦃⦃scalars⦄.Has(⦃x⦄)⦄
+																							then:
+																								let:
+																									⟦scalarMultiplication0⟧,⟦scalarMultiplication1⟧:
+																										for all ⟦index0⟧:
+																											if:
+																												⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index0⦄)⦄
+																											then:
+																												let:
+																													⟦typeIdentifier⟧:
+																														⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index0⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																													⟦typeIdentifier0⟧:
+																														if:
+																															⦃⦃index0⦄.IsEqualTo(⦃0⦄)⦄
+																														then:
+																															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Right⦄)⦄
+																														else:
+																															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																													⟦module⟧:
+																														⦃⦃module⦄.IsEqualTo(⦃⦃modules⦄(⦃⦃index⦄.Add(⦃index0⦄)⦄)⦄)⦄
+																												if:
+																													⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+																												then:
+																													⦃⦃scalarMultiplication⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃module⦄.GetScalarMultiplication()⦄)⦄
+																												else:
+																													⦃⦃scalarMultiplication⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplication()⦄)⦄
+																								⦃⦃⦃function⦄(⦃⦃(
+																									⦃⦃sequence⦄.GetBeginningSubSequence(⦃index⦄)⦄,
+																									⦃(
+																										⦃⦃⦃scalarMultiplication0⦄.GetSimplifiedFunction()⦄(
+																											⦃⦃sequence⦄(⦃index⦄)⦄,
+																											⦃x⦄
+																										)⦄
+																									)⦄,
+																									⦃⦃sequence⦄.GetEndingSubSequence(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄
+																								)⦄.GetConcatenation()⦄)⦄.IsEqualTo(⦃⦃function⦄(⦃⦃(
+																									⦃⦃sequence⦄.GetBeginningSubSequence(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄,
+																									⦃(
+																										⦃⦃⦃scalarMultiplication1⦄.GetSimplifiedFunction()⦄(
+																											⦃x⦄,
+																											⦃⦃sequence⦄(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄
+																										)⦄
+																									)⦄,
+																									⦃⦃sequence⦄.GetEndingSubSequence(⦃⦃index⦄.Add(⦃2⦄)⦄)⦄
+																								)⦄.GetConcatenation()⦄)⦄)⦄
+													⦃⦃class⦄.Has(⦃(⦃tensorProduct⦄,⦃balancedProduct⦄)⦄)⦄
+												and:
+													for all ⟦commutativeGroup⟧,⟦balancedProduct0⟧:
+														if:
+															⦃⦃class⦄.Has(⦃(⦃commutativeGroup⦄,⦃balancedProduct0⦄)⦄)⦄
+														then:
+															let:
+																⟦structurePreversingMaps⟧:
+																		⦃⦃ClassWithSize⦄.HasInstance(⦃structurePreversingMap⦄)⦄
+																	and:
+																		for all ⟦structurePreversingMap⟧:
+																				⦃⦃structurePreversingMaps⦄.Has(⦃structurePreversingMap⦄)⦄
+																			if and only if:
+																					⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃structurePreversingMap⦄)⦄
+																				and:
+																					⦃⦃structurePreversingMap⦄.IsStructurePreversingMapOf(⦃tensorProduct⦄,⦃commutativeGroup⦄)⦄
+																				and:
+																					⦃⦃⦃structurePreversingMap⦄.GetCompositionWith(⦃⦃tensorProduct⦄.GetAddition()⦄)⦄.IsEqualTo(⦃balancedProduct0⦄)⦄
+															⦃⦃⦃structurePreversingMaps⦄.GetSize()⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃1⦄)⦄)⦄
+											and:
+												let:
+													⟦module0⟧:
+														⦃⦃module0⦄.IsEqualTo(⦃⦃modules⦄(⦃0⦄)⦄)⦄
+													⟦module1⟧:
+														⦃⦃module1⦄.IsEqualTo(⦃⦃modules⦄(⦃endingIndex⦄)⦄)⦄
+												if:
+														⦃⦃RightModule⦄.HasInstance(⦃module0⦄)⦄
+													and:
+														⦃⦃LeftModule⦄.HasInstance(⦃module1⦄)⦄
+												then:
+													⦃⦃tensorProductOrTensorProductModule⦄.IsEqualTo(⦃tensorProduct⦄)⦄
+												else:
+													let:
+														⟦tensorProductModule⟧:
+															⦃⦃tensorProductModule⦄.IsEqualTo(⦃tensorProductOrTensorProductModule⦄)⦄
+													if:
+															⦃⦃BiModule⦄.HasInstance(⦃module0⦄)⦄
+														and:
+															⦃⦃LeftModule⦄.HasInstance(⦃module1⦄)⦄
+													then:
+															⦃⦃LeftModule⦄.HasInstance(⦃tensorProductModule⦄)⦄
+														and:
+															⦃⦃⦃tensorProductModule⦄.GetStructure()⦄.IsEqualTo(⦃tensorProduct⦄)⦄
+														and:
+															⦃⦃⦃tensorProductModule⦄.GetScalarStructure()⦄.IsEqualTo(⦃⦃module0⦄.GetRightScalarStructure()⦄)⦄
+														and:
+															let:
+																⟦function⟧:
+																	⦃⦃function⦄.IsEqualTo(⦃⦃balancedProduct⦄.GetSimplifiedFunction()⦄)⦄
+															for all ⟦sequence⟧,⟦x⟧:
+																if:
+																		⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+																	and:
+																		⦃⦃⦃tensorProductModule⦄.GetScalars()⦄.Has(⦃x⦄)⦄
+																then:
+																	⦃⦃⦃⦃⦃tensorProductModule⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(
+																		⦃x⦄,
+																		⦃⦃function⦄(⦃sequence⦄)⦄
+																	)⦄.IsEqualTo(⦃⦃function⦄(⦃⦃(
+																		⦃(
+																			⦃⦃⦃⦃module0⦄.GetLeftScalarMultiplication()⦄.GetSimplifiedFunction()⦄(
+																				⦃x⦄,
+																				⦃⦃sequence⦄(⦃0⦄)⦄
+																			)⦄
+																		)⦄,
+																		⦃⦃sequence⦄.GetEndingSubSequence(⦃1⦄)⦄
+																	)⦄.GetConcatenation()⦄)⦄)⦄
+													else if:
+															⦃⦃RightModule⦄.HasInstance(⦃module0⦄)⦄
+														and:
+															⦃⦃BiModule⦄.HasInstance(⦃module1⦄)⦄
+													then:
+															⦃⦃RightModule⦄.HasInstance(⦃tensorProductModule⦄)⦄
+														and:
+															let:
+																⟦converseTensorProductModule⟧:
+																		⦃⦃⦃⦃modules⦄.MapWith(⦃unaryFunction GetConverse⦄)⦄.GetTensorProduct()⦄.Has(⦃converseTensorProductModule⦄)⦄
+																	and:
+																		⦃⦃⦃⦃converseTensorProductModule⦄(⦃0⦄)⦄.GetStructure()⦄.IsEqualTo(⦃⦃tensorProduct⦄.GetConverse()⦄)⦄
+															⦃⦃tensorProductModule⦄.IsEqualTo(⦃⦃converseTensorProductModule⦄.GetConverse()⦄)⦄
+													else:
+															⦃⦃BiModule⦄.HasInstance(⦃tensorProductModule⦄)⦄
+														and:
+															let:
+																⟦modules0⟧:
+																		⦃⦃FiniteSequence⦄.HasInstance(⦃modules0⦄)⦄
+																	and:
+																		⦃⦃⦃modules0⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+																	and:
+																		⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(⦃modules0⦄,⦃modules⦄)⦄.MapWith(⦃method GetBeginningSubSequence⦄)⦄.Apply(⦃endingIndex⦄)⦄)⦄
+																	and:
+																		⦃⦃⦃modules0⦄(⦃endingIndex⦄)⦄.IsEqualTo(⦃⦃module1⦄.GetLeftStructure()⦄)⦄
+															⦃⦃⦃modules0⦄.GetTensorProduct()⦄.Has(⦃(⦃⦃tensorProductModule⦄.GetLeftStructure()⦄,⦃balancedProduct⦄)⦄)⦄
+														and:
+															let:
+																⟦modules0⟧:
+																		⦃⦃FiniteSequence⦄.HasInstance(⦃modules0⦄)⦄
+																	and:
+																		⦃⦃⦃modules0⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+																	and:
+																		⦃⦃⦃modules0⦄(⦃0⦄)⦄.IsEqualTo(⦃⦃module0⦄.GetRightStructure()⦄)⦄
+																	and:
+																		⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(⦃modules0⦄,⦃modules⦄)⦄.MapWith(⦃method GetEndingSubSequence⦄)⦄.Apply(⦃1⦄)⦄)⦄
+															⦃⦃⦃modules0⦄.GetTensorProduct()⦄.Has(⦃(⦃⦃tensorProductModule⦄.GetRightStructure()⦄,⦃balancedProduct⦄)⦄)⦄
+			else:
+				⦃⦃⦃⦃modules⦄.GetTensorProduct⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄

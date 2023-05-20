@@ -1,0 +1,51 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaModuleEquippedWithQuadraticForm⦄,⦃ModuleEquippedWithQuadraticForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithQuadraticForm⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaLeftModuleEquippedWithQuadraticForm⦄,⦃MetaRightModuleEquippedWithQuadraticForm⦄,
+⦃LeftModuleEquippedWithQuadraticForm⦄,⦃RightModuleEquippedWithQuadraticForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithQuadraticForm⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+								and:
+									⦃⦃TotalOperation⦄.HasInstance(⦃⦃module⦄.GetQuadraticForm()⦄)⦄

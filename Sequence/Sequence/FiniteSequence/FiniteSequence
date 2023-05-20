@@ -1,0 +1,80 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FiniteSequence⦄
+		⦃⦃Type⦄.HasInstance(⦃FiniteSequence⦄)⦄
+	and:
+		for all ⟦sequence⟧:
+				⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+			if and only if:
+					⦃⦃Sequence⦄.HasInstance(⦃sequence⦄)⦄
+				and:
+					⦃⦃⦃sequence⦄.GetLength()⦄.IsFinite()⦄
+
+define ⦃method ⦃FiniteSequence⦄.GetReverse⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃⦃⦃sequence⦄.GetReverse⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦length⟧:
+						⦃⦃length⦄.IsEqualTo(⦃⦃sequence⦄.GetLength()⦄)⦄
+					⟦reverse⟧:
+						⦃⦃reverse⦄.IsEqualTo(⦃⦃sequence⦄.GetReverse()⦄)⦄
+					⦃⦃FiniteSequence⦄.HasInstance(⦃reverse⦄)⦄
+				and:
+					⦃⦃⦃reverse⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+				and:
+					for all ⟦index⟧:
+						if:
+							⦃⦃⦃reverse⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+						then:
+							⦃⦃⦃reverse⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃sequence⦄(⦃⦃⦃length⦄.Subtract(⦃1⦄)⦄.Subtract(⦃index⦄)⦄)⦄)⦄
+
+define ⦃method ⦃FiniteSequence⦄.ReduceWith⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+			for all ⟦x⟧,⟦reducedSequence⟧:
+					⦃⦃⦃⦃sequence⦄.ReduceWith⦄.GetGraph()⦄.Has(⦃(⦃x⦄,⦃reducedSequence⦄)⦄)⦄
+				if and only if:
+					there exists ⟦reduce⟧,⟦initialValue⟧:
+								⦃⦃x⦄.IsEqualTo(⦃reduce⦄)⦄
+							or:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃reduce⦄,⦃initialValue⦄)⦄)⦄
+						and:
+							for all ⟦x⟧:
+								if:
+									⦃⦃⦃reduce⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+								then:
+									there exists ⟦y⟧,⟦z⟧:
+										⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃z⦄)⦄)⦄
+						and:
+							if:
+								not:
+									⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+							then:
+									not:
+										⦃⦃sequence⦄.IsEqualTo(⦃()⦄)⦄
+								and:
+									let:
+										⟦length⟧:
+											⦃⦃length⦄.IsEqualTo(⦃⦃sequence⦄.GetLength()⦄)⦄
+									if:
+										⦃⦃length⦄.IsEqualTo(⦃1⦄)⦄
+									then:
+										⦃⦃reducedSequence⦄.IsEqualTo(⦃sequence⦄)⦄
+									else:
+										let:
+											⟦indexOfEndingElement⟧:
+												⦃⦃indexOfEndingElement⦄.IsEqualTo(⦃⦃length⦄.Subtract(⦃1⦄)⦄)⦄
+										⦃⦃reducedSequence⦄.IsEqualTo(⦃⦃reduce⦄(
+											⦃⦃⦃sequence⦄.GetBeginningSubSequence(⦃indexOfEndingElement⦄)⦄.ReduceWith(⦃reduce⦄)⦄,
+											⦃⦃sequence⦄(⦃indexOfEndingElement⦄)⦄
+										)⦄)⦄
+							else:
+								⦃⦃reducedSequence⦄.IsEqualTo(⦃⦃⦃(⦃initialValue⦄)⦄.GetConcatenationWith(⦃sequence⦄)⦄.ReduceWith(⦃reduce⦄)⦄)⦄

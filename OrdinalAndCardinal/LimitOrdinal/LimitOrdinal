@@ -1,0 +1,79 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LimitOrdinal⦄
+		⦃⦃Type⦄.HasInstance(⦃LimitOrdinal⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦MapToClass⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints MapToClass⦄,⦃MapToClass⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦class⟧:
+												⦃⦃class⦄.IsEqualTo(⦃⦃MapToClass⦄()⦄)⦄
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Pure⦄,
+														⦃unicodeCodePoints Transitive⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Class⦄.HasInstance(⦃class⦄)⦄
+										and:
+											let:
+												⟦relation⟧:
+														⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+													and:
+														⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+													and:
+														⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(
+															⦃⦃relation⦄.GetSimplifiedFunction()⦄,
+															⦃⦃binaryFunction ⦃Class⦄.Has⦄
+														)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+											for all ⟦type⟧:
+												if:
+													⦃⦃{⦃ArtinianRelation⦄,⦃StrictTotalOrder⦄}⦄.Has(⦃type⦄)⦄
+												then:
+													⦃⦃type⦄.HasInstance(⦃relation⦄)⦄
+										and:
+											not:
+													⦃⦃class⦄.IsEqualTo(⦃{}⦄)⦄
+												or:
+													there exists ⟦ordinal⟧:
+															⦃⦃SuccessorOrdinal⦄.HasInstance(⦃ordinal⦄)⦄
+														and:
+															⦃⦃⦃ordinal⦄.MapToClass()⦄.IsEqualTo(⦃class⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦ordinal⟧:
+									⦃⦃ordinal⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃LimitOrdinal⦄.HasInstance(⦃ordinal⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃ordinal⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃LimitOrdinal⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄

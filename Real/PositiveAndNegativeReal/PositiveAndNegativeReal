@@ -1,0 +1,76 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PositiveReal⦄,⦃NegativeReal⦄,
+⦃NonPositiveReal⦄,⦃NonNegativeReal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Non⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Positive⦄,
+						⦃unicodeCodePoints Negative⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦Real⦄)⦄
+					and:
+						for all ⟦real⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦Real⦄.HasInstance(⦃real⦄)⦄
+							if and only if:
+									⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+								and:
+									let:
+										⟦reals⟧:
+											let:
+												⟦reals0⟧:
+													if:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Positive⦄)⦄
+													then:
+														⦃⦃reals0⦄.IsEqualTo(⦃(⦃integer 0⦄,⦃real⦄)⦄)⦄
+													else:
+														⦃⦃reals0⦄.IsEqualTo(⦃(⦃real⦄,⦃integer 0⦄)⦄)⦄
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											then:
+												⦃⦃reals⦄.IsEqualTo(⦃reals0⦄)⦄
+											else:
+												⦃⦃reals⦄.IsEqualTo(⦃⦃reals0⦄.GetReverse()⦄)⦄
+										⟦typeIdentifier1⟧:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											then:
+												⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											else:
+												⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints IsEqualTo⦄)⦄
+									⦃⦃binaryFunction IsInferior⟦⟦⦃typeIdentifier1⦄⟧⟧⟦To⦄(⦃reals⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToRealRepresentationInBase⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Non⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Positive⦄,
+						⦃unicodeCodePoints Negative⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦real⟧:
+						if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦Real⦄.HasInstance(⦃real⦄)⦄
+						then:
+							for all ⟦x⟧:
+									⦃⦃⦃⦃real⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦RealRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+								if and only if:
+									there exists ⟦y⟧:
+										⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃⦃⦃real⦄.MapToRealRepresentationInBase(⦃y⦄)⦄.GetEndingSubSequence(⦃1⦄)⦄)⦄)⦄

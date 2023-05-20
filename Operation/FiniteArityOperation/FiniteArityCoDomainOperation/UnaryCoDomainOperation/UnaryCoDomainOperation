@@ -1,0 +1,275 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.GetIdemPotentElements⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			let:
+				⟦domainArity⟧:
+					⦃⦃domainArity⦄.IsEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+			if:
+				⦃⦃1⦄.IsInferiorOrEqualTo(⦃domainArity⦄)⦄
+			then:
+					⦃⦃⦃⦃operation⦄.GetIdemPotentElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦elements⟧:
+							⦃⦃elements⦄.IsEqualTo(⦃⦃operation⦄.GetIdemPotentElements()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+					and:
+						for all ⟦element⟧:
+								⦃⦃elements⦄.Has(⦃element⦄)⦄
+							if and only if:
+								let:
+									⟦sequence⟧:
+											⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+										and:
+											⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃domainArity⦄)⦄
+										and:
+											⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsEqualTo(⦃{⦃element⦄}⦄)⦄
+								⦃⦃⦃⦃operation⦄.GetFunction()⦄(⦃sequence⦄)⦄.IsEqualTo(⦃element⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.GetAbsorbingElementsFor⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃⦃⦃operation⦄.GetAbsorbingElementsFor⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃operation⦄.GetDomainArity()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+			and:
+				for all ⟦index⟧:
+					if:
+						⦃⦃⦃⦃operation⦄.GetAbsorbingElementsFor⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+					then:
+						let:
+							⟦elements⟧:
+								⦃⦃elements⦄.IsEqualTo(⦃⦃operation⦄.GetAbsorbingElementsFor(⦃index⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+						and:
+							for all ⟦element⟧:
+									⦃⦃elements⦄.Has(⦃element⦄)⦄
+								if and only if:
+									let:
+										⟦domainSignature⟧:
+											⦃⦃domainSignature⦄.IsEqualTo(⦃⦃operation⦄.GetDomainSignature()⦄)⦄
+										⦃⦃⦃domainSignature⦄(⦃index⦄)⦄.Has(⦃element⦄)⦄
+									and:
+										⦃⦃⦃operation⦄.GetCoDomainSignatureClass()⦄.Has(⦃element⦄)⦄
+									and:
+										for all ⟦sequence⟧:
+											if:
+													⦃⦃⦃domainSignature⦄.GetCartesianProduct()⦄.Has(⦃sequence⦄)⦄
+												and:
+													⦃⦃⦃sequence⦄(⦃index⦄)⦄.IsEqualTo(⦃element⦄)⦄
+											then:
+												⦃⦃⦃⦃⦃operation⦄.GetFunction()⦄(⦃sequence⦄)⦄(⦃0⦄)⦄.IsEqualTo(⦃element⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.HasAbsorbingElement⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃⦃⦃operation⦄.HasAbsorbingElement⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦hasAbsorbingElement⟧:
+						⦃⦃hasAbsorbingElement⦄.IsEqualTo(⦃⦃operation⦄.HasAbsorbingElement()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃hasAbsorbingElement⦄)⦄
+				and:
+						⦃hasAbsorbingElement⦄
+					if and only if:
+							⦃⦃1⦄.IsInferiorOrEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+						and:
+							not:
+								⦃⦃⦃⦃⦃operation⦄.GetAbsorbingElementsFor⦄.GetCoDomain()⦄.GetIntersection()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.GetAbsorbingElement⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			if:
+				⦃⦃operation⦄.HasAbsorbingElement()⦄
+			then:
+					⦃⦃⦃⦃operation⦄.GetAbsorbingElement⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					⦃⦃{
+						⦃⦃operation⦄.GetAbsorbingElement()⦄
+					}⦄.IsEqualTo(⦃⦃⦃⦃operation⦄.GetAbsorbingElementsFor⦄.GetCoDomain()⦄.GetIntersection⦄)⦄
+			else:
+				⦃⦃⦃⦃operation⦄.GetAbsorbingElement⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.GetDivisorsForOf⦄,⦃method ⦃UnaryCoDomainOperation⦄.GetDivisorsOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			let:
+				⟦domainArity⟧:
+					⦃⦃domainArity⦄.IsEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+				⟦coDomainSignatureClass⟧:
+					⦃⦃coDomainSignatureClass⦄.IsEqualTo(⦃⦃operation⦄.GetSharedCoDomainSignatureClass()⦄)⦄
+					⦃⦃⦃⦃operation⦄.GetDivisorsForOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃domainArity⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄,⦃coDomainSignatureClass⦄)⦄.GetCartesianProduct()⦄)⦄
+				and:
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃⦃operation⦄.GetDivisorsForOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						then:
+							let:
+								⟦divisors⟧:
+									⦃⦃divisors⦄.IsEqualTo(⦃⦃operation⦄.GetDivisorsForOf(⦃x⦄)⦄)⦄
+								⦃⦃Class⦄.HasInstance(⦃divisors⦄)⦄
+							and:
+								for all ⟦divisor⟧:
+										⦃⦃divisors⦄.Has(⦃divisor⦄)⦄
+									if and only if:
+										there exists ⟦sequence⟧:
+											let:
+												⟦index⟧,⟦y⟧:
+													⦃⦃(⦃index⦄,⦃y⦄)⦄.IsEqualTo(⦃x⦄)⦄
+												⦃⦃⦃sequence⦄(⦃index⦄)⦄.IsEqualTo(⦃divisor⦄)⦄
+											and:
+												⦃⦃⦃⦃⦃operation⦄.GetFunction()⦄(⦃sequence⦄)⦄(⦃0⦄)⦄.IsEqualTo(⦃y⦄)⦄
+			and:
+					⦃⦃⦃⦃operation⦄.GetDivisorsOf⦄.GetDomain()⦄.IsEqualTo(⦃coDomainSignatureClass⦄)⦄
+				and:
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃⦃operation⦄.GetDivisorsOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						then:
+							let:
+								⟦divisors⟧:
+									⦃⦃divisors⦄.IsEqualTo(⦃⦃operation⦄.GetDivisorsOf(⦃x⦄)⦄)⦄
+								⦃⦃Class⦄.HasInstance(⦃divisors⦄)⦄
+							and:
+								for all ⟦divisor⟧:
+										⦃⦃divisors⦄.Has(⦃divisor⦄)⦄
+									if and only if:
+											⦃⦃1⦄.IsInferiorOrEqualTo(⦃domainArity⦄)⦄
+										and:
+											for all ⟦index⟧:
+												if:
+													⦃⦃domainArity⦄.IsSuperiorTo(⦃index⦄)⦄
+												then:
+													⦃⦃⦃operation⦄.GetDivisorsForOf(⦃index⦄,⦃x⦄)⦄.Has(⦃divisor⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.GetPrimalElements⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃⦃⦃operation⦄.GetPrimalElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦elements⟧:
+						⦃⦃elements⦄.IsEqualTo(⦃⦃operation⦄.GetPrimalElements()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+				and:
+					for all ⟦element⟧:
+							⦃⦃elements⦄.Has(⦃element⦄)⦄
+						if and only if:
+							let:
+								⟦function⟧:
+									⦃⦃function⦄.IsEqualTo(⦃⦃operation⦄.GetFunction()⦄)⦄
+							for all ⟦sequence⟧:
+								if:
+									⦃⦃⦃operation⦄.GetDivisorsOf(⦃⦃⦃function⦄(⦃sequence⦄)⦄(⦃0⦄)⦄)⦄.Has(⦃element⦄)⦄
+								then:
+									there exists ⟦sequence0⟧:
+											⦃⦃element⦄.IsEqualTo(⦃⦃⦃function⦄(⦃sequence0⦄)⦄(⦃0⦄)⦄)⦄
+										and:
+											for all ⟦index⟧:
+												if:
+													⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃⦃operation⦄.GetDivisorsOf(⦃⦃sequence⦄(⦃index⦄)⦄)⦄.Has(⦃⦃sequence0⦄(⦃index⦄)⦄)⦄
+
+define ⦃method ⦃UnaryCoDomainOperation⦄.IsAntiCommutativeForIndexes⦄,⦃method ⦃UnaryCoDomainOperation⦄.IsAntiCommutativeFor⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			let:
+				⟦operations⟧:
+						⦃⦃Class⦄.HasInstance(⦃operations⦄)⦄
+					and:
+						for all ⟦operation0⟧:
+								⦃⦃operations⦄.Has(⦃operation0⦄)⦄
+							if and only if:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Internal⦄,
+												⦃unicodeCodePoints BinaryUnary⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.HasInstance(⦃operation0⦄)⦄
+								and:
+									⦃⦃⦃operation0⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃operation⦄.GetSharedCoDomainSignatureClass()⦄)⦄
+					let:
+						⟦indexes⟧:
+							⦃⦃indexes⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃operation⦄.GetDomainArity()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+					⦃⦃⦃⦃operation⦄.IsAntiCommutativeForIndexes⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃operations⦄,⦃indexes⦄,⦃indexes⦄)⦄.GetCartesianProduct()⦄)⦄
+				and:
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃⦃operation⦄.IsAntiCommutativeForIndexes⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						then:
+							let:
+								⟦isAntiCommutative⟧:
+									⦃⦃isAntiCommutative⦄.IsEqualTo(⦃⦃operation⦄.IsAntiCommutativeForIndexes(⦃x⦄)⦄)⦄
+								⦃⦃Boolean⦄.HasInstance(⦃isAntiCommutative⦄)⦄
+							and:
+									⦃isAntiCommutative⦄
+								if and only if:
+									let:
+										⟦function⟧:
+											⦃⦃function⦄.IsEqualTo(⦃⦃operation⦄.GetFunction()⦄)⦄
+									for all ⟦sequence⟧:
+										if:
+											⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+										then:
+											let:
+												⟦operation0⟧,⟦indexes⟧:
+													⦃⦃⦃(⦃operation0⦄)⦄.GetConcatenationWith(⦃indexes⦄)⦄.IsEqualTo(⦃x⦄)⦄
+												⟦commutatedSequence⟧:
+														⦃⦃TransFiniteSequence⦄.HasInstance(⦃commutatedSequence⦄)⦄
+													and:
+														⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃commutatedSequence⦄,⦃sequence⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																	⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																and:
+																	not:
+																		⦃⦃⦃indexes⦄.GetCoDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(⦃commutatedSequence⦄,⦃sequence⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄
+													and:
+														for all ⟦index0⟧,⟦index1⟧:
+															if:
+																⦃⦃⦃{⦃0⦄,⦃1⦄}⦄.GetPermutations()⦄.Has(⦃(⦃index0⦄,⦃index1⦄)⦄)⦄
+															then:
+																⦃⦃⦃commutatedSequence⦄(⦃⦃indexes⦄(⦃index0⦄)⦄)⦄.IsEqualTo(⦃⦃sequence⦄(⦃⦃indexes⦄(⦃index1⦄)⦄)⦄)⦄
+											⦃⦃⦃operation0⦄.GetInversesOf(⦃⦃⦃function⦄(⦃sequence⦄)⦄(⦃0⦄)⦄)⦄.Has(⦃⦃⦃function⦄(⦃commutatedSequence⦄)⦄(⦃0⦄)⦄)⦄
+			and:
+					⦃⦃⦃⦃operation⦄.IsAntiCommutativeFor⦄.GetDomain()⦄.IsEqualTo(⦃operations⦄)⦄
+				and:
+					for all ⟦operation0⟧:
+						if:
+							⦃⦃⦃⦃operation⦄.IsAntiCommutativeFor⦄.GetDomain()⦄.Has(⦃operation0⦄)⦄
+						then:
+							let:
+								⟦isAntiCommutative⟧:
+									⦃⦃isAntiCommutative⦄.IsEqualTo(⦃⦃operation⦄.IsAntiCommutativeFor(⦃operation0⦄)⦄)⦄
+								⦃⦃Boolean⦄.HasInstance(⦃isAntiCommutative⦄)⦄
+							and:
+									⦃isAntiCommutative⦄
+								if and only if:
+									for all ⟦indexes⟧:
+										if:
+											⦃⦃⦃⦃operation⦄.IsAntiCommutativeForIndexes⦄.GetDomain()⦄.Has(⦃⦃(⦃operation0⦄)⦄.GetConcatenationWith(⦃indexes⦄)⦄)⦄
+										then:
+											⦃⦃operation⦄.IsAntiCommutativeForIndexes(⦃⦃(⦃operation0⦄)⦄.GetConcatenationWith(⦃indexes⦄)⦄)⦄

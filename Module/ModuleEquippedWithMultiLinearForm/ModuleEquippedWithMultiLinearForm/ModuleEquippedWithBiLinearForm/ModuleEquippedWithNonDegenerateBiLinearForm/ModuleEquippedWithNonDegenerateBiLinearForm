@@ -1,0 +1,71 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaModuleEquippedWithNonDegenerateBiLinearForm⦄,⦃ModuleEquippedWithNonDegenerateBiLinearForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithNonDegenerateBiLinearForm⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithNonDegenerateBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithNonDegenerateBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaLeftModuleEquippedWithNonDegenerateBiLinearForm⦄,⦃MetaRightModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃LeftModuleEquippedWithNonDegenerateBiLinearForm⦄,⦃RightModuleEquippedWithNonDegenerateBiLinearForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithNonDegenerateBiLinearForm⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithNonDegenerateBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+								and:
+									let:
+										⟦dual⟧:
+											⦃⦃dual⦄.IsEqualTo(⦃⦃module⦄.GetDual()⦄)⦄
+										⟦operation⟧:
+												⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+											and:
+												let:
+													⟦class⟧:
+														⦃⦃class⦄.IsEqualTo(⦃⦃module⦄.GetClass()⦄)⦄
+													⦃⦃⦃operation⦄.GetSharedDomainSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+												and:
+													⦃⦃⦃operation⦄.GetSharedCoDomainSignatureClass()⦄.IsEqualTo(⦃⦃dual⦄.GetClass()⦄)⦄
+												and:
+													for all ⟦x⟧:
+														if:
+															⦃⦃class⦄.Has(⦃x⦄)⦄
+														then:
+															⦃⦃⦃⦃operation⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃module⦄.GetMultiLinearForm()⦄.GetStructureGeneratedBy(⦃⦃Function⦄(⦃{
+															⦃(⦃1⦄,⦃x⦄)⦄
+														}⦄)⦄)⦄)⦄
+									⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf(⦃⦃module⦄.GetModule()⦄,⦃dual⦄)⦄

@@ -1,0 +1,51 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaModuleEquippedWithPartialBiLinearForm⦄,⦃ModuleEquippedWithPartialBiLinearForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialBiLinearForm⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaLeftModuleEquippedWithPartialBiLinearForm⦄,⦃MetaRightModuleEquippedWithPartialBiLinearForm⦄,
+⦃LeftModuleEquippedWithPartialBiLinearForm⦄,⦃RightModuleEquippedWithPartialBiLinearForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialBiLinearForm⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialBiLinearForm⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+								and:
+									⦃⦃⦃⦃module⦄.GetMultiLinearForm()⦄.GetDomainArity()⦄.IsEqualTo(⦃2⦄)⦄

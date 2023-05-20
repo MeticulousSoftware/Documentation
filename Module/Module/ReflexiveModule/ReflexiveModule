@@ -1,0 +1,51 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ReflexivePartialModule⦄,⦃ReflexiveModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃Reflexive⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃Reflexive⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Reflexive⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftReflexivePartialModule⦄,⦃RightReflexivePartialModule⦄,
+⦃LeftReflexiveModule⦄,⦃RightReflexiveModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Reflexive⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Reflexive⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+								and:
+									⦃⦃⦃module⦄.GetCanonicalDoubleDualMap⦄.IsIsoMorphicStructurePreversingMapOf(⦃module⦄,⦃⦃module⦄.GetDoubleDual()⦄)⦄

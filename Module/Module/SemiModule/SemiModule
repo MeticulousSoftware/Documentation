@@ -1,0 +1,170 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃SemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃SemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃SemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SemiModule⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃LeftSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃LeftSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃LeftUnitalPartialModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					let:
+						⟦structure⟧,⟦scalarStructure⟧:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Structure⦄,
+										⦃unicodeCodePoints ScalarStructure⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+						⦃⦃CommutativeGroup⦄.HasInstance(⦃structure⦄)⦄
+					and:
+						⦃⦃SemiRing⦄.HasInstance(⦃scalarStructure⦄)⦄
+					and:
+						for all ⟦x0⟧,⟦x1⟧,⟦y0⟧,⟦y1⟧:
+							if:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										let:
+											⟦typeIdentifier⟧:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+											⦃⦃⦃module⦄.GetClass()⦄.Has(⦃x⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃module⦄.GetScalars()⦄.Has(⦃y⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+							then:
+								let:
+									⟦addition⟧:
+										⦃⦃addition⦄.IsEqualTo(⦃⦃structure⦄.GetAddition()⦄)⦄
+									⟦additionFunction⟧:
+										⦃⦃additionFunction⦄.IsEqualTo(⦃⦃addition⦄.GetSimplifiedFunction()⦄)⦄
+									⟦scalarStructureAddition⟧,⟦scalarStructureMultiplication⟧:
+										⦃⦃(⦃scalarStructureAddition⦄,⦃scalarStructureMultiplication⦄)⦄.IsEqualTo(⦃⦃scalarStructure⦄.GetOperations()⦄)⦄
+									⟦scalarMultiplication⟧:
+										⦃⦃scalarMultiplication⦄.IsEqualTo(⦃⦃⦃module⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄)⦄
+									⦃⦃⦃scalarMultiplication⦄(
+										⦃y0⦄,
+										⦃⦃additionFunction⦄(⦃x0⦄,⦃x1⦄)⦄
+									)⦄.IsEqualTo(⦃⦃additionFunction⦄(⦃⦃(
+										⦃(⦃y0⦄,⦃x0⦄)⦄,
+										⦃(⦃y0⦄,⦃x1⦄)⦄
+									)⦄.MapWith(⦃scalarMultiplication⦄)⦄)⦄)⦄
+								and:
+									⦃⦃⦃scalarMultiplication⦄(
+										⦃⦃⦃scalarStructureAddition⦄.GetSimplifiedFunction()⦄(⦃y0⦄,⦃y1⦄)⦄,
+										⦃x0⦄
+									)⦄.IsEqualTo(⦃⦃additionFunction⦄(⦃⦃(
+										⦃(⦃y0⦄,⦃x0⦄)⦄,
+										⦃(⦃y1⦄,⦃x0⦄)⦄
+									)⦄.MapWith(⦃scalarMultiplication⦄)⦄)⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+										⦃(
+											⦃⦃⦃scalarStructureMultiplication⦄.GetSimplifiedFunction()⦄(⦃y0⦄,⦃y1⦄)⦄,
+											⦃x0⦄
+										)⦄,⦃(
+											⦃y0⦄,
+											⦃⦃scalarMultiplication⦄(⦃y1⦄,⦃x0⦄)⦄
+										)⦄
+									)⦄.MapWith(⦃scalarMultiplication⦄)⦄
+								and:
+									let:
+										⟦identity⟧:
+											⦃⦃{⦃identity⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetIdentities()⦄)⦄
+										⦃⦃⦃scalarMultiplication⦄(⦃x0⦄,⦃identity⦄)⦄.IsEqualTo(⦃identity⦄)⦄
+									and:
+										let:
+											⟦scalarStructureAdditionIdentity⟧:
+												⦃⦃{⦃scalarStructureAdditionIdentity⦄}⦄.IsEqualTo(⦃⦃scalarStructureAddition⦄.GetIdentities()⦄)⦄
+										⦃⦃⦃scalarMultiplication⦄(⦃scalarStructureAdditionIdentity⦄,⦃y0⦄)⦄.IsEqualTo(⦃identity⦄)⦄
+
+
+
+define ⦃RightSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃RightSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃RightSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃RightPartialModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃LeftSemiModule⦄.HasInstance(⦃⦃module⦄.GetConverse()⦄)⦄
+
+
+
+define ⦃BiSemiModule⦄
+		⦃⦃Type⦄.HasInstance(⦃BiSemiModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃BiSemiModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+					⦃⦃BiPartialModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SemiModule⦄.HasInstance(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄)⦄
+				and:
+					for all ⟦x⟧,⟦x0⟧,⟦x1⟧:
+						if:
+								⦃⦃⦃module⦄.GetClass()⦄.Has(⦃x⦄)⦄
+							and:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints Left⦄,
+											⦃unicodeCodePoints Right⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+										let:
+											⟦index⟧:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+												then:
+													⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+												else:
+													⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+										⦃⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Scalars()⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+						then:
+							let:
+								⟦leftScalarMultiplication⟧,⟦rightScalarMultiplication⟧:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Left⦄,
+												⦃unicodeCodePoints Right⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧ScalarMultiplication⦄.IsEqualTo(⦃⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplication()⦄.GetSimplifiedFunction()⦄)⦄
+							⦃⦃⦃rightScalarMultiplication⦄(
+								⦃⦃leftScalarMultiplication⦄(⦃x0⦄,⦃x⦄)⦄,
+								⦃x1⦄
+							)⦄.IsEqualTo(⦃⦃leftScalarMultiplication⦄(
+								⦃x0⦄,
+								⦃⦃rightScalarMultiplication⦄(⦃x⦄,⦃x1⦄)⦄
+							)⦄)⦄

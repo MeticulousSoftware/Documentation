@@ -1,0 +1,513 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Ordinal⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Ordinal⦄)⦄
+	and:
+		let:
+			⟦ordinalClasses⟧:
+				⦃⦃ordinalClasses⦄.IsEqualTo(⦃{
+					⦃{⦃0⦄}⦄,
+					⦃⦃SuccessorOrdinal⦄.MapToClass()⦄,
+					⦃⦃LimitOrdinal⦄.MapToClass()⦄
+				}⦄)⦄
+			⦃⦃ordinalClasses⦄.AreMutuallyDisjoint()⦄
+		and:
+			⦃⦃⦃Ordinal⦄.MapToClass()⦄.IsEqualTo(⦃⦃ordinalClasses⦄.GetUnion()⦄)⦄
+
+define ⦃method ⦃Ordinal⦄.GetSuccessor⦄
+	for all ⟦ordinal⟧:
+		if:
+			⦃⦃Ordinal⦄.HasInstance(⦃ordinal⦄)⦄
+		then:
+				⦃⦃⦃⦃ordinal⦄.GetSuccessor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦classWithSize⟧:
+						⦃⦃classWithSize⦄.IsEqualTo(⦃⦃ordinal⦄.MapToClass()⦄)⦄
+				⦃⦃⦃⦃ordinal⦄.GetSuccessor()⦄.MapToClass()⦄.IsEqualTo(⦃⦃classWithSize⦄.GetUnionWith(⦃{⦃classWithSize⦄}⦄)⦄)⦄
+
+define ⦃method ⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃Ordinal⦄)⦄.AddAllOrdinals⦄,⦃method ⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃Ordinal⦄)⦄.MultiplyAllOrdinals⦄
+	for all ⟦ordinals⟧:
+		if:
+			⦃⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃Ordinal⦄)⦄.HasInstance(⦃ordinals⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Add⦄,
+						⦃unicodeCodePoints Multiply⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃ordinals⦄.⟦⟦⦃typeIdentifier⦄⟧⟧AllOrdinals⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦relation⟧:
+									⦃⦃ArtinianNonStrictTotalOrder⦄.HasInstance(⦃relation⦄)⦄
+								and:
+									let:
+										⟦signatureClass⟧:
+											⦃⦃signatureClass⦄.IsEqualTo(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+										⟦relations⟧:
+												⦃⦃TransFiniteSequence⦄.HasInstance(⦃relations⦄)⦄
+											and:
+												⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃relations⦄,⦃ordinals⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+											and:
+												for all ⟦index⟧:
+													if:
+														⦃⦃⦃relations⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+													then:
+														let:
+															⟦relation⟧:
+																⦃⦃relation⦄.IsEqualTo(⦃⦃relations⦄(⦃index⦄)⦄)⦄
+															⦃⦃ArtinianNonStrictTotalOrder⦄.HasInstance(⦃relation⦄)⦄
+														and:
+															⦃⦃⦃relation⦄.GetOrderType()⦄.IsEqualTo(⦃⦃ordinals⦄(⦃index⦄)⦄)⦄
+														and:
+															for all ⟦index0⟧:
+																if:
+																		⦃⦃⦃relations⦄.GetDomain()⦄.Has(⦃index0⦄)⦄
+																	and:
+																		not:
+																			⦃⦃index0⦄.IsEqualTo(⦃index⦄)⦄
+																then:
+																	⦃⦃⦃{
+																		⦃relation⦄,
+																		⦃⦃relations⦄(⦃index0⦄)⦄
+																	}⦄.MapWith(⦃unaryFunction GetSharedSignatureClass⦄)⦄.AreMutuallyDisjoint()⦄
+										let:
+											⟦classes⟧:
+												⦃⦃classes⦄.IsEqualTo(⦃⦃⦃relations⦄.GetCoDomain()⦄.MapWith(⦃unaryFunction GetSharedSignatureClass⦄)⦄)⦄
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+										then:
+											⦃⦃signatureClass⦄.IsEqualTo(⦃⦃classes⦄.GetUnion()⦄)⦄
+										else:
+											⦃⦃signatureClass⦄.IsEqualTo(⦃⦃classes⦄.GetCartesianProduct()⦄)⦄
+									and:
+										for all ⟦x0⟧,⟦x1⟧:
+											if:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃signatureClass⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+											then:
+													⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃x0⦄,⦃x1⦄)⦄
+												if and only if:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+													then:
+														let:
+															⟦index0⟧,⟦index1⟧:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦typeIdentifier⟧:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																		⦃⦃⦃⦃relations⦄(⦃index⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄.GetSharedSignatureClass()⦄.Has(⦃x⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+														if:
+															⦃⦃index0⦄.IsEqualTo(⦃index1⦄)⦄
+														then:
+															⦃⦃⦃⦃relations⦄(⦃index0⦄)⦄.GetSimplifiedFunction()⦄(⦃x0⦄,⦃x1⦄)⦄
+														else:
+															⦃⦃index0⦄.IsInferiorTo(⦃index1⦄)⦄
+													else:
+														let:
+															⟦sequence0⟧,⟦sequence1⟧:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦typeIdentifier⟧:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																		⦃⦃sequence⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃x⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+															⦃⦃sequence0⦄.IsEqualTo(⦃sequence1⦄)⦄
+														or:
+															there exists ⟦index⟧:
+																	⦃⦃⦃sequence0⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																and:
+																	for all ⟦index0⟧:
+																		if:
+																				⦃⦃⦃sequence0⦄.GetDomain()⦄.Has(⦃index0⦄)⦄
+																			and:
+																				⦃⦃index⦄.IsInferiorTo(⦃index0⦄)⦄
+																		then:
+																			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(⦃sequence0⦄,⦃sequence1⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index0⦄)⦄)⦄
+																and:
+																	⦃⦃binaryFunction IsInferiorTo⦄(⦃⦃⦃(⦃sequence0⦄,⦃sequence1⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄
+						⦃⦃⦃ordinals⦄.⟦⟦⦃typeIdentifier⦄⟧⟧AllOrdinals()⦄.IsEqualTo(⦃⦃relation⦄.GetOrderType()⦄)⦄
+
+
+
+define ⦃Cardinal⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Cardinal⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦MapToClass⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints MapToClass⦄,⦃MapToClass⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										there exists ⟦ordinal⟧:
+												⦃⦃Ordinal⦄.HasInstance(⦃ordinal⦄)⦄
+											and:
+												for all ⟦ordinal0⟧:
+													if:
+														⦃⦃ordinal⦄.IsSuperiorTo(⦃ordinal0⦄)⦄
+													then:
+														not:
+															there exists ⟦function⟧:
+																	⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+																and:
+																	⦃⦃⦃function⦄.GetDomain()⦄.IsEqualTo(⦃⦃ordinal0⦄.MapToClass()⦄)⦄
+																and:
+																	⦃⦃⦃function⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃ordinal⦄.MapToClass()⦄)⦄
+											and:
+												⦃⦃MapToClass⦄.IsEqualTo(⦃⦃ordinal⦄.MapToClass⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦cardinal⟧:
+									⦃⦃cardinal⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Cardinal⦄.HasInstance(⦃cardinal⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃cardinal⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Cardinal⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Cardinal⦄.GetSuccessor⦄
+	for all ⟦cardinal⟧:
+		if:
+			⦃⦃Cardinal⦄.HasInstance(⦃cardinal⦄)⦄
+		then:
+			⦃⦃⦃cardinal⦄.GetSuccessor⦄.IsEqualTo(⦃⦃⦃⦃Cardinal⦄.MapToClass()⦄.FilterWith(⦃⦃cardinal⦄.IsInferiorTo⦄)⦄.GetMinimum⦄)⦄
+
+define ⦃method ⦃⦃MultiClassWithSize⦄.GetTypeInducedBy(⦃Cardinal⦄)⦄.AddAllCardinals⦄
+	for all ⟦cardinals⟧:
+		if:
+			⦃⦃⦃MultiClassWithSize⦄.GetTypeInducedBy(⦃Cardinal⦄)⦄.HasInstance(⦃cardinals⦄)⦄
+		then:
+				⦃⦃⦃⦃cardinals⦄.AddAllCardinals⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦sumBuildingMap⟧:
+							⦃⦃Function⦄.HasInstance(⦃sumBuildingMap⦄)⦄
+						and:
+							⦃⦃⦃sumBuildingMap⦄.GetDomain()⦄.IsEqualTo(⦃⦃Cardinal⦄.MapToClass()⦄)⦄
+						and:
+							for all ⟦cardinal⟧:
+								if:
+									⦃⦃⦃sumBuildingMap⦄.GetDomain()⦄.Has(⦃cardinal⦄)⦄
+								then:
+									let:
+										⟦class⟧:
+											⦃⦃Class⦄.IsEqualTo(⦃⦃sumBuildingMap⦄(⦃cardinal⦄)⦄)⦄
+										⦃⦃ClassWithSize⦄.HasInstance(⦃class⦄)⦄
+									and:
+										⦃⦃⦃class⦄.GetSize()⦄.IsEqualTo(⦃⦃cardinal⦄.Multiply(⦃⦃cardinals⦄.GetMultiplicityOf(⦃cardinal⦄)⦄)⦄)⦄
+									and:
+										for all ⟦x⟧:
+											if:
+												⦃⦃class⦄.Has(⦃x⦄)⦄
+											then:
+												there exists ⟦y⟧:
+													⦃⦃x⦄.IsEqualTo(⦃(⦃cardinal⦄,⦃y⦄)⦄)⦄
+				⦃⦃⦃cardinals⦄.AddAllCardinals()⦄.IsEqualTo(⦃⦃⦃⦃⦃cardinals⦄.GetSupport()⦄.MapWith(⦃sumBuildingMap⦄)⦄.GetUnion()⦄.GetSize()⦄)⦄
+
+define ⦃method ⦃⦃MultiClassWithSize⦄.GetTypeInducedBy(⦃Cardinal⦄)⦄.MultiplyAllCardinals⦄
+	for all ⟦cardinals⟧:
+		if:
+			⦃⦃⦃MultiClassWithSize⦄.GetTypeInducedBy(⦃Cardinal⦄)⦄.HasInstance(⦃cardinals⦄)⦄
+		then:
+			let:
+				⟦classes⟧:
+					⦃⦃⦃⦃cardinals⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetPermutations()⦄.Has(⦃classes⦄)⦄
+			⦃⦃⦃cardinals⦄.MultiplyAllCardinals⦄.IsEqualTo(⦃⦃⦃classes⦄.GetCartesianProduct()⦄.GetSize⦄)⦄
+
+
+
+define ⦃method ⦃Ordinal⦄.IsFinite⦄,⦃method ⦃Cardinal⦄.IsFinite⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+				if:
+					⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+				then:
+						⦃⦃⦃⦃x⦄.IsFinite⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦isFinite⟧:
+								⦃⦃isFinite⦄.HasInstance(⦃⦃x⦄.IsFinite()⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isFinite⦄)⦄
+						and:
+								⦃isFinite⦄
+							if and only if:
+								for all ⟦y⟧:
+									if:
+										⦃⦃x⦄.IsSuperiorTo(⦃y⦄)⦄
+									then:
+										not:
+											⦃⦃LimitOrdinal⦄.HasInstance(⦃⦃Ordinal⦄(⦃y⦄)⦄)⦄
+
+define ⦃method ⦃Ordinal⦄.IsInferiorTo⦄,⦃method ⦃Ordinal⦄.IsInferiorOrEqualTo⦄,
+⦃method ⦃Ordinal⦄.IsSuperiorTo⦄,⦃method ⦃Ordinal⦄.IsSuperiorOrEqualTo⦄,
+⦃method ⦃Cardinal⦄.IsInferiorTo⦄,⦃method ⦃Cardinal⦄.IsInferiorOrEqualTo⦄,
+⦃method ⦃Cardinal⦄.IsSuperiorTo⦄,⦃method ⦃Cardinal⦄.IsSuperiorOrEqualTo⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Inf⦄,
+								⦃unicodeCodePoints Sup⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							for all ⟦typeIdentifier1⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints ⦄,
+										⦃unicodeCodePoints OrEqual⦄
+									}⦄.Has(⦃typeIdentifier1⦄)⦄
+								then:
+										⦃⦃⦃⦃x⦄.Is⟦⟦⦃typeIdentifier0⦄⟧⟧erior⟦⟦⦃typeIdentifier1⦄⟧⟧To⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.MapToClass()⦄)⦄
+									and:
+										for all ⟦y⟧:
+											if:
+												⦃⦃⦃⦃x⦄.Is⟦⟦⦃typeIdentifier0⦄⟧⟧erior⟦⟦⦃typeIdentifier1⦄⟧⟧To⦄.GetDomain()⦄.Has(⦃y⦄)⦄
+											then:
+												let:
+													⟦typeIdentifier2⟧:
+														if:
+															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Inf⦄)⦄
+														then:
+															⦃⦃typeIdentifier2⦄.IsEqualTo(⦃unicodeCodePoints Sub⦄)⦄
+														else:
+															⦃⦃typeIdentifier2⦄.IsEqualTo(⦃unicodeCodePoints Super⦄)⦄
+													⟦typeIdentifier3⟧:
+														if:
+															⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+														then:
+															⦃⦃typeIdentifier3⦄.IsEqualTo(⦃unicodeCodePoints Proper⦄)⦄
+														else:
+															⦃⦃typeIdentifier3⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+												⦃⦃⦃x⦄.Is⟦⟦⦃typeIdentifier0⦄⟧⟧erior⟦⟦⦃typeIdentifier1⦄⟧⟧To(⦃y⦄)⦄.IsEqualTo(⦃⦃binaryFunction Is⟦⟦⦃typeIdentifier3⦄⟧⟧⟦⟦⦃typeIdentifier2⦄⟧⟧MultiClassOf⦄(⦃⦃(⦃x⦄,⦃y⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Ordinal⦄.Add⦄,⦃method ⦃Ordinal⦄.Multiply⦄,
+⦃method ⦃Cardinal⦄.Add⦄,⦃method ⦃Cardinal⦄.Multiply⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Add⦄,
+								⦃unicodeCodePoints Multiply⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃⦃x⦄.⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.MapToClass()⦄)⦄
+							and:
+								for all ⟦y⟧:
+									if:
+										⦃⦃⦃⦃x⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.Has(⦃y⦄)⦄
+									then:
+										let:
+											⟦sequenceOrClass⟧:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Ord⦄)⦄
+												then:
+													⦃⦃sequenceOrClass⦄.IsEqualTo(⦃(⦃x⦄,⦃y⦄)⦄)⦄
+												else:
+													⦃⦃sequenceOrClass⦄.IsEqualTo(⦃{⦃x⦄,⦃y⦄}⦄)⦄
+										⦃⦃⦃x⦄.⟦⟦⦃methodIdentifier⦄⟧⟧(⦃y⦄)⦄.IsEqualTo(⦃⦃sequenceOrClass⦄.⟦⟦⦃typeIdentifier0⦄⟧⟧All⟦⟦⦃typeIdentifier⦄⟧⟧inals()⦄)⦄
+
+define ⦃method ⦃Ordinal⦄.Subtract⦄,⦃method ⦃Ordinal⦄.Divide⦄,
+⦃method ⦃Cardinal⦄.Subtract⦄,⦃method ⦃Cardinal⦄.Divide⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Subtract⦄,
+								⦃unicodeCodePoints Divide⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							for all ⟦y⟧,⟦z⟧:
+									⦃⦃⦃⦃x⦄.⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetGraph()⦄.Has(⦃(⦃y⦄,⦃z⦄)⦄)⦄
+								if and only if:
+									let:
+										⟦structure⟧:
+												⦃⦃Magma⦄.HasInstance(⦃structure⦄)⦄
+											and:
+												let:
+													⟦typeIdentifier1⟧:
+														if:
+															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Subtract⦄)⦄
+														then:
+															⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+														else:
+															⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Multiply⦄)⦄
+												⦃⦃⦃⦃structure⦄.GetAddition()⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.⟦⟦⦃typeIdentifier1⦄⟧⟧⦄)⦄
+									⦃⦃⦃structure⦄.GetSolutionsFor(⦃(⦃y⦄)⦄,⦃()⦄,⦃(⦃x⦄)⦄)⦄.IsEqualTo(⦃{⦃z⦄}⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Ordinal⦄)⦄.GetMinimum⦄,⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Ordinal⦄)⦄.GetMaximum⦄,
+⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Cardinal⦄)⦄.GetMinimum⦄,⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Cardinal⦄)⦄.GetMaximum⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦multiClass⟧:
+				if:
+					⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄)⦄.HasInstance(⦃multiClass⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Min⦄,
+								⦃unicodeCodePoints Max⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							for all ⟦x⟧:
+									⦃⦃⦃⦃multiClass⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧imum⦄.GetGraph()⦄.IsEqualTo(⦃x⦄)⦄
+								if and only if:
+									there exists ⟦y⟧:
+											⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃y⦄)⦄)⦄
+										and:
+											let:
+												⟦relation⟧:
+														⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+													and:
+														⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.IsInferiorOrEqualTo⦄)⦄
+											⦃⦃{⦃y⦄}⦄.IsEqualTo(⦃⦃⦃relation⦄.GetStructureInducedBy(⦃⦃multiClass⦄.GetSupport()⦄)⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧imalElements()⦄)⦄
+
+define ⦃method ⦃Ordinal⦄.MapToCardinal⦄,⦃method ⦃Cardinal⦄.MapToOrdinal⦄
+	for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+		if:
+			⦃⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+		then:
+			for all ⟦x⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧inal⦄.HasInstance(⦃x⦄)⦄
+				then:
+					if:
+						there exists ⟦y⟧:
+							⦃⦃y⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧inal⦄(⦃x⦄)⦄)⦄
+					then:
+							⦃⦃⦃⦃x⦄.MapTo⟦⟦⦃typeIdentifier1⦄⟧⟧inal⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							⦃⦃⦃x⦄.MapTo⟦⟦⦃typeIdentifier1⦄⟧⟧inal()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧inal⦄(⦃x⦄)⦄)⦄
+					else:
+						⦃⦃⦃⦃x⦄.MapTo⟦⟦⦃typeIdentifier1⦄⟧⟧inal⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+
+
+define ⦃method ⦃Ordinal⦄.DivideWithRemainder⦄
+	for all ⟦ordinal⟧:
+		if:
+			⦃⦃Ordinal⦄.HasInstance(⦃ordinal⦄)⦄
+		then:
+				⦃⦃⦃⦃ordinal⦄.DivideWithRemainder⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃Ordinal⦄.MapToClass()⦄.GetDifferenceWith(⦃{⦃0⦄}⦄)⦄)⦄
+			and:
+				for all ⟦ordinal0⟧:
+					if:
+						⦃⦃⦃⦃ordinal⦄.DivideWithRemainder⦄.GetDomain()⦄.Has(⦃ordinal0⦄)⦄
+					then:
+						let:
+							⟦quotient⟧,⟦remainder⟧:
+								⦃⦃(⦃quotient⦄,⦃remainder⦄)⦄.IsEqualTo(⦃⦃ordinal⦄.DivideWithRemainder(⦃ordinal0⦄)⦄)⦄
+							⦃⦃ordinal⦄.IsEqualTo(⦃⦃⦃ordinal0⦄.Multiply(⦃quotient⦄)⦄.Add(⦃remainder⦄)⦄)⦄
+						and:
+							⦃⦃remainder⦄.IsInferiorTo(⦃ordinal0⦄)⦄
+
+define ⦃method ⦃Ordinal⦄.GetDecompositionInLimitOrdinalAndFiniteOrdinal⦄
+	for all ⟦ordinal⟧:
+		if:
+			⦃⦃Ordinal⦄.HasInstance(⦃ordinal⦄)⦄
+		then:
+				⦃⦃⦃⦃ordinal⦄.GetDecompositionInLimitOrdinalAndFiniteOrdinal⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦limitOrdinal⟧,⟦finiteOrdinal⟧:
+						⦃⦃(⦃limitOrdinal⦄,⦃finiteOrdinal⦄)⦄.IsEqualTo(⦃⦃ordinal⦄.GetDecompositionInLimitOrdinalAndFiniteOrdinal()⦄)⦄
+					⦃⦃ordinal⦄.IsEqualTo(⦃⦃limitOrdinal⦄.Add(⦃finiteOrdinal⦄)⦄)⦄
+				and:
+						⦃⦃limitOrdinal⦄.IsEqualTo(⦃0⦄)⦄
+					or:
+						⦃⦃LimitOrdinal⦄.HasInstance(⦃limitOrdinal⦄)⦄
+				and:
+					⦃⦃FiniteOrdinal⦄.HasInstance(⦃finiteOrdinal⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	let:
+		⟦classes⟧:
+			⦃⦃classes⦄.IsEqualTo(⦃⦃{⦃Ordinal⦄,⦃Cardinal⦄}⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+		⦃⦃classes⦄.AreMutuallyDisjoint()⦄
+	and:
+		⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃classes⦄.GetUnion()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

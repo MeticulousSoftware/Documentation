@@ -1,0 +1,64 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FiniteArityDomainOperation⦄,⦃FiniteArityCoDomainOperation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Co⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃FiniteArity⟦⟦⦃typeIdentifier⦄⟧⟧DomainOperation⦄)⦄
+			and:
+				for all ⟦operation⟧:
+						⦃⦃FiniteArity⟦⟦⦃typeIdentifier⦄⟧⟧DomainOperation⦄.HasInstance(⦃operation⦄)⦄
+					if and only if:
+							⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+						and:
+							⦃⦃FiniteOrdinal⦄.HasInstance(⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainArity()⦄)⦄
+
+
+
+define ⦃UnaryDomainOperation⦄,⦃BinaryDomainOperation⦄,
+⦃UnaryCoDomainOperation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Co⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					let:
+						⟦typeIdentifiers⟧:
+							if:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+							then:
+								⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{
+									⦃unicodeCodePoints Bin⦄
+								}⦄)⦄
+							else:
+								⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{}⦄)⦄
+					⦃⦃⦃{
+						⦃unicodeCodePoints Un⦄
+					}⦄.GetUnionWith(⦃typeIdentifiers⦄)⦄.Has(⦃typeIdentifier0⦄)⦄
+				then
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ary⟦⟦⦃typeIdentifier⦄⟧⟧DomainOperation⦄)⦄
+					and:
+						for all ⟦operation⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ary⟦⟦⦃typeIdentifier⦄⟧⟧DomainOperation⦄.HasInstance(⦃operation⦄)⦄
+							if and only if:
+									⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+								and:
+									let:
+										⟦arity⟧:
+											if:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Un⦄)⦄
+											then:
+												⦃⦃arity⦄.IsEqualTo(⦃1⦄)⦄
+											else:
+												⦃⦃arity⦄.IsEqualTo(⦃2⦄)⦄
+									⦃⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainArity()⦄.IsEqualTo(⦃arity⦄)⦄

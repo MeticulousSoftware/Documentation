@@ -1,0 +1,73 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃CaptureTreeNode⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃CaptureTreeNode⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetCaptureIdentifier⟧,
+									⟦GetChildNodes⟧,
+									⟦GetValueRange⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetCaptureIdentifier⦄,⦃GetCaptureIdentifier⦄)⦄,
+											⦃(⦃unicodeCodePoints GetChildNodes⦄,⦃GetChildNodes⦄)⦄,
+											⦃(⦃unicodeCodePoints GetValueRange⦄,⦃GetValueRange⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃FiniteOrdinal⦄.HasInstance(⦃⦃GetCaptureIdentifier⦄()⦄)⦄
+									and:
+										⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃CaptureTreeNode⦄)⦄.HasInstance(⦃⦃GetChildNodes⦄()⦄)⦄
+									and:
+										⦃⦃FiniteOrdinalRange⦄.HasInstance(⦃⦃GetValueRange⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦node⟧:
+									⦃⦃node⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃CaptureTreeNode⦄.HasInstance(⦃node⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃node⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃CaptureTreeNode⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃CaptureTreeNode⦄.MapToClass⦄
+	for all ⟦node⟧:
+		if:
+			⦃⦃CaptureTreeNode⦄.HasInstance(⦃node⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃node⦄,
+				⦃(⦃⦃node⦄.GetCaptureIdentifier()⦄,⦃⦃node⦄.GetChildNodes()⦄,⦃⦃node⦄.GetValueRange()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃CaptureTreeNode⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

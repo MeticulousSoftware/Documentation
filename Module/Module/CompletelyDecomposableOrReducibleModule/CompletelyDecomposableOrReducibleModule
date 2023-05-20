@@ -1,0 +1,64 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃CompletelyDecomposableModule⦄,⦃CompletelyReducibleModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Decomposable⦄,
+				⦃unicodeCodePoints Reducible⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃Completely⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃Completely⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Completely⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftCompletelyDecomposableModule⦄,⦃RightCompletelyDecomposableModule⦄,⦃BiCompletelyDecomposableModule⦄,
+⦃LeftCompletelyReducibleModule⦄,⦃RightCompletelyReducibleModule⦄,⦃BiCompletelyReducibleModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Decomposable⦄,
+				⦃unicodeCodePoints Reducible⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Completely⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Completely⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+								and:
+									there exists ⟦modules⟧:
+											⦃⦃⦃module⦄.GetInternalDirectSums()⦄.Has(⦃modules⦄)⦄
+										and:
+											let:
+												⟦typeIdentifier0⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Decomposable⦄)⦄
+													then:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints InDecomposable⦄)⦄
+													else:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Simple⦄)⦄
+											⦃⦃⦃modules⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Module⦄.MapToClass()⦄)⦄

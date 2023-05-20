@@ -1,0 +1,17 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃InjectiveOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃InjectiveOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃InjectiveOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+					⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					for all ⟦x⟧,⟦y⟧:
+						if:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃x⦄,⦃y⦄)⦄.MapWith(⦃⦃operation⦄.GetFunction()⦄)⦄
+						then:
+							⦃⦃x⦄.IsEqualTo(⦃y⦄)⦄

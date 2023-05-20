@@ -1,0 +1,892 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Real⦄,⦃method ⦃{⦃Real⦄}⦄.GetStructure⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Real⦄)⦄
+	and:
+		⦃⦃⦃⦃Real⦄.GetStructure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		let:
+			⟦structureWithRelation⟧:
+				⦃⦃structureWithRelation⦄.IsEqualTo(⦃⦃Real⦄.GetStructure()⦄)⦄
+			⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structureWithRelation⦄)⦄
+		and:
+			let:
+				⟦structure⟧,⟦relation⟧:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Structure⦄,
+								⦃unicodeCodePoints Relation⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃structureWithRelation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+				⟦reals⟧:
+					⦃⦃reals⦄.IsEqualTo(⦃⦃structureWithRelation⦄.GetClass()⦄)⦄
+				⦃⦃Field⦄.HasInstance(⦃structure⦄)⦄
+			and:
+					⦃⦃TotalOrder⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃DedekindComplete⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃reals⦄)⦄
+				and:
+					let:
+						⟦addition⟧,⟦multiplication⟧:
+							⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+						for all ⟦sequence⟧:
+							if:
+								⦃⦃function⦄(⦃sequence⦄)⦄
+							then:
+								⦃⦃function⦄(⦃⦃⦃sequence⦄.MapWith(⦃⦃addition⦄.GetSimplifiedFunction()⦄)⦄.Apply(⦃x⦄)⦄)⦄
+					and:
+						let:
+							⟦identity⟧:
+								⦃⦃{⦃identity⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetIdentities()⦄)⦄
+						for all ⟦real0⟧,⟦real1⟧:
+							if:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃function⦄(⦃identity⦄,⦃real⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+							then:
+								⦃⦃function⦄(⦃identity⦄,⦃⦃⦃multiplication⦄.GetSimplifiedFunction()⦄(⦃real0⦄,⦃real1⦄)⦄)⦄
+			and:
+				⦃⦃⦃Real⦄.MapToClass()⦄.IsEqualTo(⦃reals⦄)⦄
+
+define ⦃method ⦃Real⦄.IsInferiorOrEqualTo⦄,⦃method ⦃Real⦄.Add⦄,⦃method ⦃Real⦄.Multiply⦄,
+⦃integer 0⦄,⦃integer 1⦄
+	let:
+		⟦structure⟧:
+			⦃⦃structure⦄.IsEqualTo(⦃⦃Real⦄.GetStructure()⦄)⦄
+		⟦operations⟧:
+			⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+		⟦addition⟧,⟦multiplication⟧:
+			⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃operations⦄)⦄
+		⦃⦃(⦃{⦃integer 0⦄}⦄,⦃{⦃integer 1⦄}⦄)⦄.IsEqualTo(⦃⦃operations⦄.MapWith(⦃unaryFunction GetIdentities⦄)⦄)⦄
+	and:
+		for all ⟦methodIdentifier⟧:
+			if:
+				⦃⦃{
+					⦃unicodeCodePoints IsInferiorOrEqualTo⦄,
+					⦃unicodeCodePoints Add⦄,
+					⦃unicodeCodePoints Multiply⦄
+				}⦄.Has(⦃methodIdentifier⦄)⦄
+			then:
+				let:
+					⟦x⟧:
+						if:
+							⦃⦃methodIdentifier⦄.IsEqualTo(⦃unicodeCodePoints IsInferiorOrEqualTo⦄)⦄
+						then:
+							⦃⦃x⦄.IsEqualTo(⦃⦃structure⦄.GetRelation()⦄)⦄
+						else if:
+							⦃⦃methodIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+						then:
+							⦃⦃x⦄.IsEqualTo(⦃addition⦄)⦄
+						else:
+							⦃⦃x⦄.IsEqualTo(⦃multiplication⦄)⦄
+				⦃⦃⦃method ⦃Real⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetBinaryFunction()⦄.IsEqualTo(⦃⦃x⦄.GetSimplifiedFunction()⦄)⦄
+
+define ⦃method ⦃⦃FiniteMultiClass⦄.GetTypeInducedBy(⦃Real⦄)⦄.AddAllReals⦄,⦃method ⦃⦃FiniteMultiClass⦄.GetTypeInducedBy(⦃Real⦄)⦄.MultiplyAllReals⦄,
+⦃method ⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃Real⦄)⦄.AddAllReals⦄,⦃method ⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃Real⦄)⦄.MultiplyAllReals⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints MultiClass⦄,
+				⦃unicodeCodePoints Sequence⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦reals⟧:
+				if:
+					⦃⦃⦃Finite⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetTypeInducedBy(⦃Real⦄)⦄.HasInstance(⦃reals⦄)⦄
+				then:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Add⦄,
+								⦃unicodeCodePoints Multiply⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							for all ⟦x⟧:
+									⦃⦃⦃⦃reals⦄.⟦⟦⦃typeIdentifier⦄⟧⟧AllReals⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+								if and only if:
+									let:
+										⟦identity⟧:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+											then:
+												⦃⦃identity⦄.IsEqualTo(⦃integer 0⦄)⦄
+											else:
+												⦃⦃identity⦄.IsEqualTo(⦃integer 1⦄)⦄
+									⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃⦃reals⦄.ReduceWith(⦃binaryFunction ⟦⟦⦃typeIdentifier⦄⟧⟧⦄,⦃identity⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Real⦄.IsInferiorTo⦄,
+⦃method ⦃Real⦄.IsSuperiorOrEqualTo⦄,⦃method ⦃Real⦄.IsSuperiorTo⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Inferior⦄,
+						⦃unicodeCodePoints SuperiorOrEqual⦄,
+						⦃unicodeCodePoints Superior⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃real⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧To⦄.GetDomain()⦄.IsEqualTo(⦃⦃Real⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦real0⟧:
+							if:
+								⦃⦃⦃⦃real⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧To⦄.GetDomain()⦄.Has(⦃real0⦄)⦄
+							then:
+								let:
+									⟦is⟧:
+										⦃⦃is⦄.IsEqualTo(⦃⦃real⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧To(⦃real0⦄)⦄)⦄
+									⦃⦃Boolean⦄.HasInstance(⦃is⦄)⦄
+								and:
+										⦃is⦄
+									if and only if:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Inferior⦄)⦄
+										then:
+												⦃⦃real⦄.IsInferiorOrEqualTo(⦃real0⦄)⦄
+											and:
+												not:
+													⦃⦃real⦄.IsEqualTo(⦃real0⦄)⦄
+										else:
+											⦃⦃real0⦄.IsInf⟦⟦⦃⦃typeIdentifier⦄.GetEndingSequence(⦃3⦄)⦄⟧⟧To(⦃real⦄)⦄
+
+define ⦃method ⦃Real⦄.Subtract⦄,⦃method ⦃Real⦄.Divide⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Subtract⦄,
+						⦃unicodeCodePoints Divide⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦real0⟧,⟦real1⟧:
+							⦃⦃⦃⦃real⦄.⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetGraph()⦄.Has(⦃(⦃real0⦄,⦃real1⦄)⦄)⦄
+						if and only if:
+							let:
+								⟦structure⟧:
+										⦃⦃Magma⦄.HasInstance(⦃structure⦄)⦄
+									and:
+										let:
+											⟦typeIdentifier0⟧:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Subtract⦄)⦄
+												then:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+												else:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Multiply⦄)⦄
+										⦃⦃⦃⦃structure⦄.GetAddition()⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃Real⦄.⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+							⦃⦃⦃structure⦄.GetSolutionsFor(⦃(⦃real0⦄)⦄,⦃()⦄,⦃(⦃real⦄)⦄)⦄.IsEqualTo(⦃{⦃real1⦄}⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Real⦄)⦄.GetMinimum⦄,⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Real⦄)⦄.GetMaximum⦄
+	for all ⟦reals⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Real⦄)⦄.HasInstance(⦃reals⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Min⦄,
+						⦃unicodeCodePoints Max⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃reals⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧imum⦄.GetGraph()⦄.IsEqualTo(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦real⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃real⦄)⦄)⦄
+								and:
+									let:
+										⟦relation⟧:
+												⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+											and:
+												⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃Real⦄.IsInferiorOrEqualTo⦄)⦄
+									⦃⦃{⦃real⦄}⦄.IsEqualTo(⦃⦃⦃relation⦄.GetStructureInducedBy(⦃⦃reals⦄.GetSupport()⦄)⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧imalElements()⦄)⦄
+
+define ⦃method ⦃Real⦄.GetAbsoluteValue⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				⦃⦃⦃⦃real⦄.GetAbsoluteValue⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦absoluteValue⟧:
+						⦃⦃absoluteValue⦄.IsEqualTo(⦃⦃real⦄.GetAbsoluteValue()⦄)⦄
+				if:
+					⦃⦃0⦄.IsInferiorOrEqualTo(⦃real⦄)⦄
+				then:
+					⦃⦃absoluteValue⦄.IsEqualTo(⦃real⦄)⦄
+				else:
+					⦃⦃{⦃absoluteValue⦄}⦄.IsEqualTo(⦃⦃⦃⦃Real⦄.GetStructure()⦄.GetAddition()⦄.GetInversesOf(⦃real⦄)⦄)⦄
+
+define ⦃method ⦃Real⦄.GetIntegerPart⦄,⦃method ⦃Real⦄.GetFractionalPart⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Integer⦄,
+							⦃unicodeCodePoints Fractional⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⦃⦃real⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Part⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦fractionalPart⟧:
+						⦃⦃fractionalPart⦄.IsEqualTo(⦃⦃real⦄.GetFractionalPart()⦄)⦄
+					⦃⦃⦃⦃RealRange⦄(⦃integer 0⦄,⦃integer 1⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃fractionalPart⦄)⦄
+				and:
+					⦃⦃real⦄.IsEqualTo(⦃⦃fractionalPart⦄.Add(⦃⦃real⦄.GetIntegerPart()⦄)⦄)⦄
+
+define ⦃method ⦃Real⦄.GetRoundingTowardsNegativeInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingTowardPositiveInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingAwayFromInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingTowardInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingToTheNearestIntegerHalfTowardsNegativeInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingToTheNearestIntegerHalfTowardPositiveInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingToTheNearestIntegerHalfAwayFromInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingToTheNearestIntegerHalfTowardInfinity⦄,
+⦃method ⦃Real⦄.GetRoundingToTheNearestIntegerHalfToEven⦄,
+⦃method ⦃Real⦄.GetRoundingToTheNearestIntegerHalfToOdd⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints TowardNegativeInfinity⦄,
+						⦃unicodeCodePoints TowardPositiveInfinity⦄,
+						⦃unicodeCodePoints AwayFromInfinity⦄,
+						⦃unicodeCodePoints TowardInfinity⦄,
+						⦃unicodeCodePoints ToTheNearestInteger⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							if:
+								not:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ToTheNearestInteger⦄)⦄
+							then:
+								⦃⦃{
+									⦃unicodeCodePoints ⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							else:
+								⦃⦃{
+									⦃unicodeCodePoints TowardNegativeInfinity⦄,
+									⦃unicodeCodePoints TowardPositiveInfinity⦄,
+									⦃unicodeCodePoints AwayFromInfinity⦄,
+									⦃unicodeCodePoints TowardInfinity⦄,
+									⦃unicodeCodePoints ToEven⦄,
+									⦃unicodeCodePoints ToOdd⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							let:
+								⟦typeIdentifier1⟧:
+									if:
+										⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									then:
+										⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									else:
+										⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Half⦄)⦄
+								⦃⦃⦃⦃real⦄.GetRounding⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								let:
+									⟦rounding⟧:
+										⦃⦃rounding⦄.IsEqualTo(⦃⦃real⦄.GetRounding⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧()⦄)⦄
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints TowardNegativeInfinity⦄)⦄
+								then:
+									⦃⦃rounding⦄.IsEqualTo(⦃⦃real⦄.GetIntegerPart()⦄)⦄
+								else if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints TowardPositiveInfinity⦄)⦄
+								then:
+									⦃⦃rounding⦄.IsEqualTo(⦃⦃⦃⦃integer -1⦄.Multiply(⦃real⦄)⦄.GetRoundingTowardsNegativeInfinity()⦄.Multiply(⦃integer -1⦄)⦄)⦄
+								else if:
+									not:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ToTheNearestInteger⦄)⦄
+								then:
+									let:
+										⟦typeIdentifier0⟧:
+											let:
+												⟦typeIdentifier1⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints AwayFromInfinity⦄)⦄
+													then:
+														⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Inf⦄)⦄
+													else:
+														⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Sup⦄)⦄
+											if:
+												⦃⦃real⦄.Is⟦⟦⦃typeIdentifier1⦄⟧⟧eriorTo(⦃integer 0⦄)⦄
+											then:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Positive⦄)⦄
+											else:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Negative⦄)⦄
+									⦃⦃rounding⦄.IsEqualTo(⦃⦃real⦄.GetRoundingTowards⟦⟦⦃typeIdentifier0⦄⟧⟧Infinity()⦄)⦄
+								else:
+									let:
+										⟦nearestIntegers⟧:
+												⦃⦃Class⦄.HasInstance(⦃nearestIntegers⦄)⦄
+											and:
+												for all ⟦integer⟧:
+														⦃⦃nearestIntegers⦄.Has(⦃integer⦄)⦄
+													if and only if:
+														⦃⦃⦃⦃real⦄.GetDifferenceWith(⦃integer⦄)⦄.GetAbsoluteValue()⦄.IsEqualTo(⦃⦃⦃⦃⦃⦃Real⦄.MapToClass()⦄.MapWith(⦃method GetDifferenceWith⦄)⦄.Apply(⦃real⦄)⦄.MapWith(⦃unaryFunction GetAbsoluteValue⦄)⦄.GetMinimum()⦄)⦄
+									if:
+										⦃⦃⦃nearestIntegers⦄.GetSize()⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃1⦄)⦄)⦄
+									then:
+										⦃⦃{⦃rounding⦄}⦄.IsEqualTo(⦃nearestIntegers⦄)⦄
+									else:
+										if:
+											not:
+												⦃⦃{
+													⦃unicodeCodePoints ToEven⦄,
+													⦃unicodeCodePoints ToOdd⦄
+												}⦄.Has(⦃typeIdentifier0⦄)⦄
+										then:
+											⦃⦃rounding⦄.IsEqualTo(⦃⦃real⦄.GetRounding⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄)⦄
+										else:
+											let:
+												⟦integer⟧:
+													if:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ToEven⦄)⦄
+													then:
+														⦃⦃integer⦄.IsEqualTo(⦃integer 0⦄)⦄
+													else:
+														⦃⦃integer⦄.IsEqualTo(⦃integer 1⦄)⦄
+												⦃⦃nearestIntegers⦄.Has(⦃rounding⦄)⦄
+											and:
+												⦃⦃⦃⦃⦃rounding⦄.DivideWithRemainder(⦃integer 2⦄)⦄(⦃1⦄)⦄.GetAbsoluteValue()⦄.IsEqualTo(⦃integer⦄)⦄
+
+define ⦃method ⦃Real⦄.DivideWithRemainder⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				⦃⦃⦃⦃real⦄.DivideWithRemainder⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃Real⦄.MapToClass()⦄.GetDifferenceWith(⦃{⦃integer 0⦄}⦄)⦄)⦄
+			and:
+				for all ⟦real0⟧:
+					if:
+						⦃⦃⦃⦃real⦄.DivideWithRemainder⦄.GetDomain()⦄.Has(⦃real0⦄)⦄
+					then:
+						let:
+							⟦remainder⟧:
+								⦃⦃(⦃⦃⦃real⦄.Divide(⦃real0⦄)⦄.GetIntegerPart()⦄,⦃remainder⦄)⦄.IsEqualTo(⦃⦃real⦄.DivideWithRemainder(⦃real0⦄)⦄)⦄
+						⦃⦃real⦄.IsEqualTo(⦃⦃⦃real0⦄.Multiply(⦃quotient⦄)⦄.Add(⦃remainder⦄)⦄)⦄
+
+define ⦃method ⦃Real⦄.GetPower⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				for all ⟦real0⟧:
+						⦃⦃⦃⦃real⦄.GetPower⦄.GetDomain()⦄.Has(⦃real0⦄)⦄
+					if and only if:
+							⦃⦃Real⦄.HasInstance(⦃real0⦄)⦄
+						and:
+									⦃⦃Integer⦄.HasInstance(⦃real0⦄)⦄
+								and:
+										not:
+											⦃⦃real⦄.IsEqualTo(⦃integer 0⦄)⦄
+									or:
+										⦃⦃PositiveInteger⦄.HasInstance(⦃real0⦄)⦄
+							or:
+								⦃⦃integer 0⦄.IsInferiorTo(⦃real⦄)⦄
+			and:
+				for all ⟦real0⟧:
+					if:
+						⦃⦃⦃⦃real⦄.GetPower⦄.GetDomain()⦄.Has(⦃real0⦄)⦄
+					then:
+						let:
+							⟦power⟧:
+								⦃⦃power⦄.IsEqualTo(⦃⦃real⦄.GetPower(⦃real0⦄)⦄)⦄
+						if:
+							⦃⦃real⦄.IsEqualTo(⦃integer 0⦄)⦄
+						then:
+							⦃⦃power⦄.IsEqualTo(⦃integer 0⦄)⦄
+						else if:
+							⦃⦃Integer⦄.HasInstance(⦃real0⦄)⦄
+						then:
+							if:
+								⦃⦃real0⦄.IsEqualTo(⦃integer 0⦄)⦄
+							then:
+								⦃⦃power⦄.IsEqualTo(⦃integer 1⦄)⦄
+							else if:
+								⦃⦃PositiveInteger⦄.HasInstance(⦃real0⦄)⦄
+							then:
+								⦃⦃power⦄.IsEqualTo(⦃⦃⦃real⦄.Repeat(⦃⦃real0⦄.MapToOrdinal()⦄)⦄.MultiplyAll()⦄)⦄
+							else:
+								⦃⦃power⦄.IsEqualTo(⦃⦃integer 1⦄.Divide(⦃⦃real⦄.GetPower(⦃⦃integer -1⦄.Multiply(⦃real0⦄)⦄)⦄)⦄)⦄
+						else:
+							let:
+								⟦function⟧:
+										⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+									and:
+										⦃⦃⦃function⦄.GetDomain()⦄.IsEqualTo(⦃⦃Real⦄.MapToClass()⦄)⦄
+									and:
+										⦃⦃⦃function⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃Real⦄.MapToClass()⦄)⦄
+									and:
+										for all ⟦real⟧:
+											if:
+												⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃real⦄)⦄
+											then:
+												let:
+													⟦getNeighborhoods⟧:
+															⦃⦃Function⦄.HasInstance(⦃getNeighborhoods⦄)⦄
+														and:
+															⦃⦃⦃getNeighborhoods⦄.GetDomain()⦄.IsEqualTo(⦃⦃Real⦄.MapToClass()⦄)⦄
+														and:
+															for all ⟦real⟧:
+																if:
+																	⦃⦃⦃getNeighborhoods⦄.GetDomain()⦄.Has(⦃real⦄)⦄
+																then:
+																	let:
+																		⟦neighborhoods⟧:
+																			⦃⦃neighborhoods⦄.IsEqualTo(⦃⦃getNeighborhoods⦄(⦃real⦄)⦄)⦄
+																		⦃⦃Class⦄.HasInstance(⦃function⦄)⦄
+																	and:
+																		for all ⟦neighborhood⟧:
+																				⦃⦃neighborhoods⦄.Has(⦃neighborhood⦄)⦄
+																			if and only if:
+																				there exists ⟦real0⟧:
+																						⦃⦃NonNegativeReal⦄.HasInstance(⦃real0⦄)⦄
+																					and:
+																						⦃⦃neighborhood⦄.IsEqualTo(⦃⦃⦃RealRange⦄(⦃⦃real⦄.Subtract(⦃real0⦄)⦄,⦃⦃real⦄.Add(⦃real0⦄)⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄)⦄
+												for all ⟦neighborhood⟧:
+													if:
+														⦃⦃⦃getNeighborhoods⦄(⦃⦃function⦄(⦃real⦄)⦄)⦄.Has(⦃neighborhood⦄)⦄
+													then:
+														there exists ⟦neighborhood0⟧:
+																⦃⦃⦃getNeighborhoods⦄(⦃real⦄)⦄.Has(⦃neighborhood0⦄)⦄
+															and:
+																for all ⟦real0⟧:
+																	if:
+																		⦃⦃neighborhood0⦄.Has(⦃real0⦄)⦄
+																	then:
+																		⦃⦃neighborhood⦄.Has(⦃⦃function⦄(⦃real0⦄)⦄)⦄
+									and:
+										⦃⦃⦃function⦄(⦃integer 1⦄)⦄.IsEqualTo(⦃real⦄)⦄
+									and:
+										for all ⟦real0⟧,⟦real1⟧:
+											if:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃Real⦄.HasInstance(⦃real⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+											then:
+												⦃⦃⦃function⦄(⦃⦃real0⦄.Add(⦃real1⦄)⦄)⦄.IsEqualTo(⦃⦃⦃(⦃real0⦄,⦃real1⦄)⦄.MapWith(⦃function⦄)⦄.MultiplyAll()⦄)⦄
+							⦃⦃power⦄.IsEqualTo(⦃⦃function⦄(⦃real⦄)⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToSignificandAndMantissaInBase⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				for all ⟦base⟧:
+						⦃⦃⦃⦃real⦄.MapToSignificandAndMantissaInBase⦄.GetDomain()⦄.Has(⦃base⦄)⦄
+					if and only if:
+							⦃⦃PositiveInteger⦄.HasInstance(⦃base⦄)⦄
+						and:
+							⦃⦃integer 1⦄.IsInferiorTo(⦃base⦄)⦄
+			and:
+				for all ⟦base⟧:
+					if:
+						⦃⦃⦃⦃real⦄.MapToSignificandAndMantissaInBase⦄.GetDomain()⦄.Has(⦃base⦄)⦄
+					then:
+						let:
+							⟦significand⟧,⟦exponent⟧:
+								⦃⦃(⦃significand⦄,⦃exponent⦄)⦄.IsEqualTo(⦃⦃real⦄.MapToSignificandAndMantissaInBase(⦃base⦄)⦄)⦄
+								for all ⟦variable⟧:
+									if:
+										⦃⦃{⦃significand⦄,⦃exponent⦄}⦄.Has(⦃variable⦄)⦄
+									then:
+										⦃⦃variable⦄.IsEqualTo(⦃integer 0⦄)⦄
+							or:
+									⦃⦃integer 0⦄.IsInferiorTo(⦃significand⦄)⦄
+								and:
+									⦃⦃significand⦄.IsInferiorTo(⦃base⦄)⦄
+						and:
+							⦃⦃Integer⦄.HasInstance(⦃exponent⦄)⦄
+						and:
+							⦃⦃real⦄.IsEqualTo(⦃⦃significand⦄.Multiply(⦃⦃base⦄.GetPower(⦃exponent⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToRealRepresentationInBase⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃real⦄.MapToRealRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦base⟧,⟦integerPartLength⟧,⟦fractionalPartLength⟧:
+									⦃⦃x⦄.IsEqualTo(⦃base⦄)⦄
+								or:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃base⦄,⦃integerPartLength⦄,⦃fractionalPartLength⦄)⦄)⦄
+							and:
+								⦃⦃PositiveInteger⦄.HasInstance(⦃base⦄)⦄
+							and:
+								⦃⦃integer 1⦄.IsInferiorTo(⦃base⦄)⦄
+							and:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints integer⦄,
+											⦃unicodeCodePoints fractional⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+											⦃⦃FiniteOrdinal⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartLength⦄)⦄
+										and:
+											let:
+												⟦index⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints integer⦄)⦄
+													then:
+														⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+													else:
+														⦃⦃index⦄.IsEqualTo(⦃2⦄)⦄
+											⦃⦃⦃⦃⦃real⦄.MapToRealRepresentationInBase(⦃base⦄)⦄(⦃index⦄)⦄.GetLength()⦄.IsInferiorOrEqualTo(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartLength⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃real⦄.MapToRealRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦integerRepresentation⟧,⟦fractionalRepresentation⟧:
+								⦃⦃(⦃⦃integer 0⦄.IsInferiorOrEqualTo(⦃real⦄)⦄,⦃integerRepresentation⦄,⦃fractionalRepresentation⦄)⦄.IsEqualTo(⦃⦃real⦄.MapToRealRepresentationInBase(⦃x⦄)⦄)⦄
+						if:
+							not:
+								⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+						then:
+							let:
+								⟦base⟧:
+									⦃⦃base⦄.IsEqualTo(⦃x⦄)⦄
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Integer⦄,
+										⦃unicodeCodePoints Fractional⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									let:
+										⟦representation⟧:
+											let:
+												⟦representation0⟧:
+														⦃⦃Sequence⦄.HasInstance(⦃representation0⦄)⦄
+													and:
+														let:
+															⟦length⟧:
+																⦃⦃length⦄.IsEqualTo(⦃⦃representation0⦄.GetLength()⦄)⦄
+															⦃⦃length⦄.IsEqualTo(⦃ω⦄)⦄
+														and:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃⦃representation0⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																	then:
+																		⦃⦃base⦄.IsSuperiorTo(⦃⦃representation0⦄(⦃index⦄)⦄)⦄
+															and:
+																not:
+																	there exists ⟦index⟧:
+																			⦃⦃⦃representation0⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																		and:
+																			for all ⟦index0⟧:
+																				if:
+																					⦃⦃index⦄.IsInferiorOrEqualTo(⦃index0⦄)⦄
+																				then:
+																					⦃⦃⦃representation0⦄(⦃index0⦄)⦄.IsEqualTo(⦃⦃base⦄.Subtract(⦃integer 1⦄)⦄)⦄
+														and:
+															let:
+																⟦sequence⟧:
+																		⦃⦃Sequence⦄.HasInstance(⦃sequence⦄)⦄
+																	and:
+																		⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+																	and:
+																		for all ⟦index⟧:
+																			if:
+																				⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																			then:
+																				let:
+																					⟦factor⟧:
+																						if:
+																							⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Integer⦄)⦄
+																						then:
+																							⦃⦃factor⦄.IsEqualTo(⦃integer 1⦄)⦄
+																						else:
+																							⦃⦃{⦃factor⦄}⦄.IsEqualTo(⦃⦃⦃⦃Real⦄.GetStructure()⦄.GetAddition()⦄.GetInversesOf(⦃integer 1⦄)⦄)⦄
+																				⦃⦃⦃sequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃representation0⦄(⦃index⦄)⦄.Multiply(⦃⦃base⦄.Exponentiate(⦃⦃index⦄.MapToReal()⦄)⦄)⦄)⦄
+															⦃⦃⦃sequence⦄.AddAllReals()⦄.IsEqualTo(⦃⦃⦃real⦄.GetAbsoluteValue()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Part()⦄)⦄
+												⟦indexes⟧:
+														⦃⦃Class⦄.HasInstance(⦃indexes⦄)⦄
+													and:
+														for all ⟦index⟧:
+																⦃⦃indexes⦄.Has(⦃index⦄)⦄
+															if and only if:
+																		⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																	or:
+																			⦃⦃⦃representation0⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																		and:
+																			not:
+																				⦃⦃⦃representation0⦄(⦃index⦄)⦄.IsEqualTo(⦃integer 0⦄)⦄
+											⦃⦃representation⦄.IsEqualTo(⦃⦃representation0⦄.GetBeginningSubSequence(⦃⦃⦃indexes⦄.GetMaximum()⦄.Add(⦃1⦄)⦄)⦄)⦄
+										⟦typeIdentifier0⟧:
+											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Integer⦄)⦄
+									then:
+										⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Representation⦄.IsEqualTo(⦃⦃representation⦄.GetReverse()⦄)⦄
+									else:
+										⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Representation⦄.IsEqualTo(⦃representation⦄)⦄
+						else:
+							let:
+								⟦base⟧,⟦integerPartLength⟧,⟦fractionalPartLength⟧:
+									⦃⦃(⦃base⦄,⦃integerPartLength⦄,⦃fractionalPartLength⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints integer⦄,
+										⦃unicodeCodePoints fractional⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									let:
+										⟦parts⟧:
+											let:
+												⟦representation⟧:
+													let:
+														⟦index⟧:
+															if:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints integer⦄)⦄
+															then:
+																⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+															else:
+																⦃⦃index⦄.IsEqualTo(⦃2⦄)⦄
+													⦃⦃representation⦄.IsEqualTo(⦃⦃⦃real⦄.MapToRealRepresentationInBase(⦃base⦄)⦄(⦃index⦄)⦄)⦄
+												⟦zeros⟧:
+													⦃⦃zeros⦄.IsEqualTo(⦃⦃integer 0⦄.Repeat(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartLength⦄.Subtract(⦃⦃representation⦄.GetLength()⦄)⦄)⦄)⦄
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints integer⦄)⦄
+											then:
+												⦃⦃parts⦄.IsEqualTo(⦃(⦃zeros⦄,⦃representation⦄)⦄)⦄
+											else:
+												⦃⦃parts⦄.IsEqualTo(⦃(⦃representation⦄,⦃zeros⦄)⦄)⦄
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Representation⦄.IsEqualTo(⦃⦃parts⦄.GetConcatenation()⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToRealRepresentationInBaseWithIntegerPartLength⦄,⦃method ⦃Real⦄.MapToRealRepresentationInBaseWithIntegerPartLength⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Integer⦄,
+						⦃unicodeCodePoints Fractional⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃real⦄.MapToRealRepresentationInBaseWith⟦⟦⦃typeIdentifier⦄⟧⟧PartLength⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦base⟧,⟦integerPartLength⟧,⟦fractionalPartLength⟧,⟦representation⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃base⦄,⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧PartLength⦄)⦄,⦃representation⦄)⦄)⦄
+								and:
+									⦃⦃⦃real⦄.MapToRealRepresentationInBase(⦃base⦄,⦃integerPartLength⦄,⦃fractionalPartLength⦄)⦄.IsEqualTo(⦃representation⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToRealUnicodeRepresentationInBase⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃real⦄.MapToRealUnicodeRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+							⦃⦃⦃⦃real⦄.MapToRealRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						and:
+							let:
+								⟦base⟧:
+									if:
+										not:
+											⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+									then:
+										⦃⦃base⦄.IsEqualTo(⦃x⦄)⦄
+									else:
+										⦃⦃base⦄.IsEqualTo(⦃⦃x⦄(⦃0⦄)⦄)⦄
+							⦃⦃base⦄.IsInferiorOrEqualTo(⦃integer 36⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃real⦄.MapToRealUnicodeRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦base⟧:
+								if:
+									not:
+										⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+								then:
+									⦃⦃base⦄.IsEqualTo(⦃x⦄)⦄
+								else:
+									⦃⦃base⦄.IsEqualTo(⦃⦃x⦄(⦃0⦄)⦄)⦄
+							⟦representations⟧:
+									⦃⦃Class⦄.HasInstance(⦃representations⦄)⦄
+								and:
+									for all ⟦representation⟧:
+											⦃⦃representations⦄.Has(⦃representation⦄)⦄
+										if and only if:
+											let:
+												⟦isPositive⟧,⟦integerRepresentationBase⟧,⟦fractionalRepresentationBase⟧:
+													⦃⦃(⦃isPositive⦄,⦃integerRepresentationBase⦄,⦃fractionalRepresentationBase⦄)⦄.IsEqualTo(⦃⦃real⦄.MapToRealRepresentationInBase(⦃x⦄)⦄)⦄
+												⟦isPositiveRepresentation⟧:
+													if:
+														⦃isPositive⦄
+													then:
+														⦃⦃isPositiveRepresentation⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+													else:
+														⦃⦃isPositiveRepresentation⦄.IsEqualTo(⦃unicodeCodePoints -⦄)⦄
+												⟦integerRepresentation⟧,⟦fractionalRepresentation⟧:
+													for all ⟦typeIdentifier⟧:
+														if:
+															⦃⦃{
+																⦃unicodeCodePoints integer⦄,
+																⦃unicodeCodePoints fractional⦄
+															}⦄.Has(⦃typeIdentifier⦄)⦄
+														then:
+																⦃⦃Sequence⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Representation⦄)⦄
+															and:
+																⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Representation⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄
+															and:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Representation⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦digitRepresentation⟧:
+																				⦃⦃digitRepresentation⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Representation⦄(⦃index⦄)⦄)⦄
+																			⦃⦃UnicodeCodePoint⦄.HasInstance(⦃digitRepresentation⦄)⦄
+																		and:
+																			let:
+																				⟦digit⟧:
+																					⦃⦃digit⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase⦄(⦃index⦄)⦄)⦄
+																				⟦codePoint⟧:
+																					⦃⦃codePoint⦄.IsEqualTo(⦃⦃digitRepresentation⦄.GetCodePoint()⦄)⦄
+																			if:
+																				⦃⦃digit⦄.IsInferiorTo(⦃10⦄)⦄
+																			then:
+																				⦃⦃codePoint⦄.IsEqualTo(⦃⦃48⦄.Add(⦃digit⦄)⦄)⦄
+																			else:
+																				there exists ⟦lettersBaseCodePoint⟧:
+																						⦃⦃{⦃65⦄,⦃97⦄}⦄.Has(⦃lettersBaseCodePoint⦄)⦄
+																					and:
+																						⦃⦃codePoint⦄.IsEqualTo(⦃⦃lettersBaseCodePoint⦄.Add(⦃⦃digit⦄.Subtract(⦃10⦄)⦄)⦄)⦄
+											⦃⦃representation⦄.IsEqualTo(⦃⦃(
+												⦃isPositiveRepresentation⦄,
+												⦃integerRepresentation⦄,
+												⦃unicodeCodePoints .⦄,
+												⦃fractionalRepresentation⦄
+											)⦄.GetConcatenation()⦄)⦄
+							⟦representationOrRepresentations⟧:
+								⦃⦃representationOrRepresentations⦄.IsEqualTo(⦃⦃real⦄.MapToRealUnicodeRepresentationInBase(⦃x⦄)⦄)⦄
+						if:
+							⦃⦃base⦄.IsInferiorOrEqualTo(⦃10⦄)⦄
+						then:
+							let:
+								⟦representation⟧:
+									⦃⦃representation⦄.IsEqualTo(⦃representationOrRepresentations⦄)⦄
+							⦃⦃{⦃representation⦄}⦄.IsEqualTo(⦃representations⦄)⦄
+						else:
+							⦃⦃representationOrRepresentations⦄.IsEqualTo(⦃representations⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToRealUnicodeLowerCaseRepresentationInBase⦄,⦃method ⦃Real⦄.MapToRealUnicodeUpperCaseRepresentationInBase⦄
+	for all ⟦real⟧:
+		if:
+			⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Lower⦄,
+						⦃unicodeCodePoints Upper⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						for all ⟦x⟧:
+								⦃⦃⦃⦃real⦄.MapToRealUnicode⟦⟦⦃typeIdentifier⦄⟧⟧CaseRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							if and only if:
+									⦃⦃⦃⦃real⦄.MapToRealUnicodeRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+								and:
+									let:
+										⟦base⟧:
+											if:
+												not:
+													⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+											then:
+												⦃⦃base⦄.IsEqualTo(⦃x⦄)⦄
+											else:
+												⦃⦃base⦄.IsEqualTo(⦃⦃x⦄(⦃0⦄)⦄)⦄
+									⦃⦃integer 10⦄.IsInferiorTo(⦃base⦄)⦄
+					and:
+						for all ⟦x⟧:
+							if:
+								⦃⦃⦃⦃real⦄.MapToRealUnicode⟦⟦⦃typeIdentifier⦄⟧⟧CaseRepresentationInBase⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							then:
+								let:
+									⟦representation⟧:
+										⦃⦃representation⦄.IsEqualTo(⦃⦃real⦄.MapToRealUnicode⟦⟦⦃typeIdentifier⦄⟧⟧CaseRepresentationInBase(⦃x⦄)⦄)⦄
+									⦃⦃⦃real⦄.MapToRealUnicodeRepresentationInBase(⦃x⦄)⦄.Has(⦃representation⦄)⦄
+								and:
+									for all ⟦index⟧:
+										if:
+											⦃⦃⦃representation⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+										then:
+											not:
+												let:
+													⟦ordinals⟧:
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Upper⦄)⦄
+														then:
+															⦃⦃ordinals⦄.IsEqualTo(⦃(⦃65⦄,⦃91⦄)⦄)⦄
+														else:
+															⦃⦃ordinals⦄.IsEqualTo(⦃(⦃97⦄,⦃123⦄)⦄)⦄
+												⦃⦃⦃⦃FiniteOrdinalRange⦄(⦃ordinals⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃⦃⦃representation⦄(⦃index⦄)⦄.GetCodePoint()⦄)⦄
+
+define ⦃method ⦃Real⦄.MapToOrdinal⦄,⦃method ⦃Real⦄.MapToCardinal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Ord⦄,
+				⦃unicodeCodePoints Card⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦real⟧:
+				if:
+					⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃real⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦y⟧:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧inal⦄.HasInstance(⦃y⦄)⦄
+								and:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃⦃y⦄.MapToReal()⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Real⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

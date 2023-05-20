@@ -1,0 +1,243 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnicodeCodePoint⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃UnicodeCodePoint⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetCodePoint⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetCodePoint⦄,⦃GetCodePoint⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										there exists ⟦ordinalNotation⟧:
+											let:
+												⟦regularExpression⟧:
+														⦃⦃RegularExpression⦄.HasInstance(⦃regularExpression⦄)⦄
+													and:
+														⦃⦃⦃regularExpression⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints 0|[1-9][0-9]{,3}|[1-4][0-9]{4}|5[0-4][0-9]{3}|55[0-1][0-9]{2}|552[0-8][0-9]|5529[0-5]|5734[4-9]|573[5-9][0-9]|57[4-9][0-9]{2}|5[8-9][0-9]{3}|[6-9][0-9]{4}|[1-9][0-9]{5}|10[0-9]{5}|110[0-9]{4}|111[0-3][0-9]{3}|11140[0-9]{2}|111410[0-9]|111411[0-1]⦄)⦄
+												⦃⦃⦃regularExpression⦄.GetLanguage()⦄.Has(⦃ordinalNotation⦄)⦄
+											and:
+												⦃⦃⦃GetCodePoint⦄()⦄.IsEqualTo(⦃⟦⟦⦃ordinalNotation⦄⟧⟧⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦unicodeCodePoint⟧:
+									⦃⦃unicodeCodePoint⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃UnicodeCodePoint⦄.HasInstance(⦃unicodeCodePoint⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃unicodeCodePoint⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃UnicodeCodePoint⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃UnicodeCodePoint⦄.MapToClass⦄
+	for all ⟦unicodeCodePoint⟧:
+		if:
+			⦃⦃UnicodeCodePoint⦄.HasInstance(⦃unicodeCodePoint⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃unicodeCodePoint⦄,
+				⦃⦃unicodeCodePoint⦄.GetCodePoint()⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.EscapeUnicodeCodePoints⦄
+	for all ⟦unicodeCodePoints⟧:
+		if:
+			⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.HasInstance(⦃unicodeCodePoints⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃unicodeCodePoints⦄.EscapeUnicodeCodePoints⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦escapeUnicodeCodePoint⟧,⟦escapeClass⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃escapeUnicodeCodePoint⦄,⦃escapeClass⦄)⦄)⦄
+								or:
+									⦃⦃x⦄.IsEqualTo(⦃escapeUnicodeCodePoint⦄)⦄
+							and:
+								⦃⦃UnicodeCodePoint⦄.HasInstance(⦃escapeUnicodeCodePoint⦄)⦄
+							and:
+								⦃⦃⦃Class⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.HasInstance(⦃escapeClass⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃unicodeCodePoints⦄.EscapeUnicodeCodePoints⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦escapeUnicodeCodePoint⟧,⟦escapeClass⟧:
+								if:
+									⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+								then:
+									⦃⦃(⦃escapeUnicodeCodePoint⦄,⦃escapeClass⦄)⦄.IsEqualTo(⦃x⦄)⦄
+								else:
+										⦃⦃escapeUnicodeCodePoint⦄.IsEqualTo(⦃x⦄)⦄
+									and:
+										⦃⦃escapeClass⦄.IsEqualTo(⦃⦃UnicodeCodePoint⦄.MapToClass()⦄)⦄
+							⟦escapedUnicodeCodePoints⟧:
+								⦃⦃escapedUnicodeCodePoints⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄.EscapeUnicodeCodePoints(⦃x⦄)⦄)⦄
+						if:
+							⦃⦃unicodeCodePoints⦄.IsEqualTo(⦃⦄)⦄
+						then:
+							⦃⦃escapedUnicodeCodePoints⦄.IsEqualTo(⦃⦄)⦄
+						else:
+							let:
+								⟦escapedUnicodeCodePoint⟧:
+									let:
+										⟦unicodeCodePoint⟧:
+											⦃⦃unicodeCodePoint⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄(⦃0⦄)⦄)⦄
+									if:
+										not:
+											⦃⦃escapeClass⦄.Has(⦃unicodeCodePoint⦄)⦄
+									then:
+										⦃⦃escapedUnicodeCodePoint⦄.IsEqualTo(⦃(⦃unicodeCodePoint⦄)⦄)⦄
+									else:
+										⦃⦃escapedUnicodeCodePoint⦄.IsEqualTo(⦃(⦃escapeUnicodeCodePoint⦄,⦃unicodeCodePoint⦄)⦄)⦄
+							⦃⦃escapedUnicodeCodePoints⦄.IsEqualTo(⦃⦃escapedUnicodeCodePoint⦄.GetConcatenationWith(⦃⦃⦃unicodeCodePoints⦄.GetEndingSubSequence(⦃1⦄)⦄.EscapeUnicodeCodePoints(⦃x⦄)⦄)⦄)⦄
+
+define ⦃method ⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.UnEscapeUnicodeCodePoints⦄
+	for all ⟦unicodeCodePoints⟧:
+		if:
+			⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.HasInstance(⦃unicodeCodePoints⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃unicodeCodePoints⦄.UnEscapeUnicodeCodePoints⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦escapeUnicodeCodePoints⟧,⟦escapeClass⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃escapeUnicodeCodePoints⦄,⦃escapeClass⦄)⦄)⦄
+								or:
+									⦃⦃x⦄.IsEqualTo(⦃escapeUnicodeCodePoints⦄)⦄
+							and:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints UnicodeCodePoints⦄,
+											⦃unicodeCodePoints Class⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+										⦃⦃⦃Class⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.HasInstance(⦃escape⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃unicodeCodePoints⦄.UnEscapeUnicodeCodePoints⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦escapeUnicodeCodePoints⟧,⟦escapeClass⟧:
+								if:
+									⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+								then:
+									⦃⦃(⦃escapeUnicodeCodePoints⦄,⦃escapeClass⦄)⦄.IsEqualTo(⦃x⦄)⦄
+								else:
+										⦃⦃escapeUnicodeCodePoints⦄.IsEqualTo(⦃x⦄)⦄
+									and:
+										⦃⦃escapeClass⦄.IsEqualTo(⦃⦃UnicodeCodePoint⦄.MapToClass()⦄)⦄
+							⟦unEscapedUnicodeCodePoints⟧:
+								⦃⦃unEscapedUnicodeCodePoints⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄.UnEscapeUnicodeCodePoints(⦃x⦄)⦄)⦄
+						if:
+							⦃⦃unicodeCodePoints⦄.IsEqualTo(⦃⦄)⦄
+						then:
+							⦃⦃unEscapedUnicodeCodePoints⦄.IsEqualTo(⦃⦄)⦄
+						else:
+							let:
+								⟦unEscapedUnicodeCodePoint⟧,⟦unEscapedUnicodeCodePointRangeUpperBound⟧:
+									let:
+										⟦index⟧:
+											if:
+												not:
+														⦃⦃escapeUnicodeCodePoints⦄.Has(⦃⦃unicodeCodePoints⦄(⦃0⦄)⦄)⦄
+													and:
+														⦃⦃escapeClass⦄.Has(⦃⦃unicodeCodePoints⦄(⦃1⦄)⦄)⦄
+											then:
+												⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+											else:
+												⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+										⦃⦃unEscapedUnicodeCodePoint⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄(⦃index⦄)⦄)⦄
+									and:
+										⦃⦃unEscapedUnicodeCodePointRangeUpperBound⦄.IsEqualTo(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄
+							⦃⦃unEscapedUnicodeCodePoints⦄.IsEqualTo(⦃⦃(⦃unEscapedUnicodeCodePoint⦄)⦄.GetConcatenationWith(⦃⦃⦃unicodeCodePoints⦄.GetEndingSubSequence(⦃unEscapedUnicodeCodePointRangeUpperBound⦄)⦄.UnEscapeUnicodeCodePoints(⦃x⦄)⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.GetWithFirstUnicodeCodePointToLowerCase⦄,⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.GetWithFirstUnicodeCodePointToUpperCase⦄
+	for all ⟦unicodeCodePoints⟧:
+		if:
+			⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.HasInstance(⦃unicodeCodePoints⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Lower⦄,
+						⦃unicodeCodePoints Upper⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃unicodeCodePoints⦄.GetWithFirstUnicodeCodePointTo⟦⟦⦃typeIdentifier⦄⟧⟧Case⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦unicodeCodePointsWithFirstUnicodeCodePointToCase⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃unicodeCodePointsWithFirstUnicodeCodePointToCase⦄)⦄)⦄
+								and:
+											⦃⦃unicodeCodePoints⦄.IsEqualTo(⦃⦄)⦄
+										and:
+											⦃⦃unicodeCodePointsWithFirstUnicodeCodePointToCase⦄.IsEqualTo(⦃⦄)⦄
+									or:
+										let:
+											⟦codePoint⟧,⟦unicodeCodePointsEnding⟧:
+													there exists ⟦range⟧:
+															there exists ⟦ordinals⟧:
+																	⦃⦃{
+																		⦃(⦃65⦄,⦃91⦄)⦄,
+																		⦃(⦃97⦄,⦃123⦄)⦄
+																	}⦄.Has(⦃ordinals⦄)⦄
+																and:
+																	⦃⦃range⦄.IsEqualTo(⦃⦃FiniteOrdinalRange⦄(⦃ordinals⦄)⦄)⦄
+														and:
+															⦃⦃⦃range⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃codePoint⦄)⦄
+												and:
+													⦃⦃⦃⦃UnicodeCodePoint⦄(⦃codePoint⦄)⦄.GetConcatenationWith(⦃unicodeCodePointsEnding⦄)⦄.IsEqualTo(⦃unicodeCodePoints⦄)⦄
+											⟦codePoint0⟧:
+												if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Lower⦄)⦄
+													if and only if:
+															⦃⦃65⦄.IsInferiorOrEqualTo(⦃codePoint⦄)⦄
+														and:
+															⦃⦃codePoint⦄.IsInferiorTo(⦃91⦄)⦄
+												then:
+													let:
+														⟦typeIdentifier0⟧:
+															if:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Lower⦄)⦄
+															then:
+																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Add⦄)⦄
+															else:
+																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Subtract⦄)⦄
+													⦃⦃codePoint0⦄.IsEqualTo(⦃⦃codePoint⦄.⟦⟦⦃typeIdentifier0⦄⟧⟧(⦃32⦄)⦄)⦄
+												else:
+													⦃⦃codePoint0⦄.IsEqualTo(⦃codePoint⦄)⦄
+										⦃⦃unicodeCodePointsWithFirstUnicodeCodePointToCase⦄.IsEqualTo(⦃⦃⦃UnicodeCodePoint⦄(⦃codePoint0⦄)⦄.GetConcatenationWith(⦃unicodeCodePointsEnding⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃UnicodeCodePoint⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

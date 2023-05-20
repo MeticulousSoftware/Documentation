@@ -1,0 +1,198 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaModuleEquippedWithPartialMultiLinearForm⦄,⦃ModuleEquippedWithPartialMultiLinearForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaLeftModuleEquippedWithPartialMultiLinearForm⦄,⦃MetaRightModuleEquippedWithPartialMultiLinearForm⦄,
+⦃LeftModuleEquippedWithPartialMultiLinearForm⦄,⦃RightModuleEquippedWithPartialMultiLinearForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃Meta⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+								and:
+									let:
+										⟦equipments⟧:
+											⦃⦃equipments⦄.IsEqualTo(⦃⦃module⦄.GetEquipments()⦄)⦄
+										let:
+											⟦multiLinearForm⟧:
+												⦃⦃multiLinearForm⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints multiLinearForm⦄)⦄)⦄
+											⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃multiLinearForm⦄)⦄
+										and:
+											let:
+												⟦scalarModule⟧:
+														⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄.HasInstance(⦃scalarModule⦄)⦄
+													and:
+														let:
+															⟦scalarStructure⟧:
+																⦃⦃scalarStructure⦄.IsEqualTo(⦃⦃module⦄.GetScalarStructure()⦄)⦄
+															⦃⦃⦃scalarModule⦄.GetScalarStructure()⦄.IsEqualTo(⦃scalarStructure⦄)⦄
+														and:
+															let:
+																⟦additionStructure⟧,⟦multiplicationStructure⟧:
+																	⦃⦃(⦃additionStructure⦄,⦃multiplicationStructure⦄)⦄.IsEqualTo(⦃⦃module⦄.GetStructures()⦄)⦄
+																⦃⦃⦃scalarModule⦄.GetStructure()⦄.IsEqualTo(⦃additionStructure⦄)⦄
+															and:
+																⦃⦃⦃scalarModule⦄.GetScalarMultiplication()⦄.IsEqualTo(⦃⦃multiplicationStructure⦄.GetAddition()⦄)⦄
+											⦃⦃multiLinearForm⦄.IsPartialMultiStructurePreversingMapOf(⦃⦃⦃module⦄.GetModule()⦄.Repeat(⦃⦃multiLinearForm⦄.GetDomainArity()⦄)⦄,⦃scalarModule⦄)⦄
+									and:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+										then:
+											⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaModuleEquippedWithPartialMultiLinearForm⦄.GetMultiLinearForm⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃MetaModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+				⦃⦃⦃⦃module⦄.GetMultiLinearForm⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃module⦄.GetMultiLinearForm()⦄.IsEqualTo(⦃⦃⦃module⦄.GetEquipments()⦄(⦃unicodeCodePoints multiLinearForm⦄)⦄)⦄
+
+define ⦃method ⦃MetaModuleEquippedWithPartialMultiLinearForm⦄.GetModuleWithMultiLinearForm⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructureWithRelation⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦module⟧:
+						⦃⦃module⦄.IsEqualTo(⦃⦃structure⦄.GetModuleWithMultiLinearForm()⦄)⦄
+					⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃module⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃LeftModuleEquippedWithPartialMultiLinearForm⦄,⦃RightModuleEquippedWithPartialMultiLinearForm⦄}⦄.GetEquipmentsDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialMultiLinearForm⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.GetEquipmentsDomain()⦄.GetUnionWith(⦃{⦃unicodeCodePoints multiLinearForm⦄}⦄)⦄)⦄
+
+define ⦃method ⦃ModuleEquippedWithPartialMultiLinearForm⦄.GetSimilarStructures⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦module0⟧:
+					⦃⦃⦃module⦄.GetSimilarStructures()⦄.Has(⦃module0⦄)⦄
+				if and only if:
+						⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module0⦄)⦄
+					and:
+						⦃⦃⦃⦃module⦄.GetModule()⦄.GetSimilarStructures()⦄.Has(⦃⦃module0⦄.GetModule()⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints DomainArity⦄,
+									⦃unicodeCodePoints SharedCoDomainSignatureClass⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(⦃module0⦄,⦃module⦄)⦄.MapWith(⦃unaryFunction GetMultiLinearForm⦄)⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦modules⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃modules⦄)⦄
+					and:
+						⦃⦃⦃modules⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃modules⦄)⦄
+					if and only if:
+							⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃modules⦄.MapWith(⦃unaryFunction GetModule⦄)⦄)⦄
+						and:
+							let:
+								⟦function0⟧,⟦function1⟧:
+									⦃⦃(⦃function0⦄,⦃function1⦄)⦄.IsEqualTo(⦃⦃⦃modules⦄.MapWith(⦃unaryFunction GetMultiLinearForm⦄)⦄.MapWith(⦃unaryFunction GetSimplifiedFunction⦄)⦄)⦄
+							 for all ⟦sequence⟧:
+								if:
+									⦃⦃⦃function0⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+								then:
+									⦃⦃⦃function0⦄(⦃sequence⦄)⦄.IsEqualTo(⦃⦃function1⦄(⦃⦃sequence⦄.MapWith(⦃⦃operation⦄.GetSimplifiedFunction()⦄)⦄)⦄)⦄
+
+define ⦃method ⦃ModuleEquippedWithPartialMultiLinearForm⦄.GetStructureInducedBy⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃module⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedModule⟧:
+							⦃⦃inducedModule⦄.IsEqualTo(⦃⦃module⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃inducedModule⦄)⦄
+					and:
+						let:
+							⟦inducedModuleModule⟧:
+								⦃⦃inducedModuleModule⦄.IsEqualTo(⦃⦃inducedStructure⦄.GetModule()⦄)⦄
+							⦃⦃inducedModuleModule⦄.IsEqualTo(⦃⦃⦃module⦄.GetModule()⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						and:
+							⦃⦃⦃inducedModule⦄.GetMultiLinearForm()⦄.IsEqualTo(⦃⦃⦃module⦄.GetMultiLinearForm()⦄.GetStructureInducedBy(⦃inducedModuleModule⦄,⦃⦃module⦄.GetScalars()⦄)⦄)⦄
+
+define ⦃method ⦃ModuleEquippedWithPartialMultiLinearForm⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃ModuleEquippedWithPartialMultiLinearForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃module⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					⦃⦃⦃module⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄.IsEqualTo(⦃⦃module⦄.GetStructureInducedBy(⦃⦃⦃module⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄)⦄

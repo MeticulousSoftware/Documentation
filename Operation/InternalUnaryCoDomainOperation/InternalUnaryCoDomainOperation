@@ -1,0 +1,96 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃InternalUnaryCoDomainOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃InternalUnaryCoDomainOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃InternalUnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Internal⦄,
+							⦃unicodeCodePoints UnaryCoDomain⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.HasInstance(⦃operation⦄)⦄
+
+define ⦃method ⦃InternalUnaryCoDomainOperation⦄.GetSimilarStructures⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃InternalUnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦operation0⟧:
+					⦃⦃⦃operation⦄.GetSimilarStructures()⦄.Has(⦃operation0⦄)⦄
+				if and only if:
+						⦃⦃InternalUnaryCoDomainOperation⦄.HasInstance(⦃operation0⦄)⦄
+					and:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃operation0⦄,⦃operation⦄)⦄.MapWith(⦃unaryFunction GetDomainArity⦄)⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦operations⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃operations⦄)⦄
+					and:
+						⦃⦃⦃operations⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃InternalUnaryCoDomainOperation⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃operations⦄)⦄
+					if and only if:
+						let:
+							⟦function0⟧,⟦function1⟧:
+								⦃⦃(⦃function0⦄,⦃function1⦄)⦄.IsEqualTo(⦃⦃operations⦄.MapWith(⦃unaryFunction GetFunction⦄)⦄)⦄
+						 for all ⟦sequence⟧:
+							if:
+								⦃⦃⦃function0⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+							then:
+								⦃⦃⦃⦃operation⦄.GetFunction()⦄(⦃⦃function0⦄(⦃sequence⦄)⦄)⦄.IsEqualTo(⦃⦃function1⦄(⦃⦃sequence⦄.MapWith(⦃⦃operation⦄.GetSimplifiedFunction()⦄)⦄)⦄)⦄
+
+define ⦃method ⦃InternalUnaryCoDomainOperation⦄.IsCompatibleWithTheRelation⦄
+-	for all ⟦operation⟧:
+		if:
+			⦃⦃InternalUnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦relation⟧:
+				if:
+					⦃⦃⦃⦃operation⦄.IsCompatibleWithTheRelation⦄.GetDomain()⦄.Has(⦃relation⦄)⦄
+				then:
+						⦃⦃operation⦄.IsCompatibleWithTheRelation(⦃relation⦄)⦄
+					if and only if:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃relation⦄,⦃operation⦄)⦄.MapWith(⦃unaryFunction GetSharedSignatureClass⦄)⦄)⦄
+						and:
+							let:
+								⟦function⟧:
+									⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetFunction()⦄)⦄
+							for all ⟦sequences⟧:
+								if:
+										⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequences⦄)⦄
+									and:
+										⦃⦃⦃sequences⦄.GetLength()⦄.IsEqualTo(⦃⦃relation⦄.GetArity()⦄)⦄
+									and:
+										let:
+											⟦arity⟧:
+												⦃⦃arity⦄.IsEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+											for all ⟦index⟧:
+												if:
+													⦃⦃⦃sequences⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+												then:
+													let:
+														⟦sequence⟧:
+															⦃⦃sequence⦄.IsEqualTo(⦃⦃sequences⦄(⦃index⦄)⦄)⦄
+														⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+													and:
+														⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃arity⦄)⦄
+										and:
+											for all ⟦index⟧:
+												if:
+													⦃⦃arity⦄.IsSuperiorTo(⦃index⦄)⦄
+												then:
+													⦃⦃⦃function⦄(⦃⦃⦃sequences⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄(⦃0⦄)⦄
+								then:
+									⦃⦃⦃function⦄(⦃⦃sequences⦄.MapWith(⦃⦃operation⦄.GetSimplifiedFunction()⦄)⦄)⦄(⦃0⦄)⦄

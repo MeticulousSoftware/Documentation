@@ -1,0 +1,61 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃InternalOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃InternalOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃InternalOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+					⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Co⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃operation⦄.HasShared⟦⟦⦃typeIdentifier⦄⟧⟧DomainSignatureClass()⦄
+				and:
+					if:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ⦄,
+									⦃unicodeCodePoints Co⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃0⦄.IsInferiorTo(⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainArity()⦄)⦄
+					then:
+						⦃⦃⦃operation⦄.GetSharedDomainSignatureClass()⦄.IsEqualTo(⦃⦃operation⦄.GetSharedCoDomainSignatureClass()⦄)⦄
+
+define ⦃method ⦃Operation⦄.GetSharedSignatureClass⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			if:
+					⦃⦃InternalOperation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					there exists ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Co⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃0⦄.IsInferiorTo(⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainArity()⦄)⦄
+			then:
+				let:
+					⟦typeIdentifier⟧:
+						if:
+							⦃⦃0⦄.IsInferiorTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+						then:
+							⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+						else:
+							⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Co⦄)⦄
+				⦃⦃⦃operation⦄.GetSharedSignatureClass⦄.IsEqualTo(⦃⦃operation⦄.GetShared⟦⟦⦃typeIdentifier⦄⟧⟧DomainSignatureClass⦄)⦄
+			else:
+				⦃⦃⦃⦃operation⦄.GetSharedSignatureClass⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄

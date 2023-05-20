@@ -1,0 +1,78 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FaithFulPartialModule⦄,⦃FaithFulModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃FaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃FaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧FaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftFaithFulPartialModule⦄,⦃RightFaithFulPartialModule⦄,
+⦃LeftFaithFulModule⦄,⦃RightFaithFulModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧FaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧FaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+								and:
+									⦃⦃⦃module⦄.GetAnnihilatorsFor(⦃⦃module⦄.GetClass()⦄)⦄.IsEqualTo(⦃⦃⦃⦃module⦄.GetScalarStructure()⦄.GetAddition()⦄.GetIdentities()⦄)⦄
+
+
+
+define ⦃BiFaithFulPartialModule⦄,⦃BiFaithFulModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃BiFaithFulPartialModule⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃BiFaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+							⦃⦃Bi⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+						and:
+							for all ⟦typeIdentifier0⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Left⦄,
+										⦃unicodeCodePoints Right⦄
+									}⦄.Has(⦃typeIdentifier0⦄)⦄
+								then:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧FaithFul⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄

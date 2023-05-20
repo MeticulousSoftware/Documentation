@@ -1,0 +1,41 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃NonEmptyTransFiniteSequence⦄,
+⦃NonEmptySequence⦄,
+⦃NonEmptyFiniteSequence⦄,
+⦃method ⦃{
+	⦃NonEmptyTransFiniteSequence⦄,
+	⦃Sequence⦄,⦃NonEmptySequence⦄,
+	⦃FiniteSequence⦄,⦃NonEmptyFiniteSequence⦄
+}⦄.GetTypeInducedBy⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Finite⦄,
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+					⦃⦃NonEmpty⟦⟦⦃typeIdentifier⦄⟧⟧Sequence⦄.HasInstance(⦃NonEmptyMultiClassWithSize⦄)⦄
+				and:
+					for all ⟦sequence⟧:
+							⦃⦃NonEmpty⟦⟦⦃typeIdentifier⦄⟧⟧Sequence⦄.HasInstance(⦃sequence⦄)⦄
+						if and only if:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Sequence⦄.HasInstance(⦃sequence⦄)⦄
+							and:
+								not:
+									⦃⦃sequence⦄.IsEqualTo(⦃()⦄)⦄
+			and:
+				for all ⟦typeIdentifier0⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints NonEmpty⦄,
+						}⦄.Has(⦃typeIdentifier0⦄)⦄
+					then:
+						for all ⟦x⟧:
+								⦃⦃⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Sequence⦄.GetTypeInducedBy⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+							if and only if:
+								there exists ⟦type⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃type⦄,⦃⦃⦃⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃type⦄)⦄.MapToClass()⦄.FilterWith(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Sequence⦄.HasInstance⦄)⦄.GetGeneratedType()⦄)⦄)⦄

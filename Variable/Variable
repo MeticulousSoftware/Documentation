@@ -1,0 +1,67 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Variable⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Variable⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetIdentifier⟧,
+									⟦GetValue⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetIdentifier⦄,⦃GetIdentifier⦄)⦄,
+											⦃(⦃unicodeCodePoints GetValue⦄,⦃GetValue⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃⦃⦃⦃(⦃UnicodeCodePoint⦄,⦃Variable⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetUnion()⦄.GetGeneratedType()⦄)⦄.HasInstance(⦃⦃GetIdentifier⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦variable⟧:
+									⦃⦃variable⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Variable⦄.HasInstance(⦃variable⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃variable⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Variable⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Variable⦄.MapToClass⦄
+	for all ⟦variable⟧:
+		if:
+			⦃⦃Variable⦄.HasInstance(⦃variable⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃variable⦄,
+				⦃(⦃⦃variable⦄.GetIdentifier()⦄,⦃⦃variable⦄.GetValue()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Variable⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

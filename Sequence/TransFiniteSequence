@@ -1,0 +1,539 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃TransFiniteSequence⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃TransFiniteSequence⦄)⦄
+	and:
+		⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃TransFiniteSequence⦄,⦃MetaFunction⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetGraph⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetGraph⦄,⦃GetGraph⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										there exists ⟦sequence⟧:
+												⦃⦃Function⦄.HasInstance(⦃sequence⦄)⦄
+											and:
+												⦃⦃GetGraph⦄.IsEqualTo(⦃⦃sequence⦄.GetGraph⦄)⦄
+											and:
+												there exists ⟦ordinal⟧:
+														⦃⦃Ordinal⦄.HasInstance(⦃ordinal⦄)⦄
+													and:
+														⦃⦃⦃sequence⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃ordinal⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦sequence⟧:
+									⦃⦃sequence⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃sequence⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃TransFiniteSequence⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.GetLength⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃⦃⦃sequence⦄.GetLength⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃sequence⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃sequence⦄.GetLength()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.GetIndexAndElements⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃⦃⦃sequence⦄.GetIndexAndElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦indexAndElements⟧:
+						⦃⦃indexAndElements⦄.IsEqualTo(⦃⦃sequence⦄.GetIndexAndElements()⦄)⦄
+					⦃⦃TransFiniteSequence⦄.HasInstance(⦃indexAndElements⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃indexAndElements⦄,⦃sequence⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+				and:
+					for all ⟦index⟧:
+						if:
+							⦃⦃⦃indexAndElements⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+						then:
+							⦃⦃⦃indexAndElements⦄(⦃index⦄)⦄.IsEqualTo(⦃(⦃index⦄,⦃⦃sequence⦄(⦃index⦄)⦄)⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.GetPermutationMultiClass⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃⦃⦃sequence⦄.GetPermutationMultiClass⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦multiClass⟧:
+						⦃⦃multiClass⦄.IsEqualTo(⦃⦃sequence⦄.GetPermutationMultiClass()⦄)⦄
+					⦃⦃MultiClassWithSize⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+					⦃⦃⦃multiClass⦄.GetPermutations()⦄.Has(⦃sequence⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.GetSubSequence⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				for all ⟦range⟧:
+						⦃⦃⦃⦃sequence⦄.GetSubSequence⦄.GetDomain()⦄.Has(⦃range⦄)⦄
+					if and only if:
+							⦃⦃OrdinalRange⦄.HasInstance(⦃range⦄)⦄
+						and:
+							⦃⦃⦃range⦄.GetUpperBound()⦄.IsInferiorOrEqualTo(⦃⦃sequence⦄.GetLength()⦄)⦄
+			and:
+				for all ⟦range⟧:
+					if:
+						⦃⦃⦃⦃sequence⦄.GetSubSequence⦄.GetDomain()⦄.Has(⦃range⦄)⦄
+					then:
+						let:
+							⟦lowerBound⟧,⟦upperBound⟧:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints Lower⦄,
+											⦃unicodeCodePoints Upper⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+										⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Bound⦄.IsEqualTo(⦃⦃range⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Bound()⦄)⦄
+							⟦subSequence⟧:
+								⦃⦃subSequence⦄.IsEqualTo(⦃⦃sequence⦄.GetSubSequence(⦃range⦄)⦄)⦄
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃subSequence⦄)⦄
+						and:
+							⦃⦃⦃subSequence⦄.GetLength()⦄.IsEqualTo(⦃⦃upperBound⦄.Subtract(⦃lowerBound⦄)⦄)⦄
+						and:
+							for all ⟦index⟧:
+								if:
+									⦃⦃⦃subSequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+								then:
+									⦃⦃⦃subSequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃sequence⦄(⦃⦃index⦄.Add(⦃lowerBound⦄)⦄)⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.GetBeginningSubSequence⦄,⦃method ⦃TransFiniteSequence⦄.GetEndingSubSequence⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+				if:
+					⦃⦃⦃{
+						⦃unicodeCodePoints Beginning⦄,
+						⦃unicodeCodePoints Ending⦄
+					}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃sequence⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧SubSequence⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦ordinal⟧:
+								let:
+									⟦ordinals⟧:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Beginning⦄)⦄
+										then:
+											⦃⦃ordinals⦄.IsEqualTo(⦃(⦃0⦄,⦃ordinal⦄)⦄)⦄
+										else:
+											⦃⦃ordinals⦄.IsEqualTo(⦃(⦃ordinal⦄,⦃⦃sequence⦄.GetLength()⦄)⦄)⦄
+								⦃⦃x⦄.IsEqualTo(⦃(⦃ordinal⦄,⦃⦃sequence⦄.GetSubSequence(⦃⦃OrdinalRange⦄(⦃ordinals⦄)⦄)⦄)⦄)⦄
+
+define ⦃method ⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃TransFiniteSequence⦄)⦄.GetConcatenation⦄
+	for all ⟦sequences⟧:
+		if:
+			⦃⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃TransFiniteSequence⦄)⦄.HasInstance(⦃sequences⦄)⦄
+		then:
+				⦃⦃⦃⦃sequences⦄.GetConcatenation⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦concatenation⟧:
+						⦃⦃concatenation⦄.IsEqualTo(⦃⦃sequences⦄.GetConcatenation()⦄)⦄
+					⦃⦃TransFiniteSequence⦄.HasInstance(⦃concatenation⦄)⦄
+				and:
+					there exists ⟦indexMap⟧:
+							⦃⦃Function⦄.HasInstance(⦃indexMap⦄)⦄
+						and:
+							for all ⟦indexes⟧:
+									⦃⦃⦃indexMap⦄.GetDomain()⦄.Has(⦃indexes⦄)⦄
+								if and only if:
+									there exists ⟦sequenceIndex⟧,⟦index⟧:
+											⦃⦃indexes⦄.IsEqualTo(⦃(⦃sequenceIndex⦄,⦃index⦄)⦄)⦄
+										and:
+											⦃⦃⦃⦃sequences⦄(⦃sequenceIndex⦄)⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+						and:
+							for all ⟦indexes0⟧,⟦indexes1⟧:
+								if:
+									⦃⦃binaryFunction IsInferiorTo⦄(⦃⦃(⦃indexes0⦄,⦃indexes1⦄)⦄.MapWith(⦃indexMap⦄)⦄)⦄
+								then:
+									let:
+										⟦sequenceIndex0⟧,⟦index0⟧,
+										⟦sequenceIndex1⟧,⟦index1⟧:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													let:
+														⟦typeIdentifier⟧:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+													⦃⦃(⦃sequenceIndex⟦⟦⦃typeIdentifier⦄⟧⟧⦄,⦃index⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄.IsEqualTo(⦃indexes⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+										⦃⦃sequenceIndex0⦄.IsInferiorTo(⦃sequenceIndex1⦄)⦄
+									or:
+											⦃⦃sequenceIndex0⦄.IsEqualTo(⦃sequenceIndex1⦄)⦄
+										and:
+											⦃⦃index0⦄.IsInferiorTo(⦃index1⦄)⦄
+						and:
+							⦃⦃⦃concatenation⦄.GetDomain()⦄.IsEqualTo(⦃⦃indexMap⦄.GetCoDomain()⦄)⦄
+						and:
+							for all ⟦index⟧:
+								if:
+									⦃⦃⦃concatenation⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+								then:
+									let:
+										⟦sequenceIndex⟧,⟦indexInSequence⟧:
+											⦃⦃index⦄.IsEqualTo(⦃⦃indexMap⦄(⦃sequenceIndex⦄,⦃indexInSequence⦄)⦄)⦄
+									⦃⦃⦃concatenation⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃sequences⦄(⦃sequenceIndex⦄)⦄(⦃indexInSequence⦄)⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.GetConcatenationWith⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃⦃⦃sequence⦄.GetConcatenationWith⦄.GetDomain()⦄.IsEqualTo(⦃⦃TransFiniteSequence⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦sequence0⟧:
+					if:
+						⦃⦃⦃⦃sequence⦄.GetConcatenationWith⦄.GetDomain()⦄.Has(⦃sequence0⦄)⦄
+					then:
+						⦃⦃⦃sequence⦄.GetConcatenationWith(⦃sequence0⦄)⦄.IsEqualTo(⦃⦃(⦃sequence⦄,⦃sequence0⦄)⦄.GetConcatenation()⦄)⦄
+
+define ⦃method ⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃TransFiniteSequence⦄)⦄.Join⦄
+	for all ⟦sequences⟧:
+		if:
+			⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃TransFiniteSequence⦄)⦄.HasInstance(⦃sequences⦄)⦄
+		then:
+				⦃⦃⦃⦃sequences⦄.Join⦄.GetDomain()⦄.IsEqualTo(⦃⦃TransFiniteSequence⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦separator⟧:
+					if:
+						⦃⦃⦃⦃sequences⦄.Join⦄.GetDomain()⦄.Has(⦃separator⦄)⦄
+					then:
+						let:
+							⟦reduce⟧:
+									⦃⦃Function⦄.HasInstance(⦃reduce⦄)⦄
+								and:
+									⦃⦃⦃reduce⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃TransFiniteSequence⦄,⦃TransFiniteSequence⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+								and:
+									for all ⟦x⟧:
+										if:
+											⦃⦃⦃reduce⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+										then:
+											let:
+												⟦accumulator⟧,⟦sequence⟧:
+													⦃⦃(⦃accumulator⦄,⦃sequence⦄)⦄.IsEqualTo(⦃x⦄)⦄
+												⟦reduced⟧:
+													⦃⦃reduced⦄.IsEqualTo(⦃⦃reduce⦄(⦃x⦄)⦄)⦄
+											if:
+												⦃⦃accumulator⦄.IsEqualTo(⦃⦄)⦄
+											then:
+												⦃⦃reduced⦄.IsEqualTo(⦃sequence⦄)⦄
+											else:
+												⦃⦃reduced⦄.IsEqualTo(⦃⦃(⦃accumulator⦄,⦃separator⦄,⦃sequence⦄)⦄.GetConcatenation()⦄)⦄
+						⦃⦃⦃sequences⦄.Join(⦃separator⦄)⦄.IsEqualTo(⦃⦃sequences⦄.ReduceWith(⦃reduce⦄,⦃⦄)⦄)⦄
+
+define ⦃method ⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.GetCartesianProduct⦄
+	for all ⟦multiClasses⟧:
+		if:
+			⦃⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.HasInstance(⦃multiClasses⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClasses⦄.GetCartesianProduct⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦cartesianProduct⟧:
+						⦃⦃cartesianProduct⦄.IsEqualTo(⦃⦃multiClasses⦄.GetCartesianProduct()⦄)⦄
+					⦃⦃MultiClass⦄.HasInstance(⦃cartesianProduct⦄)⦄
+				and:
+					for all ⟦x⟧:
+						let:
+							⟦multiplicity⟧:
+								⦃⦃multiplicity⦄.IsEqualTo(⦃⦃cartesianProduct⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄
+						if:
+							not:
+								let:
+									⟦sequence⟧:
+										⦃⦃sequence⦄.IsEqualTo(⦃x⦄)⦄
+									⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃sequence⦄,⦃multiClasses⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+						then:
+							⦃⦃multiplicity⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃0⦄)⦄)⦄
+						else:
+							let:
+								⟦sequence⟧:
+									⦃⦃sequence⦄.IsEqualTo(⦃x⦄)⦄
+								⟦getMultiplicity⟧:
+										⦃⦃Function⦄.HasInstance(⦃getMultiplicity⦄)⦄
+									and:
+										for all ⟦x⟧:
+												⦃⦃⦃getMultiplicity⦄.Graph()⦄.Has(⦃x⦄)⦄
+											if and only if:
+												there exists ⟦index⟧,⟦element⟧:
+													⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃index⦄,⦃element⦄)⦄,⦃⦃⦃multiClasses⦄(⦃index⦄)⦄.GetMultiplicityOf(⦃element⦄)⦄)⦄)⦄
+							⦃⦃multiplicity⦄.IsEqualTo(⦃⦃⦃⦃sequence⦄.GetIndexAndElements()⦄.MapWith(⦃getMultiplicity⦄)⦄.MultiplyAllCardinals()⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.GetCartesianProductWith⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClass⦄.GetCartesianProductWith⦄.GetDomain()⦄.IsEqualTo(⦃⦃MultiClass⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦multiClass0⟧:
+					if:
+						⦃⦃⦃⦃multiClass⦄.GetCartesianProductWith⦄.GetDomain()⦄.Has(⦃multiClass0⦄)⦄
+					then:
+						⦃⦃⦃multiClass⦄.GetCartesianProductWith(⦃sequence0⦄)⦄.IsEqualTo(⦃⦃(⦃multiClass⦄,⦃multiClass0⦄)⦄.GetCartesianProduct()⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.MapWith⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃sequence⦄.MapWith⦄,
+					⦃⦃⦃sequence⦄.GetCoDomain()⦄.MapToClassWith⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦map⟧:
+					if:
+						⦃⦃⦃⦃sequence⦄.MapWith⦄.GetDomain()⦄.Has(⦃map⦄)⦄
+					then:
+						let:
+							⟦mappedSequence⟧:
+								⦃⦃mappedSequence⦄.IsEqualTo(⦃⦃sequence⦄.MapWith(⦃map⦄)⦄)⦄
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃mappedSequence⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃mappedSequence⦄,⦃sequence⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+						and:
+							for all ⟦index⟧:
+								if:
+									⦃⦃⦃mappedSequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+								then:
+									⦃⦃⦃mappedSequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃map⦄(⦃⦃sequence⦄(⦃index⦄)⦄)⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.FilterWith⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃sequence⦄.FilterWith⦄,
+					⦃⦃⦃sequence⦄.GetCoDomain()⦄.FilterWith⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦test⟧:
+					if:
+						⦃⦃⦃⦃sequence⦄.FilterWith⦄.GetDomain()⦄.Has(⦃test⦄)⦄
+					then:
+						let:
+							⟦filteredSequence⟧:
+								⦃⦃filteredSequence⦄.IsEqualTo(⦃⦃sequence⦄.FilterWith(⦃test⦄)⦄)⦄
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃filteredSequence⦄)⦄
+						and:
+							let:
+								⟦indexMap⟧:
+										⦃⦃Function⦄.HasInstance(⦃indexMap⦄)⦄
+									and:
+										⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃indexMap⦄,⦃filteredSequence⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+									and:
+										for all ⟦index⟧:
+												⦃⦃⦃indexMap⦄.GetCoDomain()⦄.Has(⦃index⦄)⦄
+											if and only if:
+												⦃⦃test⦄(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+									and:
+										for all ⟦index0⟧,⟦index1⟧:
+											if:
+												⦃⦃binaryFunction IsInferiorTo⦄(⦃⦃(⦃index0⦄,⦃index1⦄)⦄.MapWith(⦃indexMap⦄)⦄)⦄
+											then:
+												⦃⦃index0⦄.IsInferiorTo(⦃index1⦄)⦄
+							for all ⟦index⟧:
+								if:
+									⦃⦃⦃filteredSequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+								then:
+									⦃⦃⦃filteredSequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃sequence⦄(⦃⦃indexMap⦄(⦃index⦄)⦄)⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.FindFirstWith⦄,⦃method ⦃TransFiniteSequence⦄.FindLastWith⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints First⦄,
+						⦃unicodeCodePoints Last⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+							⦃⦃sequence⦄.Find⟦⟦⦃typeIdentifier⦄⟧⟧With⦄,
+							⦃⦃sequence⦄.FilterWith⦄
+						)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+					and:
+						for all ⟦test⟧:
+							if:
+								⦃⦃⦃⦃sequence⦄.Find⟦⟦⦃typeIdentifier⦄⟧⟧With⦄.GetDomain()⦄.Has(⦃test⦄)⦄
+							then:
+								let:
+									⟦filteredSequence⟧:
+										⦃⦃filteredSequence⦄.IsEqualTo(⦃⦃sequence⦄.FilterWith(⦃test⦄)⦄)⦄
+									⟦foundElement⟧:
+										⦃⦃foundElement⦄.IsEqualTo(⦃⦃sequence⦄.Find⟦⟦⦃typeIdentifier⦄⟧⟧With(⦃test⦄)⦄)⦄
+								if:
+									not:
+										⦃⦃filteredSequence⦄.IsEqualTo(⦃()⦄)⦄
+								then:
+									let:
+										⟦indexOfFoundElement⟧:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints First⦄)⦄
+											then:
+												⦃⦃indexOfFoundElement⦄.IsEqualTo(⦃0⦄)⦄
+											else:
+												⦃⦃indexOfFoundElement⦄.IsEqualTo(⦃⦃⦃filteredSequence⦄.GetLength()⦄.Subtract(⦃1⦄)⦄)⦄
+									⦃⦃foundElement⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃⦃filteredSequence⦄(⦃indexOfFoundElement⦄)⦄)⦄)⦄)⦄
+								else:
+									⦃⦃foundElement⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+
+define ⦃method ⦃TransFiniteSequence⦄.SortWith⦄,⦃method ⦃TransFiniteSequence⦄.StableSortWith⦄
+	for all ⟦sequence⟧:
+		if:
+			⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints Stable⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						for all ⟦compare⟧:
+								⦃⦃⦃⦃sequence⦄.⟦⟦⦃typeIdentifier⦄⟧⟧SortWith⦄.GetDomain()⦄.Has(⦃compare⦄)⦄
+							if and only if:
+								there exists ⟦relation⟧:
+										⦃⦃NonStrictWeakOrder⦄.HasInstance(⦃relation⦄)⦄
+									and:
+										⦃⦃compare⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+									and:
+										⦃⦃⦃⦃(⦃sequence⦄,⦃sequence⦄)⦄.MapWith(⦃unaryFunction GetCoDomain⦄)⦄.GetCartesianProduct()⦄.IsSubMultiClassOf(⦃⦃compare⦄.GetDomain()⦄)⦄
+			and:
+				for all ⟦compare⟧:
+					if:
+						⦃⦃⦃⦃sequence⦄.SortWith⦄.GetDomain()⦄.Has(⦃compare⦄)⦄
+					then:
+						let:
+							⟦indexMapAndSortedSequences⟧:
+									⦃⦃Class⦄.HasInstance(⦃indexMapAndSortedSequences⦄)⦄
+								and:
+									for all ⟦x⟧:
+											⦃⦃indexMapAndSortedSequences⦄.Has(⦃x⦄)⦄
+										if and only if:
+											there exists ⟦indexMap⟧,⟦sortedSequence⟧:
+													⦃⦃x⦄.IsEqualTo(⦃(⦃indexMap⦄,⦃sortedSequence⦄)⦄)⦄
+												and:
+														⦃⦃Function⦄.HasInstance(⦃indexMap⦄)⦄
+													and:
+														for all ⟦typeIdentifier⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints ⦄,
+																	⦃unicodeCodePoints Co⦄
+																}⦄.Has(⦃typeIdentifier⦄)⦄
+															then:
+																⦃⦃⦃indexMap⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.IsEqualTo(⦃⦃sequence⦄.GetDomain()⦄)⦄
+												and:
+														⦃⦃TransFiniteSequence⦄.HasInstance(⦃sortedSequence⦄)⦄
+													and:
+														let:
+															⟦length⟧:
+																⦃⦃length⦄.IsEqualTo(⦃⦃sequence⦄.GetLength()⦄)⦄
+															⦃⦃⦃sortedSequence⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+														and:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃⦃sortedSequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃⦃sortedSequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃sequence⦄(⦃⦃indexMap⦄(⦃index⦄)⦄)⦄)⦄
+														and:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃length⦄.Subtract(⦃1⦄)⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃compare⦄(⦃⦃(
+																		⦃index⦄,
+																		⦃⦃index⦄.Add(⦃1⦄)⦄
+																	)⦄.MapWith(⦃⦃sortedSequence⦄.GetImageOf⦄)⦄)⦄
+							⦃⦃⦃sequence⦄.StableSort(⦃compare⦄)⦄.IsEqualTo(⦃⦃⦃indexMapAndSortedSequences⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃1⦄)⦄)⦄
+						and:
+							there exists ⟦indexMap⟧:
+									⦃⦃indexMapAndSortedSequences⦄.Has(⦃(⦃indexMap⦄,⦃⦃sequence⦄.StableSortWith(⦃compare⦄)⦄)⦄)⦄
+								and:
+									for all ⟦index0⟧,⟦index1⟧:
+										if:
+												⦃⦃index0⦄.IsInferiorTo(⦃index1⦄)⦄
+											and:
+												for all ⟦elements⟧:
+													if:
+														⦃⦃⦃{⦃index0⦄,⦃index1⦄}⦄.MapWith(⦃⦃sequence⦄.GetImageOf⦄)⦄.GetPermutations()⦄.Has(⦃elements⦄)⦄
+													then:
+														⦃⦃compare⦄(⦃elements⦄)⦄
+										then:
+											⦃⦃binaryFunction IsInferiorTo⦄(⦃⦃(⦃index0⦄,⦃index1⦄)⦄.MapWith(⦃indexMap⦄)⦄)⦄
+
+define ⦃method ⦃{⦃TransFiniteSequence⦄}⦄.GetTypeInducedBy⦄
+		⦃⦃⦃⦃TransFiniteSequence⦄.GetTypeInducedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃Type⦄.MapToClass()⦄)⦄
+	and:
+		for all ⟦type⟧:
+			if:
+				⦃⦃⦃⦃TransFiniteSequence⦄.GetTypeInducedBy⦄.GetDomain()⦄.Has(⦃type⦄)⦄
+			then:
+				let:
+					⟦inducedType⟧:
+						⦃⦃inducedType⦄.IsEqualTo(⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃type⦄)⦄)⦄
+					⦃⦃Type⦄.HasInstance(⦃inducedType⦄)⦄
+				and:
+					for all ⟦sequence⟧:
+							⦃⦃inducedType⦄.HasInstance(⦃sequence⦄)⦄
+						if and only if:
+								⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+							and:
+								⦃⦃⦃Class⦄.GetTypeInducedBy(⦃type⦄)⦄.HasInstance(⦃⦃sequence⦄.GetCoDomain()⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃TransFiniteSequence⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

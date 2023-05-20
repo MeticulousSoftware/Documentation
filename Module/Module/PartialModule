@@ -1,0 +1,252 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPartialModule⦄,⦃PartialModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialModule⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaLeftPartialModule⦄,⦃MetaRightPartialModule⦄,
+⦃LeftPartialModule⦄,⦃RightPartialModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+								for all ⟦typeIdentifier1⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints ScalarMultiplicationMagmaStructure⦄,
+											⦃unicodeCodePoints RingScalarMultiplicationStructure⦄
+										}⦄.Has(⦃typeIdentifier1⦄)⦄
+									then:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaBiPartialModule⦄,⦃BiPartialModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiPartialModule⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiPartialModule⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiScalarMultiplicationStructure⦄.HasInstance(⦃module⦄)⦄
+						and:
+							for all ⟦typeIdentifier0⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Left⦄,
+										⦃unicodeCodePoints Right⦄
+									}⦄.Has(⦃typeIdentifier0⦄)⦄
+								then:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄.HasInstance(⦃⦃module⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄
+
+
+
+define ⦃method ⦃LeftPartialModule⦄.GetTorsionSubStructure⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃LeftPartialModule⦄.HasInstance(⦃module⦄)⦄
+		then:
+				⦃⦃⦃⦃module⦄.GetTorsionSubStructure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦torsionSubStructure⟧:
+						⦃⦃torsionSubStructure⦄.IsEqualTo(⦃⦃module⦄.GetTorsionSubStructure()⦄)⦄
+					⦃⦃⦃module⦄.GetSubStructures()⦄.Has(⦃torsionSubStructure⦄)⦄
+				and:
+					for all ⟦x⟧:
+							⦃⦃⦃torsionSubStructure⦄.GetClass()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦y⟧:
+									⦃⦃⦃⦃⦃module⦄.GetScalarStructure()⦄.GetMultiplication()⦄.GetCancellativeElements()⦄.Has(⦃y⦄)⦄
+								and:
+									⦃⦃⦃module⦄.GetAnnihilatorsFor(⦃{⦃x⦄}⦄)⦄.Has(⦃y⦄)⦄
+
+define ⦃method ⦃LeftPartialModule⦄.GetDual⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃LeftPartialModule⦄.HasInstance(⦃module⦄)⦄
+		then:
+				⦃⦃⦃⦃module⦄.GetDual⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦dual⟧:
+						⦃⦃dual⦄.IsEqualTo(⦃⦃module⦄.GetDual()⦄)⦄
+					⦃⦃RightPartialModule⦄.HasInstance(⦃dual⦄)⦄
+				and:
+					let:
+						⟦dualClass⟧:
+							⦃⦃dualClass⦄.IsEqualTo(⦃⦃dual⦄.GetClass()⦄)⦄
+						for all ⟦form⟧:
+								⦃⦃dualClass⦄.Has(⦃form⦄)⦄
+							if and only if:
+								there exists ⟦moduleWithForm⟧:
+										⦃⦃MetaLeftModuleEquippedWithLinearForm⦄.HasInstance(⦃moduleWithForm⦄)⦄
+									and:
+										⦃⦃⦃moduleWithForm⦄.GetModule()⦄.IsEqualTo(⦃module⦄)⦄
+									and:
+										⦃⦃form⦄.IsEqualTo(⦃⦃moduleWithForm⦄.GetMultiLinearForm()⦄)⦄
+					and:
+						let:
+							⟦class⟧:
+								⦃⦃class⦄.IsEqualTo(⦃⦃module⦄.GetClass()⦄)⦄
+							⟦scalarStructure⟧:
+								⦃⦃scalarStructure⦄.IsEqualTo(⦃⦃module⦄.GetScalarStructure()⦄)⦄
+							for all ⟦forms⟧,⟦form⟧:
+									⦃⦃⦃⦃⦃dual⦄.GetAddition()⦄.GetSimplifiedFunction()⦄.GetGraph()⦄.Has(⦃(⦃forms⦄,⦃form⦄)⦄)⦄
+								if and only if:
+										⦃⦃FiniteSequence⦄.HasInstance(⦃forms⦄)⦄
+									and:
+										⦃⦃⦃forms⦄.GetLength()⦄.IsEqualTo(⦃2⦄)⦄
+									and:
+										⦃⦃⦃forms⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃dualClass⦄)⦄
+									and:
+										for all ⟦x⟧:
+											if:
+												⦃⦃class⦄.Has(⦃x⦄)⦄
+											then:
+												⦃⦃⦃⦃form⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃⦃scalarStructure⦄.GetAddition()⦄.GetSimplifiedFunction()⦄(⦃⦃⦃(⦃form0⦄,⦃form1⦄)⦄.MapWith(⦃unaryFunction GetSimplifiedFunction⦄)⦄.Apply(⦃x⦄)⦄)⦄)⦄
+						and:
+							⦃⦃⦃dual⦄.GetScalarStructure()⦄.IsEqualTo(⦃scalarStructure⦄)⦄
+						and:
+							for all ⟦sequence⟧,⟦form⟧:
+									⦃⦃⦃⦃⦃dual⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequence⦄,⦃form⦄)⦄)⦄
+								if and only if:
+									there exists ⟦form0⟧,⟦x⟧:
+											⦃⦃sequence⦄.IsEqualTo(⦃(⦃form0⦄,⦃x⦄)⦄)⦄
+										and:
+											⦃⦃dualClass⦄.Has(⦃form0⦄)⦄
+										and:
+											⦃⦃⦃scalarStructure⦄.GetClass()⦄.Has(⦃x⦄)⦄
+										and:
+											for all ⟦y⟧:
+												if:
+													⦃⦃class⦄.Has(⦃y⦄)⦄
+												then:
+													⦃⦃⦃⦃form0⦄.GetSimplifiedFunction()⦄(⦃y⦄)⦄.IsEqualTo(⦃⦃⦃⦃scalarStructure⦄.GetAddition()⦄.GetSimplifiedFunction()⦄(⦃⦃⦃⦃scalarStructure⦄.GetMultiplication()⦄.GetSimplifiedFunction()⦄(⦃⦃⦃form0⦄.GetSimplifiedFunction()⦄(⦃y⦄)⦄,⦃x⦄)⦄)⦄)⦄
+
+
+
+define ⦃method ⦃RightPartialModule⦄.GetTorsionSubStructure⦄,⦃method ⦃RightPartialModule⦄.GetDual⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃RightPartialModule⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints TorsionSubStructure⦄,
+						⦃unicodeCodePoints Dual⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃module⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃⦃module⦄.GetConverse()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetConverse⦄)⦄
+
+
+
+define ⦃method ⦃LeftPartialModule⦄.GetDoubleDual⦄,⦃method ⦃RightPartialModule⦄.GetDoubleDual⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦module⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+				then:
+						⦃⦃⦃⦃module⦄.GetDoubleDual⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃⦃module⦄.GetDoubleDual()⦄.IsEqualTo(⦃⦃⦃module⦄.GetDual()⦄.GetDual()⦄)⦄
+
+define ⦃method ⦃LeftPartialModule⦄.GetCanonicalDoubleDualMap⦄,⦃method ⦃RightPartialModule⦄.GetCanonicalDoubleDualMap⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦module⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+				then:
+						⦃⦃⦃⦃module⦄.GetCanonicalDoubleDualMap⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦map⟧:
+								⦃⦃map⦄.IsEqualTo(⦃⦃module⦄.GetCanonicalDoubleDualMap()⦄)⦄
+							⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃map⦄)⦄
+						and:
+							let:
+								⟦dual⟧:
+									⦃⦃dual⦄.IsEqualTo(⦃⦃module⦄.GetDual()⦄)⦄
+								⟦class⟧:
+									⦃⦃class⦄.IsEqualTo(⦃⦃module⦄.GetClass()⦄)⦄
+								⦃⦃⦃map⦄.GetDomainSharedSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+							and:
+								⦃⦃⦃map⦄.GetCoDomainSharedSignatureClass()⦄.IsEqualTo(⦃⦃⦃dual⦄.GetDual()⦄.GetClass()⦄)⦄
+							and:
+								for all ⟦x⟧:
+									if:
+										⦃⦃class⦄.Has(⦃x⦄)⦄
+									then:
+										for all ⟦form⟧:
+											if:
+												⦃⦃⦃dual⦄.GetClass()⦄.Has(⦃form⦄)⦄
+											then:
+												⦃⦃⦃⦃⦃map⦄(⦃x⦄)⦄.GetSimplifiedFunction()⦄(⦃form⦄)⦄.IsEqualTo(⦃⦃⦃form⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄)⦄
+
+
+
+define ⦃method ⦃BiPartialModule⦄.GetTorsionSubStructure⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃BiPartialModule⦄.HasInstance(⦃module⦄)⦄
+		then:
+			⦃⦃⦃module⦄.GetTorsionSubStructure⦄.IsEqualTo(⦃⦃⦃(
+				⦃⦃module⦄.GetLeftStructure()⦄,
+				⦃⦃module⦄.GetRightStructure()⦄
+			)⦄.MapWith(⦃unaryFunction GetTorsionSubStructure⦄)⦄.GetIntersection⦄)⦄

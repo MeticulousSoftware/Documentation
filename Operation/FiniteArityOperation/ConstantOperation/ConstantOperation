@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ConstantOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃ConstantOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃ConstantOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+					⦃⦃UnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					⦃⦃⦃operation⦄.GetDomainArity()⦄.IsEqualTo(⦃0⦄)⦄

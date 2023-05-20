@@ -1,0 +1,78 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃TorsionPartialModule⦄,⦃TorsionFreePartialModule⦄,
+⦃TorsionModule⦄,⦃TorsionFreeModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Free⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃Torsion⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃Torsion⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+								there exists ⟦typeIdentifier1⟧:
+										⦃⦃{
+											⦃unicodeCodePoints Left⦄,
+											⦃unicodeCodePoints Right⦄,
+											⦃unicodeCodePoints Bi⦄
+										}⦄.Has(⦃typeIdentifier1⦄)⦄
+									and:
+										⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧Torsion⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftTorsionPartialModule⦄,⦃RightTorsionPartialModule⦄,⦃BiTorsionPartialModule⦄,
+⦃LeftTorsionFreePartialModule⦄,⦃RightTorsionFreePartialModule⦄,⦃BiTorsionFreePartialModule⦄,
+⦃LeftTorsionModule⦄,⦃RightTorsionModule⦄,⦃BiTorsionModule⦄,
+⦃LeftTorsionFreeModule⦄,⦃RightTorsionFreeModule⦄,⦃BiTorsionFreeModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Free⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄,
+								⦃unicodeCodePoints Bi⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier1⦄⟧⟧Torsion⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+							and:
+								for all ⟦module⟧:
+										⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧Torsion⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+										and:
+											let:
+												⟦torsionSubStructure⟧:
+													⦃⦃torsionSubStructure⦄.IsEqualTo(⦃⦃module⦄.GetTorsionSubStructure()⦄)⦄
+											if:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											then:
+												⦃⦃torsionSubStructure⦄.IsEqualTo(⦃module⦄)⦄
+											else:
+												⦃⦃⦃torsionSubStructure⦄.GetClass()⦄.IsEqualTo(⦃⦃⦃module⦄.GetStructure()⦄.GetIdentities()⦄)⦄

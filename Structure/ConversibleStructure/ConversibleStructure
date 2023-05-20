@@ -1,0 +1,31 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ConversibleStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃ConversibleStructure⦄)⦄
+	and:
+		for all ⟦type⟧:
+			if:
+				⦃⦃{
+					⦃FiniteArityDomainOperation⦄,
+					⦃FiniteArityRelation⦄,
+					⦃FiniteArityAlgebraicStructure⦄,
+					⦃ConversibleEquippedAlgebraicStructure⦄
+				}⦄.Has(⦃type⦄)⦄
+			then:
+				⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃type⦄,⦃ConversibleStructure⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃ConversibleStructure⦄.GetConverse⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃ConversibleStructure⦄.HasInstance(⦃structure⦄)⦄
+		then
+				⦃⦃⦃⦃structure⦄.GetConverse⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦converse⟧:
+						⦃⦃converse⦄.IsEqualTo(⦃⦃structure⦄.GetConverse()⦄)⦄
+					⦃⦃ConversibleStructure⦄.HasInstance(⦃converse⦄)⦄
+				and:
+					⦃⦃⦃converse⦄.GetConverse()⦄.IsEqualTo(⦃structure⦄)⦄

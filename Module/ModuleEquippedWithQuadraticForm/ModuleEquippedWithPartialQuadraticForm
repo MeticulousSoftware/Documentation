@@ -1,0 +1,288 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaModuleEquippedWithPartialQuadraticForm⦄,⦃ModuleEquippedWithPartialQuadraticForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaLeftModuleEquippedWithPartialQuadraticForm⦄,⦃MetaRightModuleEquippedWithPartialQuadraticForm⦄,
+⦃LeftModuleEquippedWithPartialQuadraticForm⦄,⦃RightModuleEquippedWithPartialQuadraticForm⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃Meta⟦⟦⦃typeIdentifier0⦄⟧⟧PartialModule⦄.HasInstance(⦃module⦄)⦄
+								and:
+									let:
+										⟦equipments⟧:
+											⦃⦃equipments⦄.IsEqualTo(⦃⦃module⦄.GetEquipments()⦄)⦄
+										let:
+											⟦quadraticFormStructure⟧:
+												⦃⦃quadraticFormStructure⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints quadraticForm⦄)⦄)⦄
+											⦃⦃Function⦄.HasInstance(⦃quadraticFormStructure⦄)⦄
+										and:
+											⦃⦃⦃quadraticFormStructure⦄.GetDomain()⦄.IsEqualTo(⦃{
+												⦃unicodeCodePoints ⦄,
+												⦃unicodeCodePoints associatedBiLinearForm⦄
+											}⦄)⦄
+										and:
+											let:
+												⟦quadraticForm⟧,
+												⟦quadraticFormAssociatedBiLinearForm⟧:
+													for all ⟦typeIdentifier⟧:
+														if:
+															⦃⦃⦃quadraticFormStructure⦄.GetDomain()⦄.Has(⦃typeIdentifier⦄)⦄
+														then:
+															⦃⦃quadraticForm⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToUpperCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃quadraticFormStructure⦄(⦃typeIdentifier⦄)⦄)⦄
+												⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃quadraticForm⦄)⦄
+											and:
+												let:
+													⟦class⟧:
+														⦃⦃class⦄.IsEqualTo(⦃⦃module⦄.GetClass()⦄)⦄
+													⦃⦃⦃quadraticForm⦄.GetSharedDomainSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+												and:
+													let:
+														⟦scalarStructure⟧:
+															⦃⦃scalarStructure⦄.IsEqualTo(⦃⦃module⦄.GetScalarStructure()⦄)⦄
+														⦃⦃⦃quadraticForm⦄.GetSharedDomainSignatureClass()⦄.IsEqualTo(⦃⦃scalarStructure⦄.GetClass()⦄)⦄
+													and:
+														let:
+															⟦scalarStructureAddition⟧,⟦scalarStructureMultiplication⟧:
+																⦃⦃(⦃scalarStructureAddition⦄,⦃scalarStructureMultiplication⦄)⦄.IsEqualTo(⦃⦃scalarStructure⦄.GetOperations()⦄)⦄
+															⟦scalarMultiplication⟧:
+																⦃⦃scalarMultiplication⦄.IsEqualTo(⦃⦃⦃module⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄)⦄
+															⟦function⟧:
+																⦃⦃function⦄.IsEqualTo(⦃⦃quadraticForm⦄.GetSimplifiedFunction()⦄)⦄
+															for all ⟦scalar⟧,⟦x⟧:
+																let:
+																	⟦sequence⟧:
+																		if:
+																			⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																		then:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃scalar⦄,⦃x⦄)⦄)⦄
+																		else:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃scalar⦄)⦄)⦄
+																if:
+																		⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																	and:
+																		⦃⦃⦃scalarMultiplication⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+																then:
+																	let:
+																		⟦sequence0⟧:
+																			let:
+																				⟦scalar0⟧:
+																					⦃⦃scalar0⦄.IsEqualTo(⦃⦃⦃scalarStructureMultiplication⦄.GetSimplifiedFunction()⦄(⦃scalar⦄,⦃scalar⦄)⦄)⦄
+																				⟦y⟧:
+																					⦃⦃y⦄.IsEqualTo(⦃⦃function⦄(⦃x⦄)⦄)⦄
+																			if:
+																				⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																			then:
+																				⦃⦃sequence0⦄.IsEqualTo(⦃(⦃scalar0⦄,⦃y⦄)⦄)⦄
+																			else:
+																				⦃⦃sequence0⦄.IsEqualTo(⦃(⦃y⦄,⦃scalar0⦄)⦄)⦄
+																	⦃⦃⦃function⦄(⦃⦃scalarMultiplication⦄(⦃sequence⦄)⦄)⦄.IsEqualTo(⦃⦃scalarMultiplication⦄(⦃sequence0⦄)⦄)⦄
+														and:
+															there exists ⟦module0⟧:
+																	⦃⦃ModuleEquippedWithPartialBiLinearForm⦄.HasInstance(⦃module0⦄)⦄
+																and:
+																	⦃⦃⦃module0⦄.GetModule()⦄.IsEqualTo(⦃module⦄)⦄
+																and:
+																	⦃⦃quadraticFormAssociatedBiLinearForm⦄.IsEqualTo(⦃⦃module0⦄.GetMultiLinearForm()⦄)⦄
+																and:
+																	for all ⟦sequence⟧,⟦scalar⟧:
+																			⦃⦃⦃⦃⦃module0⦄.GetMultiLinearForm()⦄.GetSimplifiedFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequence⦄,⦃scalar⦄)⦄)⦄
+																		if and only if:
+																				⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+																			and:
+																				let:
+																					⟦length⟧:
+																						⦃⦃length⦄.IsEqualTo(⦃⦃sequence⦄.GetLength()⦄)⦄
+																					⦃⦃length⦄.IsEqualTo(⦃2⦄)⦄
+																				and:
+																					⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃class⦄)⦄
+																			and:
+																				let:
+																					⟦sequence0⟧:
+																							⦃⦃FiniteSequence⦄.HasInstance(⦃sequence0⦄)⦄
+																						and:
+																							⦃⦃⦃sequence0⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+																						and:
+																							for all ⟦index⟧:
+																								if:
+																									⦃⦃⦃sequence0⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																								then:
+																									⦃⦃{⦃⦃sequence0⦄(⦃index⦄)⦄}⦄.IsEqualTo(⦃⦃scalarStructureAddition⦄.GetInversesOf(⦃⦃sequence⦄(⦃index⦄)⦄)⦄)⦄
+																				⦃⦃scalar⦄.IsEqualTo(⦃⦃scalarStructureAddition⦄.ApplyOperationToSequence(⦃⦃(⦃⦃⦃⦃module⦄.GetAddition()⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄.GetConcatenationWith(⦃inverses⦄)⦄)⦄)⦄
+									and:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+										then:
+											⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaModuleEquippedWithPartialQuadraticForm⦄.GetQuadraticForm⦄,⦃method ⦃MetaModuleEquippedWithPartialQuadraticForm⦄.GetQuadraticFormAssociatedBiLinearForm⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃MetaModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints AssociatedBiLinearForm⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃module⦄.GetQuadraticForm⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃⦃module⦄.GetQuadraticForm⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃⦃module⦄.GetEquipments()⦄(⦃unicodeCodePoints quadraticForm⦄)⦄(⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄)⦄
+
+define ⦃method ⦃MetaModuleEquippedWithPartialQuadraticForm⦄.GetQuadraticFormAssociatedBiLinearFormModule⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃MetaModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+				⦃⦃⦃⦃module⦄.GetQuadraticFormAssociatedBiLinearFormModule()⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦module0⟧:
+						⦃⦃module0⦄.IsEqualTo(⦃⦃module⦄.GetQuadraticFormAssociatedBiLinearFormModule()⦄)⦄
+					⦃⦃ModuleEquippedWithPartialBiLinearForm⦄.HasInstance(⦃module0⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃module⦄,⦃module0⦄)⦄.MapWith(⦃unaryFunction GetModule⦄)⦄)⦄
+				and:
+					⦃⦃⦃module0⦄.GetMultiLinearForm()⦄.IsEqualTo(⦃⦃module⦄.GetQuadraticFormAssociatedBiLinearForm()⦄)⦄
+
+define ⦃method ⦃MetaModuleEquippedWithPartialQuadraticForm⦄.GetModuleWithQuadraticForm⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructureWithRelation⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦module⟧:
+						⦃⦃module⦄.IsEqualTo(⦃⦃structure⦄.GetModuleWithQuadraticForm()⦄)⦄
+					⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃module⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃LeftModuleEquippedWithPartialQuadraticForm⦄,⦃RightModuleEquippedWithPartialQuadraticForm⦄}⦄.GetEquipmentsDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ModuleEquippedWithPartialQuadraticForm⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.GetEquipmentsDomain()⦄.GetUnionWith(⦃{⦃unicodeCodePoints quadraticForm⦄}⦄)⦄)⦄
+
+define ⦃method ⦃ModuleEquippedWithPartialQuadraticForm⦄.GetSimilarStructures⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦module0⟧:
+					⦃⦃⦃module⦄.GetSimilarStructures()⦄.Has(⦃module0⦄)⦄
+				if and only if:
+						⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module0⦄)⦄
+					and:
+						⦃⦃⦃⦃module⦄.GetQuadraticFormAssociatedBiLinearFormModule()⦄.GetSimilarStructures()⦄.Has(⦃⦃module0⦄.GetQuadraticFormAssociatedBiLinearFormModule()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦modules⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃modules⦄)⦄
+					and:
+						⦃⦃⦃modules⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃modules⦄)⦄
+					if and only if:
+							⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃modules⦄.MapWith(⦃unaryFunction GetModule⦄)⦄)⦄
+						and:
+							let:
+								⟦function0⟧,⟦function1⟧:
+									⦃⦃(⦃function0⦄,⦃function1⦄)⦄.IsEqualTo(⦃⦃⦃modules⦄.MapWith(⦃unaryFunction GetQuadraticForm⦄)⦄.MapWith(⦃unaryFunction GetSimplifiedFunction⦄)⦄)⦄
+							 for all ⟦x⟧:
+								if:
+									⦃⦃⦃function0⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+								then:
+									⦃⦃⦃function0⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃function1⦄(⦃⦃⦃operation⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄)⦄)⦄
+
+define ⦃method ⦃ModuleEquippedWithPartialQuadraticForm⦄.GetStructureInducedBy⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃module⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedModule⟧:
+							⦃⦃inducedModule⦄.IsEqualTo(⦃⦃module⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃inducedModule⦄)⦄
+					and:
+						let:
+							⟦inducedModuleModule⟧:
+								⦃⦃inducedModuleModule⦄.IsEqualTo(⦃⦃inducedStructure⦄.GetModule()⦄)⦄
+							⦃⦃inducedModuleModule⦄.IsEqualTo(⦃⦃⦃module⦄.GetModule()⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						and:
+							⦃⦃⦃inducedModule⦄.GetQuadraticForm()⦄.IsEqualTo(⦃⦃⦃module⦄.GetQuadraticForm()⦄.GetStructureInducedBy(⦃inducedModuleModule⦄,⦃⦃module⦄.GetScalars()⦄)⦄)⦄
+
+define ⦃method ⦃ModuleEquippedWithPartialQuadraticForm⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦module⟧:
+		if:
+			⦃⦃ModuleEquippedWithPartialQuadraticForm⦄.HasInstance(⦃module⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃module⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					⦃⦃⦃module⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄.IsEqualTo(⦃⦃module⦄.GetStructureInducedBy(⦃⦃⦃module⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄)⦄

@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃IdemPotentOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃IdemPotentOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃IdemPotentOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+					⦃⦃InternalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					⦃⦃⦃operation⦄.GetCompositionWith(⦃operation⦄)⦄.IsEqualTo(⦃operation⦄)⦄

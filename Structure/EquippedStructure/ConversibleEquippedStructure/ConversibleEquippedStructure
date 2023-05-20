@@ -1,0 +1,28 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ConversibleEquippedStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃ConversibleEquippedStructure⦄)⦄
+	and:
+		for all ⟦structure⟧:
+				⦃⦃ConversibleEquippedStructure⦄.HasInstance(⦃structure⦄)⦄
+			if and only if:
+					⦃⦃EquippedStructure⦄.HasInstance(⦃structure⦄)⦄
+				and:
+					⦃⦃⦃⦃structure⦄.GetEquipments()⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃ConversibleStructure⦄.MapToClass()⦄)⦄
+
+define ⦃method ⦃ConversibleEquippedStructure⦄.GetConverse⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃ConversibleEquippedStructure⦄.HasInstance(⦃structure⦄)⦄
+		then
+			let:
+				⟦converse⟧:
+					⦃⦃converse⦄.IsEqualTo(⦃⦃structure⦄.GetConverse()⦄)⦄
+				⦃⦃ConversibleEquippedStructure⦄.HasInstance(⦃converse⦄)⦄
+			and:
+				for all ⟦identifier⟧,⟦equipment⟧:
+						⦃⦃⦃⦃converse⦄.GetEquipments()⦄.GetGraph()⦄.Has(⦃(⦃identifier⦄,⦃equipment⦄)⦄)⦄
+					if and only if:
+						⦃⦃⦃⦃structure⦄.GetEquipments()⦄.GetGraph()⦄.Has(⦃(⦃identifier⦄,⦃⦃equipment⦄.GetConverse()⦄)⦄)⦄

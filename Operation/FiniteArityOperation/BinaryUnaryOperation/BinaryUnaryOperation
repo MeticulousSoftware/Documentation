@@ -1,0 +1,165 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃BinaryUnaryOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃BinaryUnaryOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Binary⦄,
+							⦃unicodeCodePoints UnaryCo⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧DomainOperation⦄.HasInstance(⦃operation⦄)⦄
+
+define ⦃method ⦃BinaryUnaryOperation⦄.ApplyOperationToSequence⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦sequence⟧,⟦x⟧:
+					⦃⦃⦃⦃operation⦄.ApplyOperationToSequence⦄.GetGraph()⦄.Has(⦃(⦃sequence⦄,⦃x⦄)⦄)⦄
+				if and only if:
+						⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+					and:
+						let:
+							⟦y⟧:
+								if:
+									not:
+										⦃⦃⦃operation⦄.GetIdentities()⦄.IsEqualTo(⦃{}⦄)⦄
+								then:
+									let:
+										⟦identity⟧:
+											⦃⦃{⦃identity⦄}⦄.IsEqualTo(⦃⦃operation⦄.GetIdentities()⦄)⦄
+									⦃⦃y⦄.IsEqualTo(⦃(⦃⦃operation⦄.GetSimplifiedFunction⦄,⦃identity⦄)⦄)⦄
+								else:
+									⦃⦃y⦄.IsEqualTo(⦃⦃operation⦄.GetSimplifiedFunction⦄)⦄
+						⦃⦃x⦄.IsEqualTo(⦃⦃sequence⦄.ReduceWith(⦃y⦄)⦄)⦄
+
+define ⦃method ⦃BinaryUnaryOperation⦄.ApplyOperationNTimesTo⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃operation⦄.ApplyOperationNTimesTo⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦y⟧,⟦ordinal⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃y⦄,⦃ordinal⦄)⦄,⦃⦃operation⦄.ApplyOperationToSequence(⦃⦃y⦄.Repeat(⦃ordinal⦄)⦄)⦄)⦄)⦄
+
+define ⦃method ⦃BinaryUnaryOperation⦄.GetNilPotentElements⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃⦃⦃operation⦄.GetNilPotentElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦elements⟧:
+						⦃⦃elements⦄.IsEqualTo(⦃⦃operation⦄.GetNilPotentElements()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+				and:
+					for all ⟦element⟧:
+							⦃⦃elements⦄.Has(⦃element⦄)⦄
+						if and only if:
+							there exists ⟦ordinal⟧:
+								⦃⦃⦃operation⦄.ApplyOperationNTimesTo(⦃element⦄,⦃ordinal⦄)⦄.IsEqualTo(⦃⦃operation⦄.GetAbsorbingElement()⦄)⦄
+
+define ⦃method ⦃BinaryUnaryOperation⦄.GetLeftInversesOf⦄,⦃method ⦃BinaryUnaryOperation⦄.GetRightInversesOf⦄,⦃method ⦃BinaryUnaryOperation⦄.GetInversesOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+							let:
+								⟦index⟧:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+									then:
+										⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+									else:
+										⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+							⦃⦃⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧InversesOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃operation⦄.GetDomainSignature()⦄(⦃index⦄)⦄)⦄
+						and:
+							for all ⟦x⟧:
+								if:
+									⦃⦃⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧InversesOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+								then:
+									let:
+										⟦inverses⟧:
+											⦃⦃inverses⦄.IsEqualTo(⦃⦃operation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧InversesOf(⦃x⦄)⦄)⦄
+										⦃⦃Class⦄.HasInstance(⦃inverses⦄)⦄
+									and:
+										for all ⟦inverse⟧:
+												⦃⦃inverses⦄.Has(⦃inverse⦄)⦄
+											if and only if:
+												there exists ⟦identity⟧:
+														⦃⦃⦃operation⦄.GetPartialIdentities()⦄.Has(⦃identity⦄)⦄
+													and:
+														let:
+															⟦sequence⟧:
+																if:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																then:
+																	⦃⦃sequence⦄.IsEqualTo(⦃(
+																		⦃()⦄,
+																		⦃(⦃x⦄)⦄
+																	)⦄)⦄
+																else:
+																	⦃⦃sequence⦄.IsEqualTo(⦃(
+																		⦃(⦃x⦄)⦄,
+																		⦃()⦄
+																	)⦄)⦄
+														⦃⦃⦃operation⦄.GetSolutionsFor(⦃⦃sequence⦄.GetConcatenationWith(⦃(
+															⦃(⦃identity⦄)⦄
+														)⦄)⦄)⦄.Has(⦃inverse⦄)⦄
+			and:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃structure⦄.GetInversesOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦y⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃⦃⦃(
+								⦃⦃structure⦄.GetLeftInversesOf⦄,
+								⦃⦃structure⦄.GetRightInversesOf⦄
+							)⦄.Apply(⦃y⦄)⦄.GetIntersection()⦄)⦄)⦄
+
+define ⦃method ⦃BinaryUnaryOperation⦄.GetIrreducibleElements⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+				⦃⦃⦃⦃operation⦄.GetIrreducibleElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦elements⟧:
+						⦃⦃elements⦄.IsEqualTo(⦃⦃operation⦄.GetIrreducibleElements()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+				and:
+					for all ⟦element⟧:
+							⦃⦃elements⦄.Has(⦃element⦄)⦄
+						if and only if:
+								⦃⦃⦃operation⦄.GetInversesOf(⦃element⦄)⦄.IsEqualTo(⦃{}⦄)⦄
+							and:
+								for all ⟦sequence⟧:
+									if:
+											⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+										and:
+											for all ⟦x⟧:
+												if:
+													⦃⦃⦃sequence⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+												then:
+													⦃⦃⦃operation⦄.GetInversesOf(⦃x⦄)⦄.IsEqualTo(⦃{}⦄)⦄
+									then:
+										not:
+											⦃⦃element⦄.IsEqualTo(⦃⦃operation⦄.ApplyOperationToSequence(⦃sequence⦄)⦄)⦄

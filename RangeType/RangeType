@@ -1,0 +1,309 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃OptionalRangeBound⦄
+
+
+
+define ⦃RangeType⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃RangeType⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetOrder⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetOrder⦄,⦃GetOrder⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦relation⟧:
+												⦃⦃relation⦄.IsEqualTo(⦃⦃GetOrder⦄()⦄)⦄
+											⦃⦃PreOrder⦄.HasInstance(⦃relation⦄)⦄
+										and:
+											not:
+												⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.Has(⦃OptionalRangeBound⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦rangeType⟧:
+									⦃⦃rangeType⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃RangeType⦄.HasInstance(⦃rangeType⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃rangeType⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃RangeType⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃RangeType⦄.MapToClass⦄
+	for all ⟦rangeType⟧:
+		if:
+			⦃⦃RangeType⦄.HasInstance(⦃rangeType⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃operation⦄,
+				⦃⦃rangeType⦄.GetOrder()⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃RangeType⦄.GetType⦄
+	for all ⟦rangeType⟧:
+		if:
+			⦃⦃RangeType⦄.HasInstance(⦃rangeType⦄)⦄
+		then:
+				⦃⦃⦃⦃rangeType⦄.GetType⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦type⟧:
+						⦃⦃type⦄.IsEqualTo(⦃⦃rangeType⦄.GetType()⦄)⦄
+					⦃⦃MutuallyDisjointType⦄.HasInstance(⦃type⦄)⦄
+				and:
+					let:
+						⟦relation⟧:
+							⦃⦃relation⦄.IsEqualTo(⦃⦃rangeType⦄.GetOrder()⦄)⦄
+						⟦signatureClass⟧:
+							⦃⦃signatureClass⦄.IsEqualTo(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+						⟦optionalFunction⟧:
+								⦃⦃Function⦄.HasInstance(⦃optionalFunction⦄)⦄
+							and:
+								for all ⟦sequence⟧:
+										⦃⦃⦃optionalFunction⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+									if and only if:
+										there exists ⟦x0⟧,⟦x1⟧:
+												⦃⦃sequence⦄.IsEqualTo(⦃(⦃x0⦄,⦃x1⦄)⦄)⦄
+											and:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														let:
+															⟦typeIdentifier⟧:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+															⦃⦃signatureClass⦄.Has(⦃x⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+														or:
+															if:
+																let:
+																	⟦typeIdentifier0⟧:
+																		if:
+																			⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																		then:
+																			⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Least⦄)⦄
+																		else:
+																			⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Greatest⦄)⦄
+																⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Elements()⦄.IsEqualTo(⦃{}⦄)⦄
+															then:
+																⦃⦃x⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃OptionalRangeBound⦄)⦄
+							and:
+								for all ⟦sequence⟧:
+									if:
+										⦃⦃⦃partitionFunction⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+									then:
+											⦃⦃Boolean⦄.HasInstance(⦃⦃optionalFunction⦄(⦃sequence⦄)⦄)⦄
+										and:
+												⦃⦃optionalFunction⦄(⦃sequence⦄)⦄
+											if and only if:
+													⦃⦃function⦄(⦃sequence⦄)⦄
+												or:
+													⦃⦃⦃sequence⦄.GetCoDomain()⦄.Has(⦃OptionalRangeBound⦄)⦄
+						let:
+							⟦buildingMap⟧:
+									⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+								and:
+									for all ⟦methods⟧:
+											⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+										if and only if:
+												for all ⟦methodIdentifier⟧:
+													if:
+														⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+													then:
+															⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+														and:
+															⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+											and:
+												there exists
+													⟦GetLowerBound⟧,
+													⟦GetUpperBound⟧:
+														⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+															⦃(⦃unicodeCodePoints GetLowerBound⦄,⦃GetLowerBound⦄)⦄,
+															⦃(⦃unicodeCodePoints GetUpperBound⦄,⦃GetUpperBound⦄)⦄
+														}⦄)⦄)⦄
+													and:
+														⦃⦃optionalFunction⦄(⦃⦃GetLowerBound⦄()⦄,⦃⦃GetUpperBound⦄()⦄)⦄
+								and:
+									for all ⟦methods⟧:
+										if:
+											⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+										then:
+											let:
+												⟦range⟧:
+													⦃⦃range⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+												⦃⦃type⦄.HasInstance(⦃range⦄)⦄
+											and:
+												for all ⟦methodIdentifier⟧:
+													if:
+														⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+													then:
+														⦃⦃⦃range⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+						⦃⦃⦃type⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+					and:
+						for all ⟦range⟧:
+							if:
+								⦃⦃type⦄.HasInstance(⦃range⦄)⦄
+							then:
+								let:
+									⟦lowerBound⟧,⟦upperBound⟧:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints Lower⦄,
+													⦃unicodeCodePoints Upper⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Bound⦄.IsEqualTo(⦃⦃range⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Bound()⦄)⦄
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+										⦃range⦄,
+										⦃(⦃lowerBound⦄,⦃upperBound⦄)⦄
+									)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+								and:
+										⦃⦃⦃⦃range⦄.GetElements⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Boolean⦄,⦃Boolean⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+									and:
+										for all ⟦areBoundsIncluded⟧:
+											if:
+												⦃⦃⦃⦃range⦄.GetElements⦄.GetDomain()⦄.Has(⦃areBoundsIncluded⦄)⦄
+											then:
+												let:
+													⟦elements⟧:
+														⦃⦃elements⦄.IsEqualTo(⦃⦃range⦄.GetElements(⦃areBoundsIncluded⦄)⦄)⦄
+													⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+												and:
+													for all ⟦element⟧:
+															⦃⦃elements⦄.Has(⦃element⦄)⦄
+														if and only if:
+																⦃⦃signatureClass⦄.Has(⦃element⦄)⦄
+															and:
+																⦃⦃optionalFunction⦄(⦃lowerBound⦄,⦃element⦄)⦄
+															and:
+																⦃⦃optionalFunction⦄(⦃element⦄,⦃upperBound⦄)⦄
+															and:
+																for all ⟦typeIdentifier⟧:
+																	if:
+																		⦃⦃{
+																			⦃unicodeCodePoints lower⦄,
+																			⦃unicodeCodePoints upper⦄
+																		}⦄.Has(⦃typeIdentifier⦄)⦄
+																	then:
+																		if:
+																			not:
+																				let:
+																					⟦index⟧:
+																						if:
+																							⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints lower⦄)⦄
+																						then:
+																							⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																						else:
+																							⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+																				⦃⦃areBoundsIncluded⦄(⦃index⦄)⦄
+																		then:
+																			not:
+																				⦃⦃element⦄.IsEqualTo(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Bound⦄)⦄
+								and:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints ⦄,
+												⦃unicodeCodePoints Partial⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+												⦃⦃⦃⦃range⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Partitions⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+											and:
+												let:
+													⟦partitions⟧:
+														⦃⦃partitions⦄.IsEqualTo(⦃⦃range⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Partitions()⦄)⦄
+													⦃⦃Class⦄.HasInstance(⦃partitions⦄)⦄
+												and:
+													for all ⟦partition⟧:
+															⦃⦃partitions⦄.Has(⦃partition⦄)⦄
+														if and only if:
+																⦃⦃TransFiniteSequence⦄.HasInstance(⦃partition⦄)⦄
+															and:
+																let:
+																	⟦partitionFunction⟧,⟦optionalPartitionFunction⟧:
+																		for all ⟦typeIdentifier⟧:
+																			if:
+																				⦃⦃{
+																					⦃unicodeCodePoints ⦄,
+																					⦃unicodeCodePoints optional⦄
+																				}⦄.Has(⦃typeIdentifier⦄)⦄
+																			then:
+																				let:
+																					⟦function0⟧:
+																						⦃⦃function0⦄.IsEqualTo(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Partition⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Function⦄)⦄
+																				if:
+																					⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																				then:
+																					⦃⦃function0⦄.IsEqualTo(⦃binaryFunction IsEqualTo⦄)⦄
+																				else:
+																					⦃⦃function0⦄.IsEqualTo(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Function⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+																	⟦partitionLength⟧:
+																		⦃⦃partitionLength⦄.IsEqualTo(⦃⦃partition⦄.GetLength()⦄)⦄
+																if:
+																	⦃⦃partitionLength⦄.IsEqualTo(⦃0⦄)⦄
+																then:
+																	⦃⦃partitionFunction⦄(⦃⦃FiniteSequence⦄(⦃range⦄)⦄)⦄
+																else:
+																	let:
+																		⟦partitionRangeUpperBound⟧:
+																			⦃⦃partitionRangeUpperBound⦄.IsEqualTo(⦃⦃partitionLength⦄.Subtract(⦃1⦄)⦄)⦄
+																		for all ⟦index⟧:
+																			if:
+																				⦃⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃partitionRangeUpperBound⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃index⦄)⦄
+																			then:
+																				⦃⦃partitionFunction⦄(
+																					⦃⦃⦃partition⦄(⦃index⦄)⦄.GetUpperBound()⦄,
+																					⦃⦃⦃partition⦄(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄.GetLowerBound()⦄
+																				)⦄
+																	and:
+																		⦃⦃optionalPartitionFunction⦄(⦃⦃(
+																			⦃range⦄,
+																			⦃⦃partition⦄(⦃0⦄)⦄
+																		)⦄.MapWith(⦃unaryFunction GetLowerBound⦄)⦄)⦄
+																	and:
+																		⦃⦃optionalPartitionFunction⦄(⦃⦃(
+																			⦃⦃partition⦄(⦃partitionRangeUpperBound⦄)⦄,
+																			⦃range⦄
+																		)⦄.MapWith(⦃unaryFunction GetUpperBound⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	let:
+		⟦classes⟧:
+			⦃⦃classes⦄.IsEqualTo(⦃⦃⦃{⦃RangeType⦄}⦄.GetUnionWith(⦃⦃⦃RangeType⦄.MapToClass()⦄.MapWith(⦃unaryFunction GetType⦄)⦄)⦄.MapToClassWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+		⦃⦃classes⦄.AreMutuallyDisjoint()⦄
+	and:
+		⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃classes⦄.GetUnion()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

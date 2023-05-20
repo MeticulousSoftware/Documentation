@@ -1,0 +1,18 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnaryUnaryOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃UnaryUnaryOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints Co⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃Unary⟦⟦⦃typeIdentifier⦄⟧⟧DomainOperation⦄.HasInstance(⦃operation⦄)⦄

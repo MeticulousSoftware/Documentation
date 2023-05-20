@@ -1,0 +1,81 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃InjectiveModule⦄,⦃ProjectiveModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Injective⦄,
+				⦃unicodeCodePoints Projective⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftInjectiveModule⦄,⦃RightInjectiveModule⦄,⦃BiInjectiveModule⦄,
+⦃LeftProjectiveModule⦄,⦃RightProjectiveModule⦄,⦃BiProjectiveModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Injective⦄,
+				⦃unicodeCodePoints Projective⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+								let:
+									⟦moduleCategory⟧:
+											⦃⦃Category⦄.HasInstance(⦃moduleCategory⦄)⦄
+										and:
+											for all ⟦module0⟧:
+													⦃⦃⦃moduleCategory⦄.GetObjects()⦄.Has(⦃module0⦄)⦄
+												if and only if:
+														⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Module⦄.HasInstance(⦃module0⦄)⦄
+													and:
+														⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃module0⦄,⦃module⦄)⦄.MapWith(⦃unaryFunction GetScalarStructure⦄)⦄)⦄
+										and:
+											for all ⟦modules⟧:
+												if:
+													⦃⦃⦃⦃moduleCategory⦄.GetMorphismsWithDomainAndCoDomain⦄.GetDomain()⦄.Has(⦃modules⦄)⦄
+												then:
+													for all ⟦operation⟧:
+															⦃⦃⦃moduleCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃modules⦄)⦄.Has(⦃operation⦄)⦄
+														if and only if:
+																⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+															and:
+																⦃⦃operation⦄.IsStructurePreversingMapOf(⦃modules⦄)⦄
+										and:
+											let:
+												⟦compositionFunction⟧:
+													⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃⦃moduleCategory⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+											for all ⟦operations⟧:
+												if:
+													⦃⦃⦃compositionFunction⦄.GetDomain()⦄.Has(⦃operations⦄)⦄
+												then:
+													⦃⦃⦃compositionFunction⦄(⦃operations⦄)⦄.IsEqualTo(⦃⦃operations⦄.GetComposition()⦄)⦄
+								⦃⦃⦃moduleCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Objects()⦄.Has(⦃module⦄)⦄

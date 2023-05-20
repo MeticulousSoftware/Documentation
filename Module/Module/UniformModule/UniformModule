@@ -1,0 +1,55 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UniformModule⦄
+		⦃⦃Type⦄.HasInstance(⦃UniformModule⦄)⦄
+	and:
+		for all ⟦module⟧:
+				⦃⦃UniformModule⦄.HasInstance(⦃module⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UniformModule⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftUniformModule⦄,⦃RightUniformModule⦄,⦃BiUniformModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄,
+				⦃unicodeCodePoints Bi⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧UniformModule⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UniformModule⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+						and:
+							for all ⟦subModule0⟧,⟦subModule1⟧:
+								if:
+									for all ⟦index⟧:
+										if:
+											⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+										then:
+											let:
+												⟦typeIdentifier0⟧:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+												⦃⦃⦃module⦄.GetSubStructures()⦄.Has(⦃subModule⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+											and:
+												⦃⦃Module⦄.HasInstance(⦃subModule⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+											and:
+												not:
+													⦃⦃subModule⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasOneElement()⦄
+								then:
+									not:
+										⦃⦃⦃subModule0⦄.GetIntersectionWith(⦃subModule1⦄)⦄.HasOneElement()⦄

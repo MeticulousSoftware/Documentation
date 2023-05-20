@@ -1,0 +1,57 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Integer⦄
+		⦃⦃Type⦄.HasInstance(⦃Integer⦄)⦄
+	and:
+		for all ⟦integer⟧:
+				⦃⦃Integer⦄.HasInstance(⦃integer⦄)⦄
+			if and only if:
+					⦃⦃Real⦄.HasInstance(⦃integer⦄)⦄
+				and:
+					⦃⦃⦃⦃⦃integer⦄.GetAbsoluteValue()⦄.MapToOrdinal⦄.GetDomain()⦄.Has(⦃()⦄)⦄
+
+define ⦃method ⦃Integer⦄.MapToIntegerRepresentationInBase⦄
+	for all ⟦integer⟧:
+		if:
+			⦃⦃Integer⦄.HasInstance(⦃integer⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃integer⦄.MapToIntegerRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦y⟧,⟦base⟧,⟦integerPartLength⟧,⟦fractionalPartLength⟧:
+								⦃⦃y⦄.IsEqualTo(⦃base⦄)⦄
+							or:
+								⦃⦃y⦄.IsEqualTo(⦃(⦃base⦄,⦃integerPartLength⦄)⦄)⦄
+						and:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃⦃⦃integer⦄.MapToRealRepresentationInBase(⦃base⦄,⦃integerPartLength⦄,⦃fractionalPartLength⦄)⦄.GetBeginningSubSequence(⦃2⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Integer⦄.MapToIntegerUnicodeRepresentationInBase⦄,⦃method ⦃Integer⦄.MapToIntegerUnicodeLowerCaseRepresentationInBase⦄,⦃method ⦃Integer⦄.MapToIntegerUnicodeUpperCaseRepresentationInBase⦄
+	for all ⟦integer⟧:
+		if:
+			⦃⦃Integer⦄.HasInstance(⦃integer⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints LowerCase⦄,
+						⦃unicodeCodePoints UpperCase⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃integer⦄.MapToIntegerUnicode⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦y⟧,⟦base⟧,⟦integerPartLength⟧,⟦fractionalPartLength⟧:
+									⦃⦃⦃⦃integer⦄.MapToIntegerRepresentationInBase⦄.GetDomain()⦄.Has(⦃y⦄)⦄
+								and:
+									let:
+										⟦representation⟧:
+											there exists ⟦fractionalRepresentation⟧:
+												⦃⦃⦃(
+													⦃representation⦄,
+													⦃unicodeCodePoints .⦄,
+													⦃fractionalRepresentation⦄
+												)⦄.GetConcatenation()⦄.IsEqualTo(⦃⦃integer⦄.MapToRealUnicode⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase(⦃base⦄,⦃integerPartLength⦄,⦃fractionalPartLength⦄)⦄)⦄
+									⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃representation⦄)⦄)⦄

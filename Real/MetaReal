@@ -1,0 +1,168 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃RealRange⦄,⦃RationalRange⦄,⦃IntegerRange⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Real⦄,
+				⦃unicodeCodePoints Rational⦄,
+				⦃unicodeCodePoints Integer⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			let:
+				⟦relation⟧:
+						⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+					and:
+						⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsInferiorOrEqualTo⦄)⦄
+			⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Range⦄.IsEqualTo(⦃⦃RangeType⦄(⦃relation⦄)⦄)⦄
+
+
+
+define ⦃PositiveRealRange⦄,⦃NegativeRealRange⦄,⦃NonPositiveRealRange⦄,⦃NonNegativeRealRange⦄,
+⦃PositiveRationalRange⦄,⦃NegativeRationalRange⦄,⦃NonPositiveRationalRange⦄,⦃NonNegativeRationalRange⦄,
+⦃PositiveIntegerRange⦄,⦃NegativeIntegerRange⦄,⦃NonPositiveIntegerRange⦄,⦃NonNegativeIntegerRange⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Real⦄,
+				⦃unicodeCodePoints Rational⦄,
+				⦃unicodeCodePoints Integer⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Positive⦄,
+						⦃unicodeCodePoints Negative⦄,
+						⦃unicodeCodePoints NonPositive⦄,
+						⦃unicodeCodePoints NonNegative⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Range⦄)⦄
+					and:
+						for all ⟦range⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Range⦄.HasInstance(⦃range⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Range⦄.HasInstance(⦃range⦄)⦄
+								and:
+									⦃⦃⦃range⦄.GetElements(⦃True⦄,⦃True⦄)⦄.IsSubMultiClassOf(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⦄.MapToClass()⦄)⦄
+
+
+
+declare ⟦RealTypesIdentifiers⟧
+define ⦃RealTypesIdentifiers⦄
+		⦃⦃Class⦄.HasInstance(⦃RealTypesIdentifiers⦄)⦄
+	and:
+		for all ⟦typeIdentifier⟧:
+				⦃⦃RealTypesIdentifiers⦄.Has(⦃typeIdentifier⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Real⦄,
+							⦃unicodeCodePoints Integer⦄
+						}⦄.Has(⦃typeIdentifier0⦄)⦄
+					and:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints Positive⦄,
+							⦃unicodeCodePoints Negative⦄,
+							⦃unicodeCodePoints NonPositive⦄,
+							⦃unicodeCodePoints NonNegative⦄
+						}⦄.Has(⦃typeIdentifier1⦄)⦄
+					and:
+						⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃(⦃typeIdentifier1⦄,⦃typeIdentifier0⦄)⦄.GetConcatenation()⦄)⦄
+
+declare ⟦RealTypes⟧
+define ⦃RealTypes⦄
+		⦃⦃Class⦄.HasInstance(⦃RealTypes⦄)⦄
+	and:
+		for all ⟦type⟧:
+				⦃⦃RealTypes⦄.Has(⦃type⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+					⦃⦃type⦄.IsEqualTo(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+
+
+
+define ⦃method ⦃{⦃RealTypes⦄}⦄.GetFromRepresentationInBase⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃RealTypesIdentifiers⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetFromRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦representation⟧,⟦base⟧,⟦real⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃representation⦄,⦃base⦄)⦄,⦃real⦄)⦄)⦄
+						and:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.HasInstance(⦃real⦄)⦄
+						and:
+							there exists ⟦x⟧:
+								⦃⦃⦃real⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase(⦃⦃(⦃base⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄.IsEqualTo(⦃representation⦄)⦄
+
+define ⦃method ⦃{⦃RealTypes⦄}⦄.MapToCanonicalRepresentationInBase⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃RealTypesIdentifiers⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.MapToCanonicalRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦representation⟧,⟦base⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃representation⦄,⦃base⦄)⦄,⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetFromRepresentationInBase(⦃representation⦄,⦃base⦄)⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧RepresentationInBase(⦃base⦄)⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃Real⦄,⦃Integer⦄}⦄.GetFromUnicodeRepresentationInBase⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Real⦄,
+				⦃unicodeCodePoints Integer⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetFromUnicodeRepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦representation⟧,⟦base⟧,⟦real⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃representation⦄,⦃base⦄)⦄,⦃real⦄)⦄)⦄
+						and:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.HasInstance(⦃real⦄)⦄
+						and:
+							there exists ⟦x⟧:
+								let:
+									⟦representationOrRepresentations⟧:
+										⦃⦃representationOrRepresentations⦄.IsEqualTo(⦃⦃real⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧UnicodeRepresentationInBase(⦃⦃(⦃base⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄)⦄
+								if:
+									⦃⦃base⦄.IsInferiorOrEqualTo(⦃10⦄)⦄
+								then:
+									⦃⦃representation⦄.IsEqualTo(⦃representationOrRepresentations⦄)⦄
+								else:
+									let:
+										⟦representations⟧:
+											⦃⦃representations⦄.IsEqualTo(⦃representationOrRepresentations⦄)⦄
+									⦃⦃representations⦄.Has(⦃representation⦄)⦄
+
+define ⦃method ⦃{⦃Real⦄,⦃Integer⦄}⦄.MapToCanonicalUnicodeRepresentationInBase⦄,⦃method ⦃{⦃Real⦄,⦃Integer⦄}⦄.MapToCanonicalUnicodeLowerCaseRepresentationInBase⦄,⦃method ⦃{⦃Real⦄,⦃Integer⦄}⦄.MapToCanonicalUnicodeUpperCaseRepresentationInBase⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Real⦄,
+				⦃unicodeCodePoints Integer⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints LowerCase⦄,
+						⦃unicodeCodePoints UpperCase⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.MapToCanonicalUnicode⟦⟦⦃typeIdentifier0⦄⟧⟧RepresentationInBase⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦representation⟧,⟦base⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃representation⦄,⦃base⦄)⦄,⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetFromUnicodeRepresentationInBase(⦃representation⦄,⦃base⦄)⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧Unicode⟦⟦⦃typeIdentifier0⦄⟧⟧RepresentationInBase(⦃base⦄)⦄)⦄)⦄

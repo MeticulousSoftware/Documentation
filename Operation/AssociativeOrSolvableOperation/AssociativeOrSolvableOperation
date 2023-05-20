@@ -1,0 +1,24 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃AssociativeOperation⦄,⦃SolvableOperation⦄,⦃AtMostUniquelySolvableOperation⦄,⦃UniquelySolvableOperation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Associative⦄,
+				⦃unicodeCodePoints Solvable⦄,
+				⦃unicodeCodePoints AtMostUniquelySolvable⦄,
+				⦃unicodeCodePoints UniquelySolvable⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄)⦄
+			and:
+				for all ⟦operation⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.HasInstance(⦃operation⦄)⦄
+					if and only if:
+							⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+						and:
+							⦃⦃⦃operation⦄.GetCoDomainArity()⦄.IsInferiorOrEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+						and:
+							⦃⦃⦃⦃operation⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧For⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{⦃True⦄}⦄)⦄

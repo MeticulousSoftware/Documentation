@@ -1,0 +1,184 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Optional⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Optional⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦IsSome⟧,
+									⟦Get⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints IsSome⦄,⦃IsSome⦄)⦄,
+											⦃(⦃unicodeCodePoints Get⦄,⦃Get⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃⦃IsSome⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+									and:
+										let:
+											⟦isSome⟧:
+												⦃⦃isSome⦄.IsEqualTo(⦃⦃IsSome⦄()⦄)⦄
+											⦃⦃Boolean⦄.HasInstance(⦃isSome⦄)⦄
+										and:
+											let:
+												⟦domain⟧:
+													⦃⦃domain⦄.IsEqualTo(⦃⦃Get⦄.GetDomain()⦄)⦄
+											if:
+												⦃isSome⦄
+											then:
+												⦃⦃domain⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+											else:
+												⦃⦃domain⦄.IsEqualTo(⦃{}⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦optional⟧:
+									⦃⦃optional⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Optional⦄.HasInstance(⦃optional⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃optional⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Optional⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Optional⦄.MapToClass⦄
+	for all ⟦optional⟧:
+		if:
+			⦃⦃Optional⦄.HasInstance(⦃optional⦄)⦄
+		then:
+			let:
+				⟦class⟧:
+					⦃⦃class⦄.IsEqualTo(⦃⦃optional⦄.MapToClass()⦄)⦄
+			if:
+				⦃⦃optional⦄.IsSome()⦄
+			then:
+				⦃⦃class⦄.IsEqualTo(⦃⦃(⦃⦃optional⦄.Get()⦄)⦄.MapToClass()⦄)⦄
+			else:
+				⦃⦃class⦄.IsEqualTo(⦃⦃()⦄.MapToClass()⦄)⦄
+
+define ⦃method ⦃Optional⦄.MapWith⦄
+	for all ⟦optional⟧:
+		if:
+			⦃⦃Optional⦄.HasInstance(⦃optional⦄)⦄
+		then:
+			let:
+				⟦isSome⟧:
+					⦃⦃isSome⦄.IsEqualTo(⦃⦃optional⦄.IsSome()⦄)⦄
+				for all ⟦x⟧:
+						⦃⦃⦃⦃optional⦄.MapWith⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦mapIfIsSome⟧,⟦mathematicalObjectIfIsEmpty⟧:
+									⦃⦃x⦄.IsEqualTo(⦃mapIfIsSome⦄)⦄
+								or:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃mapIfIsSome⦄,⦃mathematicalObjectIfIsEmpty⦄)⦄)⦄
+							and:
+								⦃⦃Function⦄.HasInstance(⦃mapIfIsSome⦄)⦄
+							and:
+								if:
+									⦃isSome⦄
+								then:
+									⦃⦃⦃mapIfIsSome⦄.GetDomain()⦄.Has(⦃⦃optional⦄.Get()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃optional⦄.MapWith⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦mappedOptional⟧:
+								⦃⦃mappedOptional⦄.IsEqualTo(⦃⦃optional⦄.MapWith(⦃x⦄)⦄)⦄
+						if:
+								⦃isSome⦄
+							or:
+								⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+						then:
+							let:
+								⟦y⟧:
+									let:
+										⟦mapIfIsSome⟧,⟦mathematicalObjectIfIsEmpty⟧:
+													not:
+														⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+												and:
+													⦃⦃mapIfIsSome⦄.IsEqualTo(⦃x⦄)⦄
+											or:
+												⦃⦃(⦃mapIfIsSome⦄,⦃mathematicalObjectIfIsEmpty⦄)⦄.IsEqualTo(⦃x⦄)⦄
+									if:
+										⦃isSome⦄
+									then:
+										⦃⦃y⦄.IsEqualTo(⦃⦃mapIfIsSome⦄(⦃⦃optional⦄.Get()⦄)⦄)⦄
+									else:
+										⦃⦃y⦄.IsEqualTo(⦃mathematicalObjectIfIsEmpty⦄)⦄
+							⦃⦃mappedOptional⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃y⦄)⦄)⦄)⦄
+						else:
+							⦃⦃mappedOptional⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+
+define ⦃method ⦃Optional⦄.FoldWith⦄
+	for all ⟦optional⟧:
+		if:
+			⦃⦃Optional⦄.HasInstance(⦃optional⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃optional⦄.FoldWith⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+							⦃⦃⦃⦃optional⦄.MapWith⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						and:
+							if:
+								not:
+									⦃⦃optional⦄.IsSome()⦄
+							then:
+								⦃⦃FiniteSequence⦄.HasInstance(⦃x⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃optional⦄.FoldWith⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						⦃⦃⦃optional⦄.FoldWith(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃optional⦄.MapWith(⦃x⦄)⦄.Get()⦄)⦄
+
+define ⦃method ⦃{⦃Optional⦄}⦄.GetTypeInducedBy⦄
+		⦃⦃⦃⦃Optional⦄.GetTypeInducedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃Type⦄.MapToClass()⦄)⦄
+	and:
+		for all ⟦type⟧:
+			if:
+				⦃⦃⦃⦃Optional⦄.GetTypeInducedBy⦄.GetDomain()⦄.Has(⦃type⦄)⦄
+			then:
+				let:
+					⟦inducedType⟧:
+						⦃⦃inducedType⦄.IsEqualTo(⦃⦃Optional⦄.GetTypeInducedBy(⦃type⦄)⦄)⦄
+					⦃⦃Type⦄.HasInstance(⦃inducedType⦄)⦄
+				and:
+					for all ⟦optional⟧:
+							⦃⦃inducedType⦄.HasInstance(⦃optional⦄)⦄
+						if and only if:
+								⦃⦃Optional⦄.HasInstance(⦃optional⦄)⦄
+							and:
+								if:
+									⦃⦃optional⦄.IsSome()⦄
+								then:
+									⦃⦃type⦄.HasInstance(⦃⦃optional⦄.Get()⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Optional⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

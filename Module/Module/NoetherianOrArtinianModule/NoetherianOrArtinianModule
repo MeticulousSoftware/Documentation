@@ -1,0 +1,66 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃NoetherianModule⦄,⦃ArtinianModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Noetherian⦄,
+				⦃unicodeCodePoints Artinian⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+			and:
+				for all ⟦module⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃LeftNoetherianModule⦄,⦃RightNoetherianModule⦄,⦃BiNoetherianModule⦄,
+⦃LeftArtinianModule⦄,⦃RightArtinianModule⦄,⦃BiArtinianModule⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Noetherian⦄,
+				⦃unicodeCodePoints Artinian⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄)⦄
+					and:
+						for all ⟦module⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Module⦄.HasInstance(⦃module⦄)⦄
+								and:
+									let:
+										⟦relation⟧:
+												⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+											and:
+												⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃⦃module⦄.GetSubStructures()⦄.GetIntersectionWith(⦃⦃Module⦄.MapToClass()⦄)⦄)⦄
+											and:
+												for all ⟦modules⟧:
+														⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃modules⦄)⦄
+													if and only if:
+														let:
+															⟦module0⟧,⟦module1⟧:
+																⦃⦃(⦃module0⦄,⦃module1⦄)⦄.IsEqualTo(⦃modules⦄)⦄
+														⦃⦃⦃module1⦄.GetSubStructures()⦄.Has(⦃module0⦄)⦄
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄

@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃CommutativeOperation⦄
+		⦃⦃Type⦄.HasInstance(⦃CommutativeOperation⦄)⦄
+	and:
+		for all ⟦operation⟧:
+				⦃⦃CommutativeOperation⦄.HasInstance(⦃operation⦄)⦄
+			if and only if:
+					⦃⦃Operation⦄.HasInstance(⦃operation⦄)⦄
+				and:
+					⦃⦃⦃⦃operation⦄.IsCommutativeFor⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{⦃True⦄}⦄)⦄

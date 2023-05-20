@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃method ⦃FiniteArityDomainOperation⦄.GetConverse⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃FiniteArityDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			let:
+				⟦converse⟧:
+					⦃⦃converse⦄.IsEqualTo(⦃⦃operation⦄.GetConverse()⦄)⦄
+				⦃⦃FiniteArityDomainOperation⦄.HasInstance(⦃converse⦄)⦄
+			and:
+				⦃⦃⦃converse⦄.GetDomainSignature()⦄.IsEqualTo(⦃⦃⦃operation⦄.GetDomainSignature()⦄.GetReverse()⦄)⦄
+			and:
+				for all ⟦sequence0⟧,⟦sequence1⟧:
+						⦃⦃⦃⦃converse⦄.GetFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequence0⦄,⦃sequence1⦄)⦄)⦄
+					if and only if:
+						⦃⦃⦃⦃operation⦄.GetFunction()⦄.GetGraph()⦄.Has(⦃(⦃⦃sequence0⦄.GetReverse()⦄,⦃sequence1⦄)⦄)⦄

@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Rational⦄
+		⦃⦃Type⦄.HasInstance(⦃Rational⦄)⦄
+	and:
+		for all ⟦rational⟧:
+				⦃⦃Rational⦄.HasInstance(⦃rational⦄)⦄
+			if and only if:
+					⦃⦃Real⦄.HasInstance(⦃rational⦄)⦄
+				and:
+					there exists ⟦integer0⟧,⟦integer1⟧:
+							for all ⟦index⟧:
+								if:
+									⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+								then:
+									⦃⦃Integer⦄.HasInstance(⦃integer⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+						and:
+							⦃⦃rational⦄.IsEqualTo(⦃⦃integer0⦄.Divide(⦃integer1⦄)⦄)⦄
