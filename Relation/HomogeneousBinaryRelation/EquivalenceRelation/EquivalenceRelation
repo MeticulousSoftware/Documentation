@@ -1,0 +1,52 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃EquivalenceRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃EquivalenceRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃EquivalenceRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+				for all ⟦type⟧:
+					if:
+						⦃⦃{⦃PreOrder⦄,⦃SymmetricRelation⦄}⦄.Has(⦃type⦄)⦄
+					then:
+						⦃⦃type⦄.HasInstance(⦃relation⦄)⦄
+
+define ⦃method ⦃EquivalenceRelation⦄.GetEquivalenceClassOf⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃EquivalenceRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetEquivalenceClassOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃relation⦄.GetEquivalenceClassOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦equivalenceClass⟧:
+								⦃⦃equivalenceClass⦄.IsEqualTo(⦃⦃relation⦄.GetEquivalenceClassOf(⦃x⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃equivalenceClass⦄)⦄
+						and:
+							for all ⟦y⟧:
+									⦃⦃equivalenceClass⦄.Has(⦃y⦄)⦄
+								if and only if:
+									⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃x⦄,⦃y⦄)⦄
+
+define ⦃method ⦃EquivalenceRelation⦄.GetEquivalenceClasses⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃EquivalenceRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			⦃⦃⦃relation⦄.GetEquivalenceClasses⦄.IsEqualTo(⦃⦃⦃relation⦄.GetEquivalenceClassOf⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetEquivalenceClosure⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetEquivalenceClosure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃relation⦄.GetEquivalenceClosure()⦄.IsEqualTo(⦃⦃relation⦄.GetClosureFrom(⦃⦃EquivalenceRelation⦄.MapToClass()⦄)⦄)⦄

@@ -1,0 +1,249 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃HomogeneousBinaryRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃HomogeneousBinaryRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Homogeneous⦄,
+							⦃unicodeCodePoints Binary⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetMinimalElements⦄,⦃method ⦃HomogeneousBinaryRelation⦄.GetMaximalElements⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Min⦄,
+						⦃unicodeCodePoints Max⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧imalElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦elements⟧:
+								⦃⦃elements⦄.IsEqualTo(⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧imalElements()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+						and:
+							for all ⟦element⟧:
+									⦃⦃elements⦄.Has(⦃element⦄)⦄
+								if and only if:
+										⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.Has(⦃element⦄)⦄
+									and:
+										let:
+											⟦function⟧:
+												⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+										for all ⟦x⟧:
+											let:
+												⟦sequence⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Min⦄)⦄
+													then:
+														⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃element⦄)⦄)⦄
+													else:
+														⦃⦃sequence⦄.IsEqualTo(⦃(⦃element⦄,⦃x⦄)⦄)⦄
+											if:
+												⦃⦃function⦄(⦃sequence⦄)⦄
+											then:
+												⦃⦃function⦄(⦃⦃sequence⦄.GetReverse()⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetLowerBoundsOf⦄,⦃method ⦃HomogeneousBinaryRelation⦄.GetUpperBoundsOf⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Lower⦄,
+						⦃unicodeCodePoints Upper⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					let:
+						⟦signatureClass⟧:
+							⦃⦃signatureClass⦄.IsEqualTo(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+						⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃signatureClass⦄.GetPower()⦄)⦄
+					and:
+						for all ⟦class⟧:
+							if:
+								⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+							then:
+								let:
+									⟦bounds⟧:
+										⦃⦃bounds⦄.IsEqualTo(⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf(⦃class⦄)⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃bounds⦄)⦄
+								and:
+									for all ⟦bound⟧:
+											⦃⦃bounds⦄.Has(⦃bound⦄)⦄
+										if and only if:
+												⦃⦃signatureClass⦄.Has(⦃bound⦄)⦄
+											and:
+												for all ⟦x⟧:
+													if:
+															⦃⦃class⦄.Has(⦃x⦄)⦄
+														and:
+															not:
+																⦃⦃x⦄.IsEqualTo(⦃bound⦄)⦄
+													then:
+														let:
+															⟦sequence⟧:
+																if:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Lower⦄)⦄
+																then:
+																	⦃⦃sequence⦄.IsEqualTo(⦃(⦃bound⦄,⦃x⦄)⦄)⦄
+																else:
+																	⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃bound⦄)⦄)⦄
+														⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetGreatestLowerBoundsOf⦄,⦃method ⦃HomogeneousBinaryRelation⦄.GetLeastUpperBoundsOf⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Lower⦄,
+						⦃unicodeCodePoints Upper⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					let:
+						⟦typeIdentifier0⟧:
+							if:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Lower⦄)⦄
+							then:
+								⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Greatest⦄)⦄
+							else:
+								⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Least⦄)⦄
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+							⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf⦄,
+							⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf⦄
+						)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+					and:
+						for all ⟦class⟧:
+							if:
+								⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+							then:
+								let:
+									⟦bounds⟧:
+										⦃⦃bounds⦄.IsEqualTo(⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf(⦃class⦄)⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃bounds⦄)⦄
+								and:
+									for all ⟦bound⟧:
+											⦃⦃bounds⦄.Has(⦃bound⦄)⦄
+										if and only if:
+											let:
+												⟦bounds⟧:
+													⦃⦃bounds⦄.IsEqualTo(⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BoundsOf(⦃class⦄)⦄)⦄
+												⦃⦃bounds⦄.Has(⦃bound⦄)⦄
+											and:
+												for all ⟦x⟧:
+													if:
+															⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.Has(⦃x⦄)⦄
+														and:
+															not:
+																⦃⦃x⦄.IsEqualTo(⦃bound⦄)⦄
+													then:
+														if:
+															⦃⦃bounds⦄.Has(⦃x⦄)⦄
+														then:
+															let:
+																⟦sequence⟧:
+																	if:
+																		⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Lower⦄)⦄
+																	then:
+																		⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃bound⦄)⦄)⦄
+																	else:
+																		⦃⦃sequence⦄.IsEqualTo(⦃(⦃bound⦄,⦃x⦄)⦄)⦄
+															⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetLeastElements⦄,⦃method ⦃HomogeneousBinaryRelation⦄.GetGreatestElements⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Least⦄,
+						⦃unicodeCodePoints Greatest⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Elements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦typeIdentifier0⟧:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Least⦄)⦄
+								then:
+									⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints GreatestLower⦄)⦄
+								else:
+									⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints LeastUpper⦄)⦄
+						⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Elements()⦄.IsEqualTo(⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧BoundsOf(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetBiSimulations⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetBiSimulations⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦biSimulations⟧:
+						⦃⦃biSimulations⦄.IsEqualTo(⦃⦃relation⦄.GetBiSimulations()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃biSimulations⦄)⦄
+				and:
+					for all ⟦biSimulation⟧:
+							⦃⦃biSimulations⦄.Has(⦃biSimulation⦄)⦄
+						if and only if:
+								⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃biSimulation⦄)⦄
+							and:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃biSimulation⦄,⦃relation⦄)⦄.MapWith(⦃unaryFunction GetSharedSignatureClass⦄)⦄
+							and:
+								let:
+									⟦biSimulationFunction⟧:
+										⦃⦃biSimulationFunction⦄.IsEqualTo(⦃⦃biSimulation⦄.GetSimplifiedFunction()⦄)⦄
+								for all ⟦sequence⟧:
+									if:
+										⦃⦃biSimulationFunction⦄(⦃sequence⦄)⦄
+									then:
+										for all ⟦index⟧:
+											if:
+												⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+											then:
+												let:
+													⟦function⟧:
+														⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+												for all ⟦x⟧:
+													if:
+														⦃⦃function⦄(
+															⦃x⦄,
+															⦃⦃sequence⦄(⦃index⦄)⦄
+														)⦄
+													then:
+														there exists ⟦y⟧:
+																⦃⦃function⦄(
+																	⦃y⦄,
+																	⦃⦃⦃sequence⦄.GetReverse()⦄(⦃index⦄)⦄
+																)⦄
+															and:
+																let:
+																	⟦sequence⟧:
+																		if:
+																			⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																		then:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃y⦄)⦄)⦄
+																		else:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃y⦄,⦃x⦄)⦄)⦄
+																⦃⦃biSimulationFunction⦄(⦃sequence⦄)⦄

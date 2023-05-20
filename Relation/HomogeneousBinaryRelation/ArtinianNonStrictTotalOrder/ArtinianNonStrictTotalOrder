@@ -1,0 +1,57 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ArtinianNonStrictTotalOrder⦄
+		⦃⦃Type⦄.HasInstance(⦃ArtinianNonStrictTotalOrder⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃ArtinianNonStrictTotalOrder⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+				for all ⟦type⟧:
+					if:
+						⦃⦃{⦃ArtinianRelation⦄,⦃NonStrictTotalOrder⦄}⦄.Has(⦃type⦄)⦄
+					then:
+						⦃⦃type⦄.HasInstance(⦃relation⦄)⦄
+
+define ⦃method ⦃ArtinianNonStrictTotalOrder⦄.GetOrderType⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃ArtinianNonStrictTotalOrder⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃relation⦄.GetOrderType⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦ordinal⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃ordinal⦄)⦄)⦄
+						and:
+							⦃⦃Ordinal⦄.HasInstance(⦃ordinal⦄)⦄
+						and:
+							there exists ⟦operation⟧:
+									⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+								and:
+									let:
+										⟦structure0⟧,⟦structure1⟧:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													let:
+														⟦typeIdentifier⟧:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+														⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+													and:
+														⦃⦃AlgebraicStructureWithoutOperations⦄.HasInstance(⦃⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetStructure()⦄)⦄
+													and:
+														let
+															⟦relation0⟧:
+																⦃⦃relation0⦄.IsEqualTo(⦃⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetRelation()⦄)⦄
+														if:
+															⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+														then:
+															⦃⦃relation0⦄.IsEqualTo(⦃relation⦄)⦄
+														else:
+																⦃⦃Relation⦄.HasInstance(⦃relation0⦄)⦄
+															and:
+																⦃⦃⦃relation0⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃ordinal⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄.IsInferiorOrEqualTo⦄)⦄
+									⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf(⦃structure0⦄,⦃structure1⦄)⦄

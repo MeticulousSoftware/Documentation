@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃IdemPotentRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃IdemPotentRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃IdemPotentRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃⦃relation⦄.GetCompositionWith(⦃relation⦄)⦄.IsEqualTo(⦃relation⦄)⦄

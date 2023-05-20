@@ -1,0 +1,29 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃WeaklyExtensionalRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃WeaklyExtensionalRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃WeaklyExtensionalRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					for all ⟦x0⟧,⟦x1⟧:
+						if:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+							and:
+								let:
+									⟦function⟧:
+										⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+								for all ⟦x⟧:
+										⦃⦃function⦄(⦃x⦄,⦃x0⦄)⦄
+									if and only if:
+										⦃⦃function⦄(⦃x⦄,⦃x1⦄)⦄
+						then:
+							⦃⦃x0⦄.IsEqualTo(⦃x1⦄)⦄

@@ -1,0 +1,152 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃QuotientScalarMultiplicationStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃QuotientScalarMultiplicationStructure⦄)⦄
+	and:
+		for all ⟦structure⟧:
+				⦃⦃QuotientScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄,
+							⦃unicodeCodePoints Bi⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧QuotientScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+
+
+
+declare ⟦IsLeftScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⟧,⟦IsRightScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⟧
+define ⦃IsLeftScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄,⦃IsRightScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Function⦄.HasInstance(⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄)⦄
+			and:
+				⦃⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄,⦃EquivalenceRelation⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦isScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⟧:
+								⦃⦃isScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄.IsEqualTo(⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄(⦃x⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄)⦄
+						and:
+								⦃isScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄
+							if and only if:
+								let:
+									⟦quotientStructure⟧,⟦structure⟧,⟦congruenceRelation⟧:
+										⦃⦃(⦃quotientStructure⦄,⦃structure⦄,⦃congruenceRelation⦄)⦄.IsEqualTo(⦃x⦄)⦄
+									⦃⦃⦃quotientStructure⦄.GetStructure()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetStructure()⦄.GetQuotientStructureInducedBy(⦃congruenceRelation⦄)⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃quotientStructure⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetScalarStructure⦄)⦄)⦄
+								and:
+									for all ⟦scalar⟧,⟦x⟧:
+										if:
+												⦃⦃⦃structure⦄.GetScalars()⦄.Has(⦃scalar⦄)⦄
+											and:
+												⦃⦃⦃structure⦄.GetClass()⦄.Has(⦃x⦄)⦄
+										then:
+											let:
+												⟦sequence0⟧,⟦sequence1⟧:
+													let:
+														⟦equivalenceClass⟧:
+															⦃⦃equivalenceClass⦄.IsEqualTo(⦃⦃congruenceRelation⦄.GetEquivalenceClassOf(⦃x⦄)⦄)⦄
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+													then:
+															⦃⦃sequence0⦄.IsEqualTo(⦃(⦃scalar⦄,⦃equivalenceClass⦄)⦄)⦄
+														and:
+															⦃⦃sequence1⦄.IsEqualTo(⦃(⦃scalar⦄,⦃x⦄)⦄)⦄
+													else:
+															⦃⦃sequence0⦄.IsEqualTo(⦃(⦃equivalenceClass⦄,⦃scalar⦄)⦄)⦄
+														and:
+															⦃⦃sequence1⦄.IsEqualTo(⦃(⦃x⦄,⦃scalar⦄)⦄)⦄
+											⦃⦃⦃⦃⦃quotientStructure⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence0⦄)⦄.IsEqualTo(⦃⦃congruenceRelation⦄.GetEquivalenceClassOf(⦃⦃⦃⦃structure⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence1⦄)⦄)⦄)⦄
+
+
+
+define ⦃LeftQuotientScalarMultiplicationStructure⦄,⦃RightQuotientScalarMultiplicationStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧QuotientScalarMultiplicationStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧QuotientScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						there exists ⟦x⟧:
+							⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄(⦃⦃(⦃structure⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃LeftQuotientScalarMultiplicationStructure⦄.GetScalarMultiplicationStructure⦄,⦃method ⦃LeftQuotientScalarMultiplicationStructure⦄.GetCongruenceRelation⦄,
+⦃method ⦃RightQuotientScalarMultiplicationStructure⦄.GetScalarMultiplicationStructure⦄,⦃method ⦃RightQuotientScalarMultiplicationStructure⦄.GetCongruenceRelation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧QuotientScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints CongruenceRelation⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfQuotientScalarMultiplicationStructure⦄(⦃structure⦄,⦃⦃structure⦄.ScalarMultiplicationStructure()⦄,⦃⦃structure⦄.GetCongruenceRelation()⦄)⦄
+
+
+
+define ⦃BiQuotientScalarMultiplicationStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃BiQuotientScalarMultiplicationStructure⦄)⦄
+	and:
+		for all ⟦structure⟧:
+				⦃⦃BiQuotientScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+			if and only if:
+					⦃⦃BiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧QuotientScalarMultiplicationStructure⦄.HasInstance(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄)⦄
+
+define ⦃method ⦃BiQuotientScalarMultiplicationStructure⦄.GetScalarMultiplicationStructure⦄,⦃method ⦃BiQuotientScalarMultiplicationStructure⦄.GetCongruenceRelation⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃BiQuotientScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+						⦃unicodeCodePoints CongruenceRelation⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+						⦃structure⦄,
+						⦃⦃structure⦄.GetLeftStructure()⦄
+					)⦄.MapWith(⦃method Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄

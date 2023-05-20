@@ -1,0 +1,18 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PreOrder⦄
+		⦃⦃Type⦄.HasInstance(⦃PreOrder⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃PreOrder⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Transitive⦄,
+							⦃unicodeCodePoints Reflexive⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄

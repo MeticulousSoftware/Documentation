@@ -1,0 +1,27 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃NonStrictWeakOrder⦄
+		⦃⦃Type⦄.HasInstance(⦃NonStrictWeakOrder⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃NonStrictWeakOrder⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+				for all ⟦type⟧:
+					if:
+						⦃⦃{⦃PreOrder⦄,⦃ConnectedRelation⦄}⦄.Has(⦃type⦄)⦄
+					then:
+						⦃⦃type⦄.HasInstance(⦃relation⦄)⦄
+
+
+
+define ⦃StrictWeakOrder⦄
+		⦃⦃Type⦄.HasInstance(⦃StrictWeakOrder⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃StrictWeakOrder⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃NonStrictWeakOrder⦄.HasInstance(⦃⦃relation⦄.GetComplement()⦄)⦄

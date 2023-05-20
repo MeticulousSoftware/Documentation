@@ -1,0 +1,71 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ScottExtensionalRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃ScottExtensionalRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃ScottExtensionalRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦autoMorphisms⟧:
+								⦃⦃Class⦄.HasInstance(⦃autoMorphisms⦄)⦄
+							and:
+								for all ⟦autoMorphism⟧:
+										⦃⦃autoMorphisms⦄.Has(⦃autoMorphism⦄)⦄
+									if and only if:
+											⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃autoMorphism⦄)⦄
+										and:
+											let:
+												⟦structure⟧:
+														⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+													and:
+														⦃⦃AlgebraicStructureWithoutOperations⦄.HasInstance(⦃⦃structure⦄.GetStructure()⦄)⦄
+													and:
+														let:
+															⟦paths⟧:
+																	⦃⦃Class⦄.HasInstance(⦃paths⦄)⦄
+																and:
+																	for all ⟦path⟧:
+																			⦃⦃paths⦄.Has(⦃path⦄)⦄
+																		if and only if:
+																				⦃⦃FiniteSequence⦄.HasInstance(⦃path⦄)⦄
+																			and:
+																				⦃⦃⦃path⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+																			and:
+																				for all ⟦index⟧:
+																					if:
+																						⦃⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃⦃⦃path⦄.GetLength()⦄.Subtract(⦃1⦄)⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃index⦄)⦄
+																					then:
+																						⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃⦃(
+																							⦃index⦄,
+																							⦃⦃index⦄.Add(⦃1⦄)⦄
+																						)⦄.MapWith(⦃⦃path⦄.GetImageOf⦄)⦄)⦄
+															⦃⦃⦃structure⦄.GetClass()⦄.IsEqualTo(⦃paths⦄)⦄
+														and:
+															let:
+																⟦relation⟧:
+																	⦃⦃relation⦄.IsEqualTo(⦃⦃structure⦄.GetRelation()⦄)⦄
+																⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+															and:
+																for all ⟦path0⟧,⟦path1⟧:
+																	if:
+																		for all ⟦index⟧:
+																			if:
+																				⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																			then:
+																				⦃⦃paths⦄.Has(⦃path⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+																	then:
+																			⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃path0⦄,⦃path1⦄)⦄
+																		if and only if:
+																			there exists ⟦range⟧:
+																					⦃⦃0⦄.IsInferiorTo(⦃⦃range⦄.GetLowerBound()⦄)⦄
+																				and:
+																					⦃⦃path1⦄.IsEqualTo(⦃⦃path0⦄.GetSubSequence(⦃range⦄)⦄)⦄
+											⦃⦃autoMorphism⦄.IsIsoMorphicStructurePreversingMapOf(⦃structure⦄,⦃structure)⦄)⦄
+						⦃⦃ClassWithSize⦄.HasInstance(⦃autoMorphisms⦄)⦄
+					and:
+						⦃⦃⦃autoMorphisms⦄.GetSize()⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃1⦄)⦄)⦄

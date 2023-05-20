@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UniversalRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃UniversalRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃UniversalRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃EmptyRelation⦄.HasInstance(⦃⦃relation⦄.GetComplement()⦄)⦄

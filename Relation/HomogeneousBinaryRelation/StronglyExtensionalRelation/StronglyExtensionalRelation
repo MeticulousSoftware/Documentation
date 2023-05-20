@@ -1,0 +1,22 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃StronglyExtensionalRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃StronglyExtensionalRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃StronglyExtensionalRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					for all ⟦biSimulation⟧:
+						if:
+							⦃⦃⦃relation⦄.GetBiSimulations()⦄.Has(⦃biSimulation⦄)⦄
+						then:
+							let:
+								⟦identityRelation⟧:
+										⦃⦃IdentityRelation⦄.HasInstance(⦃identityRelation⦄)⦄
+									and:
+										⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃identityRelation⦄,⦃relation⦄)⦄.MapWith(⦃unaryFunction GetSignature⦄)⦄)⦄
+							⦃⦃identityRelation⦄.Contains(⦃biSimulation⦄)⦄

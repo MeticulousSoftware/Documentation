@@ -1,0 +1,40 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃OneToOneRelation⦄,
+⦃OneToManyRelation⦄,
+⦃ManyToOneRelation⦄,
+⦃ManyToManyRelation⦄
+	for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+		if:
+			for all ⟦index⟧:
+				if:
+					⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+				then:
+					⦃⦃{
+						⦃unicodeCodePoints One⦄,
+						⦃unicodeCodePoints Many⦄
+					}⦄.Has(⦃typeIdentifier⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧To⟦⟦⦃typeIdentifier1⦄⟧⟧Relation⦄)⦄
+			and:
+				for all ⟦relation⟧:
+						⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧To⟦⟦⦃typeIdentifier1⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								let:
+									⟦index⟧:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+										then:
+											⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+										else:
+											⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+								⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UniqueRelation⦄.HasInstance(⦃relation⦄)⦄.IsEqualTo(⦃⦃typeIdentifier⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.IsEqualTo(⦃unicodeCodePoints One⦄)⦄)⦄

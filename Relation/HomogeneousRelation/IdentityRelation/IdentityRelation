@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃IdentityRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃IdentityRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃IdentityRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetFunction()⦄)⦄
+					for all ⟦sequence⟧:
+						if:
+							⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+						then:
+								⦃⦃⦃function⦄(⦃sequence⦄)⦄(⦃0⦄)⦄
+							if and only if:
+								there exists ⟦x⟧:
+									⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{⦃x⦄}⦄)⦄

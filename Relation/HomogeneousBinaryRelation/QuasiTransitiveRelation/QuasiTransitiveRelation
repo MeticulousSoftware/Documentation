@@ -1,0 +1,31 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃QuasiTransitiveRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃QuasiTransitiveRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃QuasiTransitiveRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+					for all ⟦x⟧,⟦y⟧,⟦z⟧:
+						if:
+								⦃⦃function⦄(⦃x⦄,⦃y⦄)⦄
+							and:
+								not:
+									⦃⦃function⦄(⦃y⦄,⦃x⦄)⦄
+							and:
+								⦃⦃function⦄(⦃y⦄,⦃z⦄)⦄
+							and:
+								not:
+									⦃⦃function⦄(⦃z⦄,⦃y⦄)⦄
+						then:
+								⦃⦃function⦄(⦃x⦄,⦃z⦄)⦄
+							and:
+								not:
+									⦃⦃function⦄(⦃z⦄,⦃x⦄)⦄

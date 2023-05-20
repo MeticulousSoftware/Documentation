@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ConnectedRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃ConnectedRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃ConnectedRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃AntiSymmetricRelation⦄.HasInstance(⦃⦃relation⦄.GetComplement()⦄)⦄

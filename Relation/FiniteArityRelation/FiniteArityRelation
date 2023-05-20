@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FiniteArityRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃FiniteArityRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃FiniteArityRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃FiniteArityDomainOperation⦄.HasInstance(⦃⦃relation⦄.GetOperation()⦄)⦄
+
+define ⦃method ⦃FiniteArityRelation⦄.GetConverse⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃FiniteArityRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			let:
+				⟦converse⟧:
+					⦃⦃converse⦄.IsEqualTo(⦃⦃relation⦄.GetConverse()⦄)⦄
+				⦃⦃FiniteArityRelation⦄.HasInstance(⦃converse⦄)⦄
+			and:
+				⦃⦃⦃converse⦄.GetOperation()⦄.IsEqualTo(⦃⦃⦃relation⦄.GetOperation()⦄.GetConverse()⦄)⦄

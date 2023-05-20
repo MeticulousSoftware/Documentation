@@ -1,0 +1,426 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Relation⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Relation⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetOperation⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetOperation⦄,⦃GetOperation⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦operation⟧:
+												⦃⦃operation⦄.IsEqualTo(⦃⦃GetOperation⦄()⦄)⦄
+											⦃⦃TotalOperation⦄.HasInstance(⦃operation⦄)⦄
+										and:
+											⦃⦃⦃operation⦄.GetCoDomainSignature()⦄.IsEqualTo(⦃(
+												⦃⦃Boolean⦄.MapToClass()⦄
+											)⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦relation⟧:
+									⦃⦃relation⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃relation⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Relation⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetFunction⦄,
+⦃method ⦃Relation⦄.GetSimplifiedFunction⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Function⦄,
+						⦃unicodeCodePoints SimplifiedFunction⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+						⦃relation⦄,
+						⦃⦃relation⦄.GetOperation()⦄
+					)⦄.MapWith(⦃method Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃Relation⦄.MapToClass⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃relation⦄,
+				⦃⦃relation⦄.GetFunction()⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetSignature⦄,
+⦃method ⦃Relation⦄.GetArity⦄,
+⦃method ⦃Relation⦄.HasSharedSignatureClass⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifierBeginning⟧,⟦typeIdentifierEnding⟧:
+				if:
+					⦃⦃{
+						⦃(⦃unicodeCodePoints Get⦄,⦃unicodeCodePoints Signature⦄)⦄,
+						⦃(⦃unicodeCodePoints Get⦄,⦃unicodeCodePoints Arity⦄)⦄,
+						⦃(⦃unicodeCodePoints HasShared⦄,⦃unicodeCodePoints SignatureClass⦄)⦄
+					}⦄.Has(⦃(⦃typeIdentifierBeginning⦄,⦃typeIdentifierEnding⦄)⦄)⦄
+				then:
+					⦃⦃⦃relation⦄.⟦⟦⦃typeIdentifierBeginning⦄⟧⟧⟦⟦⦃typeIdentifierEnding⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃relation⦄.GetOperation()⦄.⟦⟦⦃typeIdentifierBeginning⦄⟧⟧Domain⟦⟦⦃typeIdentifierEnding⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetStructureGeneratedBy⦄,⦃method ⦃Relation⦄.GetStructureInducedBy⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Generated⦄,
+						⦃unicodeCodePoints Induced⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧,⟦relation0⟧:
+							⦃⦃⦃⦃relation⦄.GetStructure⟦⟦⦃typeIdentifier⦄⟧⟧By⦄.GetGraph()⦄.Has(⦃(⦃x⦄,⦃relation0⦄)⦄)⦄
+						if and only if:
+								⦃⦃Relation⦄.HasInstance(⦃relation0⦄)⦄
+							and:
+								let:
+									⟦operation⟧:
+										⦃⦃operation⦄.IsEqualTo(⦃⦃relation⦄.GetOperation()⦄)⦄
+								⦃⦃relation0⦄.GetOperation()⦄.IsEqualTo(⦃⦃operation⦄.GetStructure⟦⟦⦃typeIdentifier⦄⟧⟧By(⦃x⦄,⦃⦃operation⦄.GetCoDomainSignature()⦄)⦄)⦄
+
+define ⦃method ⦃Relation⦄.Contains⦄,⦃method ⦃Relation⦄.IsContainedBy⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Contains⦄,
+						⦃unicodeCodePoints IsContainedBy⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						for all ⟦relation0⟧:
+								⦃⦃⦃⦃relation⦄.⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.Has(⦃relation0⦄)⦄
+							if and only if:
+									⦃⦃Relation⦄.HasInstance(⦃relation0⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃relation0⦄,⦃relation⦄)⦄.MapWith(⦃unaryFunction GetSignature⦄)⦄)⦄
+					and:
+						for all ⟦relation0⟧:
+							if:
+								⦃⦃⦃⦃relation⦄.⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.Has(⦃relation0⦄)⦄
+							then:
+								let:
+									⟦containsOrIsContained⟧:
+										⦃⦃containsOrIsContained⦄.IsEqualTo(⦃⦃relation⦄.⟦⟦⦃typeIdentifier⦄⟧⟧(⦃relation0⦄)⦄)⦄
+									⦃⦃Boolean⦄.HasInstance(⦃containsOrIsContained⦄)⦄
+								and:
+										⦃containsOrIsContained⦄
+									if and only if:
+										for all ⟦x⟧:
+											let:
+												⟦relation1⟧,⟦relation2⟧:
+													let:
+														⟦relations⟧:
+															⦃⦃relations⦄.IsEqualTo(⦃(⦃relation1⦄,⦃relation2⦄)⦄)⦄
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Contains⦄)⦄
+													then:
+														⦃⦃relations⦄.IsEqualTo(⦃(⦃relation0⦄,⦃relation⦄)⦄)⦄
+													else:
+														⦃⦃relations⦄.IsEqualTo(⦃(⦃relation⦄,⦃relation0⦄)⦄)⦄
+											if:
+												⦃⦃⦃relation1⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄
+											then:
+												⦃⦃⦃relation2⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetSubRelations⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetSubRelations⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃relation⦄.GetSubRelations()⦄.IsEqualTo(⦃⦃⦃⦃relation⦄.Contains⦄.GetDomain()⦄.FilterWith(⦃⦃relation⦄.Contains⦄)⦄)⦄
+
+define ⦃method ⦃Relation⦄.IsUniqueFor⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			let:
+				⟦arity⟧:
+					⦃⦃arity⦄.IsEqualTo(⦃⦃relation⦄.GetArity()⦄)⦄
+				⟦relationIndexes⟧:
+					⦃⦃relationIndexes⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃arity⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+				⦃⦃⦃⦃relation⦄.IsUniqueFor⦄.GetDomain()⦄.IsEqualTo(⦃⦃relationIndexes⦄.GetPower()⦄)⦄
+			and:
+				for all ⟦indexes⟧:
+					if:
+						⦃⦃⦃⦃relation⦄.IsUniqueFor⦄.GetDomain()⦄.Has(⦃indexes⦄)⦄
+					then:
+						let:
+							⟦isUnique⟧:
+								⦃⦃isUnique⦄.IsEqualTo(⦃⦃relation⦄.IsUniqueFor(⦃indexes⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isUnique⦄)⦄
+						and:
+								⦃isUnique⦄
+							if and only if:
+								for all ⟦sequencePart0⟧,⟦sequencePart1⟧,⟦sequencePart2⟧:
+									if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄,⦃2⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													let:
+														⟦typeIdentifier⟧:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+														⦃⦃Function⦄.HasInstance(⦃sequencePart⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+													and:
+														let:
+															⟦domain⟧:
+																⦃⦃domain⦄.IsEqualTo(⦃⦃sequencePart⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄)⦄
+														if:
+															not:
+																⦃⦃index⦄.IsEqualTo(⦃2⦄)⦄
+														then:
+															⦃⦃domain⦄.IsEqualTo(⦃indexes⦄)⦄
+														else:
+															⦃⦃domain⦄.IsEqualTo(⦃⦃relationIndexes⦄.GetDifferenceWith(⦃indexes⦄)⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃⦃sequencePart⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃binaryFunction Has⦄(⦃⦃⦃(
+																	⦃⦃relation⦄.GetSignature()⦄,
+																	⦃sequencePart⟦⟦⦃typeIdentifier⦄⟧⟧⦄
+																)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄
+										and:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													let:
+														⟦sequence⟧:
+																⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+															and:
+																⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃arity⦄)⦄
+															and:
+																for all ⟦index0⟧:
+																	if:
+																		⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index0⦄)⦄
+																	then:
+																		let:
+																			⟦x⟧:
+																				⦃⦃x⦄.IsEqualTo(⦃⦃sequence⦄(⦃index0⦄)⦄)⦄
+																		if:
+																			⦃⦃indexes⦄.Has(⦃index⦄)⦄
+																		then:
+																			⦃⦃x⦄.IsEqualTo(⦃⦃sequencePart⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄(⦃index0⦄)⦄)⦄
+																		else:
+																			⦃⦃x⦄.IsEqualTo(⦃⦃sequencePart2⦄(⦃index0⦄)⦄)⦄
+													⦃⦃⦃⦃relation⦄.GetFunction()⦄(⦃sequence⦄)⦄(⦃0⦄)⦄
+									then:
+										⦃⦃sequencePart0⦄.IsEqualTo(⦃sequencePart1⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetDomainOfDefinitionFor⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetDomainOfDefinitionFor⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃relation⦄.GetArity()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+			and:
+				for all ⟦index⟧:
+					if:
+						⦃⦃⦃⦃relation⦄.GetDomainOfDefinitionFor⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+					then:
+						let:
+							⟦domainOfDefinition⟧:
+								⦃⦃domainOfDefinition⦄.IsEqualTo(⦃⦃relation⦄.GetDomainOfDefinitionFor(⦃index⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃domainOfDefinition⦄)⦄
+						and:
+							for all ⟦x⟧:
+									⦃⦃domainOfDefinition⦄.Has(⦃x⦄)⦄
+								if and only if:
+									there exists ⟦sequenceBeginning⟧,⟦sequenceEnding⟧:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Beginning⦄,
+														⦃unicodeCodePoints Ending⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃sequenceBeginning⦄.GetLength()⦄.IsEqualTo(⦃index⦄)⦄
+										and:
+											⦃⦃⦃⦃relation⦄.GetFunction()⦄(⦃⦃(
+												⦃sequenceBeginning⦄,
+												⦃(⦃x⦄)⦄,
+												⦃sequenceEnding⦄
+											)⦄.GetConcatenation()⦄)⦄(⦃0⦄)⦄
+
+define ⦃method ⦃Relation⦄.IsTotalFor⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.IsTotalFor⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃relation⦄.GetArity()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+			and:
+				for all ⟦index⟧:
+					if:
+						⦃⦃⦃⦃relation⦄.IsTotalFor⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+					then:
+						⦃⦃⦃relation⦄.IsTotalFor(⦃index⦄)⦄.IsEqualTo(⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(
+							⦃⦃relation⦄.GetDomainOfDefinitionFor⦄,
+							⦃⦃relation⦄.GetSignature()⦄
+						)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetComplement⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetComplement⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦complement⟧:
+						⦃⦃complement⦄.IsEqualTo(⦃⦃relation⦄.GetComplement()⦄)⦄
+					⦃⦃Relation⦄.HasInstance(⦃complement⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃complement⦄,⦃relation⦄)⦄.MapWith(⦃unaryFunction GetSignature⦄)⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						then:
+								⦃⦃⦃complement⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄
+							if and only if:
+								not:
+									⦃⦃function⦄(⦃x⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Relation⦄)⦄.GetUnion⦄,⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Relation⦄)⦄.GetIntersection⦄
+	for all ⟦relations⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Relation⦄)⦄.HasInstance(⦃relations⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Union⦄,
+						⦃unicodeCodePoints Intersection⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					if:
+						there exists ⟦signature⟧:
+							⦃⦃{⦃signature⦄}⦄.IsEqualTo(⦃⦃relations⦄.MapToClassWith(⦃unaryFunction GetSignature⦄)⦄)⦄
+					then:
+							⦃⦃⦃⦃relations⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							let:
+								⟦relation⟧:
+									⦃⦃relation⦄.IsEqualTo(⦃⦃relations⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+								⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+							and:
+								let:
+									⟦relation0⟧:
+										⦃⦃relations⦄.Has(⦃relation0⦄)⦄
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃relation⦄,⦃relation0⦄)⦄.MapWith(⦃unaryFunction GetSignature⦄)⦄)⦄
+							and:
+								for all ⟦x⟧:
+										⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄
+									if and only if:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Union⦄)⦄
+										then:
+											there exists ⟦relation⟧:
+													⦃⦃relations⦄.Has(⦃relation⦄)⦄
+												and:
+													⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄
+										else:
+											for all ⟦relation⟧:
+												if:
+													⦃⦃relations⦄.Has(⦃relation⦄)⦄
+												then:
+													⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃x⦄)⦄
+					else:
+						⦃⦃⦃⦃relations⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetUnionWith⦄,⦃method ⦃Relation⦄.GetIntersectionWith⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Union⦄,
+						⦃unicodeCodePoints Intersection⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦relation0⟧:
+									⦃⦃Relation⦄.HasInstance(⦃relation0⦄)⦄
+								and:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃relation0⦄,⦃⦃{⦃relation⦄,⦃relation0⦄}⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄)⦄
+
+define ⦃method ⦃Relation⦄.GetClosureFrom⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦relations⟧,⟦closure⟧:
+					⦃⦃⦃⦃relation⦄.GetClosureFrom⦄.GetGraph()⦄.Has(⦃(⦃relations⦄,⦃closure⦄)⦄)⦄
+				if and only if:
+						⦃⦃⦃NonEmptyClass⦄.GetTypeInducedBy(⦃Relation⦄)⦄.Has(⦃relations⦄)⦄
+					and:
+						⦃⦃relations⦄.Has(⦃closure⦄)⦄
+					and:
+						⦃⦃closure⦄.IsEqualTo(⦃⦃⦃relations⦄.FilterWith(⦃⦃relation⦄.IsContainedBy⦄)⦄.GetIntersection()⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Relation⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

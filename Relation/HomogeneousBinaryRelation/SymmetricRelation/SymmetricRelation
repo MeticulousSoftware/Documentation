@@ -1,0 +1,29 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃SymmetricRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃SymmetricRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃SymmetricRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+					for all ⟦sequence⟧:
+						if:
+							⦃⦃function⦄(⦃sequence⦄)⦄
+						then:
+							⦃⦃function⦄(⦃⦃sequence⦄.GetReverse()⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetSymmetricClosure⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetSymmetricClosure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃relation⦄.GetSymmetricClosure()⦄.IsEqualTo(⦃⦃relation⦄.GetClosureFrom(⦃⦃SymmetricRelation⦄.MapToClass()⦄)⦄)⦄

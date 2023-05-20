@@ -1,0 +1,705 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaScalarMultiplicationStructure⦄,⦃ScalarMultiplicationStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+
+
+
+define ⦃MetaLeftScalarMultiplicationStructure⦄,⦃MetaRightScalarMultiplicationStructure⦄,⦃MetaBiScalarMultiplicationStructure⦄,
+⦃LeftScalarMultiplicationStructure⦄,⦃RightScalarMultiplicationStructure⦄,⦃BiScalarMultiplicationStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									let:
+										⟦equipments⟧:
+											⦃⦃equipments⦄.IsEqualTo(⦃⦃structure⦄.GetEquipments()⦄)⦄
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints Left⦄,
+													⦃unicodeCodePoints Right⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												let:
+													⟦scalarStructureIdentifier⟧,⟦scalarMultiplicationIdentifier⟧:
+														for all ⟦typeIdentifier0⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints Structure⦄,
+																	⦃unicodeCodePoints Multiplication⦄
+																}⦄.Has(⦃typeIdentifier0⦄)⦄
+															then:
+																⦃⦃scalar⟦⟦⦃typeIdentifier0⦄⟧⟧Identifier⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⦄⟧⟧Scalar⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+													⟦identifiers⟧:
+														⦃⦃identifiers⦄.IsEqualTo(⦃{
+															⦃scalarStructureIdentifier⦄,
+															⦃scalarMultiplicationIdentifier⦄
+														}⦄)⦄
+												if:
+													⦃⦃⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.GetDomain()⦄.GetIntersectionWith(⦃identifiers⦄)⦄.IsEqualTo(⦃identifiers⦄)⦄
+												then:
+													let:
+														⟦scalarStructure⟧,⟦scalarMultiplication⟧:
+															for all ⟦typeIdentifier⟧:
+																if:
+																	⦃⦃{
+																		⦃unicodeCodePoints Structure⦄,
+																		⦃unicodeCodePoints Multiplication⦄
+																	}⦄.Has(⦃typeIdentifier⦄)⦄
+																then:
+																	⦃⦃scalar⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃equipments⦄(⦃scalar⟦⟦⦃typeIdentifier⦄⟧⟧Identifier⦄)⦄)⦄
+														⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃scalarStructure⦄)⦄
+													and:
+															⦃⦃BinaryUnaryOperation⦄.HasInstance(⦃scalarMultiplication⦄)⦄
+														and:
+															let:
+																⟦class⟧:
+																	⦃⦃class⦄.IsEqualTo(⦃⦃⦃equipments⦄(⦃unicodeCodePoints algebraic structure⦄)⦄.GetClass()⦄)⦄
+																let:
+																	⟦sequence⟧:
+																		let:
+																			⟦scalars⟧:
+																				⦃⦃scalars⦄.IsEqualTo(⦃⦃scalarStructure⦄.GetClass()⦄)⦄
+																		if:
+																			⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																		then:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃scalars⦄,⦃class⦄)⦄)⦄
+																		else:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃class⦄,⦃scalars⦄)⦄)⦄
+																⦃⦃⦃scalarMultiplication⦄.GetDomainSignature()⦄.IsEqualTo(⦃sequence⦄)⦄
+															and:
+																⦃⦃⦃scalarMultiplication⦄.GetSharedCoDomainSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+												else:
+													⦃⦃{
+														⦃⦃equipments⦄.GetDomain()⦄,
+														⦃identifiers⦄
+													}⦄.AreMutuallyDisjoint()⦄
+									and:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+										then:
+											⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaLeftScalarMultiplicationStructure⦄.GetScalarStructure⦄,⦃method ⦃MetaLeftScalarMultiplicationStructure⦄.GetScalarMultiplication⦄,
+⦃method ⦃MetaRightScalarMultiplicationStructure⦄.GetScalarStructure⦄,⦃method ⦃MetaRightScalarMultiplicationStructure⦄.GetScalarMultiplication⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃Meta⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Structure⦄,
+								⦃unicodeCodePoints Multiplication⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃⦃structure⦄.GetScalar⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								⦃⦃⦃structure⦄.GetScalar⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetEquipments()⦄(⦃unicodeCodePoints ⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Scalar⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃MetaLeftScalarMultiplicationStructure⦄.GetScalars⦄,⦃method ⦃MetaRightScalarMultiplicationStructure⦄.GetScalars⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃Meta⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+					⦃⦃⦃structure⦄.GetScalars⦄.IsEqualTo(⦃⦃⦃structure⦄.GetScalarStructure()⦄.GetClass⦄)⦄
+
+
+
+define ⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetLeftStructure⦄,⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetRightStructure⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaBiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+				if:
+					⦃⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+				then:
+						⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦structure0⟧:
+								⦃⦃structure0⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄
+							⦃⦃Meta⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure0⦄)⦄
+						and:
+							let:
+								⟦equipments⟧,⟦equipments0⟧:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints ⦄,
+												⦃unicodeCodePoints 0⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃equipments⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetEquipments()⦄)⦄
+								⟦scalarStructureIdentifier⟧,⟦scalarMultiplicationIdentifier⟧:
+									for all ⟦typeIdentifier0⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Structure⦄,
+												⦃unicodeCodePoints Multiplication⦄
+											}⦄.Has(⦃typeIdentifier0⦄)⦄
+										then:
+											⦃⦃scalar⟦⟦⦃typeIdentifier0⦄⟧⟧Identifier⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃⦃typeIdentifier1⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Scalar⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+								⦃⦃⦃equipments0⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃equipments⦄.GetDomain()⦄.GetDifferenceWith(⦃{
+									⦃scalarStructureIdentifier⦄,
+									⦃scalarMultiplicationIdentifier⦄
+								}⦄)⦄)⦄
+							and:
+								⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃equipments0⦄,⦃equipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+define ⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetLeftScalarStructure⦄,⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetRightScalarStructure⦄,
+⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetLeftScalarMultiplication⦄,⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetRightScalarMultiplication⦄,
+⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetLeftScalars⦄,⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetRightScalars⦄,
+⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetLeftAnnihilatorsFor⦄,⦃method ⦃MetaBiScalarMultiplicationStructure⦄.GetRightAnnihilatorsFor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ScalarStructure⦄,
+				⦃unicodeCodePoints ScalarMultiplication⦄,
+				⦃unicodeCodePoints Scalars⦄,
+				⦃unicodeCodePoints AnnihilatorsFor⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃MetaBiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+
+
+
+define ⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄
+		⦃⦃Type⦄.HasInstance(⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄)⦄
+	and:
+		for all ⟦structure⟧:
+				⦃⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄.HasInstance(⦃structure⦄)⦄
+			if and only if:
+					⦃⦃MetaBiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				and:
+					⦃⦃⦃structure⦄.GetLeftScalars()⦄.IsEqualTo(⦃⦃structure⦄.GetRightScalars()⦄)⦄
+
+define ⦃method ⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄.GetScalars⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			⦃⦃⦃structure⦄.GetScalars⦄.IsEqualTo(⦃⦃structure⦄.GetLeftScalars⦄)⦄
+
+
+
+define ⦃method ⦃MetaScalarMultiplicationStructure⦄.GetScalarMultiplicationStructure⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetScalarMultiplicationStructure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦scalarMultiplicationStructure⟧:
+						⦃⦃scalarMultiplicationStructure⦄.IsEqualTo(⦃⦃structure⦄.GetScalarMultiplicationStructure()⦄)⦄
+					⦃⦃ScalarMultiplicationStructure⦄.HasInstance(⦃scalarMultiplicationStructure⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃scalarMultiplicationStructure⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃LeftScalarMultiplicationStructure⦄,⦃RightScalarMultiplicationStructure⦄,⦃BiScalarMultiplicationStructure⦄}⦄.GetEquipmentsDomain⦄
+		for all ⟦typeIdentifier⟧:
+			if:
+				⦃⦃{
+					⦃unicodeCodePoints Left⦄,
+					⦃unicodeCodePoints Right⦄,
+					⦃unicodeCodePoints Bi⦄
+				}⦄.Has(⦃typeIdentifier⦄)⦄
+			then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		for all ⟦typeIdentifier⟧:
+			if:
+				⦃⦃{
+					⦃unicodeCodePoints Left⦄,
+					⦃unicodeCodePoints Right⦄
+				}⦄.Has(⦃typeIdentifier⦄)⦄
+			then:
+				let:
+					⟦scalarStructureIdentifier⟧,⟦scalarMultiplicationIdentifier⟧:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Multiplication⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃scalar⟦⟦⦃typeIdentifier0⦄⟧⟧Identifier⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Scalar⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃AlgebraicStructure⦄.GetEquipmentsDomain()⦄.GetUnionWith(⦃{
+					⦃scalarStructureIdentifier⦄,
+					⦃scalarMultiplicationIdentifier⦄
+				}⦄)⦄)⦄
+	and:
+		⦃⦃⦃BiScalarMultiplicationStructure⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃(⦃LeftScalarMultiplicationStructure⦄,⦃RightScalarMultiplicationStructure⦄)⦄.MapWith(⦃unaryFunction GetEquipmentsDomain⦄)⦄.GetUnion()⦄)⦄
+
+define ⦃method ⦃ScalarMultiplicationStructure⦄.GetSimilarStructures⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄,
+				⦃unicodeCodePoints Bi⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+					for all ⟦structure0⟧:
+							⦃⦃⦃structure⦄.GetSimilarStructures()⦄.Has(⦃structure0⦄)⦄
+						if and only if:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure0⦄)⦄
+							and:
+								if:
+									not:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Bi⦄)⦄
+								then:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Structure⦄,
+												⦃unicodeCodePoints ScalarStructure⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetSimilarStructures()⦄.Has(⦃⦃structure0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+								else:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Left⦄,
+												⦃unicodeCodePoints Right⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄.GetSimilarStructures()⦄.Has(⦃⦃structure0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦structures⟧:
+						if:
+								⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+							and:
+								⦃⦃⦃structures⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.MapToClass()⦄)⦄
+						then:
+								⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃structures⦄)⦄
+							if and only if:
+								if:
+									not:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Bi⦄)⦄
+								then:
+										⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃structures⦄.MapWith(⦃unaryFunction GetStructure⦄)⦄)⦄
+									and:
+										let:
+											⟦structure0⟧,⟦structure1⟧:
+												⦃⦃(⦃structure0⦄,⦃structure1⦄)⦄.IsEqualTo(⦃structures⦄)⦄
+											⟦scalarMultiplication0⟧:
+												⦃⦃scalarMultiplication0⦄.IsEqualTo(⦃⦃⦃structure0⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄)⦄
+										for all ⟦x⟧:
+											if:
+												⦃⦃⦃scalarMultiplication0⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+											then:
+												let:
+													⟦function⟧:
+														⦃⦃function⦄.IsEqualTo(⦃⦃operation⦄.GetSimplifiedFunction()⦄)⦄
+													⟦sequence⟧:
+														let:
+															⟦y⟧,⟦z⟧:
+																⦃⦃(⦃y⦄,⦃z⦄)⦄.IsEqualTo(⦃x⦄)⦄
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+														then:
+															⦃⦃sequence⦄.IsEqualTo(⦃(⦃y⦄,⦃⦃function⦄(⦃z⦄)⦄)⦄)⦄
+														else:
+															⦃⦃sequence⦄.IsEqualTo(⦃(⦃⦃function⦄(⦃y⦄)⦄,⦃z⦄)⦄)⦄
+												⦃⦃⦃function⦄(⦃⦃scalarMultiplication0⦄(⦃x⦄)⦄)⦄.IsEqualTo(⦃⦃⦃⦃structure1⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄
+								else:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Left⦄,
+												⦃unicodeCodePoints Right⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃structures⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure⦄)⦄)⦄
+
+define ⦃method ⦃ScalarMultiplicationStructure⦄.IsCompatibleWithTheRelation⦄
+-	for all ⟦structure⟧:
+		if:
+			⦃⦃ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦relation⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.IsCompatibleWithTheRelation⦄.GetDomain()⦄.Has(⦃relation⦄)⦄
+				then:
+						⦃⦃structure⦄.IsCompatibleWithTheRelation(⦃relation⦄)⦄
+					if and only if:
+						⦃⦃⦃structure⦄.GetStructure()⦄.IsCompatibleWithTheRelation(⦃relation⦄)⦄
+
+
+
+define ⦃method ⦃LeftScalarMultiplicationStructure⦄.GetStructureInducedBy⦄,⦃method ⦃RightScalarMultiplicationStructure⦄.GetStructureInducedBy⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+					for all ⟦class⟧:
+						if:
+							⦃⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+						then:
+							let:
+								⟦inducedStructure⟧:
+									⦃⦃inducedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃inducedStructure⦄)⦄
+							and:
+								⦃⦃⦃inducedStructure⦄.GetStructure()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetStructure()⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+							and:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃inducedStructure⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetScalarStructure⦄)⦄)⦄
+							and:
+								let:
+									⟦sequence⟧:
+										let:
+											⟦scalars⟧:
+												⦃⦃scalars⦄.IsEqualTo(⦃⦃structure⦄.GetScalars()⦄)⦄
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+										then:
+											⦃⦃sequence⦄.IsEqualTo(⦃(⦃scalars⦄,⦃class⦄)⦄)⦄
+										else:
+											⦃⦃sequence⦄.IsEqualTo(⦃(⦃class⦄,⦃scalars⦄)⦄)⦄
+								⦃⦃⦃inducedStructure⦄.GetScalarMultiplication()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetScalarMultiplication()⦄.GetStructureInducedBy(⦃sequence⦄,⦃class⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃LeftScalarMultiplicationStructure⦄)⦄.GetDirectSum⦄,⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃LeftScalarMultiplicationStructure⦄)⦄.GetDirectProduct⦄,
+⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃RightScalarMultiplicationStructure⦄)⦄.GetDirectSum⦄,⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃RightScalarMultiplicationStructure⦄)⦄.GetDirectProduct⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structures⟧:
+				if:
+					⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄)⦄.HasInstance(⦃structures⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Sum⦄,
+								⦃unicodeCodePoints Product⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							for all ⟦x⟧:
+									⦃⦃⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+								if and only if:
+									there exists ⟦structure⟧:
+											⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃structure⦄)⦄)⦄
+										and:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+										and:
+											⦃⦃⦃structure⦄.GetStructure()⦄.IsEqualTo(⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetStructure⦄)⦄.GetDirect⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄)⦄
+										and:
+											⦃⦃{⦃⦃structure⦄.GetScalarStructure()⦄}⦄.IsEqualTo(⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetScalarStructure⦄)⦄.GetCodomain()⦄)⦄
+										and:
+											for all ⟦scalar⟧,⟦sequence0⟧,⟦sequence1⟧:
+													let:
+														⟦sequence⟧:
+															if:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+															then:
+																⦃⦃sequence⦄.IsEqualTo(⦃(⦃scalar⦄,⦃sequence0⦄)⦄)⦄
+															else:
+																⦃⦃sequence⦄.IsEqualTo(⦃(⦃sequence0⦄,⦃scalar⦄)⦄)⦄
+													⦃⦃⦃⦃⦃structure⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequence⦄,⦃sequence1⦄)⦄)⦄
+												if and only if:
+														⦃⦃⦃structure⦄.GetScalars()⦄.Has(⦃scalar⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃⦃structure⦄.GetClass()⦄.Has(⦃sequence⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃⦃sequence1⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																let:
+																	⟦sequence⟧:
+																		let:
+																			⟦x⟧:
+																				⦃⦃x⦄.IsEqualTo(⦃⦃sequence0⦄(⦃index⦄)⦄)⦄
+																		if:
+																			⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																		then:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃scalar⦄,⦃x⦄)⦄)⦄
+																		else:
+																			⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃scalar⦄)⦄)⦄
+																⦃⦃⦃sequence1⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃⦃⦃structures⦄(⦃index⦄)⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄
+
+
+
+define ⦃method ⦃BiScalarMultiplicationStructure⦄.GetStructureInducedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃BiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedStructure⟧:
+							⦃⦃inducedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃BiScalarMultiplicationStructure⦄.HasInstance(⦃inducedStructure⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃inducedStructure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄.IsEqualTo(⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃BiScalarMultiplicationStructure⦄)⦄.GetDirectSum⦄,⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃BiScalarMultiplicationStructure⦄)⦄.GetDirectProduct⦄
+	for all ⟦structures⟧:
+		if:
+			⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃BiScalarMultiplicationStructure⦄)⦄.HasInstance(⦃structures⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sum⦄,
+						⦃unicodeCodePoints Product⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦x⟧:
+							⦃⦃⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetGraph()⦄.IsEqualTo(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦structure⟧:
+									⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃structure⦄)⦄)⦄
+								and:
+									⦃⦃BiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									for all ⟦typeIdentifier0⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Left⦄,
+												⦃unicodeCodePoints Right⦄
+											}⦄.Has(⦃typeIdentifier0⦄)⦄
+										then:
+											⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄.IsEqualTo(⦃⦃⦃structures⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure⦄)⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+
+
+define ⦃method ⦃ScalarMultiplicationStructure⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄,
+				⦃unicodeCodePoints Bi⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+					for all ⟦class⟧:
+						if:
+							⦃⦃⦃⦃structure⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+						then:
+							let:
+								⟦generatedStructure⟧:
+									⦃⦃generatedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃generatedStructure⦄)⦄
+							and:
+								let:
+									⟦class0⟧:
+										⦃⦃class0⦄.IsEqualTo(⦃⦃generatedStructure⦄.GetClass()⦄)⦄
+									⦃⦃generatedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class0⦄)⦄)⦄
+								and:
+									let:
+										⟦class0Classes⟧:
+												⦃⦃Class⦄.HasInstance(⦃class0Classes⦄)⦄
+											and:
+												for all ⟦class0⟧:
+														⦃⦃class0Classes⦄.Has(⦃class0⦄)⦄
+													if and only if:
+															⦃⦃Class⦄.HasInstance(⦃class0⦄)⦄
+														and:
+															for all ⟦x⟧:
+																	⦃⦃class0⦄.Has(⦃x⦄)⦄
+																if and only if:
+																		⦃⦃class⦄.Has(⦃x⦄)⦄
+																	or:
+																		⦃⦃⦃⦃structure⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class0⦄)⦄.Has(⦃x⦄)⦄
+																	or:
+																		there exists ⟦typeIdentifier0⟧:
+																				⦃⦃{
+																					⦃unicodeCodePoints Left⦄,
+																					⦃unicodeCodePoints Right⦄
+																				}⦄.Has(⦃typeIdentifier0⦄)⦄
+																			and:
+																				not:
+																					⦃⦃typeIdentifier0⦄.IsEqualTo(⦃typeIdentifier⦄)⦄
+																			and:
+																				there exists ⟦y⟧,⟦z⟧:
+																					let:
+																						⟦structure0⟧:
+																							if:
+																								not:
+																									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Bi⦄)⦄
+																							then:
+																								⦃⦃structure0⦄.IsEqualTo(⦃structure⦄)⦄
+																							else:
+																								⦃⦃structure0⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Structure()⦄)⦄
+																						⟦sequence⟧:
+																							if:
+																								⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Right⦄)⦄
+																							then:
+																								⦃⦃sequence⦄.IsEqualTo(⦃(⦃y⦄,⦃z⦄)⦄)⦄
+																							else:
+																								⦃⦃sequence⦄.IsEqualTo(⦃(⦃z⦄,⦃y⦄)⦄)⦄
+																					⦃⦃x⦄.IsEqualTo(⦃⦃⦃⦃structure0⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄
+									⦃⦃class0⦄.IsEqualTo(⦃⦃class0Classes⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃ScalarMultiplicationStructure⦄.GetQuotientStructureInducedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦congruenceRelation⟧,⟦quotientStructure⟧:
+					⦃⦃⦃⦃structure⦄.GetQuotientStructureInducedBy⦄.GetGraph()⦄.Has(⦃(⦃congruenceRelation⦄,⦃quotientStructure⦄)⦄)⦄
+				if and only if:
+						⦃⦃QuotientScalarMultiplicationStructure⦄.HasInstance(⦃quotientStructure⦄)⦄
+					and:
+						⦃⦃⦃quotientStructure⦄.GetScalarMultiplicationStructure()⦄.IsEqualTo(⦃structure⦄)⦄
+					and:
+						⦃⦃⦃quotientStructure⦄.CongruenceRelation()⦄.IsEqualTo(⦃congruenceRelation⦄)⦄
+
+define ⦃method ⦃ScalarMultiplicationStructure⦄.GetInternalDirectSums⦄,⦃method ⦃ScalarMultiplicationStructure⦄.GetInternalDirectProducts⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sum⦄,
+						⦃unicodeCodePoints Product⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃structure⦄.GetInternalDirect⟦⟦⦃typeIdentifier⦄⟧⟧s⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦class⟧:
+								⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetInternalDirect⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+						and:
+							for all ⟦structures⟧:
+									⦃⦃class⦄.Has(⦃structures⦄)⦄
+								if and only if:
+										⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃ScalarMultiplicationStructure⦄)⦄.HasInstance(⦃structures⦄)⦄
+									and:
+										⦃⦃⦃structures⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃structure⦄.GetSubStructures()⦄)⦄
+									and:
+										⦃⦃⦃structure⦄.GetGenerators()⦄.Has(⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetClass⦄)⦄.GetUnion()⦄)⦄
+									and:
+										there exists ⟦operation⟧:
+												⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+											and:
+												⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf(⦃structure⦄,⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄

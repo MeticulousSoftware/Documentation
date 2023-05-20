@@ -1,0 +1,2357 @@
+	declare ⟦PartialAlgebra⟧
+		declare ⟦MetaAlgebra⟧,⟦Algebra⟧,
+		⟦MetaLeftAlgebra⟧,⟦MetaRightAlgebra⟧,⟦MetaBiAlgebra⟧,
+		⟦LeftAlgebra⟧,⟦RightAlgebra⟧,⟦BiAlgebra⟧
+
+		declare ⟦MetaAlgebraOverAField⟧,⟦AlgebraOverAField⟧,
+		⟦MetaLeftAlgebraOverAField⟧,⟦MetaRightAlgebraOverAField⟧,⟦MetaBiAlgebraOverAField⟧,
+		⟦LeftAlgebraOverAField⟧,⟦RightAlgebraOverAField⟧,⟦BiAlgebraOverAField⟧
+
+		declare ⟦MetaAlternativeAlgebra⟧,⟦AlternativeAlgebra⟧,
+		⟦MetaLeftAlternativeAlgebra⟧,⟦MetaRightAlternativeAlgebra⟧,⟦MetaBiAlternativeAlgebra⟧,
+		⟦LeftAlternativeAlgebra⟧,⟦RightAlternativeAlgebra⟧,⟦BiAlternativeAlgebra⟧
+
+		declare ⟦MetaAssociativeAlgebra⟧,⟦AssociativeAlgebra⟧,
+		⟦MetaLeftAssociativeAlgebra⟧,⟦MetaRightAssociativeAlgebra⟧,⟦MetaBiAssociativeAlgebra⟧,
+		⟦LeftAssociativeAlgebra⟧,⟦RightAssociativeAlgebra⟧,⟦BiAssociativeAlgebra⟧
+
+		declare ⟦MetaCommutativeAlgebra⟧,⟦CommutativeAlgebra⟧,
+		⟦MetaLeftCommutativeAlgebra⟧,⟦MetaRightCommutativeAlgebra⟧,⟦MetaBiCommutativeAlgebra⟧,
+		⟦LeftCommutativeAlgebra⟧,⟦RightCommutativeAlgebra⟧,⟦BiCommutativeAlgebra⟧
+
+		declare ⟦MetaUnitalAlgebra⟧,⟦UnitalAlgebra⟧,
+		⟦MetaLeftUnitalAlgebra⟧,⟦MetaRightUnitalAlgebra⟧,⟦MetaBiUnitalAlgebra⟧,
+		⟦LeftUnitalAlgebra⟧,⟦RightUnitalAlgebra⟧,⟦BiUnitalAlgebra⟧
+
+	declare ⟦MetaCompositionAlgebra⟧,⟦CompositionAlgebra⟧,
+	⟦MetaLeftCompositionAlgebra⟧,⟦MetaRightCompositionAlgebra⟧,
+	⟦LeftCompositionAlgebra⟧,⟦RightCompositionAlgebra⟧
+
+	declare ⟦MetaInvolutionAlgebra⟧,⟦InvolutionAlgebra⟧,
+	⟦MetaLeftInvolutionAlgebra⟧,⟦MetaRightInvolutionAlgebra⟧,
+	⟦LeftInvolutionAlgebra⟧,⟦RightInvolutionAlgebra⟧
+		declare ⟦CayleyDicksonAlgebra⟧,
+		⟦LeftCayleyDicksonAlgebra⟧,⟦RightCayleyDicksonAlgebra⟧
+
+	declare ⟦MetaAlgebraicStructure⟧,⟦AlgebraicStructure⟧
+		declare ⟦MetaAlgebraicStructureWithoutOperations⟧,⟦AlgebraicStructureWithoutOperations⟧
+
+		declare ⟦MetaFiniteAlgebraicStructure⟧,⟦FiniteAlgebraicStructure⟧
+
+		declare ⟦MetaFiniteArityAlgebraicStructure⟧,⟦FiniteArityAlgebraicStructure⟧
+
+		declare ⟦MetaFinitelyGeneratedAlgebraicStructure⟧,⟦FinitelyGeneratedAlgebraicStructure⟧
+
+		declare ⟦MetaPartialMagma⟧,⟦PartialMagma⟧
+			declare ⟦MetaLeftAlternativePartialMagma⟧,⟦MetaRightAlternativePartialMagma⟧,⟦MetaAlternativePartialMagma⟧,
+			⟦LeftAlternativePartialMagma⟧,⟦RightAlternativePartialMagma⟧,⟦AlternativePartialMagma⟧
+
+			declare ⟦MetaLeftCancellativePartialMagma⟧,⟦MetaRightCancellativePartialMagma⟧,⟦MetaCancellativePartialMagma⟧,
+			⟦LeftCancellativePartialMagma⟧,⟦RightCancellativePartialMagma⟧,⟦CancellativePartialMagma⟧
+
+			declare ⟦MetaCommutativePartialMagma⟧,⟦MetaCommutativeMagma⟧,⟦MetaCommutativeMonoid⟧,⟦MetaCommutativeGroup⟧,
+			⟦CommutativePartialMagma⟧,⟦CommutativeMagma⟧,⟦CommutativeMonoid⟧,⟦CommutativeGroup⟧
+
+			declare ⟦MetaGroup⟧,⟦Group⟧
+
+			declare ⟦MetaIdemPotentPartialMagma⟧,⟦IdemPotentPartialMagma⟧
+
+			declare ⟦MetaInverseSemiGroup⟧,⟦InverseSemiGroup⟧
+
+			declare ⟦MetaLoop⟧,⟦Loop⟧
+
+			declare ⟦MetaMagma⟧,⟦Magma⟧
+
+			declare ⟦MetaMonogenousPartialMagma⟧,⟦MetaMonogenousUnitalPartialMagma⟧,
+			⟦MonogenousPartialMagma⟧,⟦MonogenousUnitalPartialMagma⟧
+
+			declare ⟦MetaMonoid⟧,⟦Monoid⟧
+
+			declare ⟦MetaNoetherianGroup⟧,⟦MetaArtinianGroup⟧,
+			⟦NoetherianGroup⟧,⟦ArtinianGroup⟧
+
+			declare ⟦MetaQuasiGroup⟧,⟦QuasiGroup⟧
+
+			declare ⟦MetaSemiGroup⟧,⟦SemiGroup⟧
+
+			declare ⟦MetaTorsionFreePartialMagma⟧,⟦TorsionFreePartialMagma⟧
+
+			declare ⟦MetaTorsionPartialMagma⟧,⟦TorsionPartialMagma⟧
+
+			declare ⟦MetaPartialUnitalPartialMagma⟧,⟦MetaUnitalPartialMagma⟧,⟦MetaUnitalMagma⟧,
+			⟦PartialUnitalPartialMagma⟧,⟦UnitalPartialMagma⟧,⟦UnitalMagma⟧
+
+		declare ⟦MetaPointedClass⟧,⟦PointedClass⟧
+
+		declare ⟦QuotientAlgebraicStructure⟧
+
+			declare ⟦PartialIdeal⟧
+				declare ⟦PartialCompletelyPrimeIdeal⟧,⟦CompletelyPrimeIdeal⟧,⟦UnitalCompletelyPrimeIdeal⟧
+
+				declare ⟦LeftIdeal⟧,⟦RightIdeal⟧,⟦Ideal⟧
+				⟦UnitalLeftIdeal⟧,⟦UnitalRightIdeal⟧,⟦UnitalIdeal⟧
+
+				declare ⟦IrreducibleIdeal⟧,⟦UnitalIrreducibleIdeal⟧
+
+				declare ⟦LeftMinimalIdeal⟧,⟦RightMinimalIdeal⟧,⟦MinimalIdeal⟧,
+				⟦LeftUnitalMaximalIdeal⟧,⟦RightUnitalMaximalIdeal⟧,⟦UnitalMaximalIdeal⟧,
+				⟦LeftUnitalMinimalIdeal⟧,⟦RightUnitalMinimalIdeal⟧,⟦UnitalMinimalIdeal⟧,
+				⟦LeftUnitalMaximalIdeal⟧,⟦RightUnitalMaximalIdeal⟧,⟦UnitalMaximalIdeal⟧
+
+				declare ⟦PartialNilIdeal⟧,⟦NilIdeal⟧,⟦UnitalNilIdeal⟧
+
+				declare ⟦PartialNilPotentIdeal⟧,⟦NilPotentIdeal⟧,⟦UnitalNilPotentIdeal⟧
+
+				declare ⟦PartialPrimaryIdeal⟧,⟦PrimaryIdeal⟧,⟦UnitalPrimaryIdeal⟧
+
+				declare ⟦PrimeIdeal⟧,⟦UnitalPrimeIdeal⟧
+
+				declare ⟦LeftPrincipalIdeal⟧,⟦RightPrincipalIdeal⟧,⟦PrincipalIdeal⟧,
+				⟦LeftUnitalPrincipalIdeal⟧,⟦RightUnitalPrincipalIdeal⟧,⟦UnitalPrincipalIdeal⟧
+
+				declare ⟦LeftPartialProperIdeal⟧,⟦RightPartialProperIdeal⟧,⟦PartialProperIdeal⟧,
+				⟦LeftProperIdeal⟧,⟦RightProperIdeal⟧,⟦ProperIdeal⟧,
+				⟦LeftUnitalProperIdeal⟧,⟦RightUnitalProperIdeal⟧,⟦UnitalProperIdeal⟧
+
+			declare ⟦MetaPartialRing⟧,⟦PartialRing⟧
+				declare ⟦MetaCommutativeRing⟧,⟦CommutativeRing⟧
+
+				declare ⟦MetaDedekindDomain⟧,⟦DedekindDomain⟧
+
+				declare ⟦MetaDistributivePartialRing⟧,⟦DistributivePartialRing⟧
+
+				declare ⟦MetaDivisionPartialRing⟧,⟦DivisionPartialRing⟧
+
+				declare ⟦MetaDomain⟧,⟦Domain⟧
+
+				declare ⟦MetaEuclideanDomain⟧,⟦EuclideanDomain⟧
+
+				declare ⟦MetaField⟧,⟦Field⟧
+
+				declare ⟦MetaGreatestCommonDivisorDomain⟧,⟦GreatestCommonDivisorDomain⟧
+
+				declare ⟦MetaAdditionIdemPotentPartialRing⟧,⟦MetaMultiplicationIdemPotentPartialRing⟧,⟦MetaIdemPotentPartialRing⟧,
+				⟦AdditionIdemPotentPartialRing⟧,⟦MultiplicationIdemPotentPartialRing⟧,⟦IdemPotentPartialRing⟧
+
+				declare ⟦MetaIntegralDomain⟧,⟦IntegralDomain⟧
+
+				declare ⟦MetaIntegrallyClosedDomain⟧,⟦IntegrallyClosedDomain⟧
+
+				declare ⟦MetaLeftLoopNearRing⟧,⟦MetaRightLoopNearRing⟧,⟦MetaLoopNearRing⟧,
+				⟦LeftLoopNearRing⟧,⟦RightLoopNearRing⟧,⟦LoopNearRing⟧
+
+				declare ⟦MetaLeftNearRing⟧,⟦MetaRightNearRing⟧,⟦MetaNearRing⟧,
+				⟦LeftNearRing⟧,⟦RightNearRing⟧,⟦NearRing⟧
+
+				declare ⟦MetaLeftNearSemiRing⟧,⟦MetaRightNearSemiRing⟧,⟦MetaNearSemiRing⟧,
+				⟦LeftNearSemiRing⟧,⟦RightNearSemiRing⟧,⟦NearSemiRing⟧
+
+				declare ⟦MetaNilPartialRing⟧,⟦NilPartialRing⟧
+
+				declare ⟦MetaLeftNoetherianPartialRing⟧,⟦MetaRightNoetherianPartialRing⟧,⟦MetaNoetherianPartialRing⟧,
+				⟦MetaLeftArtinianPartialRing⟧,⟦MetaRightArtinianPartialRing⟧,⟦MetaArtinianPartialRing⟧,
+				⟦MetaLeftUnitalNoetherianPartialRing⟧,⟦MetaRightUnitalNoetherianPartialRing⟧,⟦MetaUnitalNoetherianPartialRing⟧,
+				⟦MetaLeftUnitalArtinianPartialRing⟧,⟦MetaRightUnitalArtinianPartialRing⟧,⟦MetaUnitalArtinianPartialRing⟧,
+				⟦LeftNoetherianPartialRing⟧,⟦RightNoetherianPartialRing⟧,⟦NoetherianPartialRing⟧,
+				⟦LeftArtinianPartialRing⟧,⟦RightArtinianPartialRing⟧,⟦ArtinianPartialRing⟧,
+				⟦LeftUnitalNoetherianPartialRing⟧,⟦RightUnitalNoetherianPartialRing⟧,⟦UnitalNoetherianPartialRing⟧,
+				⟦LeftUnitalArtinianPartialRing⟧,⟦RightUnitalArtinianPartialRing⟧,⟦UnitalArtinianPartialRing⟧
+
+				declare ⟦MetaNonUnitalRing⟧,⟦NonUnitalRing⟧
+
+				declare ⟦MetaPreSchreierDomain⟧,⟦PreSchreierDomain⟧
+
+				declare ⟦MetaPrimePartialRing⟧,⟦PrimePartialRing⟧
+
+				declare ⟦MetaLeftPrincipalIdealPartialRing⟧,⟦MetaRightPrincipalIdealPartialRing⟧,⟦MetaPrincipalIdealPartialRing⟧,
+				⟦MetaLeftUnitalPrincipalIdealPartialRing⟧,⟦MetaRightUnitalPrincipalIdealPartialRing⟧,⟦MetaUnitalPrincipalIdealPartialRing⟧,
+				⟦LeftPrincipalIdealPartialRing⟧,⟦RightPrincipalIdealPartialRing⟧,⟦PrincipalIdealPartialRing⟧,
+				⟦LeftUnitalPrincipalIdealPartialRing⟧,⟦RightUnitalPrincipalIdealPartialRing⟧,⟦UnitalPrincipalIdealPartialRing⟧
+
+				declare ⟦Ring⟧
+
+				declare ⟦MetaSchreierDomain⟧,⟦SchreierDomain⟧
+
+				declare ⟦MetaSemiRing⟧,⟦SemiRing⟧
+
+				declare ⟦MetaSimplePartialRing⟧,⟦MetaUnitalSimplePartialRing⟧,
+				⟦SimplePartialRing⟧,⟦UnitalSimplePartialRing⟧
+
+				declare ⟦MetaUniqueFactorizationDomain⟧,⟦UniqueFactorizationDomain⟧
+
+				declare ⟦MetaLeftUnitalNearRing⟧,⟦MetaRightUnitalNearRing⟧,⟦MetaUnitalNearRing⟧,
+				⟦LeftUnitalNearRing⟧,⟦RightUnitalNearRing⟧,⟦UnitalNearRing⟧
+
+		declare ⟦MetaTotalAlgebraicStructure⟧,⟦TotalAlgebraicStructure⟧
+
+	declare ⟦MetaAlgebraicStructureEquippedWithInvolution⟧,⟦AlgebraicStructureEquippedWithInvolution⟧
+
+	declare ⟦MetaAlgebraicStructureEquippedWithRelation⟧,⟦AlgebraicStructureEquippedWithRelation⟧
+
+declare ⟦Boolean⟧
+
+	declare ⟦MetaCategory⟧,⟦Category⟧
+		declare ⟦ArrowCategory⟧
+
+		declare ⟦MetaCategoryWithZeroMorphisms⟧,⟦CategoryWithZeroMorphisms⟧
+
+		declare ⟦ClassCategory⟧
+
+		declare ⟦CommaCategory⟧
+
+		declare ⟦MetaCompleteCategory⟧,⟦MetaCoCompleteCategory⟧,⟦MetaBiCompleteCategory⟧,
+		⟦MetaFinitelyCompleteCategory⟧,⟦MetaFinitelyCoCompleteCategory⟧,⟦MetaFinitelyBiCompleteCategory⟧,
+		⟦CompleteCategory⟧,⟦CoCompleteCategory⟧,⟦BiCompleteCategory⟧,
+		⟦FinitelyCompleteCategory⟧,⟦FinitelyCoCompleteCategory⟧,⟦FinitelyBiCompleteCategory⟧
+
+		declare ⟦MetaDiscreteCategory⟧,⟦DiscreteCategory⟧
+
+		declare ⟦MetaEmptyCategory⟧,⟦EmptyCategory⟧
+
+		declare ⟦EndoFunctorCategory⟧
+
+		declare ⟦MetaEssentiallySmallCategory⟧,⟦EssentiallySmallCategory⟧
+
+		declare ⟦FunctorCategory⟧
+
+		declare ⟦MetaGroupoid⟧,⟦Groupoid⟧
+
+		declare ⟦MetaIntervalCategory⟧,⟦IntervalCategory⟧
+
+		declare ⟦MetaNormalCategory⟧,⟦MetaCoNormalCategory⟧,⟦MetaBiNormalCategory⟧,
+		⟦NormalCategory⟧,⟦CoNormalCategory⟧,⟦BiNormalCategory⟧
+
+		declare ⟦MetaPointedCategory⟧,⟦PointedCategory⟧
+
+		declare ⟦ProductCategory⟧
+
+		declare ⟦QuotientCategory⟧
+
+		declare ⟦MetaSkeletalCategory⟧,⟦SkeletalCategory⟧
+
+		declare ⟦MetaSkeletalThinCategory⟧,⟦SkeletalThinCategory⟧
+
+		declare ⟦SliceCategory⟧,⟦CoSliceCategory⟧
+
+		declare ⟦MetaSmallCategory⟧,⟦MetaLocallySmallCategory⟧,
+		⟦MetaFiniteCategory⟧,⟦MetaLocallyFiniteCategory⟧,
+		⟦SmallCategory⟧,⟦LocallySmallCategory⟧,
+		⟦FiniteCategory⟧,⟦LocallyFiniteCategory⟧
+
+		declare ⟦MetaTerminalCategory⟧,⟦TerminalCategory⟧
+
+		declare ⟦MetaThinCategory⟧,⟦ThinCategory⟧
+
+		declare ⟦UnitCommaCategory⟧,⟦CoUnitCommaCategory⟧
+
+	declare ⟦ChainComplex⟧
+		declare ⟦LowerBoundedChainComplex⟧,⟦UpperBoundedChainComplex⟧,⟦BoundedChainComplex⟧
+
+		declare ⟦ExactSequence⟧
+			declare ⟦ShortExactSequence⟧
+
+			declare ⟦SplitExactSequence⟧
+
+	declare ⟦MetaFunctor⟧,⟦Functor⟧
+		declare ⟦MetaLeftAdjointFunctor⟧,⟦MetaRightAdjointFunctor⟧,
+		⟦LeftAdjointFunctor⟧,⟦RightAdjointFunctor⟧
+
+		declare ⟦MetaConstantFunctor⟧,⟦ConstantFunctor⟧
+
+		declare ⟦DiagonalFunctor⟧
+
+		declare ⟦MetaEmptyFunctor⟧,⟦EmptyFunctor⟧
+
+		declare ⟦MetaEndoFunctor⟧,⟦EndoFunctor⟧
+
+		declare ⟦MetaEssentiallyConstantFunctor⟧,⟦EssentiallyConstantFunctor⟧
+
+		declare ⟦MetaEssentiallySurjectiveFunctor⟧,⟦EssentiallySurjectiveFunctor⟧
+
+		declare ⟦MetaFaithFulFunctor⟧,⟦MetaFullFunctor⟧,⟦MetaFullyFaithFulFunctor⟧,
+		⟦FaithFulFunctor⟧,⟦FullFunctor⟧,⟦FullyFaithFulFunctor⟧
+
+		declare ⟦HomFunctor⟧
+
+		declare ⟦MetaIdentityFunctor⟧,⟦IdentityFunctor⟧
+
+		declare ⟦MetaInclusionFunctor⟧,⟦InclusionFunctor⟧
+
+		declare ⟦MetaInvertibleFunctor⟧,⟦MetaEssentiallySurjectiveFullyFaithFulFunctor⟧,
+		⟦InvertibleFunctor⟧,⟦EssentiallySurjectiveFullyFaithFulFunctor⟧
+
+		declare ⟦MetaIsoFibration⟧,⟦IsoFibration⟧
+
+		declare ⟦MultiFunctor⟧
+
+		declare ⟦MetaInjectiveOnObjectsFunctor⟧,⟦MetaSurjectiveOnObjectsFunctor⟧,⟦MetaBijectiveOnObjectsFunctor⟧,
+		⟦MetaInjectiveOnMorphismsFunctor⟧,⟦MetaSurjectiveOnMorphismsFunctor⟧,⟦MetaBijectiveOnMorphismsFunctor⟧,
+		⟦InjectiveOnObjectsFunctor⟧,⟦SurjectiveOnObjectsFunctor⟧,⟦BijectiveOnObjectsFunctor⟧,
+		⟦InjectiveOnMorphismsFunctor⟧,⟦SurjectiveOnMorphismsFunctor⟧,⟦BijectiveOnMorphismsFunctor⟧
+
+	declare ⟦MetaMonoidalCategory⟧,⟦MonoidalCategory⟧
+		declare ⟦MetaBraidedMonoidalCategory⟧,⟦BraidedMonoidalCategory⟧
+			declare ⟦MetaSymmetricMonoidalCategory⟧,⟦SymmetricMonoidalCategory⟧
+
+	declare ⟦MetaInfraNaturalTransformation⟧,⟦InfraNaturalTransformation⟧
+		declare ⟦MetaEndoInfraNaturalTransformation⟧,⟦MetaEndoNaturalTransformation⟧,
+		⟦EndoInfraNaturalTransformation⟧,⟦EndoNaturalTransformation⟧
+
+		declare ⟦MetaIdentityInfraNaturalTransformation⟧,⟦MetaIdentityNaturalTransformation⟧,
+		⟦IdentityInfraNaturalTransformation⟧,⟦IdentityNaturalTransformation⟧
+
+		declare ⟦MetaInfraNaturalIsoMorphism⟧,⟦MetaNaturalIsoMorphism⟧,
+		⟦InfraNaturalIsoMorphism⟧,⟦NaturalIsoMorphism⟧
+
+		declare ⟦MetaNaturalTransformation⟧,⟦NaturalTransformation⟧
+
+declare ⟦NonEmptyMultiClass⟧,
+⟦NonEmptyMultiClassWithSize⟧,
+⟦NonEmptyFiniteMultiClass⟧,
+⟦NonEmptyClass⟧,
+⟦NonEmptyClassWithSize⟧,
+⟦NonEmptyFiniteClass⟧
+
+declare ⟦MultiClass⟧
+	declare ⟦Class⟧
+		declare ⟦ClassWithSize⟧
+			declare ⟦FiniteClass⟧
+
+		declare ⟦MooreCollection⟧
+
+		declare ⟦PureClass⟧
+
+		declare ⟦TransitiveClass⟧
+
+	declare ⟦MultiClassWithSize⟧
+		declare ⟦FiniteMultiClass⟧
+
+	declare ⟦PureMultiClass⟧
+
+	declare ⟦TransitiveMultiClass⟧
+
+declare ⟦Documentation⟧
+
+declare ⟦FullDocumentation⟧
+	declare ⟦DefaultDocumentation⟧
+
+declare ⟦FloatingPointReal⟧
+	declare ⟦FloatingPointFormat⟧
+
+	declare ⟦FormalGrammar⟧
+
+	declare ⟦FormalLanguage⟧
+		declare ⟦ContextFreeFormalGrammar⟧
+
+		declare ⟦ContextFreeFormalLanguage⟧
+			declare ⟦ContextFreeFormalGrammarSpecification⟧
+				declare ⟦ExtendedBackusNaurForm⟧
+
+			declare ⟦UnambiguousContextFreeFormalGrammar⟧
+
+			declare ⟦UnambiguousContextFreeFormalLanguage⟧
+
+	declare ⟦Lexer⟧
+
+	declare ⟦Token⟧
+		declare ⟦RegularExpressionsLexer⟧
+
+	declare ⟦LexerAndParserCombination⟧
+		declare ⟦UnambiguousLexerAndParserCombination⟧
+
+	declare ⟦Parser⟧
+
+	declare ⟦ParseTreeNode⟧,⟦NonTerminalParseTreeNode⟧,⟦TerminalParseTreeNode⟧
+		declare ⟦UnambiguousParser⟧
+
+		declare ⟦UnambiguousParseTreeNode⟧
+
+declare ⟦MetaFunction⟧
+	declare ⟦Function⟧
+
+declare ⟦MathematicalObject⟧
+
+declare ⟦MetaMethod⟧
+	declare ⟦Method⟧
+
+	declare ⟦MetaPartialModule⟧,⟦PartialModule⟧,
+	⟦MetaLeftPartialModule⟧,⟦MetaRightPartialModule⟧,⟦MetaBiPartialModule⟧,
+	⟦LeftPartialModule⟧,⟦RightPartialModule⟧,⟦BiPartialModule⟧
+		declare ⟦CompletelyDecomposableModule⟧,⟦CompletelyReducibleModule⟧,
+		⟦LeftCompletelyDecomposableModule⟧,⟦RightCompletelyDecomposableModule⟧,⟦BiCompletelyDecomposableModule⟧,
+		⟦LeftCompletelyReducibleModule⟧,⟦RightCompletelyReducibleModule⟧,⟦BiCompletelyReducibleModule⟧
+
+		declare ⟦FaithFulPartialModule⟧,⟦FaithFulModule⟧,
+		⟦LeftFaithFulPartialModule⟧,⟦RightFaithFulPartialModule⟧,⟦BiFaithFulPartialModule⟧,
+		⟦LeftFaithFulModule⟧,⟦RightFaithFulModule⟧,⟦BiFaithFulModule⟧
+
+		declare ⟦FreePartialModule⟧,⟦FreeModule⟧,
+		⟦LeftFreePartialModule⟧,⟦RightFreePartialModule⟧,⟦BiFreePartialModule⟧,
+		⟦LeftFreeModule⟧,⟦RightFreeModule⟧,⟦BiFreeModule⟧
+
+		declare ⟦InDecomposableModule⟧,
+		⟦LeftInDecomposableModule⟧,⟦RightInDecomposableModule⟧,⟦BiInDecomposableModule⟧
+
+		declare ⟦InjectiveModule⟧,⟦ProjectiveModule⟧,
+		⟦LeftInjectiveModule⟧,⟦RightInjectiveModule⟧,⟦BiInjectiveModule⟧,
+		⟦LeftProjectiveModule⟧,⟦RightProjectiveModule⟧,⟦BiProjectiveModule⟧
+
+		declare ⟦Module⟧,
+		⟦LeftModule⟧,⟦RightModule⟧,⟦BiModule⟧
+
+		declare ⟦NoetherianModule⟧,⟦ArtinianModule⟧,
+		⟦LeftNoetherianModule⟧,⟦RightNoetherianModule⟧,⟦BiNoetherianModule⟧,
+		⟦LeftArtinianModule⟧,⟦RightArtinianModule⟧,⟦BiArtinianModule⟧
+
+		declare ⟦ReflexivePartialModule⟧,⟦ReflexiveModule⟧,
+		⟦LeftReflexivePartialModule⟧,⟦RightReflexivePartialModule⟧,
+		⟦LeftReflexiveModule⟧,⟦RightReflexiveModule⟧
+
+		declare ⟦SemiModule⟧,
+		⟦LeftSemiModule⟧,⟦RightSemiModule⟧,⟦BiSemiModule⟧
+
+		declare ⟦SimpleModule⟧,
+		⟦LeftSimpleModule⟧,⟦RightSimpleModule⟧,⟦BiSimpleModule⟧
+
+		declare ⟦TorsionLessPartialModule⟧,⟦TorsionLessModule⟧,
+		⟦LeftTorsionLessPartialModule⟧,⟦RightTorsionLessPartialModule⟧,
+		⟦LeftTorsionLessModule⟧,⟦RightTorsionLessModule⟧
+
+		declare ⟦TorsionPartialModule⟧,⟦TorsionFreePartialModule⟧,
+		⟦TorsionModule⟧,⟦TorsionFreeModule⟧,
+		⟦LeftTorsionPartialModule⟧,⟦RightTorsionPartialModule⟧,⟦BiTorsionPartialModule⟧,
+		⟦LeftTorsionFreePartialModule⟧,⟦RightTorsionFreePartialModule⟧,⟦BiTorsionFreePartialModule⟧,
+		⟦LeftTorsionModule⟧,⟦RightTorsionModule⟧,⟦BiTorsionModule⟧,
+		⟦LeftTorsionFreeModule⟧,⟦RightTorsionFreeModule⟧,⟦BiTorsionFreeModule⟧
+
+		declare ⟦UniformModule⟧,
+		⟦LeftUniformModule⟧,⟦RightUniformModule⟧,⟦BiUniformModule⟧
+
+		declare ⟦UnitalPartialModule⟧,⟦UnitalModule⟧,
+		⟦LeftUnitalPartialModule⟧,⟦RightUnitalPartialModule⟧,⟦BiUnitalPartialModule⟧,
+		⟦LeftUnitalModule⟧,⟦RightUnitalModule⟧,⟦BiUnitalModule⟧
+
+		declare ⟦UnitalSemiModule⟧,
+		⟦LeftUnitalSemiModule⟧,⟦RightUnitalSemiModule⟧,⟦BiUnitalSemiModule⟧
+
+	declare ⟦MetaModuleEquippedWithPartialMultiLinearForm⟧,⟦ModuleEquippedWithPartialMultiLinearForm⟧,
+	⟦MetaLeftModuleEquippedWithPartialMultiLinearForm⟧,⟦MetaRightModuleEquippedWithPartialMultiLinearForm⟧,
+	⟦LeftModuleEquippedWithPartialMultiLinearForm⟧,⟦RightModuleEquippedWithPartialMultiLinearForm⟧
+		declare ⟦MetaModuleEquippedWithMultiLinearForm⟧,⟦ModuleEquippedWithMultiLinearForm⟧,
+		⟦MetaLeftModuleEquippedWithMultiLinearForm⟧,⟦MetaRightModuleEquippedWithMultiLinearForm⟧,
+		⟦LeftModuleEquippedWithMultiLinearForm⟧,⟦RightModuleEquippedWithMultiLinearForm⟧
+			declare ⟦MetaModuleEquippedWithBiLinearForm⟧,⟦ModuleEquippedWithBiLinearForm⟧,
+			⟦MetaLeftModuleEquippedWithBiLinearForm⟧,⟦MetaRightModuleEquippedWithBiLinearForm⟧,
+			⟦LeftModuleEquippedWithBiLinearForm⟧,⟦RightModuleEquippedWithBiLinearForm⟧
+				declare ⟦MetaModuleEquippedWithNonDegenerateBiLinearForm⟧,⟦ModuleEquippedWithNonDegenerateBiLinearForm⟧,
+				⟦MetaLeftModuleEquippedWithNonDegenerateBiLinearForm⟧,⟦MetaRightModuleEquippedWithNonDegenerateBiLinearForm⟧,
+				⟦LeftModuleEquippedWithNonDegenerateBiLinearForm⟧,⟦RightModuleEquippedWithNonDegenerateBiLinearForm⟧
+
+		declare ⟦MetaModuleEquippedWithPartialBiLinearForm⟧,⟦ModuleEquippedWithPartialBiLinearForm⟧,
+		⟦MetaLeftModuleEquippedWithPartialBiLinearForm⟧,⟦MetaRightModuleEquippedWithPartialBiLinearForm⟧,
+		⟦LeftModuleEquippedWithPartialBiLinearForm⟧,⟦RightModuleEquippedWithPartialBiLinearForm⟧
+
+	declare ⟦MetaModuleEquippedWithPartialQuadraticForm⟧,⟦ModuleEquippedWithPartialQuadraticForm⟧,
+	⟦MetaLeftModuleEquippedWithPartialQuadraticForm⟧,⟦MetaRightModuleEquippedWithPartialQuadraticForm⟧,
+	⟦LeftModuleEquippedWithPartialQuadraticForm⟧,⟦RightModuleEquippedWithPartialQuadraticForm⟧
+		declare ⟦MetaModuleEquippedWithQuadraticForm⟧,⟦ModuleEquippedWithQuadraticForm⟧,
+		⟦MetaLeftModuleEquippedWithQuadraticForm⟧,⟦MetaRightModuleEquippedWithQuadraticForm⟧,
+		⟦LeftModuleEquippedWithQuadraticForm⟧,⟦RightModuleEquippedWithQuadraticForm⟧
+			declare ⟦MetaModuleEquippedWithNonDegenerateQuadraticForm⟧,⟦ModuleEquippedWithNonDegenerateQuadraticForm⟧,
+			⟦MetaLeftModuleEquippedWithNonDegenerateQuadraticForm⟧,⟦MetaRightModuleEquippedWithNonDegenerateQuadraticForm⟧,
+			⟦LeftModuleEquippedWithNonDegenerateQuadraticForm⟧,⟦RightModuleEquippedWithNonDegenerateQuadraticForm⟧
+
+declare ⟦Notation⟧
+
+	declare ⟦False⟧
+
+	declare ⟦True⟧
+
+	declare ⟦⟦FiniteSequenceNotations⟧⟧,⟦⟦FiniteSequenceSequenceNotations⟧⟧
+
+	declare ⟦⟦ArgumentImageUnderMetaFunctionOrTypeNotations⟧⟧
+
+	declare ⟦⟦IntegerNotations⟧⟧
+
+	declare ⟦⟦ArgumentImageUnderIdentifiedMethodOfXNotations⟧⟧
+
+	declare ⟦⟦ArgumentImageUnderMetaMethodOfXNotations⟧⟧
+
+	declare ⟦⟦IdentifiedMethodOfXNotations⟧⟧
+
+	declare ⟦⟦MetaMethodOfXNotations⟧⟧
+
+	declare ⟦⟦MethodInducedByIdentifiedMethodNotations⟧⟧,⟦⟦UnaryFunctionInducedByIdentifiedMethodNotations⟧⟧,⟦⟦BinaryFunctionInducedByIdentifiedMethodNotations⟧⟧
+
+	declare ⟦⟦MethodInducedByTypeOrClassAndIdentifiedMethodNotations⟧⟧,⟦⟦UnaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⟧⟧,⟦⟦BinaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⟧⟧
+
+	declare ⟦⟦MultiClassNotations⟧⟧
+
+	declare ⟦⟦FiniteOrdinalNotations⟧⟧
+
+	declare ⟦ω⟧
+
+	declare ⟦⟦RealNotations⟧⟧
+
+	declare ⟦⟦UnicodeCodePointNotations⟧⟧
+
+	declare ⟦⟦UnicodeCodePointsNotations⟧⟧
+
+declare ⟦NullType⟧
+
+declare ⟦Operation⟧
+	declare ⟦AssociativeOperation⟧,⟦SolvableOperation⟧,⟦AtMostUniquelySolvableOperation⟧,⟦UniquelySolvableOperation⟧
+
+	declare ⟦BijectiveOperation⟧
+
+	declare ⟦CommutativeOperation⟧
+
+		declare ⟦BinaryUnaryOperation⟧
+
+		declare ⟦ConstantOperation⟧
+
+		declare ⟦FiniteArityCoDomainOperation⟧
+			declare ⟦UnaryCoDomainOperation⟧
+
+		declare ⟦FiniteArityDomainOperation⟧
+			declare ⟦BinaryDomainOperation⟧
+
+			declare ⟦UnaryDomainOperation⟧
+
+		declare ⟦UnaryUnaryOperation⟧
+
+	declare ⟦IdentityOperation⟧
+
+	declare ⟦InjectiveOperation⟧
+
+	declare ⟦InternalOperation⟧
+
+	declare ⟦InternalUnaryCoDomainOperation⟧
+
+	declare ⟦InternalUnaryUnaryOperation⟧
+		declare ⟦IdemPotentOperation⟧
+
+	declare ⟦TotalOperation⟧,⟦SurjectiveOperation⟧
+
+	declare ⟦TotalUnaryUnaryOperation⟧
+
+declare ⟦Ordinal⟧,⟦Cardinal⟧
+
+declare ⟦OrdinalRange⟧,⟦CardinalRange⟧
+	declare ⟦FiniteOrdinal⟧,⟦FiniteCardinal⟧
+
+	declare ⟦FiniteOrdinalRange⟧,⟦FiniteCardinalRange⟧
+
+	declare ⟦LimitOrdinal⟧
+
+	declare ⟦SuccessorOrdinal⟧
+
+declare ⟦OptionalRangeBound⟧,⟦RangeType⟧
+
+declare ⟦RealRange⟧,⟦RationalRange⟧,⟦IntegerRange⟧,
+⟦PositiveRealRange⟧,⟦NegativeRealRange⟧,⟦NonPositiveRealRange⟧,⟦NonNegativeRealRange⟧,
+⟦PositiveRationalRange⟧,⟦NegativeRationalRange⟧,⟦NonPositiveRationalRange⟧,⟦NonNegativeRationalRange⟧,
+⟦PositiveIntegerRange⟧,⟦NegativeIntegerRange⟧,⟦NonPositiveIntegerRange⟧,⟦NonNegativeIntegerRange⟧
+
+declare ⟦Real⟧
+	declare ⟦Integer⟧
+		declare ⟦PositiveInteger⟧,⟦NegativeInteger⟧,⟦NonPositiveInteger⟧,⟦NonNegativeInteger⟧
+
+	declare ⟦PositiveReal⟧,⟦NegativeReal⟧,⟦NonPositiveReal⟧,⟦NonNegativeReal⟧
+
+	declare ⟦Rational⟧
+		declare ⟦PositiveRational⟧,⟦NegativeRational⟧,⟦NonPositiveRational⟧,⟦NonNegativeRational⟧
+
+declare ⟦CaptureTreeNode⟧
+
+declare ⟦RegularExpression⟧,⟦RegularExpressionWithVariables⟧
+
+declare ⟦Relation⟧
+	declare ⟦EmptyRelation⟧
+
+	declare ⟦FiniteArityRelation⟧
+		declare ⟦BinaryRelation⟧
+			declare ⟦OneToOneRelation⟧,⟦OneToManyRelation⟧,⟦ManyToOneRelation⟧,⟦ManyToManyRelation⟧
+
+			declare ⟦LeftUniqueRelation⟧,⟦RightUniqueRelation⟧,
+			⟦LeftTotalRelation⟧,⟦RightTotalRelation⟧
+
+	declare ⟦HomogeneousBinaryRelation⟧
+		declare ⟦AntiReflexiveRelation⟧
+
+		declare ⟦AntiSymmetricRelation⟧
+
+		declare ⟦AntiTransitiveRelation⟧
+
+		declare ⟦ArtinianNonStrictTotalOrder⟧
+
+		declare ⟦AsymmetricRelation⟧
+
+		declare ⟦LowerBoundedRelation⟧,⟦UpperBoundedRelation⟧,⟦BoundedRelation⟧
+
+		declare ⟦ConnectedRelation⟧
+
+		declare ⟦CoReflexiveRelation⟧
+
+		declare ⟦DedekindComplete⟧
+
+		declare ⟦DenseRelation⟧
+
+		declare ⟦EquivalenceRelation⟧
+
+		declare ⟦FinslerExtensionalRelation⟧
+
+		declare ⟦IdemPotentRelation⟧
+
+		declare ⟦JoinSemiLattice⟧,⟦MeetSemiLattice⟧,⟦Lattice⟧
+
+		declare ⟦NoetherianRelation⟧,⟦ArtinianRelation⟧
+
+		declare ⟦PartialOrder⟧,⟦NonStrictPartialOrder⟧,⟦StrictPartialOrder⟧
+
+		declare ⟦PreOrder⟧
+
+		declare ⟦LeftQuasiReflexiveRelation⟧,⟦RightQuasiReflexiveRelation⟧,⟦QuasiReflexiveRelation⟧
+
+		declare ⟦QuasiTransitiveRelation⟧
+
+		declare ⟦ReflexiveRelation⟧
+
+		declare ⟦ScottExtensionalRelation⟧
+
+		declare ⟦StronglyConnectedRelation⟧
+
+		declare ⟦StronglyExtensionalRelation⟧
+
+		declare ⟦SymmetricRelation⟧
+
+		declare ⟦NonStrictTotalOrder⟧,⟦StrictTotalOrder⟧
+
+		declare ⟦TransitiveRelation⟧
+
+		declare ⟦WeaklyExtensionalRelation⟧
+
+		declare ⟦NonStrictWeakOrder⟧,⟦StrictWeakOrder⟧
+
+	declare ⟦HomogeneousRelation⟧
+		declare ⟦IdentityRelation⟧
+
+	declare ⟦UniversalRelation⟧
+
+declare ⟦MetaScalarMultiplicationStructure⟧,⟦ScalarMultiplicationStructure⟧,
+⟦MetaLeftScalarMultiplicationStructure⟧,⟦MetaRightScalarMultiplicationStructure⟧,⟦MetaBiScalarMultiplicationStructure⟧,
+⟦LeftScalarMultiplicationStructure⟧,⟦RightScalarMultiplicationStructure⟧,⟦BiScalarMultiplicationStructure⟧,
+⟦MetaBiScalarMultiplicationStructureWithOneScalarClass⟧
+
+declare ⟦QuotientScalarMultiplicationStructure⟧,
+⟦LeftQuotientScalarMultiplicationStructure⟧,⟦RightQuotientScalarMultiplicationStructure⟧,⟦BiQuotientScalarMultiplicationStructure⟧
+
+declare ⟦MetaRingScalarMultiplicationStructure⟧,⟦RingScalarMultiplicationStructure⟧,
+⟦MetaLeftRingScalarMultiplicationStructure⟧,⟦MetaRightRingScalarMultiplicationStructure⟧,⟦MetaBiRingScalarMultiplicationStructure⟧,
+⟦LeftRingScalarMultiplicationStructure⟧,⟦RightRingScalarMultiplicationStructure⟧,⟦BiRingScalarMultiplicationStructure⟧
+
+declare ⟦MetaScalarMultiplicationMagmaStructure⟧,⟦ScalarMultiplicationMagmaStructure⟧,
+⟦MetaLeftScalarMultiplicationMagmaStructure⟧,⟦MetaRightScalarMultiplicationMagmaStructure⟧,⟦MetaBiScalarMultiplicationMagmaStructure⟧,
+⟦LeftScalarMultiplicationMagmaStructure⟧,⟦RightScalarMultiplicationMagmaStructure⟧,⟦BiScalarMultiplicationMagmaStructure⟧
+
+declare ⟦MetaScalarMultiplicationRingStructure⟧,⟦ScalarMultiplicationRingStructure⟧,
+⟦MetaLeftScalarMultiplicationRingStructure⟧,⟦MetaRightScalarMultiplicationRingStructure⟧,⟦MetaBiScalarMultiplicationRingStructure⟧,
+⟦LeftScalarMultiplicationRingStructure⟧,⟦RightScalarMultiplicationRingStructure⟧,⟦BiScalarMultiplicationRingStructure⟧
+
+declare ⟦NonEmptyTransFiniteSequence⟧,
+⟦NonEmptySequence⟧,
+⟦NonEmptyFiniteSequence⟧
+
+declare ⟦TransFiniteSequence⟧
+	declare ⟦Sequence⟧
+		declare ⟦FiniteSequence⟧
+
+	declare ⟦CompatibleWithRelationStructure⟧
+
+	declare ⟦ConversibleStructure⟧
+
+	declare ⟦EquippedStructure⟧
+		declare ⟦ConversibleEquippedStructure⟧
+
+	declare ⟦MappableStructure⟧
+
+declare ⟦Type⟧
+	declare ⟦MutuallyDisjointType⟧
+
+declare ⟦UnicodeCodePoint⟧
+
+declare ⟦Variable⟧
+
+
+
+declare ⟦All⟧
+define ⦃All⦄
+		⦃⦃Notation⦄.HasInstance(⦃All⦄)⦄
+	and:
+		for all ⟦x⟧:
+				⦃⦃⦃All⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+			if and only if:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Algebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiAlgebraOverAField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiAlternativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiAssociativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiCommutativeAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiUnitalAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCompositionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CompositionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftCompositionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightCompositionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftCompositionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightCompositionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInvolutionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InvolutionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftInvolutionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightInvolutionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftInvolutionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightInvolutionAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CayleyDicksonAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftCayleyDicksonAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightCayleyDicksonAlgebra⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlgebraicStructureWithoutOperations⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlgebraicStructureWithoutOperations⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFiniteAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFiniteArityAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteArityAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFinitelyGeneratedAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FinitelyGeneratedAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftAlternativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightAlternativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlternativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftAlternativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightAlternativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlternativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftCancellativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightCancellativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCancellativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftCancellativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightCancellativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CancellativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCommutativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCommutativeMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCommutativeMonoid⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCommutativeGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativeMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativeMonoid⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativeGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Group⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIdemPotentPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdemPotentPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInverseSemiGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InverseSemiGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLoop⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Loop⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Magma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMonogenousPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMonogenousUnitalPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MonogenousPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MonogenousUnitalPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMonoid⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Monoid⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNoetherianGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaArtinianGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NoetherianGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ArtinianGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaQuasiGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃QuasiGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSemiGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SemiGroup⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaTorsionFreePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionFreePartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaTorsionPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPartialUnitalPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialUnitalPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalPartialMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalMagma⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPointedClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PointedClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃QuotientAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialCompletelyPrimeIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CompletelyPrimeIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalCompletelyPrimeIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Ideal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalLeftIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalRightIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IrreducibleIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalIrreducibleIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftMinimalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightMinimalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MinimalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalMaximalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalMaximalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalMaximalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalMinimalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalMinimalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalMinimalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalMaximalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalMaximalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalMaximalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialNilIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NilIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalNilIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialNilPotentIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NilPotentIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalNilPotentIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialPrimaryIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PrimaryIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalPrimaryIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PrimeIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalPrimeIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftPrincipalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightPrincipalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PrincipalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalPrincipalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalPrincipalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalPrincipalIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftPartialProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightPartialProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalProperIdeal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCommutativeRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativeRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaDedekindDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DedekindDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaDistributivePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DistributivePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaDivisionPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DivisionPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Domain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEuclideanDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EuclideanDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaField⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Field⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaGreatestCommonDivisorDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃GreatestCommonDivisorDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAdditionIdemPotentPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMultiplicationIdemPotentPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIdemPotentPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AdditionIdemPotentPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MultiplicationIdemPotentPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdemPotentPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIntegralDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IntegralDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIntegrallyClosedDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IntegrallyClosedDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftLoopNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightLoopNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLoopNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftLoopNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightLoopNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LoopNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftNearSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightNearSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNearSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftNearSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightNearSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NearSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNilPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NilPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftUnitalNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightUnitalNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftUnitalArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightUnitalArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalNoetherianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalArtinianPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNonUnitalRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonUnitalRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPreSchreierDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PreSchreierDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPrimePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PrimePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftUnitalPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightUnitalPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalPrincipalIdealPartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Ring⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSchreierDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SchreierDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SemiRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSimplePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalSimplePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SimplePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalSimplePartialRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUniqueFactorizationDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UniqueFactorizationDomain⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftUnitalNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightUnitalNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaUnitalNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalNearRing⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaTotalAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TotalAlgebraicStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlgebraicStructureEquippedWithInvolution⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlgebraicStructureEquippedWithInvolution⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaAlgebraicStructureEquippedWithRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AlgebraicStructureEquippedWithRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Boolean⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Category⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ArrowCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCategoryWithZeroMorphisms⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CategoryWithZeroMorphisms⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ClassCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommaCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCoCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFinitelyCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFinitelyCoCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFinitelyBiCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CoCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FinitelyCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FinitelyCoCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FinitelyBiCompleteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaDiscreteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DiscreteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEmptyCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EmptyCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EndoFunctorCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEssentiallySmallCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EssentiallySmallCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FunctorCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaGroupoid⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Groupoid⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIntervalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IntervalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNormalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaCoNormalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiNormalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NormalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CoNormalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiNormalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPointedCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PointedCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ProductCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃QuotientCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSkeletalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SkeletalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSkeletalThinCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SkeletalThinCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SliceCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CoSliceCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSmallCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLocallySmallCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFiniteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLocallyFiniteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SmallCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LocallySmallCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LocallyFiniteCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaTerminalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TerminalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaThinCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ThinCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitCommaCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CoUnitCommaCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ChainComplex⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LowerBoundedChainComplex⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UpperBoundedChainComplex⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BoundedChainComplex⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ExactSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ShortExactSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SplitExactSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Functor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftAdjointFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightAdjointFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftAdjointFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightAdjointFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaConstantFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ConstantFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DiagonalFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEmptyFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EmptyFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEndoFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EndoFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEssentiallyConstantFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EssentiallyConstantFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEssentiallySurjectiveFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EssentiallySurjectiveFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFaithFulFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFullFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFullyFaithFulFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FaithFulFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FullFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FullyFaithFulFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃HomFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIdentityFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdentityFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInclusionFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InclusionFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInvertibleFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEssentiallySurjectiveFullyFaithFulFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InvertibleFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EssentiallySurjectiveFullyFaithFulFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIsoFibration⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IsoFibration⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MultiFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInjectiveOnObjectsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSurjectiveOnObjectsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBijectiveOnObjectsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInjectiveOnMorphismsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSurjectiveOnMorphismsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBijectiveOnMorphismsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InjectiveOnObjectsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SurjectiveOnObjectsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BijectiveOnObjectsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InjectiveOnMorphismsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SurjectiveOnMorphismsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BijectiveOnMorphismsFunctor⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMonoidalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MonoidalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBraidedMonoidalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BraidedMonoidalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaSymmetricMonoidalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SymmetricMonoidalCategory⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInfraNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InfraNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEndoInfraNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaEndoNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EndoInfraNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EndoNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIdentityInfraNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaIdentityNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdentityInfraNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdentityNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaInfraNaturalIsoMorphism⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNaturalIsoMorphism⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InfraNaturalIsoMorphism⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NaturalIsoMorphism⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaNaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NaturalTransformation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyMultiClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyMultiClassWithSize⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyFiniteMultiClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyClassWithSize⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyFiniteClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MultiClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Class⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ClassWithSize⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MooreCollection⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PureClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TransitiveClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MultiClassWithSize⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteMultiClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PureMultiClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TransitiveMultiClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Documentation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FullDocumentation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DefaultDocumentation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FloatingPointReal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FloatingPointFormat⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FormalGrammar⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FormalLanguage⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ContextFreeFormalGrammar⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ContextFreeFormalLanguage⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ContextFreeFormalGrammarSpecification⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ExtendedBackusNaurForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnambiguousContextFreeFormalGrammar⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnambiguousContextFreeFormalLanguage⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Lexer⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Token⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RegularExpressionsLexer⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LexerAndParserCombination⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnambiguousLexerAndParserCombination⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Parser⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ParseTreeNode⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonTerminalParseTreeNode⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TerminalParseTreeNode⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnambiguousParser⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnambiguousParseTreeNode⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaFunction⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Function⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MathematicalObject⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaMethod⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Method⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CompletelyDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CompletelyReducibleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftCompletelyDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightCompletelyDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiCompletelyDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftCompletelyReducibleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightCompletelyReducibleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiCompletelyReducibleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FaithFulPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FaithFulModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftFaithFulPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightFaithFulPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiFaithFulPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftFaithFulModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightFaithFulModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiFaithFulModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftInDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightInDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiInDecomposableModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ProjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftInjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightInjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiInjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftProjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightProjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiProjectiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Module⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NoetherianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ArtinianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftNoetherianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightNoetherianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiNoetherianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftArtinianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightArtinianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiArtinianModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ReflexivePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ReflexiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftReflexivePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightReflexivePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftReflexiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightReflexiveModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SimpleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftSimpleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightSimpleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiSimpleModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionLessPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionLessModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTorsionLessPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTorsionLessPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTorsionLessModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTorsionLessModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TorsionFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTorsionPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTorsionPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiTorsionPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTorsionFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTorsionFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiTorsionFreePartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTorsionModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTorsionModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiTorsionModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTorsionFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTorsionFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiTorsionFreeModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UniformModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUniformModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUniformModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiUniformModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiUnitalPartialModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiUnitalModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnitalSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUnitalSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUnitalSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiUnitalSemiModule⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithPartialMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithPartialMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithPartialMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithPartialMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithPartialMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithPartialMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithMultiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithNonDegenerateBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithNonDegenerateBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithNonDegenerateBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithNonDegenerateBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithNonDegenerateBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithNonDegenerateBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithPartialBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithPartialBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithPartialBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithPartialBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithPartialBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithPartialBiLinearForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithPartialQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithPartialQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithPartialQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithPartialQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithPartialQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithPartialQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaModuleEquippedWithNonDegenerateQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ModuleEquippedWithNonDegenerateQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftModuleEquippedWithNonDegenerateQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightModuleEquippedWithNonDegenerateQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftModuleEquippedWithNonDegenerateQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightModuleEquippedWithNonDegenerateQuadraticForm⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Notation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃False⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃True⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ω⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NullType⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Operation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AssociativeOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SolvableOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AtMostUniquelySolvableOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UniquelySolvableOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BijectiveOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CommutativeOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BinaryUnaryOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ConstantOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteArityCoDomainOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnaryCoDomainOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteArityDomainOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BinaryDomainOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnaryDomainOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnaryUnaryOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdentityOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InjectiveOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InternalOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InternalUnaryCoDomainOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃InternalUnaryUnaryOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdemPotentOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TotalOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SurjectiveOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TotalUnaryUnaryOperation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Ordinal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Cardinal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃OrdinalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CardinalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteOrdinal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteCardinal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteOrdinalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteCardinalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LimitOrdinal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SuccessorOrdinal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃OptionalRangeBound⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RangeType⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RealRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RationalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IntegerRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PositiveRealRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NegativeRealRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonPositiveRealRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonNegativeRealRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PositiveRationalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NegativeRationalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonPositiveRationalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonNegativeRationalRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PositiveIntegerRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NegativeIntegerRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonPositiveIntegerRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonNegativeIntegerRange⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Real⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Integer⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PositiveInteger⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NegativeInteger⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonPositiveInteger⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonNegativeInteger⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PositiveReal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NegativeReal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonPositiveReal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonNegativeReal⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Rational⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PositiveRational⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NegativeRational⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonPositiveRational⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonNegativeRational⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CaptureTreeNode⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RegularExpression⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RegularExpressionWithVariables⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Relation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EmptyRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteArityRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BinaryRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃OneToOneRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃OneToManyRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ManyToOneRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ManyToManyRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftUniqueRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightUniqueRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftTotalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightTotalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃HomogeneousBinaryRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AntiReflexiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AntiSymmetricRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AntiTransitiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ArtinianNonStrictTotalOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃AsymmetricRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LowerBoundedRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UpperBoundedRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BoundedRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ConnectedRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CoReflexiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DedekindComplete⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃DenseRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EquivalenceRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FinslerExtensionalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdemPotentRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃JoinSemiLattice⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MeetSemiLattice⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Lattice⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NoetherianRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ArtinianRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PartialOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonStrictPartialOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃StrictPartialOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃PreOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftQuasiReflexiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightQuasiReflexiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃QuasiReflexiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃QuasiTransitiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ReflexiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ScottExtensionalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃StronglyConnectedRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃StronglyExtensionalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃SymmetricRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonStrictTotalOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃StrictTotalOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TransitiveRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃WeaklyExtensionalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonStrictWeakOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃StrictWeakOrder⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃HomogeneousRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃IdentityRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UniversalRelation⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃QuotientScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftQuotientScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightQuotientScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiQuotientScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiRingScalarMultiplicationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiScalarMultiplicationMagmaStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaLeftScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaRightScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MetaBiScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃LeftScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃RightScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃BiScalarMultiplicationRingStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyTransFiniteSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptySequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃NonEmptyFiniteSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃TransFiniteSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Sequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃FiniteSequence⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃CompatibleWithRelationStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ConversibleStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃EquippedStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃ConversibleEquippedStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MappableStructure⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Type⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃MutuallyDisjointType⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnicodeCodePoint⦄⟧)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃Variable⦄⟧)⦄
+				or:
+					there exists ⟦notationIdentifier⟧:
+							⦃⦃{
+								⦃unicodeCodePoints FiniteSequenceNotations⦄,
+								⦃unicodeCodePoints FiniteSequenceSequenceNotations⦄,
+								⦃unicodeCodePoints ArgumentImageUnderMetaFunctionOrTypeNotations⦄,
+								⦃unicodeCodePoints IntegerNotations⦄,
+								⦃unicodeCodePoints ArgumentImageUnderIdentifiedMethodOfXNotations⦄,
+								⦃unicodeCodePoints ArgumentImageUnderMetaMethodOfXNotations⦄,
+								⦃unicodeCodePoints IdentifiedMethodOfXNotations⦄,
+								⦃unicodeCodePoints MetaMethodOfXNotations⦄,
+								⦃unicodeCodePoints MethodInducedByIdentifiedMethodNotations⦄,
+								⦃unicodeCodePoints UnaryFunctionInducedByIdentifiedMethodNotations⦄,
+								⦃unicodeCodePoints BinaryFunctionInducedByIdentifiedMethodNotations⦄,
+								⦃unicodeCodePoints MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄,
+								⦃unicodeCodePoints UnaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄,
+								⦃unicodeCodePoints BinaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄,
+								⦃unicodeCodePoints MultiClassNotations⦄,
+								⦃unicodeCodePoints FiniteOrdinalNotations⦄,
+								⦃unicodeCodePoints RealNotations⦄,
+								⦃unicodeCodePoints UnicodeCodePointNotations⦄,
+								⦃unicodeCodePoints UnicodeCodePointsNotations⦄
+							}⦄.Has(⦃notationIdentifier⦄)⦄
+						and:
+								⦃⦃x⦄.IsEqualTo(⟦⦃⟦⟦⦃notationIdentifier⦄⟧⟧⦄⟧)⦄
+							or:
+								⦃⦃⦃⟦⟦⦃notationIdentifier⦄⟧⟧⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+
+
+
+export ⦃All⦄

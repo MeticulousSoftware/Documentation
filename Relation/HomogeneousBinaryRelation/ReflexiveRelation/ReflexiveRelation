@@ -1,0 +1,27 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ReflexiveRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃ReflexiveRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃ReflexiveRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦identityRelation⟧:
+								⦃⦃IdentityRelation⦄.HasInstance(⦃identityRelation⦄)⦄
+							and:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃identityRelation⦄,⦃relation⦄)⦄.MapWith(⦃unaryFunction GetSignature⦄)⦄)⦄
+					⦃⦃relation⦄.Contains(⦃identityRelation⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetReflexiveClosure⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetReflexiveClosure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃relation⦄.GetReflexiveClosure()⦄.IsEqualTo(⦃⦃relation⦄.GetClosureFrom(⦃⦃ReflexiveRelation⦄.MapToClass()⦄)⦄)⦄

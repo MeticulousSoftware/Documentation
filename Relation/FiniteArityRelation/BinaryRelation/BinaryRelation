@@ -1,0 +1,115 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃BinaryRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃BinaryRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃FiniteArityRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃BinaryDomainOperation⦄.HasInstance(⦃⦃relation⦄.GetOperation()⦄)⦄
+
+define ⦃method ⦃BinaryRelation⦄.GetCompositionWith⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				for all ⟦relation0⟧:
+						⦃⦃⦃⦃relation⦄.GetCompositionWith⦄.GetDomain()⦄.Has(⦃relation0⦄)⦄
+					if and only if:
+							⦃⦃BinaryRelation⦄.HasInstance(⦃relation0⦄)⦄
+						and:
+							there exists ⟦class⟧:
+								⦃⦃⦃relation0⦄.GetSignature()⦄.IsEqualTo(⦃(
+									⦃class⦄,
+									⦃⦃⦃relation⦄.GetSignature()⦄(⦃0⦄)⦄
+								)⦄)⦄
+			and:
+				for all ⟦relation0⟧:
+					if:
+						⦃⦃⦃⦃relation⦄.GetCompositionWith⦄.GetDomain()⦄.Has(⦃relation0⦄)⦄
+					then:
+						let:
+							⟦composition⟧:
+								⦃⦃composition⦄.IsEqualTo(⦃⦃relation⦄.GetCompositionWith(⦃relation0⦄)⦄)⦄
+							⦃⦃BinaryRelation⦄.HasInstance(⦃composition⦄)⦄
+						and:
+							⦃⦃⦃composition⦄.GetSignature()⦄.IsEqualTo(⦃(
+								⦃⦃⦃relation0⦄.GetSignature()⦄(⦃0⦄)⦄,
+								⦃⦃⦃relation⦄.GetSignature()⦄(⦃1⦄)⦄
+							)⦄)⦄
+						and:
+							for all ⟦x⟧,⟦y⟧:
+									⦃⦃⦃composition⦄.GetSimplifiedFunction()⦄(⦃x⦄,⦃y⦄)⦄
+								if and only if:
+									there exists ⟦z⟧:
+											⦃⦃⦃relation0⦄.GetSimplifiedFunction()⦄(⦃x⦄,⦃z⦄)⦄
+										and:
+											⦃⦃⦃relation1⦄.GetSimplifiedFunction()⦄(⦃z⦄,⦃y⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃BinaryRelation⦄)⦄.GetComposition⦄
+	for all ⟦relations⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃BinaryRelation⦄)⦄.HasInstance(⦃relations⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃relations⦄.GetComposition⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃⦃relations⦄.ReduceWith(⦃binaryFunction GetCompositionWith⦄)⦄)⦄)⦄
+
+define ⦃method ⦃BinaryRelation⦄.GetLeftGeneratedClassBy⦄,⦃method ⦃BinaryRelation⦄.GetRightGeneratedClassBy⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						let:
+							⟦index⟧:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+								then:
+									⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+								else:
+									⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+						⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧GeneratedClassBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃⦃relation⦄.GetSignature()⦄(⦃index⦄)⦄.GetPower()⦄)⦄
+					and:
+						for all ⟦class⟧:
+							if:
+								⦃⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧GeneratedClassBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+							then:
+								let:
+									⟦generatedClassClasses⟧:
+											⦃⦃Class⦄.HasInstance(⦃generatedClassClasses⦄)⦄
+										and:
+											for all ⟦generatedClass⟧:
+													⦃⦃generatedClassClasses⦄.Has(⦃generatedClass⦄)⦄
+												if and only if:
+														⦃⦃Class⦄.HasInstance(⦃generatedClass⦄)⦄
+													and:
+														for all ⟦x⟧:
+																⦃⦃generatedClass⦄.Has(⦃x⦄)⦄
+															if and only if:
+																there exists ⟦y⟧:
+																			⦃⦃class⦄.Has(⦃y⦄)⦄
+																		or:
+																			⦃⦃generatedClass⦄.Has(⦃y⦄)⦄
+																	and:
+																		let:
+																			⟦sequence⟧:
+																				if:
+																					⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																				then:
+																					⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃y⦄)⦄)⦄
+																				else:
+																					⦃⦃sequence⦄.IsEqualTo(⦃(⦃y⦄,⦃x⦄)⦄)⦄
+																		⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄
+								⦃⦃⦃relation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧GeneratedClassBy(⦃class⦄)⦄.IsEqualTo(⦃⦃generatedClassClasses⦄.GetIntersection()⦄)⦄

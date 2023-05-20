@@ -1,0 +1,38 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃NoetherianRelation⦄,⦃ArtinianRelation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Noetherian⦄,
+				⦃unicodeCodePoints Artinian⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄)⦄
+			and:
+				for all ⟦relation⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄
+					if and only if:
+							⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+						and:
+							for all ⟦relation0⟧:
+								if:
+										⦃⦃⦃⦃relation⦄.GetStructureInducedBy⦄.GetCoDomain()⦄.Has(⦃relation0⦄)⦄
+									and:
+										⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation0⦄)⦄
+									and:
+										not:
+											⦃⦃EmptyRelation⦄.HasInstance(⦃relation0⦄)⦄
+								then:
+									not:
+										let:
+											⟦typeIdentifier0⟧:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Noetherian⦄)⦄
+												then:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Max⦄)⦄
+												else:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Min⦄)⦄
+										⦃⦃⦃relation0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧imalElements()⦄.IsEqualTo(⦃{}⦄)⦄

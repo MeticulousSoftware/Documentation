@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃AntiReflexiveRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃AntiReflexiveRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃AntiReflexiveRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃ReflexiveRelation⦄.HasInstance(⦃⦃relation⦄.GetComplement()⦄)⦄

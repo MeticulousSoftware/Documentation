@@ -1,0 +1,45 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FinslerExtensionalRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃FinslerExtensionalRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃FinslerExtensionalRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃WeaklyExtensionalRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					for all ⟦x0⟧,⟦x1⟧:
+						if:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+							and:
+								there exists ⟦operation⟧:
+										⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+									and:
+										let:
+											⟦structure0⟧,⟦structure1⟧:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														let:
+															⟦typeIdentifier⟧:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+															⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+														and:
+															let:
+																⟦structure⟧:
+																	⦃⦃structure⦄.IsEqualTo(⦃⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetStructure()⦄)⦄
+																⦃⦃PointedClass⦄.HasInstance(⦃structure⦄)⦄
+															and:
+																⦃⦃⦃structure⦄.GetBasePoint()⦄.IsEqualTo(⦃x⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+														and:
+															⦃⦃⦃structure⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetRelation()⦄.IsEqualTo(⦃relation⦄)⦄
+										⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf(⦃structure0⦄,⦃structure1⦄)⦄
+						then:
+							⦃⦃x0⦄.IsEqualTo(⦃x1⦄)⦄

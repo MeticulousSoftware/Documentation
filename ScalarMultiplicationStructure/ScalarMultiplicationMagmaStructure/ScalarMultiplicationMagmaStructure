@@ -1,0 +1,251 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaScalarMultiplicationMagmaStructure⦄,⦃ScalarMultiplicationMagmaStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationMagmaStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+
+
+
+define ⦃MetaLeftScalarMultiplicationMagmaStructure⦄,⦃MetaRightScalarMultiplicationMagmaStructure⦄,⦃MetaBiScalarMultiplicationMagmaStructure⦄,
+⦃LeftScalarMultiplicationMagmaStructure⦄,⦃RightScalarMultiplicationMagmaStructure⦄,⦃BiScalarMultiplicationMagmaStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationMagmaStructure⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									⦃⦃PartialMagma⦄.HasInstance(⦃⦃structure⦄.GetStructure()⦄)⦄
+
+
+
+define ⦃method ⦃MetaLeftScalarMultiplicationMagmaStructure⦄.GetAnnihilatorsFor⦄,⦃method ⦃MetaRightScalarMultiplicationMagmaStructure⦄.GetAnnihilatorsFor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦structure⟧:
+				if:
+					⦃⦃Meta⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+				then:
+						⦃⦃⦃⦃structure⦄.GetAnnihilatorsFor⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.GetPower()⦄)⦄
+					and:
+						for all ⟦class⟧:
+							if:
+								⦃⦃⦃⦃structure⦄.GetAnnihilatorsFor⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+							then:
+								let:
+									⟦annihilators⟧:
+										⦃⦃annihilators⦄.IsEqualTo(⦃⦃structure⦄.GetAnnihilatorsFor(⦃class⦄)⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃annihilators⦄)⦄
+								and:
+									for all ⟦annihilator⟧:
+											⦃⦃annihilators⦄.Has(⦃annihilator⦄)⦄
+										if and only if:
+												⦃⦃⦃structure⦄.GetScalars()⦄.Has(⦃annihilator⦄)⦄
+											and:
+												let:
+													⟦scalarMultiplication⟧:
+														⦃⦃scalarMultiplication⦄.IsEqualTo(⦃⦃⦃structure⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄)⦄
+												for all ⟦x⟧:
+													let:
+														⟦sequence⟧:
+															if:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+															then:
+																⦃⦃sequence⦄.IsEqualTo(⦃(⦃annihilator⦄,⦃x⦄)⦄)⦄
+															else:
+																⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃annihilator⦄)⦄)⦄
+													if:
+															⦃⦃class⦄.Has(⦃x⦄)⦄
+														and:
+															⦃⦃⦃scalarMultiplication⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+													then:
+														⦃⦃⦃⦃structure⦄.GetAddition()⦄.GetPartialIdentities()⦄.Has(⦃⦃scalarMultiplication⦄(⦃sequence⦄)⦄)⦄
+
+
+
+define ⦃method ⦃MetaBiScalarMultiplicationMagmaStructure⦄.GetAnnihilatorsFor⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaBiScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦structure⟧:
+					⦃⦃⦃⦃structure⦄.GetAnnihilatorsFor⦄.GetGraph()⦄.Has(⦃(⦃class⦄,⦃annihilators⦄)⦄)⦄
+				if and only if:
+					⦃⦃annihilators⦄.IsEqualTo(⦃⦃⦃⦃(
+						⦃⦃structure⦄.GetLeftStructure()⦄,
+						⦃⦃structure⦄.GetRightStructure()⦄
+					)⦄.MapWith(⦃method GetAnnihilatorsFor⦄)⦄.Apply(⦃class⦄)⦄.GetIntersection()⦄)⦄
+
+
+
+define ⦃method ⦃MetaScalarMultiplicationMagmaStructure⦄.GetLinearlyIndependentClasses⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetLinearlyIndependentClasses⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦linearlyIndependentClasses⟧:
+						⦃⦃linearlyIndependentClasses⦄.IsEqualTo(⦃⦃structure⦄.GetLinearlyIndependentClasses()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃linearlyIndependentClasses⦄)⦄
+				and:
+					for all ⟦linearlyIndependentElements⟧:
+							⦃⦃linearlyIndependentClasses⦄.Has(⦃linearlyIndependentElements⦄)⦄
+						if and only if:
+								⦃⦃⦃structure⦄.GetClass()⦄.IsSuperMultiClassOf(⦃linearlyIndependentElements⦄)⦄
+							and:
+								let:
+									⟦addition⟧:
+										⦃⦃addition⦄.IsEqualTo(⦃⦃structure⦄.GetAddition()⦄)⦄
+									⟦identities⟧:
+										⦃⦃identities⦄.IsEqualTo(⦃⦃addition⦄.GetPartialIdentities()⦄)⦄
+									⦃⦃{⦃linearlyIndependentElements⦄,⦃identities⦄}⦄.AreMutuallyDisjoint()⦄
+								and:
+									for all ⟦sequence0⟧,⟦sequence1⟧,⟦sequence2⟧,⟦sequence3⟧:
+										if:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄,⦃2⦄,⦃3⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃FiniteSequence⦄.HasInstance(⦃sequence⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+											and:
+												let:
+													⟦length⟧:
+														⦃⦃length⦄.IsEqualTo(⦃⦃sequence1⦄.GetLength()⦄)⦄
+													⦃⦃⦃sequence1⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃linearlyIndependentElements⦄)⦄
+												and:
+													⦃⦃⦃⦃sequence1⦄.GetCoDomain()⦄.GetSize()⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃length⦄)⦄)⦄
+												and:
+													for all ⟦index⟧:
+														if:
+															⦃⦃{⦃0⦄,⦃2⦄,⦃3⦄}⦄.Has(⦃index⦄)⦄
+														then:
+															⦃⦃⦃sequence⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+												and:
+													for all ⟦index⟧:
+														if:
+															⦃⦃⦃sequence3⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+														then:
+															there exists ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+																	⦃⦃⦃{
+																		⦃unicodeCodePoints Left⦄,
+																		⦃unicodeCodePoints Right⦄
+																	}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+																and:
+																	let:
+																		⟦scalarMultiplication⟧:
+																				⦃⦃Function⦄.HasInstance(⦃scalarMultiplication⦄)⦄
+																			and:
+																				for all ⟦x⟧,⟦y⟧:
+																						⦃⦃⦃scalarMultiplication⦄.GetGraph()⦄.Has(⦃(⦃x⦄,⦃y⦄)⦄)⦄
+																					if and only if:
+																						there exists ⟦z⟧,⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+																								⦃⦃x⦄.IsEqualTo(⦃(⦃z⦄,⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+																							and:
+																								⦃⦃⦃{
+																									⦃unicodeCodePoints Left⦄,
+																									⦃unicodeCodePoints Right⦄
+																								}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+																							and:
+																								if:
+																									not:
+																										⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧PartialModule⦄.HasInstance(⦃structure⦄)⦄
+																								then:
+																									⦃⦃y⦄.IsEqualTo(⦃z⦄)⦄
+																								else:
+																									let:
+																										⟦structure0⟧:
+																											if:
+																												not:
+																													⦃⦃BiPartialModule⦄.HasInstance(⦃structure⦄)⦄
+																											then:
+																												⦃⦃structure0⦄.IsEqualTo(⦃structure⦄)⦄
+																											else:
+																												⦃⦃structure0⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄
+																										⟦sequence⟧:
+																											let:
+																												⟦x⟧:
+																													let:
+																														⟦index0⟧:
+																															if:
+																																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																															then:
+																																⦃⦃index0⦄.IsEqualTo(⦃0⦄)⦄
+																															else:
+																																⦃⦃index0⦄.IsEqualTo(⦃2⦄)⦄
+																													⦃⦃x⦄.IsEqualTo(⦃⦃sequence⟦⟦⦃⦃index0⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄(⦃index⦄)⦄)⦄
+																											if:
+																												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																											then:
+																												⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃z⦄)⦄)⦄
+																											else:
+																												⦃⦃sequence⦄.IsEqualTo(⦃(⦃z⦄,⦃x⦄)⦄)⦄
+																									⦃⦃y⦄.IsEqualTo(⦃⦃⦃⦃structure0⦄.GetScalarMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄
+																	⦃⦃⦃sequence3⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃scalarMultiplication⦄(⦃⦃scalarMultiplication⦄(⦃⦃sequence1⦄(⦃index⦄)⦄,⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄,⦃typeIdentifier1⦄,⦃typeIdentifier0⦄)⦄)⦄
+												and:
+													if:
+														⦃⦃0⦄.IsInferiorTo(⦃length⦄)⦄
+													then:
+														⦃⦃identities⦄.Has(⦃⦃addition⦄.ApplyOperationToSequence(⦃sequence3⦄)⦄)⦄
+										then:
+											⦃⦃identities⦄.IsSubMultiClassOf(⦃⦃sequence3⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃MetaScalarMultiplicationMagmaStructure⦄.GetBases⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaScalarMultiplicationMagmaStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetBases⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦bases⟧:
+						⦃⦃bases⦄.IsEqualTo(⦃⦃structure⦄.GetBases()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃bases⦄)⦄
+				and:
+					for all ⟦basis⟧:
+							⦃⦃bases⦄.Has(⦃basis⦄)⦄
+						if and only if:
+								⦃⦃⦃structure⦄.GetGenerators()⦄.Has(⦃basis⦄)⦄
+							and:
+								⦃⦃⦃structure⦄.GetLinearlyIndependentClasses()⦄.Has(⦃basis⦄)⦄

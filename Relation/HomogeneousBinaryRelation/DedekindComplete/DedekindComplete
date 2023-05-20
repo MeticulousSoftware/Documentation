@@ -1,0 +1,21 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃DedekindComplete⦄
+		⦃⦃Type⦄.HasInstance(⦃DedekindComplete⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃DedekindComplete⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃TransitiveRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					for all ⟦class⟧:
+						if:
+								⦃⦃class⦄.IsSubMultiClassOf(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+							and:
+								not:
+									⦃⦃relation⦄.GetUpperBoundsOf(⦃class⦄)⦄.IsEqualTo(⦃{}⦄)
+						then:
+							not:
+								⦃⦃relation⦄.GetLeastUpperBoundsOf(⦃class⦄)⦄.IsEqualTo(⦃{}⦄)

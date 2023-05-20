@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃EmptyRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃EmptyRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃EmptyRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃⦃relation⦄.GetSubRelations()⦄.IsEqualTo(⦃{⦃relation⦄}⦄)⦄

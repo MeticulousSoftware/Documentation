@@ -1,0 +1,1625 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+	import "./PartialAlgebra"
+		import "./Algebra"
+
+		import "./AlgebraOverAField"
+
+		import "./AlternativeAlgebra"
+
+		import "./AssociativeAlgebra"
+
+		import "./UnitalAlgebra"
+
+	import "./CompositionAlgebra"
+
+	import "./InvolutionAlgebra"
+
+	import "./AlgebraicStructure"
+		import "./AlgebraicStructureWithoutOperations"
+
+		import "./FiniteAlgebraicStructure"
+
+		import "./FiniteArityAlgebraicStructure"
+
+		import "./FinitelyGeneratedAlgebraicStructure"
+
+		import "./PartialMagma"
+			import "./AlternativePartialMagma"
+
+			import "./CancellativePartialMagma"
+
+			import "./CommutativePartialMagma"
+
+			import "./Group"
+
+			import "./IdemPotentPartialMagma"
+
+			import "./IdemPotentPartialMagma"
+
+			import "./Loop"
+
+			import "./Magma"
+
+			import "./MonogenousPartialMagma"
+
+			import "./Monoid"
+
+			import "./NoetherianOrArtinianGroup"
+
+			import "./QuasiGroup"
+
+			import "./SemiGroup"
+
+			import "./TorsionFreePartialMagma"
+
+			import "./TorsionPartialMagma"
+
+			import "./UnitalPartialMagma"
+
+		import "./PointedClass"
+
+		import "./QuotientAlgebraicStructure"
+
+			import "./PartialIdeal"
+				import "./CompletelyPrimeIdeal"
+
+				import "./Ideal"
+
+				import "./IrreducibleIdeal"
+
+				import "./MinimalAndMaximalIdeal"
+
+				import "./NilIdeal"
+
+				import "./NilPotentIdeal"
+
+				import "./PrimaryIdeal"
+
+				import "./PrimeIdeal"
+
+				import "./PrincipalIdeal"
+
+				import "./ProperIdeal"
+
+			import "./PartialRing"
+				import "./CommutativeRing"
+
+				import "./DedekindDomain"
+
+				import "./DistributivePartialRing"
+
+				import "./DivisionPartialRing"
+
+				import "./Domain"
+
+				import "./EuclideanDomain"
+
+				import "./Field"
+
+				import "./GreatestCommonDivisorDomain"
+
+				import "./IdemPotentPartialRing"
+
+				import "./IntegralDomain"
+
+				import "./IntegrallyClosedDomain"
+
+				import "./LoopNearRing"
+
+				import "./NearRing"
+
+				import "./NearSemiRing"
+
+				import "./NilPartialRing"
+
+				import "./NoetherianOrArtinianPartialRing"
+
+				import "./NonUnitalRing"
+
+				import "./PreSchreierDomain"
+
+				import "./PrimePartialRing"
+
+				import "./PrincipalIdealPartialRing"
+
+				import "./Ring"
+
+				import "./SchreierDomain"
+
+				import "./SemiRing"
+
+				import "./SimplePartialRing"
+
+				import "./UniqueFactorizationDomain"
+
+				import "./UnitalNearRing"
+
+		import "./TotalAlgebraicStructure"
+
+	import "./AlgebraicStructureEquippedWithInvolution"
+
+	import "./AlgebraicStructureEquippedWithRelation"
+
+import "./Boolean"
+
+	import "./Category"
+		import "./ArrowCategory"
+
+		import "./CategoryWithZeroMorphisms"
+
+		import "./ClassCategory"
+
+		import "./CommaCategory"
+
+		import "./CompleteCategory"
+
+		import "./DiscreteCategory"
+
+		import "./EmptyCategory"
+
+		import "./EndoFunctorCategory"
+
+		import "./EssentiallySmallCategory"
+
+		import "./FunctorCategory"
+
+		import "./Groupoid"
+
+		import "./IntervalCategory"
+
+		import "./NormalCategory"
+
+		import "./PointedCategory"
+
+		import "./ProductCategory"
+
+		import "./QuotientCategory"
+
+		import "./SkeletalCategory"
+
+		import "./SkeletalThinCategory"
+
+		import "./SliceCategory"
+
+		import "./SmallAndFiniteCategory"
+
+		import "./TerminalCategory"
+
+		import "./ThinCategory"
+
+		import "./UnitCommaCategory"
+
+	import "./ChainComplex"
+		import "./BoundedChainComplex"
+
+		import "./ExactSequence"
+			import "./ShortExactSequence"
+
+			import "./SplitExactSequence"
+
+	import "./Functor"
+		import "./AdjointFunctor"
+
+		import "./ConstantFunctor"
+
+		import "./DiagonalFunctor"
+
+		import "./EmptyFunctor"
+
+		import "./EndoFunctor"
+
+		import "./EssentiallyConstantFunctor"
+
+		import "./EssentiallySurjectiveFunctor"
+
+		import "./FullyFaithFulFunctor"
+
+		import "./HomFunctor"
+
+		import "./IdentityFunctor"
+
+		import "./InclusionFunctor"
+
+		import "./InvertibleFunctor"
+
+		import "./IsoFibration"
+
+		import "./MultiFunctor"
+
+		import "./OnObjectsOrMorphismsFunctor"
+
+	import "./MonoidalCategory"
+		import "./SymmetricMonoidalCategory"
+			import "./BraidedMonoidalCategory"
+
+	import "./InfraNaturalTransformation"
+		import "./EndoNaturalTransformation"
+
+		import "./IdentityNaturalTransformation"
+
+		import "./NaturalIsoMorphism"
+
+		import "./NaturalTransformation"
+
+import "./MetaMultiClass"
+
+import "./MultiClass"
+	import "./Class"
+		import "./ClassWithSize"
+			import "./FiniteClass"
+
+		import "./MooreCollection"
+
+		import "./PureClass"
+
+		import "./TransitiveClass"
+
+	import "./MultiClassWithSize"
+		import "./FiniteMultiClass"
+
+	import "./PureMultiClass"
+
+	import "./TransitiveMultiClass"
+
+import "./Documentation"
+
+import "./FullDocumentation"
+	import "./DefaultDocumentation"
+
+import "./FloatingPointReal"
+	import "./FloatingPointFormat"
+
+	import "./FormalGrammar"
+
+	import "./FormalLanguage"
+
+	import "./MetaFormalGrammar"
+		import "./ContextFreeFormalGrammar"
+
+		import "./ContextFreeFormalLanguage"
+			import "./ContextFreeFormalGrammarSpecification"
+				import "./ExtendedBackusNaurForm"
+
+			import "./UnambiguousContextFreeFormalGrammar"
+
+			import "./UnambiguousContextFreeFormalLanguage"
+
+	import "./Lexer"
+
+	import "./Token"
+		import "./RegularExpressionsLexer"
+
+	import "./LexerAndParserCombination"
+		import "./UnambiguousLexerAndParserCombination"
+
+	import "./Parser"
+
+	import "./ParseTreeNode"
+		import "./UnambiguousParser"
+
+		import "./UnambiguousParseTreeNode"
+
+import "./MetaFunction"
+	import "./Function"
+
+import "./MathematicalObject"
+
+import "./MetaMethod"
+	import "./Method"
+
+	import "./PartialModule"
+		import "./CompletelyDecomposableOrReducibleModule"
+
+		import "./FaithFulModule"
+
+		import "./FreeModule"
+
+		import "./InDecomposableModule"
+
+		import "./InjectiveOrProjectiveModule"
+
+		import "./Module"
+
+		import "./NoetherianOrArtinianModule"
+
+		import "./ReflexiveModule"
+
+		import "./SemiModule"
+
+		import "./SimpleModule"
+
+		import "./TorsionLessModule"
+
+		import "./TorsionModule"
+
+		import "./UniformModule"
+
+		import "./UnitalModule"
+
+		import "./UnitalSemiModule"
+
+	import "./ModuleEquippedWithPartialMultiLinearForm"
+		import "./ModuleEquippedWithMultiLinearForm"
+			import "./ModuleEquippedWithBiLinearForm"
+				import "./ModuleEquippedWithNonDegenerateBiLinearForm"
+
+		import "./ModuleEquippedWithPartialBiLinearForm"
+
+	import "./ModuleEquippedWithPartialQuadraticForm"
+		import "./ModuleEquippedWithQuadraticForm"
+			import "./ModuleEquippedWithNonDegenerateQuadraticForm"
+
+import "./Notation"
+
+	import "./False"
+
+	import "./True"
+
+	import "./FiniteSequenceNotations"
+
+	import "./ArgumentImageUnderMetaFunctionOrTypeNotations"
+
+	import "./IntegerNotations"
+
+	import "./ArgumentImageUnderIdentifiedMethodOfXNotations"
+
+	import "./ArgumentImageUnderMetaMethodOfXNotations"
+
+	import "./IdentifiedMethodOfXNotations"
+
+	import "./MetaMethodOfXNotations"
+
+	import "./MethodInducedByIdentifiedMethodNotations"
+
+	import "./MethodInducedByTypeOrClassAndIdentifiedMethodNotations"
+
+	import "./MultiClassNotations"
+
+	import "./FiniteOrdinalNotations"
+
+	import "./ω"
+
+	import "./RealNotations"
+
+	import "./UnicodeCodePointNotations"
+
+	import "./UnicodeCodePointsNotations"
+
+import "./NullType"
+
+import "./Operation"
+	import "./AssociativeOrSolvableOperation"
+
+	import "./BijectiveOperation"
+
+	import "./CommutativeOperation"
+
+	import "./FiniteArityOperation"
+		import "./BinaryUnaryOperation"
+
+		import "./ConstantOperation"
+
+		import "./FiniteArityCoDomainOperation"
+			import "./UnaryCoDomainOperation"
+
+		import "./FiniteArityDomainOperation"
+			import "./BinaryDomainOperation"
+
+			import "./UnaryDomainOperation"
+
+	import "./IdentityOperation"
+
+	import "./InjectiveOperation"
+
+	import "./InternalOperation"
+
+	import "./InternalUnaryCoDomainOperation"
+
+	import "./InternalUnaryUnaryOperation"
+		import "./IdemPotentOperation"
+
+	import "./TotalAndSurjectiveOperation"
+
+	import "./TotalUnaryUnaryOperation"
+
+import "./Optional"
+
+import "./OrdinalAndCardinal"
+
+import "./OrdinalRangeAndCardinalRange"
+	import "./FiniteOrdinalAndFiniteCardinal"
+
+	import "./FiniteOrdinalRangeAndFiniteCardinalRange"
+
+	import "./LimitOrdinal"
+
+	import "./SuccessorOrdinal"
+
+import "./RangeType"
+
+import "./MetaReal"
+
+import "./Real"
+	import "./Integer"
+		import "./PositiveAndNegativeInteger"
+
+	import "./PositiveAndNegativeReal"
+
+	import "./Rational"
+		import "./PositiveAndNegativeRational"
+
+import "./CaptureTreeNode"
+
+import "./RegularExpression"
+
+import "./Relation"
+	import "./EmptyRelation"
+
+	import "./FiniteArityRelation"
+		import "./BinaryRelation"
+			import "./ToOneManyRelation"
+
+			import "./UniqueOrTotalRelation"
+
+	import "./HomogeneousBinaryRelation"
+		import "./AntiReflexiveRelation"
+
+		import "./AntiSymmetricRelation"
+
+		import "./AntiTransitiveRelation"
+
+		import "./ArtinianNonStrictTotalOrder"
+
+		import "./AsymmetricRelation"
+
+		import "./BoundedRelation"
+
+		import "./ConnectedRelation"
+
+		import "./CoReflexiveRelation"
+
+		import "./DedekindComplete"
+
+		import "./DenseRelation"
+
+		import "./EquivalenceRelation"
+
+		import "./FinslerExtensionalRelation"
+
+		import "./IdemPotentRelation"
+
+		import "./Lattice"
+
+		import "./NoetherianOrArtinianRelation"
+
+		import "./PartialOrder"
+
+		import "./PreOrder"
+
+		import "./QuasiReflexiveRelation"
+
+		import "./QuasiTransitiveRelation"
+
+		import "./ReflexiveRelation"
+
+		import "./ScottExtensionalRelation"
+
+		import "./StronglyConnectedRelation"
+
+		import "./StronglyExtensionalRelation"
+
+		import "./SymmetricRelation"
+
+		import "./TotalOrder"
+
+		import "./TransitiveRelation"
+
+		import "./WeaklyExtensionalRelation"
+
+		import "./WeakOrder"
+
+	import "./HomogeneousRelation"
+		import "./IdentityRelation"
+
+	import "./UniversalRelation"
+
+import "./ScalarMultiplicationStructure"
+	import "./QuotientScalarMultiplicationStructure"
+
+	import "./RingScalarMultiplicationStructure"
+
+	import "./ScalarMultiplicationMagmaStructure"
+
+	import "./ScalarMultiplicationRingStructure"
+
+import "./MetaTransFiniteSequence"
+
+import "./TransFiniteSequence"
+	import "./Sequence"
+		import "./FiniteSequence"
+
+	import "./CompatibleWithRelationStructure"
+
+	import "./ConversibleStructure"
+
+	import "./EquippedStructure"
+		import "./ConversibleEquippedStructure"
+
+	import "./MappableStructure"
+
+import "./Type"
+	import "./MutuallyDisjointType"
+
+import "./UnicodeCodePoint"
+
+import "./Variable"
+
+
+
+import "./PartialIdeal" ⟦UnionOfTypes⟧
+declare ⟦TemporaryPartialIdeal⟧
+define ⦃TemporaryPartialIdeal⦄
+	⦃⦃TemporaryPartialIdeal⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Boolean" ⟦UnionOfTypes⟧
+declare ⟦TemporaryBoolean⟧
+define ⦃TemporaryBoolean⦄
+	⦃⦃TemporaryBoolean⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./ChainComplex" ⟦UnionOfTypes⟧
+declare ⟦TemporaryChainComplex⟧
+define ⦃TemporaryChainComplex⦄
+	⦃⦃TemporaryChainComplex⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./MultiClass" ⟦UnionOfTypes⟧
+declare ⟦TemporaryMultiClass⟧
+define ⦃TemporaryMultiClass⦄
+	⦃⦃TemporaryMultiClass⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Documentation" ⟦UnionOfTypes⟧
+declare ⟦TemporaryDocumentation⟧
+define ⦃TemporaryDocumentation⦄
+	⦃⦃TemporaryDocumentation⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./FullDocumentation" ⟦UnionOfTypes⟧
+declare ⟦TemporaryFullDocumentation⟧
+define ⦃TemporaryFullDocumentation⦄
+	⦃⦃TemporaryFullDocumentation⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./FloatingPointReal" ⟦UnionOfTypes⟧
+declare ⟦TemporaryFloatingPointReal⟧
+define ⦃TemporaryFloatingPointReal⦄
+	⦃⦃TemporaryFloatingPointReal⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./FloatingPointFormat" ⟦UnionOfTypes⟧
+declare ⟦TemporaryFloatingPointFormat⟧
+define ⦃TemporaryFloatingPointFormat⦄
+	⦃⦃TemporaryFloatingPointFormat⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./FormalGrammar" ⟦UnionOfTypes⟧
+declare ⟦TemporaryFormalGrammar⟧
+define ⦃TemporaryFormalGrammar⦄
+	⦃⦃TemporaryFormalGrammar⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./ExtendedBackusNaurForm" ⟦UnionOfTypes⟧
+declare ⟦TemporaryExtendedBackusNaurForm⟧
+define ⦃TemporaryExtendedBackusNaurForm⦄
+	⦃⦃TemporaryExtendedBackusNaurForm⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Lexer" ⟦UnionOfTypes⟧
+declare ⟦TemporaryLexer⟧
+define ⦃TemporaryLexer⦄
+	⦃⦃TemporaryLexer⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Token" ⟦UnionOfTypes⟧
+declare ⟦TemporaryToken⟧
+define ⦃TemporaryToken⦄
+	⦃⦃TemporaryToken⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./LexerAndParserCombination" ⟦UnionOfTypes⟧
+declare ⟦TemporaryLexerAndParserCombination⟧
+define ⦃TemporaryLexerAndParserCombination⦄
+	⦃⦃TemporaryLexerAndParserCombination⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Parser" ⟦UnionOfTypes⟧
+declare ⟦TemporaryParser⟧
+define ⦃TemporaryParser⦄
+	⦃⦃TemporaryParser⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./ParseTreeNode" ⟦UnionOfTypes⟧
+declare ⟦TemporaryParseTreeNode⟧
+define ⦃TemporaryParseTreeNode⦄
+	⦃⦃TemporaryParseTreeNode⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Function" ⟦UnionOfTypes⟧
+declare ⟦TemporaryFunction⟧
+define ⦃TemporaryFunction⦄
+	⦃⦃TemporaryFunction⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Method" ⟦UnionOfTypes⟧
+declare ⟦TemporaryMethod⟧
+define ⦃TemporaryMethod⦄
+	⦃⦃TemporaryMethod⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Notation" ⟦UnionOfTypes⟧
+declare ⟦TemporaryNotation⟧
+define ⦃TemporaryNotation⦄
+	⦃⦃TemporaryNotation⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Operation" ⟦UnionOfTypes⟧
+declare ⟦TemporaryOperation⟧
+define ⦃TemporaryOperation⦄
+	⦃⦃TemporaryOperation⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Optional" ⟦UnionOfTypes⟧
+declare ⟦TemporaryOptional⟧
+define ⦃TemporaryOptional⦄
+	⦃⦃TemporaryOptional⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./OrdinalAndCardinal" ⟦UnionOfTypes⟧
+declare ⟦TemporaryOrdinalAndCardinal⟧
+define ⦃TemporaryOrdinalAndCardinal⦄
+	⦃⦃TemporaryOrdinalAndCardinal⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./RangeType" ⟦UnionOfTypes⟧
+declare ⟦TemporaryRangeType⟧
+define ⦃TemporaryRangeType⦄
+	⦃⦃TemporaryRangeType⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Real" ⟦UnionOfTypes⟧
+declare ⟦TemporaryReal⟧
+define ⦃TemporaryReal⦄
+	⦃⦃TemporaryReal⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./CaptureTreeNode" ⟦UnionOfTypes⟧
+declare ⟦TemporaryCaptureTreeNode⟧
+define ⦃TemporaryCaptureTreeNode⦄
+	⦃⦃TemporaryCaptureTreeNode⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./RegularExpression" ⟦UnionOfTypes⟧
+declare ⟦TemporaryRegularExpression⟧
+define ⦃TemporaryRegularExpression⦄
+	⦃⦃TemporaryRegularExpression⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Relation" ⟦UnionOfTypes⟧
+declare ⟦TemporaryRelation⟧
+define ⦃TemporaryRelation⦄
+	⦃⦃TemporaryRelation⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./TransFiniteSequence" ⟦UnionOfTypes⟧
+declare ⟦TemporaryTransFiniteSequence⟧
+define ⦃TemporaryTransFiniteSequence⦄
+	⦃⦃TemporaryTransFiniteSequence⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./EquippedStructure" ⟦UnionOfTypes⟧
+declare ⟦TemporaryEquippedStructure⟧
+define ⦃TemporaryEquippedStructure⦄
+	⦃⦃TemporaryEquippedStructure⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Type" ⟦UnionOfTypes⟧
+declare ⟦TemporaryType⟧
+define ⦃TemporaryType⦄
+	⦃⦃TemporaryType⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./UnicodeCodePoint" ⟦UnionOfTypes⟧
+declare ⟦TemporaryUnicodeCodePoint⟧
+define ⦃TemporaryUnicodeCodePoint⦄
+	⦃⦃TemporaryUnicodeCodePoint⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+import "./Variable" ⟦UnionOfTypes⟧
+declare ⟦TemporaryVariable⟧
+define ⦃TemporaryVariable⦄
+	⦃⦃TemporaryVariable⦄.IsEqualTo(⦃UnionOfTypes⦄)⦄
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	let:
+		⟦classes⟧:
+			⦃⦃classes⦄.IsEqualTo(⦃{
+				⦃TemporaryPartialIdeal⦄,
+				⦃TemporaryBoolean⦄,
+				⦃TemporaryChainComplex⦄,
+				⦃TemporaryMultiClass⦄,
+				⦃TemporaryDocumentation⦄,
+				⦃TemporaryFullDocumentation⦄,
+				⦃TemporaryFloatingPointReal⦄,
+				⦃TemporaryFloatingPointFormat⦄,
+				⦃TemporaryFormalGrammar⦄,
+				⦃TemporaryExtendedBackusNaurForm⦄,
+				⦃TemporaryLexer⦄,
+				⦃TemporaryToken⦄,
+				⦃TemporaryLexerAndParserCombination⦄,
+				⦃TemporaryParser⦄,
+				⦃TemporaryParseTreeNode⦄,
+				⦃TemporaryFunction⦄,
+				⦃TemporaryMethod⦄,
+				⦃TemporaryNotation⦄,
+				⦃TemporaryOperation⦄,
+				⦃TemporaryOptional⦄,
+				⦃TemporaryOrdinalAndCardinal⦄,
+				⦃TemporaryRangeType⦄,
+				⦃TemporaryReal⦄,
+				⦃TemporaryCaptureTreeNode⦄,
+				⦃TemporaryRegularExpression⦄,
+				⦃TemporaryRelation⦄,
+				⦃TemporaryTransFiniteSequence⦄,
+				⦃TemporaryEquippedStructure⦄,
+				⦃TemporaryType⦄,
+				⦃TemporaryUnicodeCodePoint⦄,
+				⦃TemporaryVariable⦄
+			}⦄)⦄
+		⦃⦃classes⦄.AreMutuallyDisjoint()⦄
+	and:
+		⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃classes⦄.GetUnion()⦄)⦄
+
+
+
+declare ⟦TemporaryAll⟧
+define ⦃TemporaryAll⦄
+	⦃⦃TemporaryAll⦄.IsEqualTo(⦃All⦄)⦄
+
+declare ⟦All⟧
+define ⦃All⦄
+		⦃⦃Notation⦄.HasInstance(⦃All⦄)⦄
+	and:
+		for all ⟦x⟧:
+				⦃⦃⦃All⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+			if and only if:
+					⦃⦃⦃TemporaryAll⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+				or:
+					⦃⦃x⦄.IsEqualTo(⟦⦃UnionOfTypes⦄⟧)⦄
+
+
+
+export ⦃All⦄
+
+
+
+export
+⦃PartialAlgebra⦄,
+⦃MetaAlgebra⦄,
+⦃Algebra⦄,
+⦃MetaLeftAlgebra⦄,
+⦃MetaRightAlgebra⦄,
+⦃MetaBiAlgebra⦄,
+⦃LeftAlgebra⦄,
+⦃RightAlgebra⦄,
+⦃BiAlgebra⦄,
+⦃MetaAlgebraOverAField⦄,
+⦃AlgebraOverAField⦄,
+⦃MetaLeftAlgebraOverAField⦄,
+⦃MetaRightAlgebraOverAField⦄,
+⦃MetaBiAlgebraOverAField⦄,
+⦃LeftAlgebraOverAField⦄,
+⦃RightAlgebraOverAField⦄,
+⦃BiAlgebraOverAField⦄,
+⦃MetaAlternativeAlgebra⦄,
+⦃AlternativeAlgebra⦄,
+⦃MetaLeftAlternativeAlgebra⦄,
+⦃MetaRightAlternativeAlgebra⦄,
+⦃MetaBiAlternativeAlgebra⦄,
+⦃LeftAlternativeAlgebra⦄,
+⦃RightAlternativeAlgebra⦄,
+⦃BiAlternativeAlgebra⦄,
+⦃MetaAssociativeAlgebra⦄,
+⦃AssociativeAlgebra⦄,
+⦃MetaLeftAssociativeAlgebra⦄,
+⦃MetaRightAssociativeAlgebra⦄,
+⦃MetaBiAssociativeAlgebra⦄,
+⦃LeftAssociativeAlgebra⦄,
+⦃RightAssociativeAlgebra⦄,
+⦃BiAssociativeAlgebra⦄,
+⦃MetaCommutativeAlgebra⦄,
+⦃CommutativeAlgebra⦄,
+⦃MetaLeftCommutativeAlgebra⦄,
+⦃MetaRightCommutativeAlgebra⦄,
+⦃MetaBiCommutativeAlgebra⦄,
+⦃LeftCommutativeAlgebra⦄,
+⦃RightCommutativeAlgebra⦄,
+⦃BiCommutativeAlgebra⦄,
+⦃MetaUnitalAlgebra⦄,
+⦃UnitalAlgebra⦄,
+⦃MetaLeftUnitalAlgebra⦄,
+⦃MetaRightUnitalAlgebra⦄,
+⦃MetaBiUnitalAlgebra⦄,
+⦃LeftUnitalAlgebra⦄,
+⦃RightUnitalAlgebra⦄,
+⦃BiUnitalAlgebra⦄,
+⦃MetaCompositionAlgebra⦄,
+⦃CompositionAlgebra⦄,
+⦃MetaLeftCompositionAlgebra⦄,
+⦃MetaRightCompositionAlgebra⦄,
+⦃LeftCompositionAlgebra⦄,
+⦃RightCompositionAlgebra⦄,
+⦃MetaInvolutionAlgebra⦄,
+⦃InvolutionAlgebra⦄,
+⦃MetaLeftInvolutionAlgebra⦄,
+⦃MetaRightInvolutionAlgebra⦄,
+⦃LeftInvolutionAlgebra⦄,
+⦃RightInvolutionAlgebra⦄,
+⦃CayleyDicksonAlgebra⦄,
+⦃LeftCayleyDicksonAlgebra⦄,
+⦃RightCayleyDicksonAlgebra⦄,
+⦃MetaAlgebraicStructure⦄,
+⦃AlgebraicStructure⦄,
+⦃MetaAlgebraicStructureWithoutOperations⦄,
+⦃AlgebraicStructureWithoutOperations⦄,
+⦃MetaFiniteAlgebraicStructure⦄,
+⦃FiniteAlgebraicStructure⦄,
+⦃MetaFiniteArityAlgebraicStructure⦄,
+⦃FiniteArityAlgebraicStructure⦄,
+⦃MetaFinitelyGeneratedAlgebraicStructure⦄,
+⦃FinitelyGeneratedAlgebraicStructure⦄,
+⦃MetaPartialMagma⦄,
+⦃PartialMagma⦄,
+⦃MetaLeftAlternativePartialMagma⦄,
+⦃MetaRightAlternativePartialMagma⦄,
+⦃MetaAlternativePartialMagma⦄,
+⦃LeftAlternativePartialMagma⦄,
+⦃RightAlternativePartialMagma⦄,
+⦃AlternativePartialMagma⦄,
+⦃MetaLeftCancellativePartialMagma⦄,
+⦃MetaRightCancellativePartialMagma⦄,
+⦃MetaCancellativePartialMagma⦄,
+⦃LeftCancellativePartialMagma⦄,
+⦃RightCancellativePartialMagma⦄,
+⦃CancellativePartialMagma⦄,
+⦃MetaCommutativePartialMagma⦄,
+⦃MetaCommutativeMagma⦄,
+⦃MetaCommutativeMonoid⦄,
+⦃MetaCommutativeGroup⦄,
+⦃CommutativePartialMagma⦄,
+⦃CommutativeMagma⦄,
+⦃CommutativeMonoid⦄,
+⦃CommutativeGroup⦄,
+⦃MetaGroup⦄,
+⦃Group⦄,
+⦃MetaIdemPotentPartialMagma⦄,
+⦃IdemPotentPartialMagma⦄,
+⦃MetaInverseSemiGroup⦄,
+⦃InverseSemiGroup⦄,
+⦃MetaLoop⦄,
+⦃Loop⦄,
+⦃MetaMagma⦄,
+⦃Magma⦄,
+⦃MetaMonogenousPartialMagma⦄,
+⦃MetaMonogenousUnitalPartialMagma⦄,
+⦃MonogenousPartialMagma⦄,
+⦃MonogenousUnitalPartialMagma⦄,
+⦃MetaMonoid⦄,
+⦃Monoid⦄,
+⦃MetaNoetherianGroup⦄,
+⦃MetaArtinianGroup⦄,
+⦃NoetherianGroup⦄,
+⦃ArtinianGroup⦄,
+⦃MetaQuasiGroup⦄,
+⦃QuasiGroup⦄,
+⦃MetaSemiGroup⦄,
+⦃SemiGroup⦄,
+⦃MetaTorsionFreePartialMagma⦄,
+⦃TorsionFreePartialMagma⦄,
+⦃MetaTorsionPartialMagma⦄,
+⦃TorsionPartialMagma⦄,
+⦃MetaPartialUnitalPartialMagma⦄,
+⦃MetaUnitalPartialMagma⦄,
+⦃MetaUnitalMagma⦄,
+⦃PartialUnitalPartialMagma⦄,
+⦃UnitalPartialMagma⦄,
+⦃UnitalMagma⦄,
+⦃MetaPointedClass⦄,
+⦃PointedClass⦄,
+⦃QuotientAlgebraicStructure⦄,
+⦃PartialIdeal⦄,
+⦃PartialCompletelyPrimeIdeal⦄,
+⦃CompletelyPrimeIdeal⦄,
+⦃UnitalCompletelyPrimeIdeal⦄,
+⦃LeftIdeal⦄,
+⦃RightIdeal⦄,
+⦃Ideal⦄,
+⦃UnitalLeftIdeal⦄,
+⦃UnitalRightIdeal⦄,
+⦃UnitalIdeal⦄,
+⦃IrreducibleIdeal⦄,
+⦃UnitalIrreducibleIdeal⦄,
+⦃LeftMinimalIdeal⦄,
+⦃RightMinimalIdeal⦄,
+⦃MinimalIdeal⦄,
+⦃LeftUnitalMaximalIdeal⦄,
+⦃RightUnitalMaximalIdeal⦄,
+⦃UnitalMaximalIdeal⦄,
+⦃LeftUnitalMinimalIdeal⦄,
+⦃RightUnitalMinimalIdeal⦄,
+⦃UnitalMinimalIdeal⦄,
+⦃LeftUnitalMaximalIdeal⦄,
+⦃RightUnitalMaximalIdeal⦄,
+⦃UnitalMaximalIdeal⦄,
+⦃PartialNilIdeal⦄,
+⦃NilIdeal⦄,
+⦃UnitalNilIdeal⦄,
+⦃PartialNilPotentIdeal⦄,
+⦃NilPotentIdeal⦄,
+⦃UnitalNilPotentIdeal⦄,
+⦃PartialPrimaryIdeal⦄,
+⦃PrimaryIdeal⦄,
+⦃UnitalPrimaryIdeal⦄,
+⦃PrimeIdeal⦄,
+⦃UnitalPrimeIdeal⦄,
+⦃LeftPrincipalIdeal⦄,
+⦃RightPrincipalIdeal⦄,
+⦃PrincipalIdeal⦄,
+⦃LeftUnitalPrincipalIdeal⦄,
+⦃RightUnitalPrincipalIdeal⦄,
+⦃UnitalPrincipalIdeal⦄,
+⦃LeftPartialProperIdeal⦄,
+⦃RightPartialProperIdeal⦄,
+⦃PartialProperIdeal⦄,
+⦃LeftProperIdeal⦄,
+⦃RightProperIdeal⦄,
+⦃ProperIdeal⦄,
+⦃LeftUnitalProperIdeal⦄,
+⦃RightUnitalProperIdeal⦄,
+⦃UnitalProperIdeal⦄,
+⦃MetaPartialRing⦄,
+⦃PartialRing⦄,
+⦃MetaCommutativeRing⦄,
+⦃CommutativeRing⦄,
+⦃MetaDedekindDomain⦄,
+⦃DedekindDomain⦄,
+⦃MetaDistributivePartialRing⦄,
+⦃DistributivePartialRing⦄,
+⦃MetaDivisionPartialRing⦄,
+⦃DivisionPartialRing⦄,
+⦃MetaDomain⦄,
+⦃Domain⦄,
+⦃MetaEuclideanDomain⦄,
+⦃EuclideanDomain⦄,
+⦃MetaField⦄,
+⦃Field⦄,
+⦃MetaGreatestCommonDivisorDomain⦄,
+⦃GreatestCommonDivisorDomain⦄,
+⦃MetaAdditionIdemPotentPartialRing⦄,
+⦃MetaMultiplicationIdemPotentPartialRing⦄,
+⦃MetaIdemPotentPartialRing⦄,
+⦃AdditionIdemPotentPartialRing⦄,
+⦃MultiplicationIdemPotentPartialRing⦄,
+⦃IdemPotentPartialRing⦄,
+⦃MetaIntegralDomain⦄,
+⦃IntegralDomain⦄,
+⦃MetaIntegrallyClosedDomain⦄,
+⦃IntegrallyClosedDomain⦄,
+⦃MetaLeftLoopNearRing⦄,
+⦃MetaRightLoopNearRing⦄,
+⦃MetaLoopNearRing⦄,
+⦃LeftLoopNearRing⦄,
+⦃RightLoopNearRing⦄,
+⦃LoopNearRing⦄,
+⦃MetaLeftNearRing⦄,
+⦃MetaRightNearRing⦄,
+⦃MetaNearRing⦄,
+⦃LeftNearRing⦄,
+⦃RightNearRing⦄,
+⦃NearRing⦄,
+⦃MetaLeftNearSemiRing⦄,
+⦃MetaRightNearSemiRing⦄,
+⦃MetaNearSemiRing⦄,
+⦃LeftNearSemiRing⦄,
+⦃RightNearSemiRing⦄,
+⦃NearSemiRing⦄,
+⦃MetaNilPartialRing⦄,
+⦃NilPartialRing⦄,
+⦃MetaLeftNoetherianPartialRing⦄,
+⦃MetaRightNoetherianPartialRing⦄,
+⦃MetaNoetherianPartialRing⦄,
+⦃MetaLeftArtinianPartialRing⦄,
+⦃MetaRightArtinianPartialRing⦄,
+⦃MetaArtinianPartialRing⦄,
+⦃MetaLeftUnitalNoetherianPartialRing⦄,
+⦃MetaRightUnitalNoetherianPartialRing⦄,
+⦃MetaUnitalNoetherianPartialRing⦄,
+⦃MetaLeftUnitalArtinianPartialRing⦄,
+⦃MetaRightUnitalArtinianPartialRing⦄,
+⦃MetaUnitalArtinianPartialRing⦄,
+⦃LeftNoetherianPartialRing⦄,
+⦃RightNoetherianPartialRing⦄,
+⦃NoetherianPartialRing⦄,
+⦃LeftArtinianPartialRing⦄,
+⦃RightArtinianPartialRing⦄,
+⦃ArtinianPartialRing⦄,
+⦃LeftUnitalNoetherianPartialRing⦄,
+⦃RightUnitalNoetherianPartialRing⦄,
+⦃UnitalNoetherianPartialRing⦄,
+⦃LeftUnitalArtinianPartialRing⦄,
+⦃RightUnitalArtinianPartialRing⦄,
+⦃UnitalArtinianPartialRing⦄,
+⦃MetaNonUnitalRing⦄,
+⦃NonUnitalRing⦄,
+⦃MetaPreSchreierDomain⦄,
+⦃PreSchreierDomain⦄,
+⦃MetaPrimePartialRing⦄,
+⦃PrimePartialRing⦄,
+⦃MetaLeftPrincipalIdealPartialRing⦄,
+⦃MetaRightPrincipalIdealPartialRing⦄,
+⦃MetaPrincipalIdealPartialRing⦄,
+⦃MetaLeftUnitalPrincipalIdealPartialRing⦄,
+⦃MetaRightUnitalPrincipalIdealPartialRing⦄,
+⦃MetaUnitalPrincipalIdealPartialRing⦄,
+⦃LeftPrincipalIdealPartialRing⦄,
+⦃RightPrincipalIdealPartialRing⦄,
+⦃PrincipalIdealPartialRing⦄,
+⦃LeftUnitalPrincipalIdealPartialRing⦄,
+⦃RightUnitalPrincipalIdealPartialRing⦄,
+⦃UnitalPrincipalIdealPartialRing⦄,
+⦃Ring⦄,
+⦃MetaSchreierDomain⦄,
+⦃SchreierDomain⦄,
+⦃MetaSemiRing⦄,
+⦃SemiRing⦄,
+⦃MetaSimplePartialRing⦄,
+⦃MetaUnitalSimplePartialRing⦄,
+⦃SimplePartialRing⦄,
+⦃UnitalSimplePartialRing⦄,
+⦃MetaUniqueFactorizationDomain⦄,
+⦃UniqueFactorizationDomain⦄,
+⦃MetaLeftUnitalNearRing⦄,
+⦃MetaRightUnitalNearRing⦄,
+⦃MetaUnitalNearRing⦄,
+⦃LeftUnitalNearRing⦄,
+⦃RightUnitalNearRing⦄,
+⦃UnitalNearRing⦄,
+⦃MetaTotalAlgebraicStructure⦄,
+⦃TotalAlgebraicStructure⦄,
+⦃MetaAlgebraicStructureEquippedWithInvolution⦄,
+⦃AlgebraicStructureEquippedWithInvolution⦄,
+⦃MetaAlgebraicStructureEquippedWithRelation⦄,
+⦃AlgebraicStructureEquippedWithRelation⦄,
+⦃Boolean⦄,
+⦃MetaCategory⦄,
+⦃Category⦄,
+⦃ArrowCategory⦄,
+⦃MetaCategoryWithZeroMorphisms⦄,
+⦃CategoryWithZeroMorphisms⦄,
+⦃ClassCategory⦄,
+⦃CommaCategory⦄,
+⦃MetaCompleteCategory⦄,
+⦃MetaCoCompleteCategory⦄,
+⦃MetaBiCompleteCategory⦄,
+⦃MetaFinitelyCompleteCategory⦄,
+⦃MetaFinitelyCoCompleteCategory⦄,
+⦃MetaFinitelyBiCompleteCategory⦄,
+⦃CompleteCategory⦄,
+⦃CoCompleteCategory⦄,
+⦃BiCompleteCategory⦄,
+⦃FinitelyCompleteCategory⦄,
+⦃FinitelyCoCompleteCategory⦄,
+⦃FinitelyBiCompleteCategory⦄,
+⦃MetaDiscreteCategory⦄,
+⦃DiscreteCategory⦄,
+⦃MetaEmptyCategory⦄,
+⦃EmptyCategory⦄,
+⦃EndoFunctorCategory⦄,
+⦃MetaEssentiallySmallCategory⦄,
+⦃EssentiallySmallCategory⦄,
+⦃FunctorCategory⦄,
+⦃MetaGroupoid⦄,
+⦃Groupoid⦄,
+⦃MetaIntervalCategory⦄,
+⦃IntervalCategory⦄,
+⦃MetaNormalCategory⦄,
+⦃MetaCoNormalCategory⦄,
+⦃MetaBiNormalCategory⦄,
+⦃NormalCategory⦄,
+⦃CoNormalCategory⦄,
+⦃BiNormalCategory⦄,
+⦃MetaPointedCategory⦄,
+⦃PointedCategory⦄,
+⦃ProductCategory⦄,
+⦃QuotientCategory⦄,
+⦃MetaSkeletalCategory⦄,
+⦃SkeletalCategory⦄,
+⦃MetaSkeletalThinCategory⦄,
+⦃SkeletalThinCategory⦄,
+⦃SliceCategory⦄,
+⦃CoSliceCategory⦄,
+⦃MetaSmallCategory⦄,
+⦃MetaLocallySmallCategory⦄,
+⦃MetaFiniteCategory⦄,
+⦃MetaLocallyFiniteCategory⦄,
+⦃SmallCategory⦄,
+⦃LocallySmallCategory⦄,
+⦃FiniteCategory⦄,
+⦃LocallyFiniteCategory⦄,
+⦃MetaTerminalCategory⦄,
+⦃TerminalCategory⦄,
+⦃MetaThinCategory⦄,
+⦃ThinCategory⦄,
+⦃UnitCommaCategory⦄,
+⦃CoUnitCommaCategory⦄,
+⦃ChainComplex⦄,
+⦃LowerBoundedChainComplex⦄,
+⦃UpperBoundedChainComplex⦄,
+⦃BoundedChainComplex⦄,
+⦃ExactSequence⦄,
+⦃ShortExactSequence⦄,
+⦃SplitExactSequence⦄,
+⦃MetaFunctor⦄,
+⦃Functor⦄,
+⦃MetaLeftAdjointFunctor⦄,
+⦃MetaRightAdjointFunctor⦄,
+⦃LeftAdjointFunctor⦄,
+⦃RightAdjointFunctor⦄,
+⦃MetaConstantFunctor⦄,
+⦃ConstantFunctor⦄,
+⦃DiagonalFunctor⦄,
+⦃MetaEmptyFunctor⦄,
+⦃EmptyFunctor⦄,
+⦃MetaEndoFunctor⦄,
+⦃EndoFunctor⦄,
+⦃MetaEssentiallyConstantFunctor⦄,
+⦃EssentiallyConstantFunctor⦄,
+⦃MetaEssentiallySurjectiveFunctor⦄,
+⦃EssentiallySurjectiveFunctor⦄,
+⦃MetaFaithFulFunctor⦄,
+⦃MetaFullFunctor⦄,
+⦃MetaFullyFaithFulFunctor⦄,
+⦃FaithFulFunctor⦄,
+⦃FullFunctor⦄,
+⦃FullyFaithFulFunctor⦄,
+⦃HomFunctor⦄,
+⦃MetaIdentityFunctor⦄,
+⦃IdentityFunctor⦄,
+⦃MetaInclusionFunctor⦄,
+⦃InclusionFunctor⦄,
+⦃MetaInvertibleFunctor⦄,
+⦃MetaEssentiallySurjectiveFullyFaithFulFunctor⦄,
+⦃InvertibleFunctor⦄,
+⦃EssentiallySurjectiveFullyFaithFulFunctor⦄,
+⦃MetaIsoFibration⦄,
+⦃IsoFibration⦄,
+⦃MultiFunctor⦄,
+⦃MetaInjectiveOnObjectsFunctor⦄,
+⦃MetaSurjectiveOnObjectsFunctor⦄,
+⦃MetaBijectiveOnObjectsFunctor⦄,
+⦃MetaInjectiveOnMorphismsFunctor⦄,
+⦃MetaSurjectiveOnMorphismsFunctor⦄,
+⦃MetaBijectiveOnMorphismsFunctor⦄,
+⦃InjectiveOnObjectsFunctor⦄,
+⦃SurjectiveOnObjectsFunctor⦄,
+⦃BijectiveOnObjectsFunctor⦄,
+⦃InjectiveOnMorphismsFunctor⦄,
+⦃SurjectiveOnMorphismsFunctor⦄,
+⦃BijectiveOnMorphismsFunctor⦄,
+⦃MetaMonoidalCategory⦄,
+⦃MonoidalCategory⦄,
+⦃MetaBraidedMonoidalCategory⦄,
+⦃BraidedMonoidalCategory⦄,
+⦃MetaSymmetricMonoidalCategory⦄,
+⦃SymmetricMonoidalCategory⦄,
+⦃MetaInfraNaturalTransformation⦄,
+⦃InfraNaturalTransformation⦄,
+⦃MetaEndoInfraNaturalTransformation⦄,
+⦃MetaEndoNaturalTransformation⦄,
+⦃EndoInfraNaturalTransformation⦄,
+⦃EndoNaturalTransformation⦄,
+⦃MetaIdentityInfraNaturalTransformation⦄,
+⦃MetaIdentityNaturalTransformation⦄,
+⦃IdentityInfraNaturalTransformation⦄,
+⦃IdentityNaturalTransformation⦄,
+⦃MetaInfraNaturalIsoMorphism⦄,
+⦃MetaNaturalIsoMorphism⦄,
+⦃InfraNaturalIsoMorphism⦄,
+⦃NaturalIsoMorphism⦄,
+⦃MetaNaturalTransformation⦄,
+⦃NaturalTransformation⦄,
+⦃NonEmptyMultiClass⦄,
+⦃NonEmptyMultiClassWithSize⦄,
+⦃NonEmptyFiniteMultiClass⦄,
+⦃NonEmptyClass⦄,
+⦃NonEmptyClassWithSize⦄,
+⦃NonEmptyFiniteClass⦄,
+⦃MultiClass⦄,
+⦃Class⦄,
+⦃ClassWithSize⦄,
+⦃FiniteClass⦄,
+⦃MooreCollection⦄,
+⦃PureClass⦄,
+⦃TransitiveClass⦄,
+⦃MultiClassWithSize⦄,
+⦃FiniteMultiClass⦄,
+⦃PureMultiClass⦄,
+⦃TransitiveMultiClass⦄,
+⦃Documentation⦄,
+⦃FullDocumentation⦄,
+⦃DefaultDocumentation⦄,
+⦃FloatingPointReal⦄,
+⦃FloatingPointFormat⦄,
+⦃FormalGrammar⦄,
+⦃FormalLanguage⦄,
+⦃ContextFreeFormalGrammar⦄,
+⦃ContextFreeFormalLanguage⦄,
+⦃ContextFreeFormalGrammarSpecification⦄,
+⦃ExtendedBackusNaurForm⦄,
+⦃UnambiguousContextFreeFormalGrammar⦄,
+⦃UnambiguousContextFreeFormalLanguage⦄,
+⦃Lexer⦄,
+⦃Token⦄,
+⦃RegularExpressionsLexer⦄,
+⦃LexerAndParserCombination⦄,
+⦃UnambiguousLexerAndParserCombination⦄,
+⦃Parser⦄,
+⦃ParseTreeNode⦄,
+⦃NonTerminalParseTreeNode⦄,
+⦃TerminalParseTreeNode⦄,
+⦃UnambiguousParser⦄,
+⦃UnambiguousParseTreeNode⦄,
+⦃MetaFunction⦄,
+⦃Function⦄,
+⦃MathematicalObject⦄,
+⦃MetaMethod⦄,
+⦃Method⦄,
+⦃MetaPartialModule⦄,
+⦃PartialModule⦄,
+⦃MetaLeftPartialModule⦄,
+⦃MetaRightPartialModule⦄,
+⦃MetaBiPartialModule⦄,
+⦃LeftPartialModule⦄,
+⦃RightPartialModule⦄,
+⦃BiPartialModule⦄,
+⦃CompletelyDecomposableModule⦄,
+⦃CompletelyReducibleModule⦄,
+⦃LeftCompletelyDecomposableModule⦄,
+⦃RightCompletelyDecomposableModule⦄,
+⦃BiCompletelyDecomposableModule⦄,
+⦃LeftCompletelyReducibleModule⦄,
+⦃RightCompletelyReducibleModule⦄,
+⦃BiCompletelyReducibleModule⦄,
+⦃FaithFulPartialModule⦄,
+⦃FaithFulModule⦄,
+⦃LeftFaithFulPartialModule⦄,
+⦃RightFaithFulPartialModule⦄,
+⦃BiFaithFulPartialModule⦄,
+⦃LeftFaithFulModule⦄,
+⦃RightFaithFulModule⦄,
+⦃BiFaithFulModule⦄,
+⦃FreePartialModule⦄,
+⦃FreeModule⦄,
+⦃LeftFreePartialModule⦄,
+⦃RightFreePartialModule⦄,
+⦃BiFreePartialModule⦄,
+⦃LeftFreeModule⦄,
+⦃RightFreeModule⦄,
+⦃BiFreeModule⦄,
+⦃InDecomposableModule⦄,
+⦃LeftInDecomposableModule⦄,
+⦃RightInDecomposableModule⦄,
+⦃BiInDecomposableModule⦄,
+⦃InjectiveModule⦄,
+⦃ProjectiveModule⦄,
+⦃LeftInjectiveModule⦄,
+⦃RightInjectiveModule⦄,
+⦃BiInjectiveModule⦄,
+⦃LeftProjectiveModule⦄,
+⦃RightProjectiveModule⦄,
+⦃BiProjectiveModule⦄,
+⦃Module⦄,
+⦃LeftModule⦄,
+⦃RightModule⦄,
+⦃BiModule⦄,
+⦃NoetherianModule⦄,
+⦃ArtinianModule⦄,
+⦃LeftNoetherianModule⦄,
+⦃RightNoetherianModule⦄,
+⦃BiNoetherianModule⦄,
+⦃LeftArtinianModule⦄,
+⦃RightArtinianModule⦄,
+⦃BiArtinianModule⦄,
+⦃ReflexivePartialModule⦄,
+⦃ReflexiveModule⦄,
+⦃LeftReflexivePartialModule⦄,
+⦃RightReflexivePartialModule⦄,
+⦃LeftReflexiveModule⦄,
+⦃RightReflexiveModule⦄,
+⦃SemiModule⦄,
+⦃LeftSemiModule⦄,
+⦃RightSemiModule⦄,
+⦃BiSemiModule⦄,
+⦃SimpleModule⦄,
+⦃LeftSimpleModule⦄,
+⦃RightSimpleModule⦄,
+⦃BiSimpleModule⦄,
+⦃TorsionLessPartialModule⦄,
+⦃TorsionLessModule⦄,
+⦃LeftTorsionLessPartialModule⦄,
+⦃RightTorsionLessPartialModule⦄,
+⦃LeftTorsionLessModule⦄,
+⦃RightTorsionLessModule⦄,
+⦃TorsionPartialModule⦄,
+⦃TorsionFreePartialModule⦄,
+⦃TorsionModule⦄,
+⦃TorsionFreeModule⦄,
+⦃LeftTorsionPartialModule⦄,
+⦃RightTorsionPartialModule⦄,
+⦃BiTorsionPartialModule⦄,
+⦃LeftTorsionFreePartialModule⦄,
+⦃RightTorsionFreePartialModule⦄,
+⦃BiTorsionFreePartialModule⦄,
+⦃LeftTorsionModule⦄,
+⦃RightTorsionModule⦄,
+⦃BiTorsionModule⦄,
+⦃LeftTorsionFreeModule⦄,
+⦃RightTorsionFreeModule⦄,
+⦃BiTorsionFreeModule⦄,
+⦃UniformModule⦄,
+⦃LeftUniformModule⦄,
+⦃RightUniformModule⦄,
+⦃BiUniformModule⦄,
+⦃UnitalPartialModule⦄,
+⦃UnitalModule⦄,
+⦃LeftUnitalPartialModule⦄,
+⦃RightUnitalPartialModule⦄,
+⦃BiUnitalPartialModule⦄,
+⦃LeftUnitalModule⦄,
+⦃RightUnitalModule⦄,
+⦃BiUnitalModule⦄,
+⦃UnitalSemiModule⦄,
+⦃LeftUnitalSemiModule⦄,
+⦃RightUnitalSemiModule⦄,
+⦃BiUnitalSemiModule⦄,
+⦃MetaModuleEquippedWithPartialMultiLinearForm⦄,
+⦃ModuleEquippedWithPartialMultiLinearForm⦄,
+⦃MetaLeftModuleEquippedWithPartialMultiLinearForm⦄,
+⦃MetaRightModuleEquippedWithPartialMultiLinearForm⦄,
+⦃LeftModuleEquippedWithPartialMultiLinearForm⦄,
+⦃RightModuleEquippedWithPartialMultiLinearForm⦄,
+⦃MetaModuleEquippedWithMultiLinearForm⦄,
+⦃ModuleEquippedWithMultiLinearForm⦄,
+⦃MetaLeftModuleEquippedWithMultiLinearForm⦄,
+⦃MetaRightModuleEquippedWithMultiLinearForm⦄,
+⦃LeftModuleEquippedWithMultiLinearForm⦄,
+⦃RightModuleEquippedWithMultiLinearForm⦄,
+⦃MetaModuleEquippedWithBiLinearForm⦄,
+⦃ModuleEquippedWithBiLinearForm⦄,
+⦃MetaLeftModuleEquippedWithBiLinearForm⦄,
+⦃MetaRightModuleEquippedWithBiLinearForm⦄,
+⦃LeftModuleEquippedWithBiLinearForm⦄,
+⦃RightModuleEquippedWithBiLinearForm⦄,
+⦃MetaModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃ModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃MetaLeftModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃MetaRightModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃LeftModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃RightModuleEquippedWithNonDegenerateBiLinearForm⦄,
+⦃MetaModuleEquippedWithPartialBiLinearForm⦄,
+⦃ModuleEquippedWithPartialBiLinearForm⦄,
+⦃MetaLeftModuleEquippedWithPartialBiLinearForm⦄,
+⦃MetaRightModuleEquippedWithPartialBiLinearForm⦄,
+⦃LeftModuleEquippedWithPartialBiLinearForm⦄,
+⦃RightModuleEquippedWithPartialBiLinearForm⦄,
+⦃MetaModuleEquippedWithPartialQuadraticForm⦄,
+⦃ModuleEquippedWithPartialQuadraticForm⦄,
+⦃MetaLeftModuleEquippedWithPartialQuadraticForm⦄,
+⦃MetaRightModuleEquippedWithPartialQuadraticForm⦄,
+⦃LeftModuleEquippedWithPartialQuadraticForm⦄,
+⦃RightModuleEquippedWithPartialQuadraticForm⦄,
+⦃MetaModuleEquippedWithQuadraticForm⦄,
+⦃ModuleEquippedWithQuadraticForm⦄,
+⦃MetaLeftModuleEquippedWithQuadraticForm⦄,
+⦃MetaRightModuleEquippedWithQuadraticForm⦄,
+⦃LeftModuleEquippedWithQuadraticForm⦄,
+⦃RightModuleEquippedWithQuadraticForm⦄,
+⦃MetaModuleEquippedWithNonDegenerateQuadraticForm⦄,
+⦃ModuleEquippedWithNonDegenerateQuadraticForm⦄,
+⦃MetaLeftModuleEquippedWithNonDegenerateQuadraticForm⦄,
+⦃MetaRightModuleEquippedWithNonDegenerateQuadraticForm⦄,
+⦃LeftModuleEquippedWithNonDegenerateQuadraticForm⦄,
+⦃RightModuleEquippedWithNonDegenerateQuadraticForm⦄,
+⦃Notation⦄,
+⦃False⦄,
+⦃True⦄,
+⦃ω⦄,
+⦃NullType⦄,
+⦃Operation⦄,
+⦃AssociativeOperation⦄,
+⦃SolvableOperation⦄,
+⦃AtMostUniquelySolvableOperation⦄,
+⦃UniquelySolvableOperation⦄,
+⦃BijectiveOperation⦄,
+⦃CommutativeOperation⦄,
+⦃BinaryUnaryOperation⦄,
+⦃ConstantOperation⦄,
+⦃FiniteArityCoDomainOperation⦄,
+⦃UnaryCoDomainOperation⦄,
+⦃FiniteArityDomainOperation⦄,
+⦃BinaryDomainOperation⦄,
+⦃UnaryDomainOperation⦄,
+⦃UnaryUnaryOperation⦄,
+⦃IdentityOperation⦄,
+⦃InjectiveOperation⦄,
+⦃InternalOperation⦄,
+⦃InternalUnaryCoDomainOperation⦄,
+⦃InternalUnaryUnaryOperation⦄,
+⦃IdemPotentOperation⦄,
+⦃TotalOperation⦄,
+⦃SurjectiveOperation⦄,
+⦃TotalUnaryUnaryOperation⦄,
+⦃Ordinal⦄,
+⦃Cardinal⦄,
+⦃OrdinalRange⦄,
+⦃CardinalRange⦄,
+⦃FiniteOrdinal⦄,
+⦃FiniteCardinal⦄,
+⦃FiniteOrdinalRange⦄,
+⦃FiniteCardinalRange⦄,
+⦃LimitOrdinal⦄,
+⦃SuccessorOrdinal⦄,
+⦃OptionalRangeBound⦄,
+⦃RangeType⦄,
+⦃RealRange⦄,
+⦃RationalRange⦄,
+⦃IntegerRange⦄,
+⦃PositiveRealRange⦄,
+⦃NegativeRealRange⦄,
+⦃NonPositiveRealRange⦄,
+⦃NonNegativeRealRange⦄,
+⦃PositiveRationalRange⦄,
+⦃NegativeRationalRange⦄,
+⦃NonPositiveRationalRange⦄,
+⦃NonNegativeRationalRange⦄,
+⦃PositiveIntegerRange⦄,
+⦃NegativeIntegerRange⦄,
+⦃NonPositiveIntegerRange⦄,
+⦃NonNegativeIntegerRange⦄,
+⦃Real⦄,
+⦃Integer⦄,
+⦃PositiveInteger⦄,
+⦃NegativeInteger⦄,
+⦃NonPositiveInteger⦄,
+⦃NonNegativeInteger⦄,
+⦃PositiveReal⦄,
+⦃NegativeReal⦄,
+⦃NonPositiveReal⦄,
+⦃NonNegativeReal⦄,
+⦃Rational⦄,
+⦃PositiveRational⦄,
+⦃NegativeRational⦄,
+⦃NonPositiveRational⦄,
+⦃NonNegativeRational⦄,
+⦃CaptureTreeNode⦄,
+⦃RegularExpression⦄,
+⦃RegularExpressionWithVariables⦄,
+⦃Relation⦄,
+⦃EmptyRelation⦄,
+⦃FiniteArityRelation⦄,
+⦃BinaryRelation⦄,
+⦃OneToOneRelation⦄,
+⦃OneToManyRelation⦄,
+⦃ManyToOneRelation⦄,
+⦃ManyToManyRelation⦄,
+⦃LeftUniqueRelation⦄,
+⦃RightUniqueRelation⦄,
+⦃LeftTotalRelation⦄,
+⦃RightTotalRelation⦄,
+⦃HomogeneousBinaryRelation⦄,
+⦃AntiReflexiveRelation⦄,
+⦃AntiSymmetricRelation⦄,
+⦃AntiTransitiveRelation⦄,
+⦃ArtinianNonStrictTotalOrder⦄,
+⦃AsymmetricRelation⦄,
+⦃LowerBoundedRelation⦄,
+⦃UpperBoundedRelation⦄,
+⦃BoundedRelation⦄,
+⦃ConnectedRelation⦄,
+⦃CoReflexiveRelation⦄,
+⦃DedekindComplete⦄,
+⦃DenseRelation⦄,
+⦃EquivalenceRelation⦄,
+⦃FinslerExtensionalRelation⦄,
+⦃IdemPotentRelation⦄,
+⦃JoinSemiLattice⦄,
+⦃MeetSemiLattice⦄,
+⦃Lattice⦄,
+⦃NoetherianRelation⦄,
+⦃ArtinianRelation⦄,
+⦃PartialOrder⦄,
+⦃NonStrictPartialOrder⦄,
+⦃StrictPartialOrder⦄,
+⦃PreOrder⦄,
+⦃LeftQuasiReflexiveRelation⦄,
+⦃RightQuasiReflexiveRelation⦄,
+⦃QuasiReflexiveRelation⦄,
+⦃QuasiTransitiveRelation⦄,
+⦃ReflexiveRelation⦄,
+⦃ScottExtensionalRelation⦄,
+⦃StronglyConnectedRelation⦄,
+⦃StronglyExtensionalRelation⦄,
+⦃SymmetricRelation⦄,
+⦃NonStrictTotalOrder⦄,
+⦃StrictTotalOrder⦄,
+⦃TransitiveRelation⦄,
+⦃WeaklyExtensionalRelation⦄,
+⦃NonStrictWeakOrder⦄,
+⦃StrictWeakOrder⦄,
+⦃HomogeneousRelation⦄,
+⦃IdentityRelation⦄,
+⦃UniversalRelation⦄,
+⦃MetaScalarMultiplicationStructure⦄,
+⦃ScalarMultiplicationStructure⦄,
+⦃MetaLeftScalarMultiplicationStructure⦄,
+⦃MetaRightScalarMultiplicationStructure⦄,
+⦃MetaBiScalarMultiplicationStructure⦄,
+⦃LeftScalarMultiplicationStructure⦄,
+⦃RightScalarMultiplicationStructure⦄,
+⦃BiScalarMultiplicationStructure⦄,
+⦃MetaBiScalarMultiplicationStructureWithOneScalarClass⦄,
+⦃QuotientScalarMultiplicationStructure⦄,
+⦃LeftQuotientScalarMultiplicationStructure⦄,
+⦃RightQuotientScalarMultiplicationStructure⦄,
+⦃BiQuotientScalarMultiplicationStructure⦄,
+⦃MetaRingScalarMultiplicationStructure⦄,
+⦃RingScalarMultiplicationStructure⦄,
+⦃MetaLeftRingScalarMultiplicationStructure⦄,
+⦃MetaRightRingScalarMultiplicationStructure⦄,
+⦃MetaBiRingScalarMultiplicationStructure⦄,
+⦃LeftRingScalarMultiplicationStructure⦄,
+⦃RightRingScalarMultiplicationStructure⦄,
+⦃BiRingScalarMultiplicationStructure⦄,
+⦃MetaScalarMultiplicationMagmaStructure⦄,
+⦃ScalarMultiplicationMagmaStructure⦄,
+⦃MetaLeftScalarMultiplicationMagmaStructure⦄,
+⦃MetaRightScalarMultiplicationMagmaStructure⦄,
+⦃MetaBiScalarMultiplicationMagmaStructure⦄,
+⦃LeftScalarMultiplicationMagmaStructure⦄,
+⦃RightScalarMultiplicationMagmaStructure⦄,
+⦃BiScalarMultiplicationMagmaStructure⦄,
+⦃MetaScalarMultiplicationRingStructure⦄,
+⦃ScalarMultiplicationRingStructure⦄,
+⦃MetaLeftScalarMultiplicationRingStructure⦄,
+⦃MetaRightScalarMultiplicationRingStructure⦄,
+⦃MetaBiScalarMultiplicationRingStructure⦄,
+⦃LeftScalarMultiplicationRingStructure⦄,
+⦃RightScalarMultiplicationRingStructure⦄,
+⦃BiScalarMultiplicationRingStructure⦄,
+⦃NonEmptyTransFiniteSequence⦄,
+⦃NonEmptySequence⦄,
+⦃NonEmptyFiniteSequence⦄,
+⦃TransFiniteSequence⦄,
+⦃Sequence⦄,
+⦃FiniteSequence⦄,
+⦃CompatibleWithRelationStructure⦄,
+⦃ConversibleStructure⦄,
+⦃EquippedStructure⦄,
+⦃ConversibleEquippedStructure⦄,
+⦃MappableStructure⦄,
+⦃Type⦄,
+⦃MutuallyDisjointType⦄,
+⦃UnicodeCodePoint⦄,
+⦃Variable⦄
+
+
+
+export
+⦃FiniteSequenceNotations⦄,
+⦃FiniteSequenceSequenceNotations⦄,
+⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄,
+⦃IntegerNotations⦄,
+⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄,
+⦃ArgumentImageUnderMetaMethodOfXNotations⦄,
+⦃IdentifiedMethodOfXNotations⦄,
+⦃MetaMethodOfXNotations⦄,
+⦃MethodInducedByIdentifiedMethodNotations⦄,
+⦃UnaryFunctionInducedByIdentifiedMethodNotations⦄,
+⦃BinaryFunctionInducedByIdentifiedMethodNotations⦄,
+⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄,
+⦃UnaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄,
+⦃BinaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄,
+⦃MultiClassNotations⦄,
+⦃FiniteOrdinalNotations⦄,
+⦃RealNotations⦄,
+⦃UnicodeCodePointNotations⦄,
+⦃UnicodeCodePointsNotations⦄
+
+
+
+export ⦃UnionOfTypes⦄

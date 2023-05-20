@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃AntiTransitiveRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃AntiTransitiveRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃AntiTransitiveRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+					for all ⟦x⟧,⟦y⟧,⟦z⟧:
+						if:
+								⦃⦃function⦄(⦃x⦄,⦃y⦄)⦄
+							and:
+								⦃⦃function⦄(⦃y⦄,⦃z⦄)⦄
+						then:
+							not:
+								⦃⦃function⦄(⦃x⦄,⦃z⦄)⦄

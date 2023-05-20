@@ -1,0 +1,53 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaScalarMultiplicationRingStructure⦄,⦃ScalarMultiplicationRingStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationRingStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationRingStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationRingStructure⦄.HasInstance(⦃structure⦄)⦄
+
+
+
+define ⦃MetaLeftScalarMultiplicationRingStructure⦄,⦃MetaRightScalarMultiplicationRingStructure⦄,⦃MetaBiScalarMultiplicationRingStructure⦄,
+⦃LeftScalarMultiplicationRingStructure⦄,⦃RightScalarMultiplicationRingStructure⦄,⦃BiScalarMultiplicationRingStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationRingStructure⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationRingStructure⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧ScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									⦃⦃PartialRing⦄.HasInstance(⦃⦃structure⦄.GetStructure()⦄)⦄

@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃DenseRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃DenseRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃DenseRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+					for all ⟦x⟧,⟦y⟧:
+						if:
+							⦃⦃function⦄(⦃x⦄,⦃y⦄)⦄
+						then:
+							there exists ⟦z⟧:
+									⦃⦃function⦄(⦃x⦄,⦃z⦄)⦄
+								and:
+									⦃⦃function⦄(⦃z⦄,⦃y⦄)⦄

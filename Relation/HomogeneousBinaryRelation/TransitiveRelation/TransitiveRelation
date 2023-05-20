@@ -1,0 +1,31 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃TransitiveRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃TransitiveRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃TransitiveRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+					for all ⟦x⟧,⟦y⟧,⟦z⟧:
+						if:
+								⦃⦃function⦄(⦃x⦄,⦃y⦄)⦄
+							and:
+								⦃⦃function⦄(⦃y⦄,⦃z⦄)⦄
+						then:
+							⦃⦃function⦄(⦃x⦄,⦃z⦄)⦄
+
+define ⦃method ⦃HomogeneousBinaryRelation⦄.GetTransitiveClosure⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+				⦃⦃⦃⦃relation⦄.GetTransitiveClosure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃relation⦄.GetTransitiveClosure()⦄.IsEqualTo(⦃⦃relation⦄.GetClosureFrom(⦃⦃TransitiveRelation⦄.MapToClass()⦄)⦄)⦄

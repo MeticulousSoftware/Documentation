@@ -1,0 +1,47 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LeftUniqueRelation⦄,⦃LeftTotalRelation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Unique⦄,
+				⦃unicodeCodePoints Total⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃Left⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄)⦄
+			and:
+				for all ⟦relation⟧:
+						⦃⦃Left⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄
+					if and only if:
+							⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+						and:
+							let:
+								⟦x⟧:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Unique⦄)⦄
+									then:
+										⦃⦃x⦄.IsEqualTo(⦃{⦃0⦄}⦄)⦄
+									else:
+										⦃⦃x⦄.IsEqualTo(⦃0⦄)⦄
+							⦃⦃relation⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧For(⦃x⦄)⦄
+
+
+
+define ⦃RightUniqueRelation⦄,⦃RightTotalRelation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Unique⦄,
+				⦃unicodeCodePoints Total⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃Right⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄)⦄
+			and:
+				for all ⟦relation⟧:
+						⦃⦃Right⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄
+					if and only if:
+							⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+						and:
+							⦃⦃Left⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃⦃relation⦄.GetConverse()⦄)⦄

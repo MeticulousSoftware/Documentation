@@ -1,0 +1,24 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃AntiSymmetricRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃AntiSymmetricRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃AntiSymmetricRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					for all ⟦sequence⟧:
+						if:
+							for all ⟦sequence0⟧:
+								if:
+									⦃⦃{
+										⦃sequence⦄,
+										⦃⦃sequence⦄.GetReverse()⦄
+									}⦄.Has(⦃sequence0⦄)⦄
+								then:
+									⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃sequence0⦄)⦄
+						then:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃sequence⦄)⦄

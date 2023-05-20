@@ -1,0 +1,18 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃AsymmetricRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃AsymmetricRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃AsymmetricRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Symmetric⦄,
+							⦃unicodeCodePoints Reflexive⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃Anti⟦⟦⦃typeIdentifier⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄

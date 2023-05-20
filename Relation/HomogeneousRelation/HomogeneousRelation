@@ -1,0 +1,54 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃HomogeneousRelation⦄
+		⦃⦃Type⦄.HasInstance(⦃HomogeneousRelation⦄)⦄
+	and:
+		for all ⟦relation⟧:
+				⦃⦃HomogeneousRelation⦄.HasInstance(⦃relation⦄)⦄
+			if and only if:
+					⦃⦃Relation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃relation⦄.HasSharedSignatureClass()⦄
+
+define ⦃method ⦃HomogeneousRelation⦄.GetSharedSignatureClass⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃⦃relation⦄.GetOperation()⦄.GetSharedDomainSignatureClass()⦄)⦄
+
+define ⦃method ⦃HomogeneousRelation⦄.GetSimilarStructures⦄
+	for all ⟦relation⟧:
+		if:
+			⦃⦃HomogeneousRelation⦄.HasInstance(⦃relation⦄)⦄
+		then:
+			for all ⟦relation0⟧:
+					⦃⦃⦃relation⦄.GetSimilarStructures()⦄.Has(⦃relation0⦄)⦄
+				if and only if:
+						⦃⦃HomogeneousRelation⦄.HasInstance(⦃relation0⦄)⦄
+					and:
+						⦃⦃⦃⦃relation⦄.GetOperation()⦄.GetSimilarStructures()⦄.Has(⦃⦃relation0⦄.GetOperation()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦relations⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃relations⦄)⦄
+					and:
+						⦃⦃⦃relations⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃HomogeneousRelation⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃relations⦄)⦄
+					if and only if:
+						let:
+							⟦function0⟧,⟦function1⟧:
+								⦃⦃(⦃function0⦄,⦃function1⦄)⦄.IsEqualTo(⦃⦃relations⦄.MapWith(⦃unaryFunction GetFunction⦄)⦄)⦄
+						for all ⟦sequence⟧:
+							if:
+								⦃⦃⦃function0⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+							then:
+								⦃⦃⦃function1⦄(⦃⦃sequence⦄.MapWith(⦃⦃operation⦄.GetSimplifiedFunction()⦄)⦄)⦄.IsEqualTo(⦃⦃function0⦄(⦃sequence⦄)⦄)⦄
