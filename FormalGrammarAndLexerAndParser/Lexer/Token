@@ -1,0 +1,69 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Token⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Token⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetName⟧,
+									⟦GetValue⟧,
+									⟦GetSourceRange⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetName⦄,⦃GetName⦄)⦄,
+											⦃(⦃unicodeCodePoints GetValue⦄,⦃GetValue⦄)⦄,
+											⦃(⦃unicodeCodePoints GetSourceRange⦄,⦃GetSourceRange⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃FiniteOrdinalRange⦄.HasInstance(⦃⦃GetSourceRange⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦token⟧:
+									⦃⦃token⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Token⦄.HasInstance(⦃token⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃token⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Token⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Token⦄.MapToClass⦄
+	for all ⟦token⟧:
+		if:
+			⦃⦃Token⦄.HasInstance(⦃token⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃token⦄,
+				⦃(⦃⦃token⦄.GetName()⦄,⦃⦃token⦄.GetValue()⦄,⦃⦃token⦄.GetSourceRange()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Token⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

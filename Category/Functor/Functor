@@ -1,0 +1,564 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaFunctor⦄,⦃Functor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃EquippedStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦equipments⟧:
+									⦃⦃equipments⦄.IsEqualTo(⦃⦃structure⦄.GetEquipments()⦄)⦄
+								let:
+									⟦functor⟧:
+										⦃⦃functor⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints functor⦄)⦄)⦄
+									⦃⦃Function⦄.HasInstance(⦃functor⦄)⦄
+								and:
+									⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃{
+										⦃unicodeCodePoints domain⦄,
+										⦃unicodeCodePoints coDomain⦄,
+										⦃unicodeCodePoints getObjectImageOf⦄,
+										⦃unicodeCodePoints getMorphismImageOf⦄
+									}⦄)⦄
+								and:
+									let:
+										⟦domain⟧,
+										⟦coDomain⟧,
+										⟦getObjectImageOf⟧,
+										⟦getMorphismImageOf⟧:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃⦃functor⦄.GetDomain()⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃functor⦄(⦃typeIdentifier⦄)⦄)⦄
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Co⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃MetaCategory⦄.HasInstance(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints Object⦄,
+													⦃unicodeCodePoints Morphism⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃Function⦄.HasInstance(⦃get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄)⦄
+									and:
+										let:
+											⟦domainObjects⟧,⟦domainMorphisms⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints Object⦄,
+															⦃unicodeCodePoints Morphism⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃domain⟦⟦⦃typeIdentifier⦄⟧⟧s⦄.IsEqualTo(⦃⦃domain⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄)⦄
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Object⦄,
+														⦃unicodeCodePoints Morphism⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+														⦃⦃⦃get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetDomain()⦄.IsEqualTo(⦃domain⟦⟦⦃typeIdentifier⦄⟧⟧s⦄)⦄
+													and:
+														⦃⦃⦃get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃coDomain⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄)⦄
+										and:
+											for all ⟦object⟧:
+												if:
+													⦃⦃domainObjects⦄.Has(⦃object⦄)⦄
+												then:
+													⦃⦃⦃getMorphismImageOf⦄(⦃⦃domain⦄.GetIdentityMorphismOf(⦃object⦄)⦄)⦄.IsEqualTo(⦃⦃coDomain⦄.GetIdentityMorphismOf(⦃⦃getObjectImageOf⦄(⦃object⦄)⦄)⦄)⦄
+										and:
+											for all ⟦morphism0⟧,⟦morphism1⟧:
+												if:
+													for all ⟦index⟧:
+														if:
+															⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+														then:
+															⦃⦃domainMorphisms⦄.Has(⦃morphism⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+												then:
+													⦃⦃⦃getMorphismImageOf⦄(⦃⦃⦃⦃domain⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃morphism0⦄,⦃morphism1⦄)⦄)⦄.IsEqualTo(⦃⦃⦃⦃coDomain⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⦃(⦃morphism0⦄,⦃morphism1⦄)⦄.MapWith(⦃getMorphismImageOf⦄)⦄)⦄)⦄
+							and:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃Functor⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaFunctor⦄.GetDomain⦄,⦃method ⦃MetaFunctor⦄.GetCoDomain⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Co⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃⦃⦃⦃functor⦄.GetEquipments()⦄(⦃unicodeCodePoints functor⦄)⦄(⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetObjectImageOf⦄,⦃method ⦃MetaFunctor⦄.GetMorphismImageOf⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Object⦄,
+						⦃unicodeCodePoints Morphism⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.IsEqualTo(⦃⦃⦃⦃functor⦄.GetEquipments()⦄(⦃unicodeCodePoints functor⦄)⦄(⦃unicodeCodePoints get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄)⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.IsIsoMorphicTo⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.IsIsoMorphicTo⦄.GetDomain()⦄.IsEqualTo(⦃⦃MetaFunctor⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦functor0⟧:
+					if:
+						⦃⦃⦃⦃functor⦄.IsIsoMorphicTo⦄.GetDomain()⦄.Has(⦃functor0⦄)⦄
+					then:
+						let
+							⟦isIsoMorphic⟧:
+								⦃⦃isIsoMorphic⦄.IsEqualTo(⦃⦃functor⦄.IsIsoMorphicTo(⦃functor0⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isIsoMorphic⦄)⦄
+						and:
+								⦃isIsoMorphic⦄
+							if and only if:
+								there exists ⟦naturalTransformation⟧:
+										⦃⦃NaturalIsoMorphism⦄.HasInstance(⦃naturalTransformation⦄)⦄
+									and:
+										⦃⦃⦃naturalTransformation⦄.GetDomain()⦄.IsEqualTo(⦃functor⦄)⦄
+									and:
+										⦃⦃⦃naturalTransformation⦄.GetCoDomain()⦄.IsEqualTo(⦃functor0⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetCompositionWith⦄
+		there exists ⟦functorsClasses⟧:
+				⦃⦃Class⦄.HasInstance(⦃functorsClasses⦄)⦄
+			and:
+				⦃⦃functorsClasses⦄.AreMutuallyDisjoint()⦄
+			and:
+				⦃⦃⦃functorsClasses⦄.GetUnion()⦄.IsEqualTo(⦃⦃MetaFunctor⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦functors⟧:
+					if:
+						⦃⦃functorsClasses⦄.Has(⦃functors⦄)⦄
+					then:
+						there exists ⟦category⟧:
+								⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+							and:
+								let:
+									⟦categories⟧:
+										⦃⦃categories⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+									for all ⟦category0⟧:
+											⦃⦃categories⦄.Has(⦃category0⦄)⦄
+										if and only if:
+											there exists ⟦functor⟧:
+													⦃⦃functors⦄.Has(⦃functor⦄)⦄
+												and:
+													there exists ⟦typeIdentifier⟧:
+															⦃⦃{
+																⦃unicodeCodePoints ⦄,
+																⦃unicodeCodePoints Co⦄
+															}⦄.Has(⦃typeIdentifier⦄)⦄
+														and:
+															⦃⦃category0⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄)⦄
+								and:
+									for all ⟦category0⟧,⟦category1⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃categories⦄.Has(⦃category⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+											for all ⟦functor⟧:
+													⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃category0⦄,⦃category1⦄)⦄.Has(⦃functor⦄)⦄
+												if and only if:
+														⦃⦃functors⦄.Has(⦃functor⦄)⦄
+													and:
+														for all ⟦typeIdentifier⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints ⦄,
+																	⦃unicodeCodePoints Co⦄
+																}⦄.Has(⦃typeIdentifier⦄)⦄
+															then:
+																let:
+																	⟦index⟧:
+																		if:
+																			⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																		then:
+																			⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																		else:
+																			⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+																⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃category⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+								and:
+									⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃functors⦄.GetCompositionWith⦄)⦄
+	and:
+		for all ⟦functor⟧:
+			if:
+					⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+				and:
+					not:
+						⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+			then:
+				for all ⟦functor0⟧,⟦composition⟧:
+					if:
+						⦃⦃⦃⦃functor⦄.GetCompositionWith⦄.GetGraph()⦄.Has(⦃(⦃functor0⦄,⦃composition⦄)⦄)⦄
+					then:
+						⦃⦃⦃⦃⦃functor⦄.GetFunctor()⦄.GetCompositionWith⦄.GetGraph()⦄.Has(⦃⦃(⦃functor0⦄,⦃composition⦄)⦄.MapWith(⦃unaryFunction GetFunctor⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃MetaFunctor⦄)⦄.GetComposition⦄
+	for all ⟦functors⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃MetaFunctor⦄)⦄.HasInstance(⦃functors⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃functors⦄.GetComposition⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃⦃functors⦄.ReduceWith(⦃binaryFunction GetCompositionWith⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetOpposite⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetOpposite⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦opposite⟧:
+						⦃⦃opposite⦄.IsEqualTo(⦃⦃functor⦄.GetOpposite()⦄)⦄
+					let:
+						⟦typeIdentifier⟧:
+							if:
+								⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+							then:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+							else:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Meta⦄)⦄
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃opposite⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Co⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃⦃opposite⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.GetOpposite()⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Object⦄,
+								⦃unicodeCodePoints Morphism⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃opposite⦄,⦃functor⦄)⦄.MapWith(⦃method Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetFunctorInducedBy⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetFunctorInducedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃functor⦄.GetDomain()⦄.GetSubCategories()⦄)⦄
+			and:
+				for all ⟦subDomain⟧:
+					if:
+						⦃⦃⦃⦃functor⦄.GetFunctorInducedBy⦄.GetDomain()⦄.Has(⦃subDomain⦄)⦄
+					then:
+						let:
+							⟦subFunctor⟧:
+								⦃⦃subFunctor⦄.IsEqualTo(⦃⦃functor⦄.GetFunctorInducedBy(⦃subDomain⦄)⦄)⦄
+							let:
+								⟦typeIdentifier⟧:
+									if:
+										⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+									then:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									else:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Meta⦄)⦄
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃subFunctor⦄)⦄
+						and:
+							⦃⦃⦃subFunctor⦄.GetDomain()⦄.IsEqualTo(⦃subDomain⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃subFunctor⦄,⦃functor⦄)⦄.MapWith(⦃unaryFunction GetCoDomain⦄)⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Object⦄,
+										⦃unicodeCodePoints Morphism⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃subFunctor⦄,⦃functor⦄)⦄.MapWith(⦃method Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄)⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetLeftInverses⦄,⦃method ⦃MetaFunctor⦄.GetRightInverses⦄,
+⦃method ⦃MetaFunctor⦄.GetLeftWeakInverses⦄,⦃method ⦃MetaFunctor⦄.GetRightWeakInverses⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Weak⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Inverses⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								let:
+									⟦inverses⟧:
+										⦃⦃inverses⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Inverses()⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃inverses⦄)⦄
+								and:
+									for all ⟦inverse⟧:
+											⦃⦃inverses⦄.Has(⦃inverse⦄)⦄
+										if and only if:
+												⦃⦃MetaFunctor⦄.HasInstance(⦃inverse⦄)⦄
+											and:
+												there exists ⟦identityFunctor⟧:
+															⦃⦃MetaIdentityFunctor⦄.HasInstance(⦃identityFunctor⦄)⦄
+														and:
+															let:
+																⟦typeIdentifier0⟧:
+																	if:
+																		⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																	then:
+																		⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																	else:
+																		⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Co⦄)⦄
+															⦃⦃⦃identityFunctor⦄.GetCategory()⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Domain()⦄)⦄
+													and:
+														let:
+															⟦compositeFunctor⟧:
+																let:
+																	⟦functors⟧:
+																		if:
+																			⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+																		then:
+																			⦃⦃functors⦄.IsEqualTo(⦃(⦃inverse⦄,⦃functor⦄)⦄)⦄
+																		else:
+																			⦃⦃functors⦄.IsEqualTo(⦃(⦃functor⦄,⦃inverse⦄)⦄)⦄
+																⦃⦃compositeFunctor⦄.IsEqualTo(⦃⦃functors⦄.GetComposition()⦄)⦄
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+														then:
+															⦃⦃compositeFunctor⦄.IsEqualTo(⦃identityFunctor⦄)⦄
+														else:
+															there exists ⟦naturalTransformation⟧:
+																	⦃⦃NaturalIsoMorphism⦄.HasInstance(⦃naturalTransformation⦄)⦄
+																and:
+																	⦃⦃⦃naturalTransformation⦄.GetDomain()⦄.IsEqualTo(⦃compositeFunctor⦄)⦄
+																and:
+																	⦃⦃⦃naturalTransformation⦄.GetCoDomain()⦄.IsEqualTo(⦃identityFunctor⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetConesOf⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetConesOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃functor⦄.GetCoDomain()⦄.GetObjects()⦄)⦄
+			and:
+				for all ⟦object⟧:
+					if:
+						⦃⦃⦃⦃functor⦄.GetConesOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+					then:
+						let:
+							⟦cones⟧:
+								⦃⦃cones⦄.IsEqualTo(⦃⦃functor⦄.GetConesOf(⦃object⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃cones⦄)⦄
+						and:
+							for all ⟦cone⟧:
+									⦃⦃cones⦄.Has(⦃cone⦄)⦄
+								if and only if:
+										⦃⦃NaturalTransformation⦄.HasInstance(⦃cone⦄)⦄
+									and:
+										let:
+											⟦domain⟧:
+												⦃⦃domain⦄.IsEqualTo(⦃⦃cone⦄.GetDomain()⦄)⦄
+											⦃⦃ConstantFunctor⦄.HasInstance(⦃domain⦄)⦄
+										and:
+											⦃⦃⦃domain⦄.GetObject()⦄.IsEqualTo(⦃object⦄)⦄
+									and:
+										⦃⦃⦃cone⦄.GetCoDomain()⦄.IsEqualTo(⦃functor⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetCones⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			⦃⦃⦃functor⦄.GetCones⦄.IsEqualTo(⦃⦃⦃⦃functor⦄.GetConesOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetLimits⦄,⦃method ⦃MetaFunctor⦄.GetMediatingMorphismOf⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetLimits⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦cones⟧:
+						⦃⦃cones⦄.IsEqualTo(⦃⦃functor⦄.GetCones()⦄)⦄
+					⟦isPotentialLimit⟧:
+						let:
+							⟦coDomain⟧:
+								⦃⦃coDomain⦄.IsEqualTo(⦃⦃functor⦄.GetCoDomain()⦄)⦄
+							⦃⦃Function⦄.HasInstance(⦃isPotentialLimit⦄)⦄
+						and:
+							⦃⦃⦃isPotentialLimit⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃cones⦄,⦃cones⦄,⦃⦃coDomain⦄.GetMorphisms()⦄)⦄.GetCartesianProduct()⦄)⦄
+						and:
+							for all ⟦x⟧:
+								if:
+									⦃⦃⦃isPotentialLimit⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+								then:
+										⦃⦃Boolean⦄.HasInstance(⦃⦃isPotentialLimit⦄(⦃x⦄)⦄)⦄
+									and:
+											⦃⦃isPotentialLimit⦄(⦃x⦄)⦄
+										if and only if:
+											let:
+												⟦potentialLimit⟧,⟦cone⟧,⟦morphism⟧:
+													⦃⦃(⦃potentialLimit⦄,⦃cone⦄,⦃morphism⦄)⦄.IsEqualTo(⦃x⦄)⦄
+											for all ⟦morphism0⟧:
+														⦃⦃coDomain⦄.GetMorphismsWithDomainAndCoDomain(⦃⦃⦃(⦃cone⦄,⦃potentialLimit⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄.MapWith(⦃unaryFunction GetObject⦄)⦄)⦄
+													and:
+														for all ⟦object⟧:
+															if:
+																⦃⦃⦃⦃functor⦄.GetDomain()⦄.GetObjects()⦄.Has(⦃object⦄)⦄
+															then:
+																⦃⦃⦃⦃coDomain⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⦃potentialLimit⦄.GetComponentOf(⦃object⦄)⦄,⦃morphism0⦄)⦄.IsEqualTo(⦃⦃cone⦄.GetComponentOf(⦃object⦄)⦄)⦄
+												if and only if:
+													⦃⦃morphism0⦄.IsEqualTo(⦃morphism⦄)⦄
+					⟦limits⟧:
+						⦃⦃limits⦄.IsEqualTo(⦃⦃functor⦄.GetLimits()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃limits⦄)⦄
+					and:
+						for all ⟦limit⟧:
+								⦃⦃limits⦄.Has(⦃limit⦄)⦄
+							if and only if:
+									⦃⦃cones⦄.Has(⦃limit⦄)⦄
+								and:
+									for all ⟦cone⟧:
+										if:
+											⦃⦃cones⦄.Has(⦃cone⦄)⦄
+										then:
+											there exists ⟦morphism⟧:
+												⦃⦃isPotentialLimit⦄(⦃limit⦄,⦃cone⦄,⦃morphism⦄)⦄
+				and:
+						⦃⦃⦃⦃functor⦄.GetMediatingMorphismOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃cones⦄,⦃limits⦄)⦄.GetCartesianProduct()⦄)⦄
+					and:
+						for all ⟦x⟧:
+							if:
+								⦃⦃⦃⦃functor⦄.GetMediatingMorphismOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							then:
+								⦃⦃isPotentialLimit⦄(⦃⦃⦃x⦄.GetReverse()⦄.GetConcatenationWith(⦃(
+									⦃⦃functor⦄.GetMediatingMorphismOf(⦃x⦄)⦄
+								)⦄)⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetCoConesOf⦄,⦃method ⦃MetaFunctor⦄.GetCoCones⦄,⦃method ⦃MetaFunctor⦄.GetCoLimits⦄,⦃method ⦃MetaFunctor⦄.GetCoMediatingMorphismOf⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ConesOf⦄,
+						⦃unicodeCodePoints Cones⦄,
+						⦃unicodeCodePoints Limits⦄,
+						⦃unicodeCodePoints MediatingMorphismOf⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃functor⦄.GetCo⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃functor⦄.GetOpposite()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetFunctor⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaFunctor⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃Functor⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetFunctor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦functor⟧:
+						⦃⦃functor⦄.IsEqualTo(⦃⦃structure⦄.GetFunctor()⦄)⦄
+					⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃functor⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃Functor⦄}⦄.GetEquipmentsDomain⦄
+		⦃⦃⦃⦃Functor⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃Functor⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃{⦃unicodeCodePoints functor⦄}⦄)⦄
+
+define ⦃method ⦃Functor⦄.GetCompositionWith⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			for all ⟦functor0⟧,⟦composition⟧:
+					⦃⦃⦃⦃functor⦄.GetCompositionWith⦄.GetGraph()⦄.Has(⦃(⦃functor0⦄,⦃composition⦄)⦄)⦄
+				if and only if:
+							⦃⦃Functor⦄.HasInstance(⦃functor0⦄)⦄
+						and:
+							⦃⦃⦃functor0⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃functor⦄.GetDomain()⦄)⦄
+					and:
+							⦃⦃Functor⦄.HasInstance(⦃composition⦄)⦄
+						and:
+							for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+								if:
+									⦃⦃{
+										⦃(⦃unicodeCodePoints ⦄,⦃unicodeCodePoints 0⦄)⦄,
+										⦃(⦃unicodeCodePoints Co⦄,⦃unicodeCodePoints ⦄)⦄
+									}⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+								then:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃composition⦄,⦃functor⟦⟦⦃typeIdentifier1⦄⟧⟧⦄)⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier0⦄⟧⟧Domain⦄)⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Object⦄,
+										⦃unicodeCodePoints Morphism⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									⦃⦃⦃composition⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.IsEqualTo(⦃⦃⦃(⦃functor⦄,⦃functor0⦄)⦄.MapWith(⦃method Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄)⦄.GetComposition()⦄)⦄

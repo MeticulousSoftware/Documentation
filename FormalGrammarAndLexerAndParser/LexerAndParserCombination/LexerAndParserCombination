@@ -1,0 +1,125 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LexerAndParserCombination⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃LexerAndParserCombination⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetLexer⟧,
+									⟦GetParser⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetLexer⦄,⦃GetLexer⦄)⦄,
+											⦃(⦃unicodeCodePoints GetParser⦄,⦃GetParser⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦lexer⟧,⟦parser⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints Lexer⦄,
+															⦃unicodeCodePoints Parser⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Lexer⦄,
+														⦃unicodeCodePoints Parser⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.HasInstance(⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+										and:
+											for all ⟦tokenName⟧,⟦terminalSymbols⟧,⟦nonTerminalNode⟧:
+												if:
+														⦃⦃⦃lexer⦄.GetTokenNames()⦄.Has(⦃tokenName⦄)⦄
+													and:
+														⦃⦃⦃⦃parser⦄.GetParseTreeOf(⦃terminalSymbols⦄)⦄.GetAllChildNodes()⦄.Has(⦃nonTerminalNode⦄)⦄
+													and:
+														⦃⦃NonTerminalParseTreeNode⦄.HasInstance(⦃nonTerminalNode⦄)⦄
+												then:
+													not:
+														⦃⦃tokenName⦄.IsEqualTo(⦃⦃nonTerminalNode⦄.GetSymbol()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦lexerAndParserCombination⟧:
+									⦃⦃lexerAndParserCombination⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃LexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃lexerAndParserCombination⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃LexerAndParserCombination⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃LexerAndParserCombination⦄.MapToClass⦄
+	for all ⟦lexerAndParserCombination⟧:
+		if:
+			⦃⦃LexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃lexerAndParserCombination⦄,
+				⦃(⦃⦃lexerAndParserCombination⦄.GetLexer()⦄,⦃⦃lexerAndParserCombination⦄.GetParser()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃LexerAndParserCombination⦄.GetLanguage⦄
+	for all ⟦lexerAndParserCombination⟧:
+		if:
+			⦃⦃LexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+		then:
+				⦃⦃⦃⦃lexerAndParserCombination⦄.GetLanguage⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦language⟧:
+						⦃⦃language⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetLanguage()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃language⦄)⦄
+				and:
+					for all ⟦sequence⟧:
+							⦃⦃language⦄.Has(⦃sequence⦄)⦄
+						if and only if:
+							⦃⦃⦃⦃lexerAndParserCombination⦄.GetParser()⦄.GetLanguage()⦄.Has(⦃⦃⦃lexerAndParserCombination⦄.GetLexer()⦄.LexToTokenNames(⦃sequence⦄)⦄)⦄
+
+define ⦃method ⦃LexerAndParserCombination⦄.GetParseTreeOf⦄
+	for all ⟦lexerAndParserCombination⟧:
+		if:
+			⦃⦃LexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+		then:
+				⦃⦃⦃⦃lexerAndParserCombination⦄.GetParseTreeOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetLanguage()⦄)⦄
+			and:
+				for all ⟦sequence⟧:
+					if:
+						⦃⦃⦃⦃lexerAndParserCombination⦄.GetParseTreeOf⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+					then:
+						⦃⦃⦃lexerAndParserCombination⦄.GetParseTreeOf(⦃sequence⦄)⦄.IsEqualTo(⦃⦃⦃lexerAndParserCombination⦄.GetParser()⦄.GetParseTreeOf(⦃⦃⦃lexerAndParserCombination⦄.GetLexer()⦄.LexToTokenNames(⦃sequence⦄)⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃LexerAndParserCombination⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

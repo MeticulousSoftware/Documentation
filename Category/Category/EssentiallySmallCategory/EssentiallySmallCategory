@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaEssentiallySmallCategory⦄,⦃EssentiallySmallCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧EssentiallySmallCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧EssentiallySmallCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄
+						and:
+							there exists ⟦category0⟧:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SmallCategory⦄.HasInstance(⦃category0⦄)⦄
+								and:
+									⦃⦃category⦄.IsEquivalentTo(⦃category0⦄)⦄

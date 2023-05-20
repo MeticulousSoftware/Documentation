@@ -1,0 +1,265 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Function⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Function⦄)⦄
+	and:
+		⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃Function⦄,⦃MetaFunction⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetGraph⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetGraph⦄,⦃GetGraph⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										there exists ⟦function⟧:
+												⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+											and:
+												⦃⦃GetGraph⦄.IsEqualTo(⦃⦃function⦄.GetGraph⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦function⟧:
+									⦃⦃function⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃function⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Function⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Function⦄.IsBijective⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+		then:
+				⦃⦃⦃⦃function⦄.IsBijective⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦isBijective⟧:
+						⦃⦃isBijective⦄.IsEqualTo(⦃⦃function⦄.IsBijective()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isBijective⦄)⦄
+				and:
+						⦃isBijective⦄
+					if and only if:
+						for all ⟦x⟧,⟦y⟧:
+							if:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃x⦄,⦃y⦄)⦄.MapWith(⦃function⦄)⦄)⦄
+							then:
+								⦃⦃x⦄.IsEqualTo(⦃y⦄)⦄
+
+define ⦃method ⦃Function⦄.IsIdentity⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+		then:
+				⦃⦃⦃⦃function⦄.IsIdentity⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦isIdentity⟧:
+						⦃⦃isIdentity⦄.IsEqualTo(⦃⦃function⦄.IsIdentity()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isIdentity⦄)⦄
+				and:
+						⦃isIdentity⦄
+					if and only if:
+						⦃⦃function⦄.IsEqualTo(⦃⦃⦃function⦄.GetDomain()⦄.GetIdentityFunction()⦄)⦄
+
+define ⦃method ⦃Function⦄.GetCompositionWith⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+		then:
+				for all ⟦function0⟧:
+						⦃⦃⦃⦃function⦄.GetCompositionWith⦄.GetDomain()⦄.Has(⦃function0⦄)⦄
+					if and only if:
+							⦃⦃Function⦄.HasInstance(⦃function0⦄)⦄
+						and:
+							⦃⦃⦃function0⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃function⦄.GetDomain()⦄)⦄
+			and:
+				for all ⟦function0⟧:
+					if:
+						⦃⦃⦃⦃function⦄.GetCompositionWith⦄.GetDomain()⦄.Has(⦃function0⦄)⦄
+					then:
+						let:
+							⟦composition⟧:
+								⦃⦃composition⦄.IsEqualTo(⦃⦃function⦄.GetCompositionWith(⦃function0⦄)⦄)⦄
+							⦃⦃Function⦄.HasInstance(⦃composition⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃composition⦄,⦃function0⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+						and:
+							for all ⟦x⟧:
+								if:
+									⦃⦃⦃composition⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+								then:
+									⦃⦃⦃composition⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃function⦄(⦃⦃function0⦄(⦃x⦄)⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃Function⦄)⦄.GetComposition⦄
+	for all ⟦functions⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃Function⦄)⦄.HasInstance(⦃functions⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃functions⦄.GetComposition⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃⦃functions⦄.ReduceWith(⦃binaryFunction GetCompositionWith⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Function⦄.GetInverse⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+		then:
+			if:
+				⦃⦃function⦄.IsBijective()⦄
+			then:
+					⦃⦃⦃⦃function⦄.GetInverse⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					⦃⦃⦃function⦄.GetCompositionWith(⦃⦃function⦄.GetInverse()⦄)⦄.IsEqualTo(⦃⦃⦃function⦄.GetDomain()⦄.GetIdentityFunction()⦄)⦄
+			else:
+				⦃⦃⦃⦃function⦄.GetInverse⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃Function⦄.GetPower⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+		then:
+			if:
+				⦃⦃⦃function⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃function⦄.GetDomain()⦄)⦄
+			then:
+					⦃⦃⦃⦃function⦄.GetPower⦄.GetDomain()⦄.IsEqualTo(⦃⦃FiniteOrdinal⦄.MapToClass()⦄)⦄
+				and:
+					for all ⟦ordinal⟧:
+						if:
+							⦃⦃⦃⦃function⦄.GetPower⦄.GetDomain()⦄.Has(⦃ordinal⦄)⦄
+						then:
+							⦃⦃⦃function⦄.GetPower(⦃ordinal⦄)⦄.IsEqualTo(⦃⦃⦃function⦄.Repeat(⦃ordinal⦄)⦄.ReduceWith(⦃binaryFunction GetCompositionWith⦄,⦃⦃⦃function⦄.GetDomain()⦄.GetIdentityFunction()⦄)⦄)⦄
+			else:
+				⦃⦃⦃⦃function⦄.GetPower⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Function⦄)⦄.Apply⦄
+	for all ⟦functions⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃Function⦄)⦄.HasInstance(⦃functions⦄)⦄
+		then:
+			let:
+				⟦getInverseImageFunctions⟧:
+						⦃⦃Function⦄.HasInstance(⦃getInverseImageFunctions⦄)⦄
+					and:
+						⦃⦃⦃getInverseImageFunctions⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃MathematicalObject⦄,⦃MathematicalObject⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+					and:
+						for all ⟦x⟧:
+							if:
+								⦃⦃⦃getInverseImageFunctions⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							then:
+								let:
+									⟦inverseImageFunctions⟧:
+										⦃⦃inverseImageFunctions⦄.IsEqualTo(⦃⦃getInverseImageFunctions⦄(⦃x⦄)⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃inverseImageFunctions⦄)⦄
+								and:
+									for all ⟦function⟧:
+											⦃⦃inverseImageFunctions⦄.Has(⦃function⦄)⦄
+										if and only if:
+												⦃⦃functions⦄.Has(⦃function⦄)⦄
+											and:
+												⦃⦃⦃function⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				for all ⟦x⟧:
+						⦃⦃⦃⦃functions⦄.Apply⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+							⦃⦃⦃⦃functions⦄.MapToClassWith(⦃unaryFunction GetDomain⦄)⦄.GetIntersection()⦄.Has(⦃x⦄)⦄
+						and:
+							for all ⟦y⟧:
+								⦃⦃ClassWithSize⦄.HasInstance(⦃⦃getInverseImageFunctions⦄(⦃x⦄,⦃y⦄)⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃functions⦄.Apply⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦multiClass⟧:
+								⦃⦃multiClass⦄.IsEqualTo(⦃⦃functions⦄.Apply(⦃x⦄)⦄)⦄
+							⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+						and:
+							for all ⟦y⟧:
+								⦃⦃⦃multiClass⦄.GetMultiplicityOf(⦃y⦄)⦄.IsEqualTo(⦃⦃⦃⦃getInverseImageFunctions⦄(⦃x⦄,⦃y⦄)⦄.MapWith(⦃⦃functions⦄.GetMultiplicityOf⦄)⦄.AddAllCardinals()⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyClass⦄.GetTypeInducedBy(⦃Function⦄)⦄.ApplyToClass⦄
+	for all ⟦functions⟧:
+		if:
+			⦃⦃⦃NonEmptyClass⦄.GetTypeInducedBy(⦃Function⦄)⦄.HasInstance(⦃functions⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃functions⦄.ApplyToClass⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						⦃⦃⦃⦃functions⦄.MapToClassWith(⦃unaryFunction GetDomain⦄)⦄.GetIntersection()⦄.Has(⦃x⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃functions⦄.ApplyToClass⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦class⟧:
+								⦃⦃class⦄.IsEqualTo(⦃⦃functions⦄.ApplyToClass(⦃x⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+						and:
+							for all ⟦y⟧:
+									⦃⦃class⦄.Has(⦃y⦄)⦄
+								if and only if:
+									there exists ⟦function⟧:
+											⦃⦃class⦄.Has(⦃function⦄)⦄
+										and:
+											⦃⦃y⦄.IsEqualTo(⦃⦃function⦄(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃Function⦄)⦄.Apply⦄
+	for all ⟦functions⟧:
+		if:
+			⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃Function⦄)⦄.HasInstance(⦃functions⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃functions⦄.Apply⦄,
+					⦃⦃⦃functions⦄.GetCoDomain()⦄.ApplyToClass⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃functions⦄.Apply⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦sequence⟧:
+								⦃⦃sequence⦄.IsEqualTo(⦃⦃functions⦄.Apply(⦃x⦄)⦄)⦄
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃sequence⦄,⦃functions⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+						and:
+							for all ⟦index⟧:
+								if:
+									⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+								then:
+									⦃⦃⦃sequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃functions⦄(⦃index⦄)⦄(⦃x⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Function⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaMethod⦄
+		⦃⦃Type⦄.HasInstance(⦃MetaMethod⦄)⦄
+	and:
+		for all ⟦function⟧:
+				⦃⦃MetaMethod⦄.HasInstance(⦃function⦄)⦄
+			if and only if:
+					⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+				and:
+					⦃⦃⦃function⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃MetaFunction⦄.MapToClass()⦄)⦄

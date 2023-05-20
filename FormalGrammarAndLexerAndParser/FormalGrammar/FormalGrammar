@@ -1,0 +1,219 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FormalGrammar⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃FormalGrammar⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetNonTerminalSymbols⟧,
+									⟦GetTerminalSymbols⟧,
+									⟦GetSymbols⟧,
+									⟦GetProductionRules⟧,
+									⟦GetBeginningSymbol⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetNonTerminalSymbols⦄,⦃GetNonTerminalSymbols⦄)⦄,
+											⦃(⦃unicodeCodePoints GetTerminalSymbols⦄,⦃GetTerminalSymbols⦄)⦄,
+											⦃(⦃unicodeCodePoints GetSymbols⦄,⦃GetSymbols⦄)⦄,
+											⦃(⦃unicodeCodePoints GetProductionRules⦄,⦃GetProductionRules⦄)⦄,
+											⦃(⦃unicodeCodePoints GetBeginningSymbol⦄,⦃GetBeginningSymbol⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦nonTerminalSymbols⟧,⟦terminalSymbols⟧,⟦symbols⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints NonTerminal⦄,
+															⦃unicodeCodePoints Terminal⦄,
+															⦃unicodeCodePoints ⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Symbols⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃Get⟦⟦⦃typeIdentifier⦄⟧⟧Symbols()⦄)⦄
+											⟦rules⟧:
+												⦃⦃rules⦄.IsEqualTo(⦃⦃GetProductionRules⦄()⦄)⦄
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints Non⦄,
+															⦃unicodeCodePoints ⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃FiniteClass⦄.HasInstance(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Terminal⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Symbols⦄)⦄
+											and:
+												⦃⦃{⦃nonTerminalSymbols⦄,⦃terminalSymbols⦄}⦄.AreMutuallyDisjoint()⦄
+											and:
+												⦃⦃symbols⦄.IsEqualTo(⦃⦃nonTerminalSymbols⦄.GetUnionWith(⦃terminalSymbols⦄)⦄)⦄
+										and:
+												⦃⦃FiniteClass⦄.HasInstance(⦃rules⦄)⦄
+											and:
+												let:
+													⟦sequencesOfSymbols⟧:
+														⦃⦃sequencesOfSymbols⦄.IsEqualTo(⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃⦃symbols⦄.GetGeneratedType()⦄)⦄.MapToClass()⦄)⦄
+													⟦sequencesOfSymbolsWithAtLeastOneNonTerminalSymbol⟧:
+															⦃⦃Class⦄.HasInstance(⦃sequencesOfSymbolsWithAtLeastOneNonTerminalSymbol⦄)⦄
+														and:
+															for all ⟦symbols⟧:
+																	⦃⦃sequencesOfSymbolsWithAtLeastOneNonTerminalSymbol⦄.Has(⦃symbols⦄)⦄
+																if and only if:
+																		⦃⦃sequencesOfSymbols⦄.Has(⦃symbols⦄)⦄
+																	and:
+																		there exists ⟦index⟧:
+																			⦃⦃nonTerminalSymbols⦄.Has(⦃⦃symbols⦄(⦃index⦄)⦄)⦄
+												⦃⦃rules⦄.IsSubMultiClassOf(⦃⦃(⦃sequencesOfSymbolsWithAtLeastOneNonTerminalSymbol⦄,⦃sequencesOfSymbols⦄)⦄.GetCartesianProduct()⦄)⦄
+										and:
+											⦃⦃nonTerminalSymbols⦄.Has(⦃⦃GetBeginningSymbol⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦grammar⟧:
+									⦃⦃grammar⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃FormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃grammar⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃FormalGrammar⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃FormalGrammar⦄.MapToClass⦄
+	for all ⟦grammar⟧:
+		if:
+			⦃⦃FormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃grammar⦄,
+				⦃(⦃⦃grammar⦄.GetNonTerminalSymbols()⦄,⦃⦃grammar⦄.GetTerminalSymbols()⦄,⦃⦃grammar⦄.GetProductionRules()⦄,⦃⦃grammar⦄.GetBeginningSymbol()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃FormalGrammar⦄.DirectlyYields⦄
+	for all ⟦grammar⟧:
+		if:
+			⦃⦃FormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+		then:
+			let:
+				⟦sequencesOfSymbols⟧:
+					⦃⦃sequencesOfSymbols⦄.IsEqualTo(⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃⦃⦃grammar⦄.GetSymbols()⦄.GetGeneratedType()⦄)⦄.MapToClass()⦄)⦄
+				⦃⦃⦃⦃grammar⦄.DirectlyYields⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃sequencesOfSymbols⦄,⦃sequencesOfSymbols⦄)⦄.GetCartesianProduct()⦄)⦄
+			and:
+				for all ⟦symbolsSequence⟧:
+					if:
+						⦃⦃⦃⦃grammar⦄.DirectlyYields⦄.GetDomain()⦄.Has(⦃symbolsSequence⦄)⦄
+					then:
+						let:
+							⟦directlyYields⟧:
+								⦃⦃directlyYields⦄.IsEqualTo(⦃⦃grammar⦄.DirectlyYields(⦃symbolsSequence⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃directlyYields⦄)⦄
+						and:
+								⦃directlyYields⦄
+							if and only if:
+								there exists ⟦sourceSymbols⟧,⟦derivedSymbols⟧:
+										⦃⦃⦃grammar⦄.GetProductionRules()⦄.Has(⦃(⦃sourceSymbols⦄,⦃derivedSymbols⦄)⦄)⦄
+									and:
+										there exists ⟦symbolsBeginning⟧,⟦symbolsEnding⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints Beginning⦄,
+															⦃unicodeCodePoints Ending⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃sequencesOfSymbols⦄.Has(⦃symbols⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+											and:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														let:
+															⟦typeIdentifier⟧:
+																if:
+																	⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																then:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints source⦄)⦄
+																else:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints derived⦄)⦄
+														⦃⦃⦃symbolsSequence⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃(⦃symbolsBeginning⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧Symbols⦄,⦃symbolsEnding⦄)⦄.GetConcatenation()⦄)⦄
+
+define ⦃method ⦃FormalGrammar⦄.Yields⦄
+	for all ⟦grammar⟧:
+		if:
+			⦃⦃FormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃grammar⦄.Yields⦄,
+					⦃⦃grammar⦄.DirectlyYields⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦symbolsSequence⟧:
+					if:
+						⦃⦃⦃⦃grammar⦄.Yields⦄.GetDomain()⦄.Has(⦃symbolsSequence⦄)⦄
+					then:
+						let:
+							⟦yields⟧:
+								⦃⦃yields⦄.IsEqualTo(⦃⦃grammar⦄.Yields(⦃symbolsSequence⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃yields⦄)⦄
+						and:
+								⦃yields⦄
+							if and only if:
+								let:
+									⟦symbols0⟧,⟦symbols1⟧:
+										⦃⦃(⦃symbols0⦄,⦃symbols1⦄)⦄.IsEqualTo(⦃symbolsSequence⦄)⦄
+									⦃⦃symbols0⦄.IsEqualTo(⦃symbols1⦄)⦄
+								or:
+									there exists ⟦symbols⟧:
+											⦃⦃grammar⦄.Yields(⦃symbols0⦄,⦃symbols⦄)⦄
+										and:
+											⦃⦃grammar⦄.DirectlyYields(⦃symbols⦄,⦃symbols1⦄)⦄
+
+define ⦃method ⦃FormalGrammar⦄.GetLanguage⦄
+	for all ⟦grammar⟧:
+		if:
+			⦃⦃FormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+		then:
+				⦃⦃⦃⦃grammar⦄.GetLanguage⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦language⟧:
+						⦃⦃language⦄.IsEqualTo(⦃⦃grammar⦄.GetLanguage()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃language⦄)⦄
+				and:
+					for all ⟦terminalSymbols⟧:
+							⦃⦃language⦄.Has(⦃terminalSymbols⦄)⦄
+						if and only if:
+								⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃⦃⦃grammar⦄.GetTerminalSymbols()⦄.GetGeneratedType()⦄)⦄.HasInstance(⦃terminalSymbols⦄)⦄
+							and:
+								⦃⦃grammar⦄.Yields(
+									⦃(
+										⦃⦃grammar⦄.GetBeginningSymbol()⦄
+									)⦄,
+									⦃terminalSymbols⦄
+								)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃FormalGrammar⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

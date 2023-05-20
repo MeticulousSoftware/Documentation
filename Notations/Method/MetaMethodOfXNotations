@@ -1,0 +1,49 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaMethodOfXNotations⦄
+	let:
+		⟦parseMetaMethodOfXNotationIdentifier⟧:
+				⦃⦃Function⦄.HasInstance(⦃parseMetaMethodOfXNotationIdentifier⦄)⦄
+			and:
+				let:
+					⟦regularExpression⟧:
+							⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃MetaMethodOfXNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+					⦃⦃⦃parseMetaMethodOfXNotationIdentifier⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+				and:
+					for all ⟦identifier⟧:
+						if:
+							⦃⦃⦃parseMetaMethodOfXNotationIdentifier⦄.GetDomain()⦄.Has(⦃identifier⦄)⦄
+						then:
+							⦃⦃⦃parseMetaMethodOfXNotationIdentifier⦄(⦃identifier⦄)⦄.IsEqualTo(⦃⦃⦃⦃⦃⦃(⦃0⦄,⦃1⦄)⦄.MapWith(⦃⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃identifier⦄)⦄.GetImageOf⦄)⦄.MapWith(⦃unaryFunction GetValueRange⦄)⦄.MapWith(⦃⦃identifier⦄.GetImageOf⦄)⦄.MapWith(⦃unaryFunction GetLowerBound⦄)⦄.MapWith(⦃unaryFunction GetValue⦄)⦄)⦄
+		for all ⟦methodOfXNotation⟧:
+				⦃⦃⦃MetaMethodOfXNotations⦄.GetDomain()⦄.Has(⦃methodOfXNotation⦄)⦄
+			if and only if:
+				let:
+					⟦x⟧,⟦method⟧:
+						⦃⦃(⦃x⦄,⦃method⦄)⦄.IsEqualTo(⦃⦃parseMetaMethodOfXNotationIdentifier⦄(⦃methodOfXNotation⦄)⦄)⦄
+					⦃⦃MetaMethod⦄.HasInstance(⦃method⦄)⦄
+				and:
+					⦃⦃⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄.GetDomain()⦄.Has(⦃(
+						⟦⦃method⦄⟧,
+						⦃unicodeCodePoint (⦄,
+						⟦⦃x⦄⟧,
+						⦃unicodeCodePoint )⦄
+					)⦄)⦄
+	and:
+		for all ⟦methodOfXNotation⟧:
+			if:
+				⦃⦃⦃MetaMethodOfXNotations⦄.GetDomain()⦄.Has(⦃methodOfXNotation⦄)⦄
+			then:
+				let:
+					⟦x⟧,⟦method⟧:
+						⦃⦃(⦃x⦄,⦃method⦄)⦄.IsEqualTo(⦃⦃parseMetaMethodOfXNotationIdentifier⦄(⦃methodOfXNotation⦄)⦄)⦄
+				⦃⦃⟦⟦⦃methodOfXNotation⦄⟧⟧⦄.IsEqualTo(⦃⦃method⦄(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃{⦃MetaMethodOfXNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃MetaMethodOfXNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃MetaMethodOfXNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints [#32##9##10#]{}<@x@>[#32##9##10#]{}.[#32##9##10#]{}<@method@>[#32##9##10#]{}⦄)⦄

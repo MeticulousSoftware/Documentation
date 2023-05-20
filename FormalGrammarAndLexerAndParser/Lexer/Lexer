@@ -1,0 +1,200 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Lexer⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Lexer⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦Lex⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints Lex⦄,⦃Lex⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃⦃Lex⦄.GetDomain()⦄.IsSubMultiClassOf(⦃⦃FiniteSequence⦄.MapToClass()⦄)⦄
+									and:
+										for all ⟦sequence⟧:
+											if:
+												⦃⦃⦃Lex⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+											then:
+												let:
+													⟦tokens⟧:
+														⦃⦃tokens⦄.IsEqualTo(⦃⦃Lex⦄(⦃sequence⦄)⦄)⦄
+													⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃Token⦄)⦄.HasInstance(⦃tokens⦄)⦄
+												and:
+													⦃⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃⦃sequence⦄.GetLength()⦄)⦄.GetPartialPartitions()⦄.Has(⦃⦃tokens⦄.MapWith(⦃unaryFunction GetSourceRange⦄)⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦lexer⟧:
+									⦃⦃lexer⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃lexer⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Lexer⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Lexer⦄.MapToClass⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃lexer⦄,
+				⦃⦃lexer⦄.Lex⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃Lexer⦄.LexToTokenNames⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃lexer⦄.LexToTokenNames⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦sequence⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃sequence⦄,⦃⦃⦃lexer⦄.Lex(⦃sequence⦄)⦄.MapWith(⦃unaryFunction GetName⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Lexer⦄.GetLanguage⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+			⦃⦃⦃lexer⦄.GetLanguage⦄.IsEqualTo(⦃⦃⦃lexer⦄.Lex⦄.GetDomain⦄)⦄
+
+define ⦃method ⦃Lexer⦄.GetTokenNames⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+				⦃⦃⦃⦃lexer⦄.GetTokenNames⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦tokenNames⟧:
+						⦃⦃tokenNames⦄.IsEqualTo(⦃⦃lexer⦄.GetTokenNames()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃tokenNames⦄)⦄
+				and:
+					for all ⟦tokenName⟧:
+							⦃⦃tokenNames⦄.Has(⦃tokenName⦄)⦄
+						if and only if:
+							there exists ⟦tokenNames⟧:
+									⦃⦃⦃⦃lexer⦄.LexToTokenNames⦄.GetCoDomain()⦄.Has(⦃tokenNames⦄)⦄
+								and:
+									⦃⦃⦃⦃tokenNames⦄.GetCoDomain()⦄.Has(⦃tokenName⦄)⦄
+
+define ⦃method ⦃Lexer⦄.LexMapIndex⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃lexer⦄.LexMapIndex⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦sequence⟧,⟦sequenceIndex⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃sequence⦄,⦃sequenceIndex⦄)⦄)⦄
+							and:
+								⦃⦃⦃lexer⦄.GetLanguage()⦄.Has(⦃sequence⦄)⦄
+							and:
+								⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃sequenceIndex⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃lexer⦄.LexMapIndex⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦sequence⟧,⟦sequenceIndex⟧:
+								⦃⦃(⦃sequence⦄,⦃sequenceIndex⦄)⦄.IsEqualTo(⦃x⦄)⦄
+						⦃⦃⦃⦃⦃⦃lexer⦄.Lex(⦃sequence⦄)⦄(⦃⦃lexer⦄.LexMapIndex(⦃x⦄)⦄)⦄.GetSourceRange()⦄.GetElements(⦃True⦄,⦃False⦄)⦄.Has(⦃sequenceIndex⦄)⦄
+
+define ⦃method ⦃Lexer⦄.LexReverseMapIndex⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃lexer⦄.LexReverseMapIndex⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦sequence⟧,⟦tokenIndex⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃sequence⦄,⦃tokenIndex⦄)⦄)⦄
+							and:
+								⦃⦃⦃⦃lexer⦄.Lex(⦃sequence⦄)⦄.GetDomain()⦄.Has(⦃tokenIndex⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃lexer⦄.LexReverseMapIndex⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦sequence⟧,⟦tokenIndex⟧:
+								⦃⦃(⦃sequence⦄,⦃tokenIndex⦄)⦄.IsEqualTo(⦃x⦄)⦄
+						⦃⦃⦃lexer⦄.LexReverseMapIndex(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃⦃lexer⦄.Lex(⦃sequence⦄)⦄(⦃tokenIndex⦄)⦄.GetSourceRange()⦄)⦄
+
+define ⦃method ⦃Lexer⦄.LexMapRange⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃lexer⦄.LexMapRange⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦sequence⟧,⟦sequenceRange⟧,⟦tokensRange⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃sequence⦄,⦃sequenceRange⦄)⦄,⦃tokensRange⦄)⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints sequence⦄,
+										⦃unicodeCodePoints tokens⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									⦃⦃FiniteOrdinalRange⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Range⦄)⦄
+						and:
+							for all ⟦indexOfBound⟧:
+								if:
+									⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃indexOfBound⦄)⦄
+								then:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(
+										⦃⦃FiniteSequence⦄(⦃⦃lexer⦄.LexReverseMapIndex(⦃sequence⦄,⦃⦃⦃FiniteSequence⦄(⦃tokensRange⦄)⦄(⦃indexOfBound⦄)⦄)⦄)⦄,
+										⦃⦃FiniteSequence⦄(⦃sequenceRange⦄)⦄
+									)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃indexOfBound⦄)⦄)⦄
+
+define ⦃method ⦃Lexer⦄.LexReverseMapRange⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃Lexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃lexer⦄.LexReverseMapRange⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦sequence⟧,⟦tokensRange⟧,⟦sequenceRange⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃sequence⦄,⦃tokensRange⦄)⦄,⦃sequenceRange⦄)⦄)⦄
+						and:
+							⦃⦃⦃⦃lexer⦄.LexMapRange⦄.GetGraph()⦄.Has(⦃(⦃(⦃sequence⦄,⦃sequenceRange⦄)⦄,⦃tokensRange⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Lexer⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

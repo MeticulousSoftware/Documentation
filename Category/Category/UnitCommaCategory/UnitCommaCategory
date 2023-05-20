@@ -1,0 +1,141 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsCommaCategoryOfCategoryForUnitCommaCategory⟧,⟦IsCommaCategoryOfCategoryForCoUnitCommaCategory⟧
+define ⦃IsCommaCategoryOfCategoryForUnitCommaCategory⦄,⦃IsCommaCategoryOfCategoryForCoUnitCommaCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Co⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Function⦄.HasInstance(⦃IsCommaCategoryOfCategoryFor⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄)⦄
+			and:
+				⦃⦃⦃IsCommaCategoryOfCategoryFor⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Category⦄,⦃CommaCategory⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃IsCommaCategoryOfCategoryFor⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦isCommaCategoryOfCategory⟧:
+								⦃⦃isCommaCategoryOfCategory⦄.IsEqualTo(⦃⦃IsCommaCategoryOfCategoryFor⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄(⦃x⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isCommaCategoryOfCategory⦄)⦄
+						and:
+								⦃isCommaCategoryOfCategory⦄
+							if and only if:
+								let:
+									⟦category⟧,⟦commaCategory⟧:
+										⦃⦃(⦃category⦄,⦃commaCategory⦄)⦄.IsEqualTo(⦃x⦄)⦄
+									let:
+										⟦typeIdentifier0⟧:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											then:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Target⦄)⦄
+											else:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Source⦄)⦄
+									⦃⦃TerminalCategory⦄.HasInstance(⦃⦃⦃commaCategory⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Functor()⦄.GetDomain()⦄)⦄
+								and:
+									let:
+										⟦commaCategoryObjectToObjectMap⟧:
+												⦃⦃Function⦄.HasInstance(⦃commaCategoryObjectToObjectMap⦄)⦄
+											and:
+												⦃⦃⦃commaCategoryObjectToObjectMap⦄.GetDomain()⦄.IsEqualTo(⦃⦃commaCategory⦄.GetObjects()⦄)⦄
+											and:
+												for all ⟦object⟧:
+													if:
+														⦃⦃⦃commaCategoryObjectToObjectMap⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+													then:
+														let:
+															⟦sourceFunctorDomainObject⟧,⟦targetFunctorDomainObject⟧,⟦functorCoDomainMorphism⟧:
+																⦃⦃(⦃sourceFunctorDomainObject⦄,⦃targetFunctorDomainObject⦄,⦃functorCoDomainMorphism⦄)⦄.IsEqualTo(⦃object⦄)⦄
+															⟦typeIdentifier0⟧:
+																if:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																then:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints source⦄)⦄
+																else:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints target⦄)⦄
+														⦃⦃⦃commaCategoryObjectToObjectMap⦄(⦃object⦄)⦄.IsEqualTo(⦃(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧FunctorDomainObject⦄,⦃functorCoDomainMorphism⦄)⦄)⦄
+										⟦commaCategoryMorphismToMorphismMap⟧:
+												⦃⦃Function⦄.HasInstance(⦃commaCategoryMorphismToMorphismMap⦄)⦄
+											and:
+												⦃⦃⦃commaCategoryMorphismToMorphismMap⦄.GetDomain()⦄.IsEqualTo(⦃⦃commaCategory⦄.GetMorphisms()⦄)⦄
+											and:
+												for all ⟦morphism⟧:
+													if:
+														⦃⦃⦃commaCategoryMorphismToMorphismMap⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+													then:
+														let:
+															⟦index⟧:
+																if:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																then:
+																	⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																else:
+																	⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+														⦃⦃⦃commaCategoryMorphismToMorphismMap⦄(⦃morphism⦄)⦄.IsEqualTo(⦃⦃morphism⦄(⦃index⦄)⦄)⦄
+									⦃⦃category⦄.IsEqualTo(⦃⦃commaCategory⦄.MapToCategoryWith(⦃commaCategoryObjectToObjectMap⦄,⦃commaCategoryMorphismToMorphismMap⦄)⦄)⦄
+
+
+
+define ⦃UnitCommaCategory⦄,⦃CoUnitCommaCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Co⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+						there exists ⟦commaCategory⟧:
+							⦃⦃IsCommaCategoryOfCategoryFor⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄(⦃category⦄,⦃commaCategory⦄)⦄
+
+define ⦃method ⦃UnitCommaCategory⦄.GetCommaCategory⦄,⦃method ⦃CoUnitCommaCategory⦄.GetCommaCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Co⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦category⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄.HasInstance(⦃category⦄)⦄
+				then:
+						⦃⦃⦃⦃category⦄.GetCommaCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃IsCommaCategoryOfCategoryFor⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄(⦃category⦄,⦃⦃category⦄.GetCommaCategory()⦄)⦄
+
+define ⦃method ⦃UnitCommaCategory⦄.GetObject⦄,⦃method ⦃CoUnitCommaCategory⦄.GetObject⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Co⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦category⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitCommaCategory⦄.HasInstance(⦃category⦄)⦄
+				then:
+						⦃⦃⦃⦃category⦄.GetObject⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦typeIdentifier0⟧:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Target⦄)⦄
+								else:
+									⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Source⦄)⦄
+						⦃⦃{
+							⦃⦃category⦄.GetObject()⦄
+						}⦄.IsEqualTo(⦃⦃⦃⦃⦃category⦄.GetCommaCategory()⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Functor()⦄.GetObjectImageOf⦄.GetCoDomain()⦄)⦄

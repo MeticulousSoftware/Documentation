@@ -1,0 +1,51 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄
+	let:
+		⟦parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⟧:
+				⦃⦃Function⦄.HasInstance(⦃parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⦄)⦄
+			and:
+				let:
+					⟦regularExpression⟧:
+							⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+					⦃⦃⦃parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+				and:
+					for all ⟦identifier⟧:
+						if:
+							⦃⦃⦃parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⦄.GetDomain()⦄.Has(⦃identifier⦄)⦄
+						then:
+							⦃⦃⦃parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⦄(⦃identifier⦄)⦄.IsEqualTo(⦃⦃⦃(⦃0⦄,⦃1⦄)⦄.MapWith(⦃⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃identifier⦄)⦄.GetImageOf⦄)⦄.MapWith(⦃⦃identifier⦄.GetSubSequence⦄)⦄)⦄
+		for all ⟦argumentImageUnderIdentifiedMethodOfXNotation⟧:
+				⦃⦃⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄.GetDomain()⦄.Has(⦃argumentImageUnderIdentifiedMethodOfXNotation⦄)⦄
+			if and only if:
+				let:
+					⟦identifiedMethodOfXNotation⟧,⟦argumentNotation⟧:
+						⦃⦃(⦃identifiedMethodOfXNotation⦄,⦃argumentNotation⦄)⦄.IsEqualTo(⦃⦃parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⦄(⦃argumentImageUnderIdentifiedMethodOfXNotation⦄)⦄)⦄
+				⦃⦃⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄.GetDomain()⦄.Has(⦃⦃(
+					⦃(
+						⦃⟦⟦⦃identifiedMethodOfXNotation⦄⟧⟧⦄
+					)⦄,
+					⦃argumentNotation⦄
+				)⦄.GetConcatenation()⦄)⦄
+	and:
+		for all ⟦argumentImageUnderIdentifiedMethodOfXNotation⟧:
+			if:
+				⦃⦃⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄.GetDomain()⦄.Has(⦃argumentImageUnderIdentifiedMethodOfXNotation⦄)⦄
+			then:
+				let:
+					⟦identifiedMethodOfXNotation⟧,⟦argumentNotation⟧:
+						⦃⦃(⦃identifiedMethodOfXNotation⦄,⦃argumentNotation⦄)⦄.IsEqualTo(⦃⦃parseArgumentImageUnderIdentifiedMethodOfXNotationIdentifier⦄(⦃argumentImageUnderIdentifiedMethodOfXNotation⦄)⦄)⦄
+				⦃⦃⟦⟦⦃argumentImageUnderIdentifiedMethodOfXNotation⦄⟧⟧⦄.IsEqualTo(⦃⦃⟦⟦⦃identifiedMethodOfXNotation⦄⟧⟧⦄⟦⟦⦃argumentNotation⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃{⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄}⦄.GetPattern⦄
+	⦃⦃⦃ArgumentImageUnderIdentifiedMethodOfXNotations⦄.GetPattern⦄.IsEqualTo(⦃⦃(
+		⦃unicodeCodePoints <⦄,
+		⦃⦃IdentifiedMethodOfXNotations⦄.GetPattern()⦄,
+		⦃unicodeCodePoints ><⦄,
+		⦃⦃FiniteSequenceNotations⦄.GetPattern()⦄,
+		⦃unicodeCodePoints >⦄
+	)⦄.GetConcatenation⦄)⦄

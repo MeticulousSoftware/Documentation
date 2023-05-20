@@ -1,0 +1,17 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ExactSequence⦄
+		⦃⦃Type⦄.HasInstance(⦃ExactSequence⦄)⦄
+	and:
+		for all ⟦chain⟧:
+				⦃⦃ExactSequence⦄.HasInstance(⦃chain⦄)⦄
+			if and only if:
+					⦃⦃ChainComplex⦄.HasInstance(⦃chain⦄)⦄
+				and:
+					for all ⟦index⟧:
+						if:
+							⦃⦃⦃⦃chain⦄.GetNChainOf⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+						then:
+							⦃⦃⦃chain⦄.GetNBoundariesOf(⦃index⦄)⦄.IsEqualTo(⦃⦃chain⦄.GetNCyclesOf(⦃⦃index⦄.Add(⦃integer 1⦄)⦄)⦄)⦄

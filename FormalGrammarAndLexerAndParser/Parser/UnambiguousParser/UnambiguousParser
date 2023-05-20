@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnambiguousParser⦄
+		⦃⦃Type⦄.HasInstance(⦃UnambiguousParser⦄)⦄
+	and:
+		for all ⟦parser⟧:
+				⦃⦃UnambiguousParser⦄.HasInstance(⦃parser⦄)⦄
+			if and only if:
+					⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+				and:
+					⦃⦃⦃⦃parser⦄.GetParseTreeOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃UnambiguousParseTreeNode⦄.MapToClass()⦄)⦄

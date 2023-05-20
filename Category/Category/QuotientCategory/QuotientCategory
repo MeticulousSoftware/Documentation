@@ -1,0 +1,81 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsCategoryAndCongruenceRelationOfQuotientCategory⟧
+define ⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄
+		⦃⦃Function⦄.HasInstance(⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄)⦄
+	and:
+		⦃⦃⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Category⦄,⦃Category⦄,⦃EquivalenceRelation⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isCategoryAndCongruenceRelationOfQuotientCategory⟧:
+						⦃⦃isCategoryAndCongruenceRelationOfQuotientCategory⦄.IsEqualTo(⦃⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isCategoryAndCongruenceRelationOfQuotientCategory⦄)⦄
+				and:
+						⦃isCategoryAndCongruenceRelationOfQuotientCategory⦄
+					if and only if:
+						let:
+							⟦quotientCategory⟧,⟦category⟧,⟦congruenceRelation⟧:
+								⦃⦃(⦃quotientCategory⦄,⦃category⦄,⦃congruenceRelation⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							let:
+								⟦compositionStructure⟧:
+										⦃⦃AlgebraicStructure⦄.HasInstance(⦃compositionStructure⦄)⦄
+									and:
+										⦃⦃⦃compositionStructure⦄.GetOperations()⦄.IsEqualTo(⦃(
+											⦃⦃category⦄.GetCompositionOperation()⦄
+										)⦄)⦄
+								⟦quotientCompositionStructure⟧:
+										⦃⦃AlgebraicStructure⦄.HasInstance(⦃quotientCompositionStructure⦄)⦄
+									and:
+										⦃⦃⦃quotientCompositionStructure⦄.GetOperations()⦄.IsEqualTo(⦃(
+											⦃⦃quotientCategory⦄.GetCompositionOperation()⦄
+										)⦄)⦄
+							⦃⦃quotientCompositionStructure⦄.IsEqualTo(⦃⦃compositionStructure⦄.GetQuotientStructureInducedBy(⦃congruenceRelation⦄)⦄)⦄
+						and:
+							for all ⟦morphismsEquivalenceClass⟧:
+								if:
+									⦃⦃⦃quotientCategory⦄.GetMorphisms()⦄.Has(⦃morphismsEquivalenceClass⦄)⦄
+								then:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints ⦄,
+												⦃unicodeCodePoints Co⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											let:
+												⟦morphism⟧:
+													⦃⦃morphismsEquivalenceClass⦄.Has(⦃morphism⦄)⦄
+											⦃⦃⦃quotientCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf(⦃morphismsEquivalenceClass⦄)⦄.IsEqualTo(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf(⦃morphism⦄)⦄)⦄
+
+
+
+define ⦃QuotientCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃QuotientCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃QuotientCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+				there exists ⟦x⟧:
+					⦃⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄(⦃⦃(⦃category⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃QuotientCategory⦄.GetCategory⦄,⦃method ⦃QuotientCategory⦄.GetCongruenceRelation⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃QuotientCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Category⦄,
+							⦃unicodeCodePoints CongruenceRelation⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsCategoryAndCongruenceRelationOfQuotientCategory⦄(⦃category⦄,⦃⦃category⦄.GetCategory()⦄,⦃⦃category⦄.GetCongruenceRelation()⦄)⦄

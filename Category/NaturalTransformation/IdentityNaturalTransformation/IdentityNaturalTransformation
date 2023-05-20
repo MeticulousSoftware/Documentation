@@ -1,0 +1,32 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaIdentityInfraNaturalTransformation⦄,⦃MetaIdentityNaturalTransformation⦄,
+⦃IdentityInfraNaturalTransformation⦄,⦃IdentityNaturalTransformation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Infra⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Identity⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄)⦄
+					and:
+						for all ⟦naturalTransformation⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Identity⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Endo⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+								and:
+									for all ⟦object⟧:
+										if:
+											⦃⦃⦃⦃naturalTransformation⦄.GetComponentOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+										then:
+											⦃⦃⦃naturalTransformation⦄.GetComponentOf(⦃object⦄)⦄.IsEqualTo(⦃⦃⦃naturalTransformation⦄.GetFunctorCoDomain()⦄.GetIdentityMorphismOf(⦃⦃⦃naturalTransformation⦄.GetFunctor()⦄.GetObjectImageOf(⦃object⦄)⦄)⦄)⦄

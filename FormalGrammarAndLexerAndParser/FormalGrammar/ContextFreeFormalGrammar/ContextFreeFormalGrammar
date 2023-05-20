@@ -1,0 +1,138 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ContextFreeFormalGrammar⦄
+		⦃⦃Type⦄.HasInstance(⦃ContextFreeFormalGrammar⦄)⦄
+	and:
+		for all ⟦grammar⟧:
+				⦃⦃ContextFreeFormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+			if and only if:
+					⦃⦃FormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+				and:
+					for all ⟦rule⟧:
+						if:
+							⦃⦃⦃grammar⦄.GetProductionRules()⦄.Has(⦃rule⦄)⦄
+						then:
+							⦃⦃⦃⦃rule⦄(⦃0⦄)⦄.GetLength()⦄.IsEqualTo(⦃1⦄)⦄
+
+define ⦃method ⦃ContextFreeFormalGrammar⦄.GetContextFreeProductionRules⦄
+	for all ⟦grammar⟧:
+		if:
+			⦃⦃ContextFreeFormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+		then:
+				⦃⦃⦃⦃grammar⦄.GetContextFreeProductionRules⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦rules⟧:
+						⦃⦃rules⦄.IsEqualTo(⦃⦃grammar⦄.GetContextFreeProductionRules()⦄)⦄
+					⦃⦃FiniteClass⦄.HasInstance(⦃rules⦄)⦄
+				and:
+					for all ⟦rule⟧:
+							⦃⦃rules⦄.Has(⦃rule⦄)⦄
+						if and only if:
+							there exists ⟦sourceSymbols⟧,⟦derivedSymbols⟧:
+									⦃⦃⦃grammar⦄.GetProductionRules()⦄.Has(⦃(⦃sourceSymbols⦄,⦃derivedSymbols⦄)⦄)⦄
+								and:
+									⦃⦃rule⦄.IsEqualTo(⦃(⦃⦃sourceSymbols⦄(⦃0⦄)⦄,⦃derivedSymbols⦄)⦄)⦄
+
+define ⦃method ⦃ContextFreeFormalGrammar⦄.GetParser⦄
+	for all ⟦grammar⟧:
+		if:
+			⦃⦃ContextFreeFormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+		then:
+				⦃⦃⦃⦃grammar⦄.GetParser⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦parser⟧:
+						⦃⦃parser⦄.IsEqualTo(⦃⦃grammar⦄.GetParser()⦄)⦄
+					⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃parser⦄,⦃grammar⦄)⦄.MapWith(⦃unaryFunction GetLanguage⦄)⦄)⦄
+				and:
+					for all ⟦terminalSymbols⟧:
+						if:
+							⦃⦃⦃parser⦄.GetLanguage()⦄.Has(⦃terminalSymbols⦄)⦄
+						then:
+							let:
+								⟦parseTreeNodes⟧:
+									⦃⦃parseTreeNodes⦄.IsEqualTo(⦃⦃⦃parser⦄.GetParseTreeOf(⦃terminalSymbols⦄)⦄.GetAllChildNodes()⦄)⦄
+							for all ⟦node⟧:
+									⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+								if and only if:
+										⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+									and:
+										let:
+											⟦symbol⟧:
+												⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+											⟦range⟧:
+												⦃⦃range⦄.IsEqualTo(⦃⦃node⦄.GetValueRange()⦄)⦄
+										if:
+											⦃⦃TerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+										then:
+											there exists ⟦index⟧:
+													⦃⦃symbol⦄.IsEqualTo(⦃⦃terminalSymbols⦄(⦃index⦄)⦄)⦄
+												and:
+													⦃⦃range⦄.IsEqualTo(⦃⦃FiniteOrdinalRange⦄(⦃index⦄,⦃⦃index⦄.Add(⦃1⦄)⦄)⦄)⦄
+										else:
+											let:
+												⟦sequencesOfChildNodes⟧:
+													⦃⦃sequencesOfChildNodes⦄.IsEqualTo(⦃⦃node⦄.GetSequencesOfChildNodes()⦄)⦄
+											for all ⟦childNodes⟧:
+													⦃⦃sequencesOfChildNodes⦄.Has(⦃childNodes⦄)⦄
+												if and only if:
+													there exists ⟦symbols⟧:
+															⦃⦃⦃grammar⦄.GetContextFreeProductionRules()⦄.Has(⦃(⦃symbol⦄,⦃symbols⦄)⦄)⦄
+														and:
+															there exists ⟦indexMap⟧:
+																let:
+																	⟦symbolsLength⟧:
+																		⦃⦃symbolsLength⦄.IsEqualTo(⦃⦃symbols⦄.GetLength()⦄)⦄
+																	⦃⦃Function⦄.HasInstance(⦃indexMap⦄)⦄
+																and:
+																	⦃⦃⦃indexMap⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃symbolsLength⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄)⦄
+																and:
+																	for all ⟦typeIdentifier⟧:
+																		if:
+																			⦃⦃{
+																				⦃unicodeCodePoints Lower⦄,
+																				⦃unicodeCodePoints Upper⦄
+																			}⦄.IsEqualTo(⦃typeIdentifier⦄)⦄
+																		then:
+																			let:
+																				⟦index⟧:
+																					if:
+																						⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Lower⦄)⦄
+																					then:
+																						⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																					else:
+																						⦃⦃index⦄.IsEqualTo(⦃symbolsLength⦄)⦄
+																			⦃⦃⦃indexMap⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃range⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Bound()⦄)⦄
+																and:
+																	let:
+																		⟦indexAndSymbols⟧:
+																			⦃⦃indexAndSymbols⦄.IsEqualTo(⦃⦃symbols⦄.GetIndexAndElements()⦄)⦄
+																		⟦getChildNode⟧:
+																				⦃⦃Function⦄.HasInstance(⦃getChildNode⦄)⦄
+																			and:
+																				⦃⦃⦃getChildNode⦄.GetDomain()⦄.IsEqualTo(⦃⦃indexAndSymbols⦄.GetCoDomain()⦄)⦄
+																			and:
+																				for all ⟦indexAndSymbol⟧:
+																					if:
+																						⦃⦃⦃getChildNode⦄.GetDomain()⦄.Has(⦃indexAndSymbol⦄)⦄
+																					then:
+																						let:
+																							⟦node⟧:
+																								⦃⦃node⦄.IsEqualTo(⦃⦃getChildNode⦄(⦃indexAndSymbol⦄)⦄)⦄
+																							⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+																						and:
+																							let:
+																								⟦index⟧,⟦symbol⟧:
+																									⦃⦃(⦃index⦄,⦃symbol⦄)⦄.IsEqualTo(⦃indexAndSymbol⦄)⦄
+																								⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃symbol⦄)⦄
+																							and:
+																								⦃⦃⦃node⦄.GetValueRange()⦄.IsEqualTo(⦃⦃FiniteOrdinalRange⦄(⦃⦃(
+																									⦃index⦄,
+																									⦃⦃index⦄.Add(⦃1⦄)⦄
+																								)⦄.MapWith(⦃indexMap⦄)⦄)⦄)⦄
+																	⦃⦃childNodes⦄.IsEqualTo(⦃⦃indexAndSymbols⦄.MapWith(⦃getChildNode⦄)⦄)⦄

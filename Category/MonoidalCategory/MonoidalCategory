@@ -1,0 +1,252 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaMonoidalCategory⦄,⦃MonoidalCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧MonoidalCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧MonoidalCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+							⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+						and:
+							let:
+								⟦equipments⟧:
+									⦃⦃equipments⦄.IsEqualTo(⦃⦃category⦄.GetEquipments()⦄)⦄
+								let:
+									⟦tensorProduct⟧,
+									⟦tensorUnit⟧,
+									⟦associator⟧,
+									⟦leftUnitor⟧,
+									⟦rightUnitor⟧:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints tensorProduct⦄,
+													⦃unicodeCodePoints tensorUnit⦄,
+													⦃unicodeCodePoints associator⦄,
+													⦃unicodeCodePoints leftUnitor⦄,
+													⦃unicodeCodePoints rightUnitor⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃equipments⦄(⦃typeIdentifier⦄)⦄)⦄
+									⟦objects⟧:
+										⦃⦃objects⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+										⦃⦃MultiFunctor⦄.HasInstance(⦃tensorProduct⦄)⦄
+									and:
+										⦃⦃⦃⦃tensorProduct⦄.GetDomain()⦄.GetCategories()⦄.IsEqualTo(⦃(⦃category⦄,⦃category⦄)⦄)⦄
+									and:
+										⦃⦃⦃tensorProduct⦄.GetCoDomain()⦄.IsEqualTo(⦃category⦄)⦄
+								and:
+									⦃⦃objects⦄.Has(⦃tensorUnit⦄)⦄
+								and:
+										⦃⦃NaturalIsoMorphism⦄.HasInstance(⦃associator⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Co⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												let:
+													⟦functor⟧:
+														⦃⦃functor⦄.IsEqualTo(⦃⦃associator⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄)⦄
+													⦃⦃MultiFunctor⦄.HasInstance(⦃functor⦄)⦄
+												and:
+													⦃⦃⦃⦃functor⦄.GetDomain()⦄.GetCategories()⦄.IsEqualTo(⦃(⦃category⦄,⦃category⦄,⦃category⦄)⦄)⦄
+												and:
+													⦃⦃⦃functor⦄.GetCoDomain()⦄.IsEqualTo(⦃category⦄)⦄
+												and:
+													for all ⟦typeIdentifier0⟧:
+														if:
+															⦃⦃{
+																⦃unicodeCodePoints Object⦄,
+																⦃unicodeCodePoints Morphism⦄
+															}⦄.Has(⦃typeIdentifier0⦄)⦄
+														then:
+															for all ⟦sequence⟧:
+																if:
+																	⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+																then:
+																	let:
+																		⟦x⟧,⟦y⟧,⟦z⟧:
+																			⦃⦃(⦃x⦄,⦃y⦄,⦃z⦄)⦄.IsEqualTo(⦃sequence⦄)⦄
+																		⟦image⟧:
+																			⦃⦃image⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(⦃sequence⦄)⦄)⦄
+																	if:
+																		⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																	then:
+																		⦃⦃image⦄.IsEqualTo(⦃⦃tensorProduct⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(
+																			⦃⦃tensorProduct⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(⦃x⦄,⦃y⦄)⦄,
+																			⦃z⦄
+																		)⦄)⦄
+																	else:
+																		⦃⦃image⦄.IsEqualTo(⦃⦃tensorProduct⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(
+																			⦃x⦄,
+																			⦃⦃tensorProduct⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(⦃y⦄,⦃z⦄)⦄
+																		)⦄)⦄
+								and:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints left⦄,
+												⦃unicodeCodePoints right⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+												⦃⦃NaturalIsoMorphism⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Unitor⦄)⦄
+											and:
+												let:
+													⟦functor⟧:
+														⦃⦃functor⦄.IsEqualTo(⦃⦃leftUnitor⦄.GetDomain()⦄)⦄
+													⦃⦃EndoFunctor⦄.HasInstance(⦃functor⦄)⦄
+												and:
+													⦃⦃⦃functor⦄.GetCategory()⦄.IsEqualTo(⦃category⦄)⦄
+												and:
+													for all ⟦typeIdentifier0⟧:
+														if:
+															⦃⦃{
+																⦃unicodeCodePoints Object⦄,
+																⦃unicodeCodePoints Morphism⦄
+															}⦄.Has(⦃typeIdentifier0⦄)⦄
+														then:
+															for all ⟦x⟧:
+																if:
+																	⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																then:
+																	let:
+																		⟦sequence⟧:
+																			if:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints left⦄)⦄
+																			then:
+																				⦃⦃sequence⦄.IsEqualTo(⦃(⦃tensorUnit⦄,⦃x⦄)⦄)⦄
+																			else:
+																				⦃⦃sequence⦄.IsEqualTo(⦃(⦃x⦄,⦃tensorUnit⦄)⦄)⦄
+																	⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(⦃x⦄)⦄.IsEqualTo(⦃⦃tensorProduct⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(⦃sequence⦄)⦄)⦄
+											and:
+												let:
+													⟦functor⟧:
+														⦃⦃functor⦄.IsEqualTo(⦃⦃leftUnitor⦄.GetCoDomain()⦄)⦄
+													⦃⦃IdentityFunctor⦄.HasInstance(⦃functor⦄)⦄
+												and:
+													⦃⦃⦃functor⦄.GetCategory()⦄.IsEqualTo(⦃category⦄)⦄
+								and:
+									for all ⟦x0⟧,⟦x1⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃(⦃0⦄,⦃1⦄)⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃objects⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+											⦃⦃⦃tensorProduct⦄.GetMorphismImageOf(
+												⦃⦃rightUnitor⦄.GetComponentOf(⦃x0⦄)⦄,
+												⦃⦃category⦄.GetIdentityMorphismOf(⦃x1⦄)⦄
+											)⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(
+												⦃⦃tensorProduct⦄.GetMorphismImageOf(
+													⦃⦃category⦄.GetIdentityMorphismOf(⦃x0⦄)⦄,
+													⦃⦃leftUnitor⦄.GetComponentOf(⦃x1⦄)⦄
+												)⦄,
+												⦃⦃associator⦄.GetComponentOf(⦃x0⦄,⦃tensorUnit⦄,⦃x1⦄)⦄
+											)⦄)⦄
+								and:
+									for all ⟦x0⟧,⟦x1⟧,⟦x2⟧,⟦x3⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃(⦃0⦄,⦃1⦄,⦃2⦄,⦃3⦄)⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃objects⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+											⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+												⦃⦃(
+													⦃(
+														⦃x0⦄,
+														⦃x1⦄,
+														⦃⦃tensorProduct⦄.GetObjectImageOf(⦃x2⦄,⦃x3⦄)⦄
+													)⦄,
+													⦃(
+														⦃⦃tensorProduct⦄.GetObjectImageOf(⦃x0⦄,⦃x1⦄)⦄,
+														⦃x2⦄,
+														⦃x3⦄
+													)⦄
+												)⦄.MapWith(⦃⦃associator⦄.GetComponentOf⦄)⦄,
+												⦃(
+													⦃⦃tensorProduct⦄.GetMorphismImageOf(
+														⦃⦃category⦄.GetIdentityMorphismOf(⦃x0⦄)⦄,
+														⦃⦃associator⦄.GetComponentOf(⦃x1⦄,⦃x2⦄,⦃x3⦄)⦄
+													)⦄,
+													⦃⦃associator⦄.GetComponentOf(
+														⦃x0⦄,
+														⦃⦃tensorProduct⦄.GetObjectImageOf(⦃x1⦄,⦃x2⦄)⦄,
+														⦃x3⦄
+													)⦄,
+													⦃⦃tensorProduct⦄.GetMorphismImageOf(
+														⦃⦃associator⦄.GetComponentOf(⦃x0⦄,⦃x1⦄,⦃x2⦄)⦄,
+														⦃⦃category⦄.GetIdentityMorphismOf(⦃x3⦄)⦄
+													)⦄
+												)⦄
+											)⦄.MapWith(⦃⦃⦃category⦄.GetCompositionOperation()⦄.ApplyOperationToSequence⦄)⦄)⦄
+							and:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃MonoidalCategory⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaMonoidalCategory⦄.GetTensorProduct⦄,⦃method ⦃MetaMonoidalCategory⦄.GetTensorUnit⦄,⦃method ⦃MetaMonoidalCategory⦄.GetAssociator⦄,⦃method ⦃MetaMonoidalCategory⦄.GetLeftUnitor⦄,⦃method ⦃MetaMonoidalCategory⦄.GetRightUnitor⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaMonoidalCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints TensorProduct⦄,
+						⦃unicodeCodePoints TensorUnit⦄,
+						⦃unicodeCodePoints Associator⦄,
+						⦃unicodeCodePoints LeftUnitor⦄,
+						⦃unicodeCodePoints RightUnitor⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃category⦄.GetEquipments()⦄(⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄)⦄
+
+define ⦃method ⦃MetaMonoidalCategory⦄.GetMonoidalCategory⦄
+	for all ⟦category⟧:
+		if:
+				⦃⦃MetaMonoidalCategory⦄.HasInstance(⦃category⦄)⦄
+			and:
+				not:
+					⦃⦃MonoidalCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetMonoidalCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦monoidalCategory⟧:
+						⦃⦃monoidalCategory⦄.IsEqualTo(⦃⦃category⦄.GetMonoidalCategory()⦄)⦄
+					⦃⦃MonoidalCategory⦄.HasInstance(⦃monoidalCategory⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃monoidalCategory⦄,⦃category⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃MonoidalCategory⦄}⦄.GetEquipmentsDomain⦄
+		⦃⦃⦃⦃MonoidalCategory⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃MonoidalCategory⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃Category⦄.GetEquipmentsDomain()⦄.GetUnionWith(⦃{
+			⦃unicodeCodePoints tensorProduct⦄,
+			⦃unicodeCodePoints tensorUnit⦄,
+			⦃unicodeCodePoints associator⦄,
+			⦃unicodeCodePoints leftUnitor⦄,
+			⦃unicodeCodePoints rightUnitor⦄
+		}⦄)⦄)⦄

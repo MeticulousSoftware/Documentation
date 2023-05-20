@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaSkeletalThinCategory⦄,⦃SkeletalThinCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧SkeletalThinCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SkeletalThinCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Skeletal⦄,
+									⦃unicodeCodePoints Thin⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄

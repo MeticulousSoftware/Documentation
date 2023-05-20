@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃0⦄
+	⦃⦃⦃0⦄.MapToClass()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃FiniteOrdinalNotations⦄
+		let:
+			⟦regularExpression⟧:
+					⦃⦃RegularExpression⦄.HasInstance(⦃regularExpression⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃FiniteOrdinalNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+		⦃⦃⦃FiniteOrdinalNotations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+	and:
+		for all ⟦ordinalNotation⟧:
+			if:
+				⦃⦃⦃FiniteOrdinalNotations⦄.GetDomain()⦄.Has(⦃ordinalNotation⦄)⦄
+			then:
+				⦃⦃⟦⟦⦃ordinalNotation⦄⟧⟧⦄.IsEqualTo(⦃⦃FiniteOrdinal⦄.GetFromUnicodeRepresentationInBase(⦃ordinalNotation⦄,⦃10⦄)⦄)⦄
+
+define ⦃method ⦃{⦃FiniteOrdinalNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃FiniteOrdinalNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃FiniteOrdinalNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints [0-9]{1,}⦄)⦄

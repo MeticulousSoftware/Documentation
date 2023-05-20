@@ -1,0 +1,17 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnambiguousContextFreeFormalGrammar⦄
+		⦃⦃Type⦄.HasInstance(⦃UnambiguousContextFreeFormalGrammar⦄)⦄
+	and:
+		for all ⟦grammar⟧:
+				⦃⦃UnambiguousContextFreeFormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+			if and only if:
+					⦃⦃ContextFreeFormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+				and:
+					for all ⟦terminalSymbols⟧:
+						if:
+							⦃⦃⦃grammar⦄.GetLanguage()⦄.Has(⦃terminalSymbols⦄)⦄
+						then:
+							⦃⦃UnambiguousParseTreeNode⦄.HasInstance(⦃⦃⦃grammar⦄.GetParser()⦄.GetParseTreeOf(⦃terminalSymbols⦄)⦄)⦄

@@ -1,0 +1,34 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃IdentifiedMethodOfXNotations⦄
+	let:
+		⟦regularExpression⟧:
+				⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+			and:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃IdentifiedMethodOfXNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+		⦃⦃⦃IdentifiedMethodOfXNotations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+	and:
+		for all ⟦identifiedMethodOfXNotation⟧:
+			if:
+				⦃⦃⦃IdentifiedMethodOfXNotations⦄.GetDomain()⦄.Has(⦃identifiedMethodOfXNotation⦄)⦄
+			then:
+				let:
+					⟦identifiedMethodOfX⟧:
+						⦃⦃identifiedMethodOfX⦄.IsEqualTo(⦃⟦⟦⦃identifiedMethodOfXNotation⦄⟧⟧⦄)⦄
+					⦃⦃Function⦄.HasInstance(⦃identifiedMethodOfX⦄)⦄
+				and:
+					let:
+						⟦captureTree⟧:
+							⦃⦃captureTree⦄.IsEqualTo(⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃identifiedMethodOfXNotation⦄)⦄)⦄
+					⦃⦃identifiedMethodOfX⦄.IsEqualTo(⦃⟦⟦⦃⦃(
+						⦃⦃identifiedMethodOfXNotation⦄.GetSubSequence(⦃⦃⦃captureTree⦄(⦃0⦄)⦄.GetValueRange()⦄)⦄,
+						⦃unicodeCodePoints .⦄,
+						⦃⦃identifiedMethodOfXNotation⦄.GetSubSequence(⦃⦃⦃captureTree⦄(⦃1⦄)⦄.GetValueRange()⦄)⦄
+					)⦄.GetConcatenation()⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃{⦃IdentifiedMethodOfXNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃IdentifiedMethodOfXNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃IdentifiedMethodOfXNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints [#32##9##10#]{}<@x@>[#32##9##10#]{}.<[^]{}>⦄)⦄

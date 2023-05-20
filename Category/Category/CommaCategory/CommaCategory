@@ -1,0 +1,254 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsSourceAndTargetFunctorsOfCategory⟧
+define ⦃IsSourceAndTargetFunctorsOfCategory⦄
+		⦃⦃Function⦄.HasInstance(⦃IsSourceAndTargetFunctorsOfCategory⦄)⦄
+	and:
+		⦃⦃⦃IsSourceAndTargetFunctorsOfCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Category⦄,⦃Functor⦄,⦃Functor⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsSourceAndTargetFunctorsOfCategory⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isSourceAndTargetFunctorsOfCategory⟧:
+						⦃⦃isSourceAndTargetFunctorsOfCategory⦄.IsEqualTo(⦃⦃IsSourceAndTargetFunctorsOfCategory⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isSourceAndTargetFunctorsOfCategory⦄)⦄
+				and:
+						⦃isSourceAndTargetFunctorsOfCategory⦄
+					if and only if:
+						let:
+							⟦category⟧,⟦sourceFunctor⟧,⟦targetFunctor⟧:
+								⦃⦃(⦃category⦄,⦃sourceFunctor⦄,⦃targetFunctor⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							⟦functorCoDomain⟧:
+								⦃⦃functorCoDomain⦄.IsEqualTo(⦃⦃sourceFunctor⦄.GetCoDomain()⦄)⦄
+							⦃⦃⦃targetFunctor⦄.GetCoDomain()⦄.IsEqualTo(⦃functorCoDomain⦄)⦄
+						and:
+							let:
+								⟦sourceFunctorDomain⟧,⟦targetFunctorDomain⟧:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints source⦄,
+												⦃unicodeCodePoints target⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomain⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.GetDomain()⦄)⦄
+								⟦objects⟧:
+									⦃⦃objects⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+								for all ⟦object⟧:
+										⦃⦃objects⦄.Has(⦃object⦄)⦄
+									if and only if:
+										there exists ⟦sourceFunctorDomainObject⟧,⟦targetFunctorDomainObject⟧,⟦functorCoDomainMorphism⟧:
+												⦃⦃object⦄.IsEqualTo(⦃(⦃sourceFunctorDomainObject⦄,⦃targetFunctorDomainObject⦄,⦃functorCoDomainMorphism⦄)⦄)⦄
+											and:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints source⦄,
+															⦃unicodeCodePoints target⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomain⦄.GetObjects()⦄.Has(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomainObject⦄)⦄
+											and:
+												⦃⦃⦃functorCoDomain⦄.GetMorphismsWithDomainAndCoDomain(⦃⦃sourceFunctor⦄.GetObjectImageOf(⦃sourceFunctorDomainObject⦄)⦄,⦃⦃targetFunctor⦄.GetObjectImageOf(⦃targetFunctorDomainObject⦄)⦄)⦄.Has(⦃functorCoDomainMorphism⦄)⦄
+							and:
+								for all ⟦object0⟧,⟦object1⟧:
+									if:
+										for all ⟦index⟧:
+											if:
+												⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+											then:
+												⦃⦃objects⦄.Has(⦃object⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+									then:
+										for all ⟦morphism⟧:
+												⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object0⦄,⦃object1⦄)⦄.Has(⦃morphism⦄)⦄
+											if and only if:
+												there exists ⟦sourceFunctorDomainMorphism⟧,⟦targetFunctorDomainMorphism⟧:
+														⦃⦃morphism⦄.IsEqualTo(⦃(⦃sourceFunctorDomainMorphism⦄,⦃targetFunctorDomainMorphism⦄)⦄)⦄
+													and:
+														let:
+															⟦sourceFunctorDomainObject0⟧,⟦targetFunctorDomainObject0⟧,⟦functorCoDomainMorphism0⟧,
+															⟦sourceFunctorDomainObject1⟧,⟦targetFunctorDomainObject1⟧,⟦functorCoDomainMorphism1⟧:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦typeIdentifier⟧:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																		⦃⦃(⦃sourceFunctorDomainObject⟦⟦⦃typeIdentifier⦄⟧⟧⦄,⦃targetFunctorDomainObject⟦⟦⦃typeIdentifier⦄⟧⟧⦄,⦃functorCoDomainMorphism⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄.IsEqualTo(⦃object⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+															for all ⟦typeIdentifier⟧:
+																if:
+																	⦃⦃{
+																		⦃unicodeCodePoints source⦄,
+																		⦃unicodeCodePoints target⦄
+																	}⦄.Has(⦃typeIdentifier⦄)⦄
+																then:
+																	⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomain⦄.GetMorphismsWithDomainAndCoDomain(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomainObject0⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomainObject1⦄)⦄.Has(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomainMorphism⦄)⦄
+														and:
+															⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+																⦃(
+																	⦃⦃targetFunctor⦄.GetMorphismImageOf(⦃targetFunctorDomainMorphism⦄)⦄,
+																	⦃functorCoDomainMorphism0⦄
+																)⦄,⦃(
+																	⦃functorCoDomainMorphism1⦄,
+																	⦃⦃sourceFunctor⦄.GetMorphismImageOf(⦃sourceFunctorDomainMorphism⦄)⦄
+																)⦄
+															)⦄.MapWith(⦃⦃⦃functorCoDomain⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄)⦄
+							and:
+								for all ⟦morphism0⟧,⟦morphism1⟧:
+									if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃⦃category⦄.GetMorphisms()⦄.Has(⦃morphism⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃category⦄.GetCoDomainOf(⦃morphism0⦄)⦄.IsEqualTo(⦃⦃category⦄.GetDomainOf(⦃morphism1⦄)⦄)⦄
+									then:
+										let:
+											⟦sourceFunctorDomainMorphism0⟧,⟦targetFunctorDomainMorphism0⟧,
+											⟦sourceFunctorDomainMorphism1⟧,⟦targetFunctorDomainMorphism1⟧:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														let:
+															⟦typeIdentifier⟧:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+														⦃⦃(⦃sourceFunctorDomainMorphism⟦⟦⦃typeIdentifier⦄⟧⟧⦄,⦃targetFunctorDomainMorphism⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄.IsEqualTo(⦃morphism⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints source⦄,
+													⦃unicodeCodePoints target⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												let:
+													⟦index⟧:
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints source⦄)⦄
+														then:
+															⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+														else:
+															⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+												⦃⦃⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃morphism0⦄,⦃morphism1⦄)⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomain⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomainMorphism0⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧FunctorDomainMorphism1⦄)⦄)⦄
+
+
+
+define ⦃CommaCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃CommaCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃CommaCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+				there exists ⟦x⟧:
+					⦃⦃IsSourceAndTargetFunctorsOfCategory⦄(⦃⦃(⦃category⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃CommaCategory⦄.GetSourceFunctor⦄,⦃method ⦃CommaCategory⦄.GetTargetFunctor⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃CommaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Source⦄,
+							⦃unicodeCodePoints Target⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsSourceAndTargetFunctorsOfCategory⦄(⦃category⦄,⦃⦃category⦄.GetSourceFunctor()⦄,⦃⦃category⦄.GetTargetFunctor()⦄)⦄
+
+define ⦃method ⦃CommaCategory⦄.GetDomainFunctor⦄,⦃method ⦃CommaCategory⦄.GetCoDomainFunctor⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃CommaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Co⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainFunctor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦functor⟧:
+								⦃⦃functor⦄.IsEqualTo(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainFunctor()⦄)⦄
+							⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+						and:
+							⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃category⦄)⦄
+						and:
+							let:
+								⟦typeIdentifier0⟧:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									then:
+										⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Source⦄)⦄
+									else:
+										⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Target⦄)⦄
+							⦃⦃⦃functor⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Functor()⦄.GetDomain()⦄)⦄
+						and:
+							for all ⟦typeIdentifier0⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Object⦄,
+										⦃unicodeCodePoints Morphism⦄
+									}⦄.Has(⦃typeIdentifier0⦄)⦄
+								then:
+									for all ⟦sequence⟧:
+										if:
+											⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧s()⦄.Has(⦃sequence⦄)⦄
+										then:
+											let:
+												⟦index⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+													then:
+														⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+													else:
+														⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+											⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf(⦃sequence⦄)⦄.IsEqualTo(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+
+define ⦃method ⦃CommaCategory⦄.GetArrowFunctor⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃CommaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetArrowFunctor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦arrowFunctor⟧:
+						⦃⦃arrowFunctor⦄.IsEqualTo(⦃⦃category⦄.GetArrowFunctor()⦄)⦄
+					⦃⦃Functor⦄.HasInstance(⦃arrowFunctor⦄)⦄
+				and:
+					⦃⦃⦃arrowFunctor⦄.GetDomain()⦄.IsEqualTo(⦃category⦄)⦄
+				and:
+					let:
+						⟦sourceFunctor⟧:
+							⦃⦃sourceFunctor⦄.IsEqualTo(⦃⦃category⦄.GetSourceFunctor()⦄)⦄
+						⦃⦃⦃arrowFunctor⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃⦃⦃sourceFunctor⦄.GetCoDomain()⦄.GetArrowCategory()⦄.GetCategory()⦄)⦄
+					and:
+						for all ⟦object⟧:
+							if:
+								⦃⦃⦃category⦄.GetObjects()⦄.Has(⦃object⦄)⦄
+							then:
+								⦃⦃⦃arrowFunctor⦄.GetObjectImageOf(⦃object⦄)⦄.IsEqualTo(⦃⦃object⦄(⦃2⦄)⦄)⦄
+					and:
+						for all ⟦morphism⟧:
+							if:
+								⦃⦃⦃category⦄.GetMorphisms()⦄.Has(⦃morphism⦄)⦄
+							then:
+								let:
+									⟦morphism0⟧,⟦morphism1⟧:
+										⦃⦃(⦃morphism0⦄,⦃morphism1⦄)⦄.IsEqualTo(⦃morphism⦄)⦄
+								⦃⦃⦃arrowFunctor⦄.GetMorphismImageOf(⦃morphism⦄)⦄.IsEqualTo(⦃(
+									⦃⦃sourceFunctor⦄.GetMorphismImageOf(⦃morphism0⦄)⦄,
+									⦃⦃⦃category⦄.GetTargetFunctor()⦄.GetMorphismImageOf(⦃morphism1⦄)⦄
+								)⦄)⦄

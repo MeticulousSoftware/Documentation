@@ -1,0 +1,60 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaEndoInfraNaturalTransformation⦄,⦃MetaEndoNaturalTransformation⦄,
+⦃EndoInfraNaturalTransformation⦄,⦃EndoNaturalTransformation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Infra⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Endo⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄)⦄
+					and:
+						for all ⟦naturalTransformation⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Endo⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+								and:
+									⦃⦃⦃naturalTransformation⦄.GetDomain()⦄.IsEqualTo(⦃⦃naturalTransformation⦄.GetCoDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaEndoInfraNaturalTransformation⦄.GetFunctor⦄
+	for all ⟦naturalTransformation⟧:
+		if:
+			⦃⦃MetaEndoInfraNaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+		then:
+			⦃⦃⦃naturalTransformation⦄.GetFunctor⦄.IsEqualTo(⦃⦃naturalTransformation⦄.GetDomain⦄)⦄
+
+define ⦃method ⦃MetaInfraNaturalTransformation⦄.GetVerticalPower⦄
+	for all ⟦naturalTransformation⟧:
+		if:
+			⦃⦃MetaInfraNaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+		then:
+			if:
+				⦃⦃MetaEndoInfraNaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+			then:
+					⦃⦃⦃⦃naturalTransformation⦄.GetVerticalPower⦄.GetDomain()⦄.IsEqualTo(⦃⦃FiniteOrdinal⦄.MapToClass()⦄)⦄
+				and:
+					for all ⟦ordinal⟧:
+						if:
+							⦃⦃⦃⦃naturalTransformation⦄.GetVerticalPower⦄.GetDomain()⦄.Has(⦃ordinal⦄)⦄
+						then:
+							let:
+								⟦identityNaturalTransformation⟧:
+										⦃⦃MetaIdentityInfraNaturalTransformation⦄.HasInstance(⦃identityNaturalTransformation⦄)⦄
+									and:
+										⦃⦃⦃⦃naturalTransformation⦄.GetVerticalCompositionWith⦄.GetDomain()⦄.Has(⦃identityNaturalTransformation⦄)⦄
+							⦃⦃⦃naturalTransformation⦄.GetVerticalPower(⦃ordinal⦄)⦄.IsEqualTo(⦃⦃⦃naturalTransformation⦄.Repeat(⦃ordinal⦄)⦄.ReduceWith(⦃binaryFunction GetVerticalCompositionWith⦄,⦃identityNaturalTransformation⦄)⦄)⦄
+			else:
+				⦃⦃⦃⦃naturalTransformation⦄.GetVerticalPower⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄

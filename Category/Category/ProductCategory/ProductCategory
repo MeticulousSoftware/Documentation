@@ -1,0 +1,97 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsCategoriesOfCategory⟧
+define ⦃IsCategoriesOfCategory⦄
+		⦃⦃Function⦄.HasInstance(⦃IsCategoriesOfCategory⦄)⦄
+	and:
+		⦃⦃⦃IsCategoriesOfCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Category⦄,⦃⦃TransFiniteSequence⦄.GetTypeInducedBy(⦃MetaCategory⦄)⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsCategoriesOfCategory⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isCategoriesOfCategory⟧:
+						⦃⦃isCategoriesOfCategory⦄.IsEqualTo(⦃⦃IsCategoriesOfCategory⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isCategoriesOfCategory⦄)⦄
+				and:
+						⦃isCategoriesOfCategory⦄
+					if and only if:
+						let:
+							⟦category⟧,⟦categories⟧:
+								⦃⦃(⦃category⦄,⦃categories⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							⟦length⟧:
+								⦃⦃length⦄.IsEqualTo(⦃⦃categories⦄.GetLength()⦄)⦄
+							⟦objects⟧:
+								⦃⦃objects⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+							for all ⟦sequence⟧:
+									⦃⦃objects⦄.Has(⦃sequence⦄)⦄
+								if and only if:
+										⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+									and:
+										⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+									and:
+										for all ⟦index⟧:
+											if:
+												⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+											then:
+												⦃⦃⦃⦃categories⦄(⦃index⦄)⦄.GetObjects()⦄.Has(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+						and:
+							for all ⟦object0⟧,⟦object1⟧:
+								if:
+									for all ⟦index⟧:
+										if:
+											⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+										then:
+											⦃⦃objects⦄.Has(⦃object⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+								then:
+									for all ⟦sequence⟧:
+											⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object0⦄,⦃object1⦄)⦄.Has(⦃sequence⦄)⦄
+										if and only if:
+												⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+											and:
+												⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+											and:
+												for all ⟦index⟧:
+													if:
+														⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃⦃⦃categories⦄(⦃index⦄)⦄.GetMorphismsWithDomainAndCoDomain(⦃⦃⦃(⦃object0⦄,⦃object1⦄)⦄.MapWith(⦃method GetImageOf⦄).Apply(⦃index⦄)⦄)⦄.Has(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+						and:
+							let:
+								⟦compositionFunction⟧:
+									⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+							for all ⟦morphisms⟧:
+								if:
+									⦃⦃⦃compositionFunction⦄.GetDomain()⦄.Has(⦃morphisms⦄)⦄
+								then:
+									let:
+										⟦composition⟧:
+											⦃⦃composition⦄.IsEqualTo(⦃⦃compositionFunction⦄(⦃morphisms⦄)⦄)⦄
+									for all ⟦index⟧:
+										if:
+											⦃⦃⦃composition⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+										then:
+											⦃⦃⦃composition⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃⦃⦃categories⦄(⦃index⦄)⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⦃⦃morphisms⦄.MapWith(⦃method GetImageOf⦄).Apply(⦃index⦄)⦄)⦄)⦄
+
+
+
+define ⦃ProductCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃ProductCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃ProductCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+				there exists ⟦categories⟧:
+					⦃⦃IsCategoriesOfCategory⦄(⦃category⦄,⦃categories⦄)⦄
+
+define ⦃method ⦃ProductCategory⦄.GetCategories⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃ProductCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetCategories⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsCategoriesOfCategory⦄(⦃category⦄,⦃⦃category⦄.GetCategories()⦄)⦄

@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃EndoFunctorCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃EndoFunctorCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃EndoFunctorCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+					⦃⦃FunctorCategory⦄.HasInstance(⦃category⦄)⦄
+				and:
+					⦃⦃⦃category⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃EndoFunctorCategory⦄.GetCategory⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃EndoFunctorCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			⦃⦃⦃category⦄.GetCategory⦄.IsEqualTo(⦃⦃category⦄.GetDomain⦄)⦄

@@ -1,0 +1,75 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsCommaCategoryOfCategory⟧
+define ⦃IsCommaCategoryOfCategory⦄
+		⦃⦃Function⦄.HasInstance(⦃IsCommaCategoryOfCategory⦄)⦄
+	and:
+		⦃⦃⦃IsCommaCategoryOfCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Category⦄,⦃CommaCategory⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsCommaCategoryOfCategory⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isCommaCategoryOfCategory⟧:
+						⦃⦃isCommaCategoryOfCategory⦄.IsEqualTo(⦃⦃IsCommaCategoryOfCategory⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isCommaCategoryOfCategory⦄)⦄
+				and:
+						⦃isCommaCategoryOfCategory⦄
+					if and only if:
+						let:
+							⟦category⟧,⟦commaCategory⟧:
+								⦃⦃(⦃category⦄,⦃commaCategory⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Source⦄,
+										⦃unicodeCodePoints Target⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									⦃⦃IdentityFunctor⦄.HasInstance(⦃⦃commaCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Functor()⦄)⦄
+						and:
+							let:
+								⟦commaCategoryObjectToObjectMap⟧:
+										⦃⦃Function⦄.HasInstance(⦃commaCategoryObjectToObjectMap⦄)⦄
+									and:
+										⦃⦃⦃commaCategoryObjectToObjectMap⦄.GetDomain()⦄.IsEqualTo(⦃⦃commaCategory⦄.GetObjects()⦄)⦄
+									and:
+										for all ⟦object⟧:
+											if:
+												⦃⦃⦃commaCategoryObjectToObjectMap⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+											then:
+												⦃⦃⦃commaCategoryObjectToObjectMap⦄(⦃object⦄)⦄.IsEqualTo(⦃⦃object⦄(⦃2⦄)⦄)⦄
+							⦃⦃category⦄.IsEqualTo(⦃⦃commaCategory⦄.MapToCategoryWith(⦃commaCategoryObjectToObjectMap⦄,⦃⦃⦃commaCategory⦄.GetMorphisms()⦄.GetIdentityFunction()⦄)⦄)⦄
+
+
+
+define ⦃ArrowCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃ArrowCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃ArrowCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+				there exists ⟦commaCategory⟧:
+					⦃⦃IsCommaCategoryOfCategory⦄(⦃category⦄,⦃commaCategory⦄)⦄
+
+define ⦃method ⦃ArrowCategory⦄.GetCommaCategory⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃ArrowCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetCommaCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsCommaCategoryOfCategory⦄(⦃category⦄,⦃⦃category⦄.GetCommaCategory()⦄)⦄
+
+define ⦃method ⦃ArrowCategory⦄.GetCategory⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃ArrowCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃category⦄,
+				⦃⦃⦃category⦄.GetCommaCategory()⦄.GetSourceFunctor()⦄
+			)⦄.MapWith(⦃method GetCategory⦄)⦄)⦄

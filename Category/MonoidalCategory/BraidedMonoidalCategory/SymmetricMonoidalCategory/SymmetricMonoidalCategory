@@ -1,0 +1,31 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaSymmetricMonoidalCategory⦄,⦃SymmetricMonoidalCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧SymmetricMonoidalCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SymmetricMonoidalCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BraidedMonoidalCategory⦄.HasInstance(⦃category⦄)⦄
+						and:
+							for all ⟦x0⟧,⟦x1⟧:
+								if:
+									for all ⟦index⟧:
+										if:
+											⦃⦃(⦃0⦄,⦃1⦄)⦄.Has(⦃index⦄)⦄
+										then:
+											⦃⦃⦃category⦄.GetObjects()⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+								then:
+									⦃⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⦃(
+										⦃(⦃x0⦄,⦃x1⦄)⦄,
+										⦃(⦃x1⦄,⦃x0⦄)⦄
+									)⦄.MapWith(⦃⦃⦃category⦄.GetBraiding()⦄.GetComponentOf⦄)⦄)⦄.IsEqualTo(⦃⦃category⦄.GetIdentityMorphismOf(⦃⦃⦃category⦄.GetTensorProduct()⦄.GetObjectImageOf(⦃x0⦄,⦃x1⦄)⦄)⦄)⦄

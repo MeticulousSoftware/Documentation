@@ -1,0 +1,55 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MathematicalObject⦄
+		⦃⦃Type⦄.HasInstance(⦃MathematicalObject⦄)⦄
+	and:
+		for all ⟦x⟧:
+			⦃⦃MathematicalObject⦄.HasInstance(⦃x⦄)⦄
+
+define ⦃method ⦃MathematicalObject⦄.MapToClass⦄
+	for all ⟦x⟧:
+			⦃⦃⦃⦃x⦄.MapToClass⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+		and:
+			⦃⦃Class⦄.HasInstance(⦃⦃x⦄.MapToClass()⦄)⦄
+
+define ⦃method ⦃MathematicalObject⦄.IsEqualTo⦄
+		let:
+			⟦relation⟧:
+					⦃⦃BinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+				and:
+					⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃⦃binaryFunction ⦃MathematicalObject⦄.IsEqualTo⦄)⦄
+		⦃⦃EquivalenceRelation⦄.HasInstance(⦃relation⦄)⦄
+	and:
+		for all ⟦mutuallyDisjointType⟧:
+			if:
+				⦃⦃MutuallyDisjointType⦄.HasInstance(⦃mutuallyDisjointType⦄)⦄
+			then:
+				for all ⟦x⟧:
+					if:
+						⦃⦃mutuallyDisjointType⦄.HasInstance(⦃x⦄)⦄
+					then:
+						for all ⟦y⟧:
+								⦃⦃x⦄.IsEqualTo(⦃y⦄)⦄
+							if and only if:
+									⦃⦃mutuallyDisjointType⦄.HasInstance(⦃y⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃x⦄,⦃y⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃MathematicalObject⦄.Repeat⦄
+	for all ⟦x⟧:
+			⦃⦃⦃⦃x⦄.Repeat⦄.GetDomain()⦄.IsEqualTo(⦃⦃Ordinal⦄.MapToClass()⦄)⦄
+		and:
+			for all ⟦length⟧:
+				if:
+					⦃⦃⦃⦃x⦄.Repeat⦄.GetDomain()⦄.Has(⦃length⦄)⦄
+				then:
+					let:
+						⟦sequence⟧:
+							⦃⦃sequence⦄.IsEqualTo(⦃⦃x⦄.Repeat(⦃length⦄)⦄)⦄
+						⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+					and:
+						⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃length⦄)⦄
+					and:
+						⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{⦃x⦄}⦄)⦄

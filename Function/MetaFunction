@@ -1,0 +1,176 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaFunction⦄
+		⦃⦃Type⦄.HasInstance(⦃MetaFunction⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetGraph⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetGraph⦄,⦃GetGraph⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦graph⟧:
+												⦃⦃graph⦄.IsEqualTo(⦃⦃GetGraph⦄()⦄)⦄
+											⦃⦃⦃⦃(⦃MathematicalObject⦄,⦃MathematicalObject⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄.IsSuperMultiClassOf(⦃graph⦄)⦄
+										and:
+											for all ⟦x⟧,⟦y⟧,⟦z⟧:
+												if:
+													for all ⟦x0⟧:
+														if:
+															⦃⦃{⦃y⦄,⦃z⦄}⦄.Has(⦃x0⦄)⦄
+														then:
+															⦃⦃graph⦄.Has(⦃(⦃x⦄,⦃x0⦄)⦄)⦄
+												then:
+													⦃⦃y⦄.IsEqualTo(⦃z⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦function⟧:
+									⦃⦃function⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃function⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃buildingMap⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃MetaFunction⦄.MapToClass()⦄)⦄
+
+define ⦃method ⦃MetaFunction⦄.MapToClass⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+		then:
+			⦃⦃⦃function⦄.MapToClass()⦄.IsEqualTo(⦃⦃function⦄.GetGraph()⦄)⦄
+
+define ⦃method ⦃MetaFunction⦄.GetDomain⦄,⦃method ⦃MetaFunction⦄.GetCoDomain⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Co⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦class⟧:
+								⦃⦃class⦄.IsEqualTo(⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+						and:
+							for all ⟦x⟧:
+									⦃⦃class⦄.Has(⦃x⦄)⦄
+								if and only if:
+									there exists ⟦sequence⟧:
+											⦃⦃⦃function⦄.GetGraph()⦄.Has(⦃sequence⦄)⦄
+										and:
+											let:
+												⟦index⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+													then:
+														⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+													else:
+														⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+											⦃⦃⦃sequence⦄(⦃index⦄)⦄.IsEqualTo(⦃x⦄)⦄
+
+define ⦃method ⦃MetaFunction⦄.GetImageOf⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃function⦄.GetImageOf⦄,
+					⦃function⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃function⦄.GetImageOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						⦃⦃⦃function⦄.GetImageOf(⦃x⦄)⦄.IsEqualTo(⦃⦃function⦄(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃MetaFunction⦄.GetInverseImageOf⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+		then:
+				⦃⦃⦃⦃function⦄.GetInverseImageOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃function⦄.GetImageOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦inverseImage⟧:
+								⦃⦃inverseImage⦄.IsEqualTo(⦃⦃function⦄.GetInverseImageOf(⦃x⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃inverseImage⦄)⦄
+						and:
+							for all ⟦y⟧:
+									⦃⦃inverseImage⦄.Has(⦃y⦄)⦄
+								if and only if:
+									⦃⦃⦃function⦄(⦃y⦄)⦄.IsEqualTo(⦃x⦄)⦄
+
+define ⦃method ⦃MetaFunction⦄.GetImageOfTheClass⦄,⦃method ⦃MetaFunction⦄.GetInverseImageOfTheClass⦄
+	for all ⟦function⟧:
+		if:
+			⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Inverse⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOfTheClass⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetDomain()⦄.GetPower()⦄)⦄
+					and:
+						for all ⟦class⟧:
+							if:
+								⦃⦃⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOfTheClass⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+							then:
+								let:
+									⟦image⟧:
+										⦃⦃image⦄.IsEqualTo(⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOfTheClass(⦃class⦄)⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃image⦄)⦄
+								and:
+									for all ⟦x⟧:
+											⦃⦃image⦄.Has(⦃x⦄)⦄
+										if and only if:
+											there exists ⟦y⟧:
+													⦃⦃class⦄.Has(⦃y⦄)⦄
+												and:
+													let:
+														⟦typeIdentifier0⟧:
+															if:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+															then:
+																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints IsEqualTo⦄)⦄
+															else:
+																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Has⦄)⦄
+													⦃⦃⦃function⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf(⦃y⦄)⦄.⟦⟦⦃typeIdentifier0⦄⟧⟧(⦃x⦄)⦄

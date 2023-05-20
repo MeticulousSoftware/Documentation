@@ -1,0 +1,22 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃RealNotations⦄
+		let:
+			⟦regularExpression⟧:
+					⦃⦃RegularExpression⦄.HasInstance(⦃regularExpression⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃RealNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+		⦃⦃⦃RealNotations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+	and:
+		for all ⟦realNotation⟧:
+			if:
+				⦃⦃⦃RealNotations⦄.GetDomain()⦄.Has(⦃realNotation⦄)⦄
+			then:
+				⦃⦃⟦⟦⦃realNotation⦄⟧⟧⦄.IsEqualTo(⦃⦃Real⦄.GetFromUnicodeRepresentationInBase(⦃realNotation⦄,⦃10⦄)⦄)⦄
+
+define ⦃method ⦃{⦃RealNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃RealNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃RealNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints real [0-9]{1,}.[0-9]{1,}⦄)⦄

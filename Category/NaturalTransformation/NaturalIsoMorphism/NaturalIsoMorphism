@@ -1,0 +1,28 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaInfraNaturalIsoMorphism⦄,⦃MetaNaturalIsoMorphism⦄,
+⦃InfraNaturalIsoMorphism⦄,⦃NaturalIsoMorphism⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Infra⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalIsoMorphism⦄)⦄
+					and:
+						for all ⟦naturalTransformation⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalIsoMorphism⦄.HasInstance(⦃naturalTransformation⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+								and:
+									⦃⦃⦃⦃naturalTransformation⦄.GetComponentOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃⦃naturalTransformation⦄.GetFunctorCoDomain()⦄.GetIsoMorphisms()⦄)⦄

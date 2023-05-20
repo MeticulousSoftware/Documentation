@@ -1,0 +1,71 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Notation⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Notation⦄)⦄
+	and:
+		⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃Notation⦄,⦃MetaFunction⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetGraph⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetGraph⦄,⦃GetGraph⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										there exists ⟦notation⟧:
+												⦃⦃Function⦄.HasInstance(⦃notation⦄)⦄
+											and:
+												⦃⦃GetGraph⦄.IsEqualTo(⦃⦃notation⦄.GetGraph⦄)⦄
+											and:
+												⦃⦃⦃notation⦄.GetDomain()⦄.IsSubMultiClassOf(⦃⦃unaryFunction ⦃Variable⦄.GetIdentifier⦄.GetCoDomain()⦄)⦄
+											and:
+												for all ⟦identifier⟧:
+													if:
+														⦃⦃⦃notation⦄.GetDomain()⦄.HasInstance(⦃identifier⦄)⦄
+													then:
+														let:
+															⟦variable⟧:
+																⦃⦃variable⦄.IsEqualTo(⦃⦃notation⦄(⦃identifier⦄)⦄)⦄
+															⦃⦃Variable⦄.HasInstance(⦃variable⦄)⦄
+														and:
+															⦃⦃⦃variable⦄.GetIdentifier()⦄.IsEqualTo(⦃identifier⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦notation⟧:
+									⦃⦃notation⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Notation⦄.HasInstance(⦃notation⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃notation⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Notation⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Notation⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

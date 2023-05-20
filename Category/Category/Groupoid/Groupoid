@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaGroupoid⦄,⦃Groupoid⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Groupoid⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Groupoid⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄
+						and:
+							⦃⦃⦃category⦄.GetMorphisms()⦄.IsEqualTo(⦃⦃category⦄.GetIsoMorphisms()⦄)⦄

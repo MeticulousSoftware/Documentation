@@ -1,0 +1,98 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄
+	let:
+		⟦parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⟧:
+				⦃⦃Function⦄.HasInstance(⦃parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⦄)⦄
+			and:
+				let:
+					⟦regularExpression⟧:
+							⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+					⦃⦃⦃parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+				and:
+					for all ⟦identifier⟧:
+						if:
+							⦃⦃⦃parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⦄.GetDomain()⦄.Has(⦃identifier⦄)⦄
+						then:
+							let:
+								⟦functionOrType⟧,⟦argument⟧:
+									let:
+										⟦captureTree⟧:
+											⦃⦃captureTree⦄.IsEqualTo(⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃identifier⦄)⦄)⦄
+										⦃⦃functionOrType⦄.IsEqualTo(⦃⦃⦃identifier⦄(⦃⦃⦃⦃captureTree⦄(⦃0⦄)⦄.GetValueRange()⦄.GetLowerBound()⦄)⦄.GetValue()⦄)⦄
+									and:
+										let:
+											⟦argumentNode⟧:
+												⦃⦃argumentNode⦄.IsEqualTo(⦃⦃captureTree⦄(⦃1⦄)⦄)⦄
+										if:
+											⦃⦃⦃⦃argumentNode⦄.GetChildNodes()⦄.GetLength()⦄.IsEqualTo(⦃1⦄)⦄
+										then:
+											⦃⦃argument⦄.IsEqualTo(⦃⦃⦃identifier⦄(⦃⦃⦃⦃⦃argumentNode⦄.GetChildNodes()⦄(⦃0⦄)⦄.GetValueRange()⦄.GetLowerBound()⦄)⦄.GetValue()⦄)⦄
+										else:
+											⦃⦃argument⦄.IsEqualTo(⦃(⟦⟦⦃⦃identifier⦄.GetSubSequence(⦃⦃argumentNode⦄.GetValueRange()⦄)⦄⟧⟧)⦄)⦄
+							⦃⦃⦃parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⦄(⦃identifier⦄)⦄.IsEqualTo(⦃(⦃functionOrType⦄,⦃argument⦄)⦄)⦄
+		for all ⟦argumentImageUnderMetaFunctionOrTypeNotation⟧:
+				⦃⦃⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄.GetDomain()⦄.Has(⦃argumentImageUnderMetaFunctionOrTypeNotation⦄)⦄
+			if and only if:
+				let:
+					⟦functionOrType⟧,⟦argument⟧:
+						⦃⦃(⦃functionOrType⦄,⦃argument⦄)⦄.IsEqualTo(⦃⦃parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⦄(⦃argumentImageUnderMetaFunctionOrTypeNotation⦄)⦄)⦄
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃functionOrType⦄)⦄
+						⦃⦃MetaFunction⦄.HasInstance(⦃function⦄)⦄
+					and:
+						there exists ⟦argumentImageUnderMetaFunction⟧:
+							⦃⦃⦃function⦄.GetGraph()⦄.Has(⦃(⦃argument⦄,⦃argumentImageUnderMetaFunction⦄)⦄)⦄
+				or:
+					let:
+						⟦type⟧:
+							⦃⦃type⦄.IsEqualTo(⦃functionOrType⦄)⦄
+						⦃⦃Type⦄.HasInstance(⦃type⦄)⦄
+					and:
+							there exists ⟦mutuallyDisjointType⟧:
+									⦃⦃MutuallyDisjointType⦄.HasInstance(⦃mutuallyDisjointType⦄)⦄
+								and:
+									⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃type⦄,⦃mutuallyDisjointType⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+						and:
+							there exists ⟦x⟧:
+									⦃⦃type⦄.HasInstance(⦃x⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃x⦄,⦃argument⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+	and:
+		for all ⟦argumentImageUnderMetaFunctionOrTypeNotation⟧:
+			if:
+				⦃⦃⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄.GetDomain()⦄.Has(⦃argumentImageUnderMetaFunctionOrTypeNotation⦄)⦄
+			then:
+				let:
+					⟦functionOrType⟧,⟦argument⟧:
+						⦃⦃(⦃functionOrType⦄,⦃argument⦄)⦄.IsEqualTo(⦃⦃parseArgumentImageUnderMetaFunctionOrTypeNotationIdentifier⦄(⦃argumentImageUnderMetaFunctionOrTypeNotation⦄)⦄)⦄
+				if:
+					⦃⦃MetaFunction⦄.HasInstance(⦃functionOrType⦄)⦄
+				then:
+					let:
+						⟦function⟧:
+							⦃⦃function⦄.IsEqualTo(⦃functionOrType⦄)⦄
+						⟦argumentImageUnderMetaFunction⟧:
+							⦃⦃argumentImageUnderMetaFunction⦄.IsEqualTo(⦃⟦⟦⦃argumentImageUnderMetaFunctionOrTypeNotation⦄⟧⟧⦄)⦄
+					⦃⦃⦃function⦄.GetGraph()⦄.Has(⦃(⦃argument⦄,⦃argumentImageUnderMetaFunction⦄)⦄)⦄
+				else:
+					let:
+						⟦type⟧:
+							⦃⦃type⦄.IsEqualTo(⦃functionOrType⦄)⦄
+						⟦argumentImageUnderType⟧:
+							⦃⦃argumentImageUnderType⦄.IsEqualTo(⦃⟦⟦⦃argumentImageUnderMetaFunctionOrTypeNotation⦄⟧⟧⦄)⦄
+						⦃⦃type⦄.HasInstance(⦃argumentImageUnderType⦄)⦄
+					and:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃argumentImageUnderType⦄,⦃argument⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃{⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄}⦄.GetPattern⦄
+	⦃⦃⦃ArgumentImageUnderMetaFunctionOrTypeNotations⦄.GetPattern⦄.IsEqualTo(⦃⦃(
+		⦃unicodeCodePoints [#32##9##10#]{}<@functionOrType@><⦄,
+		⦃⦃FiniteSequenceNotations⦄.GetPattern()⦄,
+		⦃unicodeCodePoints >⦄
+	)⦄.GetConcatenation⦄)⦄

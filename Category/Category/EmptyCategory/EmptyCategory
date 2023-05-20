@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaEmptyCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧EmptyCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧EmptyCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+					⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+				and:
+					⦃⦃⦃category⦄.GetObjects()⦄.IsEqualTo(⦃{}⦄)⦄
+
+
+
+define ⦃EmptyCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints MetaEmpty⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃EmptyCategory⦄)⦄

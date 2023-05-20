@@ -1,0 +1,28 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaEssentiallySurjectiveFunctor⦄,⦃EssentiallySurjectiveFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧EssentiallySurjectiveFunctor⦄)⦄
+			and:
+				for all ⟦functor⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧EssentiallySurjectiveFunctor⦄.HasInstance(⦃functor⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+						and:
+							let:
+								⟦coDomain⟧:
+									⦃⦃coDomain⦄.IsEqualTo(⦃⦃functor⦄.GetCoDomain()⦄)⦄
+							for all ⟦coDomainObject⟧:
+								if:
+									⦃⦃⦃coDomain⦄.GetObjects()⦄.Has(⦃coDomainObject⦄)⦄
+								then:
+									there exists ⟦domainObject⟧:
+										⦃⦃⦃coDomain⦄.GetIsoMorphismClassOf(⦃⦃functor⦄.GetObjectImageOf(⦃domainObject⦄)⦄)⦄.Has(⦃coDomainObject⦄)⦄

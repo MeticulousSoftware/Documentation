@@ -1,0 +1,29 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃SplitExactSequence⦄
+		⦃⦃Type⦄.HasInstance(⦃ExactSequence⦄)⦄
+	and:
+		for all ⟦chain⟧:
+				⦃⦃SplitExactSequence⦄.HasInstance(⦃chain⦄)⦄
+			if and only if:
+					⦃⦃ShortExactSequence⦄.HasInstance(⦃chain⦄)⦄
+				and:
+					let:
+						⟦category⟧:
+							⦃⦃category⦄.IsEqualTo(⦃⦃chain⦄.GetCategory()⦄)⦄
+						⟦index⟧:
+							⦃⦃index⦄.IsEqualTo(⦃⦃chain⦄.GetLowerBound()⦄)⦄
+						⦃⦃⦃category⦄.GetSplitMonoMorphisms()⦄.Has(⦃⦃chain⦄.GetNChainOf(⦃index⦄)⦄)⦄
+					and:
+						⦃⦃⦃category⦄.GetSplitEpiMorphisms()⦄.Has(⦃⦃chain⦄.GetNChainOf(⦃⦃index⦄.Add(⦃integer 1⦄)⦄)⦄)⦄
+
+define ⦃method ⦃SplitExactSequence⦄.GetBiProduct⦄
+	for all ⟦chain⟧:
+		if:
+			⦃⦃SplitExactSequence⦄.HasInstance(⦃chain⦄)⦄
+		then:
+				⦃⦃⦃⦃chain⦄.GetBiProduct⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃chain⦄.GetBiProduct()⦄.IsEqualTo(⦃⦃⦃chain⦄.GetCategory()⦄.GetObjectsBiProductObjectsOf(⦃⦃chain⦄.GetDifferentialOf(⦃⦃⦃chain⦄.GetLowerBound()⦄.Add(⦃integer 1⦄)⦄)⦄)⦄)⦄

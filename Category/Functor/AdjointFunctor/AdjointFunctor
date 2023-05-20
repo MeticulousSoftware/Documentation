@@ -1,0 +1,204 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsLeftAdjointAndRightAdjoint⟧
+define ⦃IsLeftAdjointAndRightAdjoint⦄
+		⦃⦃Function⦄.HasInstance(⦃IsLeftAdjointAndRightAdjoint⦄)⦄
+	and:
+		⦃⦃⦃IsLeftAdjointAndRightAdjoint⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃MetaFunctor⦄,⦃MetaFunctor⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦adjoints⟧:
+			if:
+				⦃⦃⦃IsLeftAdjointAndRightAdjoint⦄.GetDomain()⦄.Has(⦃adjoints⦄)⦄
+			then:
+				let:
+					⟦isLeftAdjointAndRightAdjoint⟧:
+						⦃⦃isLeftAdjointAndRightAdjoint⦄.IsEqualTo(⦃⦃IsLeftAdjointAndRightAdjoint⦄(⦃adjoints⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isLeftAdjointAndRightAdjoint⦄)⦄
+				and:
+						⦃isLeftAdjointAndRightAdjoint⦄
+					if and only if:
+						let:
+							⟦leftAdjoint⟧,⟦rightAdjoint⟧:
+								⦃⦃(⦃leftAdjoint⦄,⦃rightAdjoint⦄)⦄.IsEqualTo(⦃adjoints⦄)⦄
+							⟦domain⟧,⟦coDomain⟧:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints ⦄,
+											⦃unicodeCodePoints Co⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+										⦃⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃leftAdjoint⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄)⦄
+							for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+								if:
+									⦃⦃⦃{
+										⦃unicodeCodePoints ⦄,
+										⦃unicodeCodePoints Co⦄
+									}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+								then:
+									⦃⦃⦃rightAdjoint⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Domain()⦄.IsEqualTo(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier1⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+						and:
+							let:
+								⟦domainObjects⟧,⟦coDomainObjects⟧:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints ⦄,
+												⦃unicodeCodePoints Co⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											let:
+												⟦typeIdentifier0⟧:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+											⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Objects⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetObjects()⦄)⦄
+								for all ⟦domainObject⟧,⟦coDomainObject⟧:
+									if:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Co⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												let:
+													⟦typeIdentifier0⟧:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+												⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Objects⦄.IsEqualTo(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Object⦄)⦄
+									then:
+										there exists ⟦function⟧:
+												⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+											and:
+												⦃⦃⦃function⦄.GetDomain()⦄.IsEqualTo(⦃⦃domain⦄.GetMorphismsWithDomainAndCoDomain(
+													⦃⦃leftAdjoint⦄.GetObjectImageOf(⦃domainObject⦄)⦄,
+													⦃coDomainObject⦄
+												)⦄)⦄
+											and:
+												⦃⦃⦃function⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃coDomain⦄.GetMorphismsWithDomainAndCoDomain(
+													⦃domainObject⦄,
+													⦃⦃rightAdjoint⦄.GetObjectImageOf(⦃coDomainObject⦄)⦄
+												)⦄)⦄
+											and:
+												⦃⦃function⦄.IsBijective()⦄
+							and:
+								for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+									if:
+										⦃⦃⦃{
+											⦃unicodeCodePoints ⦄,
+											⦃unicodeCodePoints Co⦄
+										}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+									then:
+										let:
+											⟦typeIdentifier2⟧,⟦typeIdentifier3⟧:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃typeIdentifier⟦⟦⦃⦃index⦄.Add(⦃2⦄)⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃typeIdentifier⟦⟦⦃index⦄⟧⟧⦄.GetConcatenationWith(⦃unicodeCodePoints Domain⦄)⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+										for all ⟦object⟧:
+											if:
+												⦃⦃⟦⟦⦃typeIdentifier2⦄⟧⟧Objects⦄.Has(⦃object⦄)⦄
+											then:
+												there exists ⟦naturalTransformation⟧:
+														⦃⦃NaturalIsoMorphism⦄.HasInstance(⦃naturalTransformation⦄)⦄
+													and:
+														let:
+															⟦index⟧:
+																if:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																then:
+																	⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																else:
+																	⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+															⟦typeIdentifier4⟧,⟦typeIdentifier5⟧:
+																let:
+																	⟦typeIdentifiers⟧:
+																		⦃⦃typeIdentifiers⦄.IsEqualTo(⦃(⦃typeIdentifier4⦄,⦃typeIdentifier5⦄)⦄)⦄
+																if:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																then:
+																	⦃⦃typeIdentifiers⦄.IsEqualTo(⦃(⦃unicodeCodePoints right⦄,⦃unicodeCodePoints left⦄)⦄)⦄
+																else:
+																	⦃⦃typeIdentifiers⦄.IsEqualTo(⦃(⦃unicodeCodePoints left⦄,⦃unicodeCodePoints right⦄)⦄)⦄
+															⦃⦃⦃naturalTransformation⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃⦃⟦⟦⦃typeIdentifier2⦄⟧⟧⦄.GetHomFunctor()⦄.GetFunctorGeneratedBy(⦃⦃Function⦄(⦃{
+																⦃(⦃index⦄,⦃object⦄)⦄
+															}⦄)⦄)⦄.GetCompositionWith(⦃⟦⟦⦃typeIdentifier4⦄⟧⟧Adjoint⦄)⦄)⦄
+														and:
+															⦃⦃⦃naturalTransformation⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃⦃⟦⟦⦃typeIdentifier3⦄⟧⟧⦄.GetHomFunctor()⦄.GetFunctorGeneratedBy(⦃⦃Function⦄(⦃{
+																⦃(⦃index⦄,⦃⦃⟦⟦⦃typeIdentifier5⦄⟧⟧Adjoint⦄.GetObjectImageOf(⦃object⦄)⦄)⦄
+															}⦄)⦄)⦄)⦄
+
+
+
+define ⦃MetaLeftAdjointFunctor⦄,⦃MetaRightAdjointFunctor⦄,
+⦃LeftAdjointFunctor⦄,⦃RightAdjointFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AdjointFunctor⦄)⦄
+					and:
+						for all ⟦functor⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AdjointFunctor⦄.HasInstance(⦃functor⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+								and:
+									there exists ⟦adjoint⟧:
+											⦃⦃Functor⦄.HasInstance(⦃adjoint⦄)⦄
+										and:
+											let:
+												⟦functors⟧:
+													if:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+													then:
+														⦃⦃functors⦄.IsEqualTo(⦃(⦃functor⦄,⦃adjoint⦄)⦄)⦄
+													else:
+														⦃⦃functors⦄.IsEqualTo(⦃(⦃adjoint⦄,⦃functor⦄)⦄)⦄
+											⦃⦃IsLeftAdjointAndRightAdjoint⦄(⦃functors⦄)⦄
+
+
+
+define ⦃method ⦃MetaLeftAdjointFunctor⦄.GetRightAdjoints⦄,⦃method ⦃MetaRightAdjointFunctor⦄.GetLeftAdjoints⦄
+	for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+		if:
+			⦃⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+		then:
+			for all ⟦functor⟧:
+				if:
+					⦃⦃Meta⟦⟦⦃typeIdentifier0⦄⟧⟧AdjointFunctor⦄.HasInstance(⦃functor⦄)⦄
+				then:
+						⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Adjoints⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦adjoints⟧:
+								⦃⦃adjoints⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Adjoints()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃adjoints⦄)⦄
+						and:
+							for all ⟦adjoint⟧:
+									⦃⦃adjoints⦄.Has(⦃adjoint⦄)⦄
+								if and only if:
+										⦃⦃Functor⦄.HasInstance(⦃adjoint⦄)⦄
+									and:
+										let:
+											⟦functors⟧:
+												if:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+												then:
+													⦃⦃functors⦄.IsEqualTo(⦃(⦃functor⦄,⦃adjoint⦄)⦄)⦄
+												else:
+													⦃⦃functors⦄.IsEqualTo(⦃(⦃adjoint⦄,⦃functor⦄)⦄)⦄
+										⦃⦃IsLeftAdjointAndRightAdjoint⦄(⦃functors⦄)⦄

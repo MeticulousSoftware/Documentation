@@ -1,0 +1,32 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaInclusionFunctor⦄,⦃InclusionFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧InclusionFunctor⦄)⦄
+			and:
+				for all ⟦functor⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InclusionFunctor⦄.HasInstance(⦃functor⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+						and:
+							⦃⦃⦃⦃functor⦄.GetCoDomain()⦄.GetSubCategories()⦄.Has(⦃⦃functor⦄.GetDomain()⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Object⦄,
+										⦃unicodeCodePoints Morphism⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									let:
+										⟦getImageOf⟧:
+											⦃⦃getImageOf⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄)⦄
+									⦃⦃getImageOf⦄.IsEqualTo(⦃⦃⦃getImageOf⦄.GetDomain()⦄.GetIdentityFunction()⦄)⦄

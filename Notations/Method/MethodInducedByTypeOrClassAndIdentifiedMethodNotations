@@ -1,0 +1,116 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄
+	let:
+		⟦parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⟧:
+				⦃⦃Function⦄.HasInstance(⦃parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⦄)⦄
+			and:
+				let:
+					⟦regularExpression⟧:
+							⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+					⦃⦃⦃parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+				and:
+					for all ⟦identifier⟧:
+						if:
+							⦃⦃⦃parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⦄.GetDomain()⦄.Has(⦃identifier⦄)⦄
+						then:
+							let:
+								⟦typeOrClass⟧,⟦methodIdentifier⟧:
+									let:
+										⟦captureTree⟧:
+											⦃⦃captureTree⦄.IsEqualTo(⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃identifier⦄)⦄)⦄
+										⦃⦃typeOrClass⦄.IsEqualTo(⦃⦃⦃identifier⦄(⦃⦃⦃⦃captureTree⦄(⦃0⦄)⦄.GetValueRange()⦄.GetLowerBound()⦄)⦄.GetValue()⦄)⦄
+									and:
+										⦃⦃methodIdentifier⦄.IsEqualTo(⦃⦃identifier⦄.GetSubSequence(⦃⦃⦃captureTree⦄(⦃1⦄)⦄.GetValueRange()⦄)⦄)⦄
+							⦃⦃⦃parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⦄(⦃identifier⦄)⦄.IsEqualTo(⦃(⦃typeOrClass⦄,⦃methodIdentifier⦄)⦄)⦄
+		for all ⟦methodInducedByTypeOrClassAndIdentifiedMethodNotation⟧:
+				⦃⦃⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetDomain()⦄.Has(⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄)⦄
+			if and only if:
+				let:
+					⟦typeOrClass⟧,⟦methodIdentifier⟧:
+						⦃⦃(⦃typeOrClass⦄,⦃methodIdentifier⦄)⦄.IsEqualTo(⦃⦃parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⦄(⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄)⦄)⦄
+				there exists ⟦type⟧:
+					if:
+						⦃⦃{⦃Type⦄,⦃Class⦄}⦄.Has(⦃type⦄)⦄
+					then:
+						⦃⦃type⦄.HasInstance(⦃typeOrClass⦄)⦄
+	and:
+		for all ⟦methodInducedByTypeOrClassAndIdentifiedMethodNotation⟧:
+			if:
+				⦃⦃⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetDomain()⦄.Has(⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄)⦄
+			then:
+				let:
+					⟦typeOrClass⟧,⟦methodIdentifier⟧:
+						⦃⦃(⦃typeOrClass⦄,⦃methodIdentifier⦄)⦄.IsEqualTo(⦃⦃parseMethodInducedByTypeOrClassAndIdentifiedMethodNotationIdentifier⦄(⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄)⦄)⦄
+					⟦method⟧:
+						⦃⦃method⦄.IsEqualTo(⦃⟦⟦⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄⟧⟧⦄)⦄
+					⦃⦃Method⦄.HasInstance(⦃method⦄)⦄
+				and:
+					let:
+						⟦domain⟧:
+							⦃⦃domain⦄.IsEqualTo(⦃⦃method⦄.GetDomain()⦄)⦄
+					if:
+						⦃⦃Type⦄.HasInstance(⦃typeOrClass⦄)⦄
+					then:
+						let:
+							⟦type⟧:
+								⦃⦃type⦄.IsEqualTo(⦃typeOrClass⦄)⦄
+						⦃⦃domain⦄.IsEqualTo(⦃⦃type⦄.MapToClass()⦄)⦄
+					else:
+						let:
+							⟦class⟧:
+								⦃⦃class⦄.IsEqualTo(⦃typeOrClass⦄)⦄
+						⦃⦃domain⦄.IsEqualTo(⦃class⦄)⦄
+				and:
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃method⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						then:
+							⦃⦃⦃x⦄.⦃method⦄⦄.IsEqualTo(⦃⦃x⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃{⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints method [#32##9##10#]{}<@typeOrClass@>[#32##9##10#]{}.<[^]{}>⦄)⦄
+
+
+
+define ⦃UnaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄,⦃BinaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Un⦄,
+				⦃unicodeCodePoints Bin⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦functionInducedByTypeOrClassAndIdentifiedMethodNotation⟧:
+						let:
+							⟦methodInducedByTypeOrClassAndIdentifiedMethodNotation⟧:
+								let:
+									⟦regularExpression⟧:
+											⦃⦃RegularExpression⦄.HasInstance(⦃regularExpression⦄)⦄
+										and:
+											⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+								⦃⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄.IsEqualTo(⦃⦃unicodeCodePoints method ⦄.GetConcatenationWith(⦃⦃functionInducedByTypeOrClassAndIdentifiedMethodNotation⦄.GetSubSequence(⦃⦃⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃functionInducedByTypeOrClassAndIdentifiedMethodNotation⦄)⦄(⦃0⦄)⦄.GetValueRange()⦄)⦄)⦄)⦄
+							⦃⦃⦃MethodInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetDomain()⦄.Has(⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄)⦄
+						and:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃functionInducedByTypeOrClassAndIdentifiedMethodNotation⦄,⦃⦃⟦⟦⦃methodInducedByTypeOrClassAndIdentifiedMethodNotation⦄⟧⟧⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧aryFunction()⦄)⦄)⦄
+
+define ⦃method ⦃{⦃UnaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄}⦄.GetPattern⦄,⦃method ⦃{⦃BinaryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄}⦄.GetPattern⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Un⦄,
+				⦃unicodeCodePoints Bin⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByTypeOrClassAndIdentifiedMethodNotations⦄.GetPattern()⦄.IsEqualTo(⦃⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄.GetConcatenationWith(⦃unicodeCodePoints aryFunction [#32##9##10#]{}<@typeOrClass@[#32##9##10#]{}.[^]{}>⦄)⦄)⦄

@@ -1,0 +1,108 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsDomainAndCoDomainOfCategory⟧
+define ⦃IsDomainAndCoDomainOfCategory⦄
+		⦃⦃Function⦄.HasInstance(⦃IsDomainAndCoDomainOfCategory⦄)⦄
+	and:
+		⦃⦃⦃IsDomainAndCoDomainOfCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Category⦄,⦃MetaCategory⦄,⦃MetaCategory⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsDomainAndCoDomainOfCategory⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isDomainAndCoDomainOfCategory⟧:
+						⦃⦃isDomainAndCoDomainOfCategory⦄.IsEqualTo(⦃⦃IsDomainAndCoDomainOfCategory⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isDomainAndCoDomainOfCategory⦄)⦄
+				and:
+						⦃isDomainAndCoDomainOfCategory⦄
+					if and only if:
+						let:
+							⟦category⟧,⟦domain⟧,⟦coDomain⟧:
+								⦃⦃(⦃category⦄,⦃domain⦄,⦃coDomain⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							⟦functors⟧:
+								⦃⦃functors⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+							for all ⟦functor⟧:
+									⦃⦃functors⦄.Has(⦃functor⦄)⦄
+								if and only if:
+										⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Co⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+						and:
+							for all ⟦functor0⟧,⟦functor1⟧:
+								if:
+									for all ⟦index⟧:
+										if:
+											⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+										then:
+											let:
+												⟦typeIdentifier⟧:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+											⦃⦃functors⦄.Has(⦃functor⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+								then:
+									for all ⟦naturalTransformation⟧:
+											⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃functor0⦄,⦃functor1⦄)⦄.Has(⦃naturalTransformation⦄)⦄
+										if and only if:
+												⦃⦃NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+											and:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints ⦄,
+															⦃unicodeCodePoints Co⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														let:
+															⟦index⟧:
+																if:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																then:
+																	⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																else:
+																	⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+														⦃⦃⦃naturalTransformation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃functor⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+						and:
+							let:
+								⟦compositionFunction⟧:
+									⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+							for all ⟦naturalTransformations⟧:
+								if:
+									⦃⦃⦃compositionFunction⦄.GetDomain()⦄.Has(⦃naturalTransformations⦄)⦄
+								then:
+									⦃⦃⦃compositionFunction⦄(⦃naturalTransformations⦄)⦄.IsEqualTo(⦃⦃naturalTransformations⦄.GetVerticalComposition()⦄)⦄
+
+
+
+define ⦃FunctorCategory⦄
+		⦃⦃Type⦄.HasInstance(⦃FunctorCategory⦄)⦄
+	and:
+		for all ⟦category⟧:
+				⦃⦃FunctorCategory⦄.HasInstance(⦃category⦄)⦄
+			if and only if:
+				there exists ⟦x⟧:
+					⦃⦃IsDomainAndCoDomainOfCategory⦄(⦃⦃(⦃category⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃FunctorCategory⦄.GetDomain⦄,⦃method ⦃FunctorCategory⦄.GetCoDomain⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃FunctorCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints Co⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsDomainAndCoDomainOfCategory⦄(⦃category⦄,⦃⦃category⦄.GetDomain()⦄,⦃⦃category⦄.GetCoDomain()⦄)⦄

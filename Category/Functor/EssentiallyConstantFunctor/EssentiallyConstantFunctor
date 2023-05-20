@@ -1,0 +1,21 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaEssentiallyConstantFunctor⦄,⦃EssentiallyConstantFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧EssentiallyConstantFunctor⦄)⦄
+			and:
+				for all ⟦functor⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧EssentiallyConstantFunctor⦄.HasInstance(⦃functor⦄)⦄
+					if and only if:
+						there exists ⟦functor0⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ConstantFunctor⦄.HasInstance(⦃functor0⦄)⦄
+							and:
+								⦃⦃functor⦄.IsIsoMorphicTo(⦃functor0⦄)⦄

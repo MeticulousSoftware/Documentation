@@ -1,0 +1,66 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnambiguousLexerAndParserCombination⦄
+		⦃⦃Type⦄.HasInstance(⦃UnambiguousLexerAndParserCombination⦄)⦄
+	and:
+		for all ⟦lexerAndParserCombination⟧:
+				⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+			if and only if:
+					⦃⦃LexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+				and:
+					⦃⦃UnambiguousParser⦄.HasInstance(⦃⦃lexerAndParserCombination⦄.GetParser()⦄)⦄
+
+define ⦃method ⦃UnambiguousLexerAndParserCombination⦄.GetTokenValueOfPseudoTerminalNode⦄
+	for all ⟦lexerAndParserCombination⟧:
+		if:
+			⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+		then:
+			let:
+				⟦lexer⟧:
+					⦃⦃lexer⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetLexer()⦄)⦄
+				for all ⟦x⟧:
+						⦃⦃⦃⦃lexerAndParserCombination⦄.GetTokenValueOfPseudoTerminalNode⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦sequence⟧,⟦node⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃sequence⦄,⦃node⦄)⦄)⦄
+							and:
+								⦃⦃⦃⦃lexerAndParserCombination⦄.GetParseTreeOf(⦃sequence⦄)⦄.GetAllChildNodes()⦄.Has(⦃node⦄)⦄
+							and:
+								there exists ⟦terminalNode⟧:
+									⦃⦃⦃⦃node⦄.GetAllChildNodes()⦄.FilterWith(⦃⦃TerminalParseTreeNode⦄.HasInstance⦄)⦄.IsEqualTo(⦃{⦃terminalNode⦄}⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃lexerAndParserCombination⦄.GetTokenValueOfPseudoTerminalNode⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦sequence⟧,⟦node⟧:
+								⦃⦃(⦃sequence⦄,⦃node⦄)⦄.IsEqualTo(⦃x⦄)⦄
+						⦃⦃⦃lexerAndParserCombination⦄.GetTokenValueOfPseudoTerminalNode(⦃node⦄)⦄.IsEqualTo(⦃⦃⦃⦃lexer⦄.Lex(⦃sequence⦄)⦄(⦃⦃⦃node⦄.GetValueRange()⦄.GetLowerBound()⦄)⦄.GetValue()⦄)⦄
+
+define ⦃method ⦃UnambiguousLexerAndParserCombination⦄.GetTokenValuesOfNode⦄
+	for all ⟦lexerAndParserCombination⟧:
+		if:
+			⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+		then:
+			let:
+				⟦lexer⟧:
+					⦃⦃lexer⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetLexer()⦄)⦄
+				for all ⟦x⟧:
+						⦃⦃⦃⦃lexerAndParserCombination⦄.GetTokenValuesOfNode⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦sequence⟧,⟦node⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃sequence⦄,⦃node⦄)⦄)⦄
+							and:
+								⦃⦃⦃⦃lexerAndParserCombination⦄.GetParseTreeOf(⦃sequence⦄)⦄.GetAllChildNodes()⦄.Has(⦃node⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃lexerAndParserCombination⦄.GetTokenValuesOfNode⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦sequence⟧,⟦node⟧:
+								⦃⦃(⦃sequence⦄,⦃node⦄)⦄.IsEqualTo(⦃x⦄)⦄
+						⦃⦃⦃lexerAndParserCombination⦄.GetTokenValuesOfNode(⦃node⦄)⦄.IsEqualTo(⦃⦃⦃⦃lexer⦄.Lex(⦃sequence⦄)⦄.GetSubSequence(⦃⦃node⦄.GetValueRange()⦄)⦄.MapWith(⦃unaryFunction GetValue⦄)⦄)⦄

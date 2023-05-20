@@ -1,0 +1,43 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaConstantFunctor⦄,⦃ConstantFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧ConstantFunctor⦄)⦄
+			and:
+				for all ⟦functor⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ConstantFunctor⦄.HasInstance(⦃functor⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Object⦄,
+										⦃unicodeCodePoints Morphism⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									there exists ⟦x⟧:
+										⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{⦃x⦄}⦄)⦄
+
+
+
+define ⦃method ⦃MetaConstantFunctor⦄.GetObject⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaConstantFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃functor⦄.GetObject⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦object⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃object⦄)⦄)⦄
+						and:
+							⦃⦃{⦃object⦄}⦄.IsEqualTo(⦃⦃⦃functor⦄.GetObjectImageOf⦄.GetCoDomain()⦄)⦄

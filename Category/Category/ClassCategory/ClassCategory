@@ -1,0 +1,47 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ClassCategory⦄
+		⦃⦃Category⦄.HasInstance(⦃ClassCategory⦄)⦄
+	and:
+		let:
+			⟦classes⟧:
+				⦃⦃classes⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+			⦃⦃classes⦄.IsEqualTo(⦃⦃Class⦄.MapToClass()⦄)⦄
+		and:
+			for all ⟦class0⟧,⟦class1⟧:
+				if:
+					for all ⟦index⟧:
+						if:
+							⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+						then:
+							⦃⦃classes⦄.Has(⦃class⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+				then:
+					for all ⟦operation⟧:
+							⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃class0⦄,⦃class1⦄)⦄.Has(⦃operation⦄)⦄
+						if and only if:
+								⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+							and:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										let:
+											⟦typeIdentifier⟧:
+												if:
+													⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+												then:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+												else:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Co⦄)⦄
+										⦃⦃⦃operation⦄.GetShared⟦⟦⦃typeIdentifier⦄⟧⟧DomainSignatureClass()⦄.IsEqualTo(⦃class⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+		and:
+			let:
+				⟦compositionFunction⟧:
+					⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+			for all ⟦operations⟧:
+				if:
+					⦃⦃⦃compositionFunction⦄.GetDomain()⦄.Has(⦃operations⦄)⦄
+				then:
+					⦃⦃⦃compositionFunction⦄(⦃operations⦄)⦄.IsEqualTo(⦃⦃operations⦄.GetComposition()⦄)⦄

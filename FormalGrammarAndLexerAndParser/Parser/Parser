@@ -1,0 +1,129 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Parser⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Parser⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetParseTreeOf⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetParseTreeOf⦄,⦃GetParseTreeOf⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										for all ⟦symbols⟧:
+											if:
+												⦃⦃⦃GetParseTreeOf⦄.GetDomain()⦄.Has(⦃symbols⦄)⦄
+											then:
+													⦃⦃FiniteSequence⦄.HasInstance(⦃symbols⦄)⦄
+												and:
+													let:
+														⟦parseTree⟧:
+															⦃⦃parseTree⦄.IsEqualTo(⦃⦃GetParseTreeOf⦄(⦃symbols⦄)⦄)⦄
+														⦃⦃ParseTreeNode⦄.HasInstance(⦃parseTree⦄)⦄
+													and:
+														⦃⦃⦃parseTree⦄.GetValueRange()⦄.IsEqualTo(⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃⦃symbols⦄.GetLength()⦄)⦄)⦄
+													and:
+														for all ⟦node⟧:
+																⦃⦃⦃⦃parseTree⦄.GetAllChildNodes()⦄.FilterWith(⦃⦃TerminalParseTreeNode⦄.HasInstance⦄)⦄.Has(⦃node⦄)⦄
+															if and only if:
+																	⦃⦃TerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+																and:
+																	there exists ⟦index⟧:
+																			⦃⦃⦃parseTree⦄.GetSymbol()⦄.IsEqualTo(⦃⦃symbols⦄(⦃index⦄)⦄)⦄
+																		and:
+																			⦃⦃⦃parseTree⦄.GetValueRange()⦄.IsEqualTo(⦃⦃FiniteOrdinalRange⦄(⦃index⦄,⦃⦃index⦄.Add(⦃1⦄)⦄)⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦parser⟧:
+									⦃⦃parser⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃parser⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃Parser⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Parser⦄.MapToClass⦄
+	for all ⟦parser⟧:
+		if:
+			⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃parser⦄,
+				⦃⦃parser⦄.GetParseTreeOf⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃Parser⦄.GetLanguage⦄
+	for all ⟦parser⟧:
+		if:
+			⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+		then:
+			⦃⦃⦃parser⦄.GetLanguage⦄.IsEqualTo(⦃⦃⦃parser⦄.GetParseTreeOf⦄.GetDomain⦄)⦄
+
+define ⦃method ⦃Parser⦄.GetNonTerminalSymbols⦄,⦃method ⦃Parser⦄.GetTerminalSymbols⦄
+	for all ⟦parser⟧:
+		if:
+			⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Non⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃parser⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧TerminalSymbols⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦symbols⟧:
+								⦃⦃symbols⦄.IsEqualTo(⦃⦃parser⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧TerminalSymbols()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃symbols⦄)⦄
+						and:
+							for all ⟦symbol⟧:
+									⦃⦃symbols⦄.Has(⦃symbol⦄)⦄
+								if and only if:
+									there exists ⟦terminalSymbols⟧,⟦node⟧:
+											⦃⦃⦃⦃parser⦄.GetParseTreeOf(⦃terminalSymbols⦄)⦄.GetAllChildNodes()⦄.Has(⦃node⦄)⦄
+										and:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧TerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+										and:
+											⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+
+define ⦃method ⦃Parser⦄.GetSymbols⦄
+	for all ⟦parser⟧:
+		if:
+			⦃⦃Parser⦄.HasInstance(⦃parser⦄)⦄
+		then:
+				⦃⦃⦃⦃parser⦄.GetSymbols⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃parser⦄.GetSymbols()⦄.IsEqualTo(⦃⦃⦃parser⦄.GetNonTerminalSymbols()⦄.GetUnionWith(⦃⦃parser⦄.GetTerminalSymbols()⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Parser⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

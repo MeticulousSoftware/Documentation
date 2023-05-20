@@ -1,0 +1,63 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaNormalCategory⦄,⦃NormalCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧NormalCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧NormalCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CategoryWithZeroMorphisms⦄.HasInstance(⦃category⦄)⦄
+						and:
+							⦃⦃⦃category⦄.GetMonoMorphisms()⦄.IsEqualTo(⦃⦃category⦄.GetNormalMonoMorphisms()⦄)⦄
+
+
+
+define ⦃MetaCoNormalCategory⦄,⦃CoNormalCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧CoNormalCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CoNormalCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄
+						and:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧NormalCategory⦄.HasInstance(⦃⦃category⦄.GetOpposite()⦄)⦄
+
+
+
+define ⦃MetaBiNormalCategory⦄,⦃BiNormalCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiNormalCategory⦄)⦄
+			and:
+				for all ⟦category⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiNormalCategory⦄.HasInstance(⦃category⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ⦄,
+									⦃unicodeCodePoints Co⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NormalCategory⦄.HasInstance(⦃category⦄)⦄

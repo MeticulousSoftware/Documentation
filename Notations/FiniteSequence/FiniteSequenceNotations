@@ -1,0 +1,38 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FiniteSequenceNotations⦄,⦃FiniteSequenceSequenceNotations⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Sequence⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				let:
+					⟦regularExpression⟧:
+							⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+						and:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃FiniteSequence⟦⟦⦃sequenceNotation⦄⟧⟧Notations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+				⦃⦃⦃FiniteSequence⟦⟦⦃sequenceNotation⦄⟧⟧Notations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+			and:
+				for all ⟦sequenceNotation⟧:
+					if:
+						⦃⦃⦃FiniteSequence⟦⟦⦃sequenceNotation⦄⟧⟧Notations⦄.GetDomain()⦄.Has(⦃sequenceNotation⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃sequenceNotation⦄⟧⟧⦄.IsEqualTo(⦃⦃sequenceNotation⦄.FilterWith(⦃⦃Variable⦄.HasInstance⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃FiniteSequenceNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃FiniteSequenceNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃FiniteSequenceNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints [#32##9##10#]{}#92#([#32##9##10#]{}(|(<@x@>[#32##9##10#]{},[#32##9##10#]{}){}<@x@>)[#32##9##10#]{}#92#)[#32##9##10#]{}⦄)⦄
+
+
+
+define ⦃method ⦃{⦃FiniteSequenceSequenceNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃FiniteSequenceSequenceNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃FiniteSequenceSequenceNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints ([#32##9##10#]{}<@x@>[#32##9##10#]{}){}⦄)⦄

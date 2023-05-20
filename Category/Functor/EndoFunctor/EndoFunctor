@@ -1,0 +1,52 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaEndoFunctor⦄,⦃EndoFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧EndoFunctor⦄)⦄
+			and:
+				for all ⟦functor⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧EndoFunctor⦄.HasInstance(⦃functor⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+						and:
+							⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃⦃functor⦄.GetCoDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaEndoFunctor⦄.GetCategory⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaEndoFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			⦃⦃⦃functor⦄.GetCategory⦄.IsEqualTo(⦃⦃functor⦄.GetDomain⦄)⦄
+
+define ⦃method ⦃MetaFunctor⦄.GetPower⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			if:
+				⦃⦃MetaEndoFunctor⦄.HasInstance(⦃functor⦄)⦄
+			then:
+					⦃⦃⦃⦃functor⦄.GetPower⦄.GetDomain()⦄.IsEqualTo(⦃⦃FiniteOrdinal⦄.MapToClass()⦄)⦄
+				and:
+					for all ⟦ordinal⟧:
+						if:
+							⦃⦃⦃⦃functor⦄.GetPower⦄.GetDomain()⦄.Has(⦃ordinal⦄)⦄
+						then:
+							let:
+								⟦identityFunctor⟧:
+										⦃⦃MetaIdentityFunctor⦄.HasInstance(⦃identityFunctor⦄)⦄
+									and:
+										⦃⦃⦃⦃functor⦄.GetCompositionWith⦄.GetDomain()⦄.Has(⦃identityFunctor⦄)⦄
+							⦃⦃⦃functor⦄.GetPower(⦃ordinal⦄)⦄.IsEqualTo(⦃⦃⦃functor⦄.Repeat(⦃ordinal⦄)⦄.ReduceWith(⦃binaryFunction GetCompositionWith⦄,⦃identityFunctor⦄)⦄)⦄
+			else:
+				⦃⦃⦃⦃functor⦄.GetPower⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄

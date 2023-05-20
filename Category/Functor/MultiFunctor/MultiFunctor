@@ -1,0 +1,146 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MultiFunctor⦄
+		⦃⦃Type⦄.HasInstance(⦃MultiFunctor⦄)⦄
+	and:
+		for all ⟦functor⟧:
+				⦃⦃MultiFunctor⦄.HasInstance(⦃functor⦄)⦄
+			if and only if:
+					⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+				and:
+					⦃⦃ProductCategory⦄.HasInstance(⦃⦃functor⦄.GetDomain()⦄)⦄
+
+define ⦃method ⦃MultiFunctor⦄.GetFunctorGeneratedBy⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MultiFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			let:
+				⟦categories⟧:
+					⦃⦃categories⦄.IsEqualTo(⦃⦃⦃functor⦄.GetDomain()⦄.GetCategories()⦄)⦄
+				for all ⟦map⟧:
+						⦃⦃⦃⦃functor⦄.GetFunctorGeneratedBy⦄.GetDomain()⦄.Has(⦃map⦄)⦄
+					if and only if:
+							⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+						and:
+							for all ⟦x⟧:
+								if:
+									⦃⦃⦃map⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+								then:
+									there exists ⟦index⟧,⟦object⟧:
+											⦃⦃x⦄.IsEqualTo(⦃(⦃index⦄,⦃object⦄)⦄)⦄
+										and:
+											⦃⦃⦃⦃categories⦄(⦃index⦄)⦄.GetObjects()⦄.Has(⦃object⦄)⦄
+			and:
+				for all ⟦map⟧:
+					if:
+						⦃⦃⦃⦃functor⦄.GetFunctorGeneratedBy⦄.GetDomain()⦄.Has(⦃map⦄)⦄
+					then:
+						let:
+							⟦generatedFunctor⟧:
+								⦃⦃generatedFunctor⦄.IsEqualTo(⦃⦃functor⦄.GetFunctorGeneratedBy(⦃map⦄)⦄)⦄
+							⦃⦃MultiFunctor⦄.HasInstance(⦃generatedFunctor⦄)⦄
+						and:
+							let:
+								⟦test⟧:
+										⦃⦃Function⦄.HasInstance(⦃test⦄)⦄
+									and:
+										⦃⦃⦃test⦄.GetDomain()⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+									and:
+										for all ⟦indexAndElement⟧:
+											if:
+												⦃⦃⦃test⦄.GetDomain()⦄.Has(⦃indexAndElement⦄)⦄
+											then:
+													⦃⦃Boolean⦄.HasInstance(⦃⦃test⦄(⦃indexAndElement⦄)⦄)⦄
+												and:
+														⦃⦃test⦄(⦃indexAndElement⦄)⦄
+													if and only if:
+														not:
+															⦃⦃⦃map⦄.GetDomain()⦄.Has(⦃⦃indexAndElement⦄(⦃0⦄)⦄)⦄
+								let:
+									⟦domain⟧:
+										⦃⦃domain⦄.IsEqualTo(⦃⦃generatedFunctor⦄.GetDomain()⦄)⦄
+									⦃⦃ProductCategory⦄.HasInstance(⦃domain⦄)⦄
+								and:
+									⦃⦃⦃domain⦄.GetCategories()⦄.IsEqualTo(⦃⦃⦃⦃⦃categories⦄.GetIndexAndElements()⦄.FilterWith(⦃test⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃1⦄)⦄)⦄
+							and:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃generatedFunctor⦄,⦃functor⦄)⦄.MapWith(⦃unaryFunction GetCoDomain⦄)⦄)⦄
+							and:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints Object⦄,
+											⦃unicodeCodePoints Morphism⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+										for all ⟦x⟧:
+												⦃⦃⦃⦃generatedFunctor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+											if and only if:
+												there exists ⟦sequence⟧,⟦y⟧:
+														⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetGraph()⦄.Has(⦃(⦃sequence⦄,⦃y⦄)⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃⦃map⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																let:
+																	⟦x⟧:
+																		let:
+																			⟦object⟧:
+																				⦃⦃object⦄.IsEqualTo(⦃⦃map⦄(⦃index⦄)⦄)⦄
+																		if:
+																			⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Object⦄)⦄
+																		then:
+																			⦃⦃x⦄.IsEqualTo(⦃object⦄)⦄
+																		else:
+																			⦃⦃x⦄.IsEqualTo(⦃⦃⦃categories⦄(⦃index⦄)⦄.GetIdentityMorphismOf(⦃object⦄)⦄)⦄
+																⦃⦃⦃sequence⦄(⦃index⦄)⦄.IsEqualTo(⦃x⦄)⦄
+													and:
+														⦃⦃x⦄.IsEqualTo(⦃(
+															⦃⦃⦃⦃⦃sequence⦄.GetIndexAndElements()⦄.FilterWith(⦃test⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃1⦄)⦄,
+															⦃y⦄
+														)⦄)⦄
+
+define ⦃method ⦃MultiFunctor⦄.GetSimplifiedFunctor⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MultiFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+			let:
+				⟦categories⟧:
+					⦃⦃categories⦄.IsEqualTo(⦃⦃⦃functor⦄.GetDomain()⦄.GetCategories()⦄)⦄
+			if:
+				⦃⦃⦃categories⦄.GetLength()⦄.IsEqualTo(⦃1⦄)⦄
+			then:
+					⦃⦃⦃⦃functor⦄.GetSimplifiedFunctor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦simpleFunctor⟧:
+							⦃⦃simpleFunctor⦄.IsEqualTo(⦃⦃functor⦄.GetSimplifiedFunctor()⦄)⦄
+						⦃⦃Functor⦄.HasInstance(⦃simpleFunctor⦄)⦄
+					and:
+						⦃⦃⦃simpleFunctor⦄.GetDomain()⦄.IsEqualTo(⦃⦃categories⦄(⦃0⦄)⦄)⦄
+					and:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃simpleFunctor⦄,⦃functor⦄)⦄.MapWith(⦃unaryFunction GetCoDomain⦄)⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Object⦄,
+									⦃unicodeCodePoints Morphism⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								for all ⟦x⟧:
+										⦃⦃⦃⦃simpleFunctor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+									if and only if:
+										there exists ⟦sequence⟧,⟦y⟧:
+												⦃⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧ImageOf⦄.GetGraph()⦄.Has(⦃(⦃sequence⦄,⦃y⦄)⦄)⦄
+											and:
+												⦃⦃x⦄.IsEqualTo(⦃(
+													⦃⦃sequence⦄(⦃0⦄)⦄,
+													⦃y⦄
+												)⦄)⦄
+			else:
+				⦃⦃⦃⦃functor⦄.GetSimplifiedFunctor⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄

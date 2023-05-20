@@ -1,0 +1,270 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ParseTreeNode⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃ParseTreeNode⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetSymbol⟧,
+									⟦GetSequencesOfChildNodes⟧,
+									⟦GetValueRange⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetSymbol⦄,⦃GetSymbol⦄)⦄,
+											⦃(⦃unicodeCodePoints GetSequencesOfChildNodes⦄,⦃GetSequencesOfChildNodes⦄)⦄,
+											⦃(⦃unicodeCodePoints GetValueRange⦄,⦃GetValueRange⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦sequencesOfChildNodes⟧:
+												⦃⦃sequencesOfChildNodes⦄.IsEqualTo(⦃⦃GetSequencesOfChildNodes⦄()⦄)⦄
+											let:
+												⟦range⟧:
+													⦃⦃range⦄.IsEqualTo(⦃⦃GetValueRange⦄()⦄)⦄
+													⦃⦃Class⦄.HasInstance(⦃sequencesOfChildNodes⦄)⦄
+												and:
+													for all ⟦childNodes⟧:
+														if:
+															⦃⦃sequencesOfChildNodes⦄.Has(⦃childNodes⦄)⦄
+														then:
+																⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃ParseTreeNode⦄)⦄.Has(⦃childNodes⦄)⦄
+															and:
+																⦃⦃⦃range⦄.GetPartitions()⦄.Has(⦃⦃childNodes⦄.MapWith(⦃unaryFunction GetValueRange⦄)⦄)⦄
+											and:
+												⦃⦃FiniteOrdinalRange⦄.HasInstance(⦃range⦄)⦄
+										and:
+											let:
+												⟦nodes⟧:
+													let:
+														⟦nodesClasses⟧:
+																⦃⦃Class⦄.HasInstance(⦃nodesClasses⦄)⦄
+															and:
+																for all ⟦nodes⟧:
+																		⦃⦃nodesClasses⦄.Has(⦃nodes⦄)⦄
+																	if and only if:
+																			⦃⦃Class⦄.HasInstance(⦃nodes⦄)⦄
+																		and:
+																			for all ⟦node⟧:
+																					⦃⦃nodes⦄.Has(⦃node⦄)⦄
+																				if and only if:
+																					there exists ⟦sequencesOfChildNodes0⟧,⟦childNodes⟧:
+																								⦃⦃sequencesOfChildNodes0⦄.IsEqualTo(⦃sequencesOfChildNodes⦄)⦄
+																							or:
+																								there exists ⟦node⟧:
+																										⦃⦃nodes⦄.Has(⦃node⦄)⦄
+																									and:
+																										⦃⦃sequencesOfChildNodes0⦄.IsEqualTo(⦃⦃node⦄.GetSequencesOfChildNodes()⦄)⦄
+																						and:
+																								⦃⦃sequencesOfChildNodes0⦄.Has(⦃childNodes⦄)⦄
+																							and:
+																								⦃⦃⦃childNodes⦄.GetCoDomain()⦄.Has(⦃node⦄)⦄
+													⦃⦃nodes⦄.IsEqualTo(⦃⦃nodesClasses⦄.GetIntersection()⦄)⦄
+												for all ⟦node⟧:
+													if:
+															⦃⦃nodes⦄.Has(⦃node⦄)⦄
+														and:
+															⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃⦃GetSymbol⦄()⦄)⦄
+													then:
+														⦃⦃NonTerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+											and:
+												for all ⟦node0⟧,⟦node1⟧:
+													if:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃nodes⦄.Has(⦃node⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+														and:
+															⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃node0⦄,⦃node1⦄)⦄.MapWith(⦃unaryFunction GetSymbol⦄)⦄)⦄
+													then:
+															⦃⦃NonTerminalParseTreeNode⦄.HasInstance(⦃node0⦄)⦄
+														if and only if:
+															⦃⦃NonTerminalParseTreeNode⦄.HasInstance(⦃node1⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦node⟧:
+									⦃⦃node⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃node⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃ParseTreeNode⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃ParseTreeNode⦄.MapToClass⦄
+	for all ⟦node⟧:
+		if:
+			⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃node⦄,
+				⦃(⦃⦃node⦄.GetSymbol()⦄,⦃⦃node⦄.GetSequencesOfChildNodes()⦄,⦃⦃node⦄.GetValueRange()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃ParseTreeNode⦄.GetAllChildNodes⦄
+	for all ⟦node⟧:
+		if:
+			⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+		then:
+				⦃⦃⦃⦃node⦄.GetAllChildNodes⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦nodesClasses⟧:
+							⦃⦃Class⦄.HasInstance(⦃nodesClasses⦄)⦄
+						and:
+							for all ⟦nodes⟧:
+									⦃⦃nodesClasses⦄.Has(⦃nodes⦄)⦄
+								if and only if:
+										⦃⦃Class⦄.HasInstance(⦃nodes⦄)⦄
+									and:
+										for all ⟦node0⟧:
+												⦃⦃nodes⦄.Has(⦃node0⦄)⦄
+											if and only if:
+													⦃⦃node0⦄.IsEqualTo(⦃node⦄)⦄
+												or:
+													there exists ⟦node⟧:
+															⦃⦃nodes⦄.Has(⦃node⦄)⦄
+														and:
+															there exists ⟦childNodes⟧:
+																	⦃⦃⦃node⦄.GetSequencesOfChildNodes()⦄.Has(⦃childNodes⦄)⦄
+																and:
+																	⦃⦃⦃childNodes⦄.GetCoDomain()⦄.Has(⦃node0⦄)⦄
+				⦃⦃⦃node⦄.GetAllChildNodes()⦄.IsEqualTo(⦃⦃nodesClasses⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃ParseTreeNode⦄.GetAllProperChildNodes⦄
+	for all ⟦node⟧:
+		if:
+			⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+		then:
+				⦃⦃⦃⦃node⦄.GetAllProperChildNodes⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃node⦄.GetAllProperChildNodes()⦄.IsEqualTo(⦃⦃⦃node⦄.GetAllChildNodes()⦄.GetDifferenceWith(⦃{⦃node⦄}⦄)⦄)⦄
+
+define ⦃method ⦃ParseTreeNode⦄.ExpandSymbols⦄
+	for all ⟦node⟧:
+		if:
+			⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+		then:
+				for all ⟦keptSymbols⟧:
+						⦃⦃⦃⦃ParseTreeNode⦄.ExpandSymbols⦄.GetDomain()⦄.Has(⦃keptSymbols⦄)⦄
+					if and only if:
+							⦃⦃keptSymbols⦄.Has(⦃⦃node⦄.GetSymbol()⦄)⦄
+						and:
+							⦃⦃⦃⦃⦃node⦄.GetAllChildNodes()⦄.FilterWith(⦃⦃TerminalParseTreeNode⦄.HasInstance⦄)⦄.MapToClassWith(⦃unaryFunction GetSymbol⦄)⦄.IsSubMultiClassOf(⦃keptSymbols⦄)⦄
+			and:
+				for all ⟦keptSymbols⟧:
+					if:
+						⦃⦃⦃⦃node⦄.ExpandSymbols⦄.GetDomain()⦄.Has(⦃keptSymbols⦄)⦄
+					then:
+						let:
+							⟦expand⟧:
+									⦃⦃Function⦄.HasInstance(⦃expand⦄)⦄
+								and:
+									⦃⦃⦃expand⦄.GetDomain()⦄.IsEqualTo(⦃⦃ParseTreeNode⦄.MapToClass()⦄)⦄
+								and:
+									for all ⟦node⟧:
+										if:
+											⦃⦃⦃expand⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+										then:
+											let:
+												⟦sequencesOfChildNodes⟧:
+														⦃⦃Class⦄.HasInstance(⦃sequencesOfChildNodes⦄)⦄
+													and:
+														for all ⟦childNodes⟧:
+																⦃⦃sequencesOfChildNodes⦄.Has(⦃childNodes⦄)⦄
+															if and only if:
+																there exists ⟦childNodes0⟧:
+																		⦃⦃⦃node⦄.GetSequencesOfChildNodes()⦄.Has(⦃childNodes0⦄)⦄
+																	and:
+																		there exists ⟦map⟧:
+																				⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+																			and:
+																				⦃⦃⦃map⦄.GetDomain()⦄.IsEqualTo(⦃⦃ParseTreeNode⦄.MapToClass()⦄)⦄
+																			and:
+																				for all ⟦node⟧:
+																					if:
+																						⦃⦃⦃map⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																					then:
+																						⦃⦃⦃expand⦄(⦃node⦄)⦄.Has(⦃⦃map⦄(⦃node⦄)⦄)⦄
+																			and:
+																				⦃⦃childNodes⦄.IsEqualTo(⦃⦃⦃childNodes0⦄.MapWith(⦃map⦄)⦄.GetConcatenation()⦄)⦄
+												⟦expanded⟧:
+													⦃⦃expanded⦄.IsEqualTo(⦃⦃expand⦄(⦃node⦄)⦄)⦄
+											if:
+												⦃⦃keptSymbols⦄.Has(⦃⦃node⦄.GetSymbol()⦄)⦄
+											then:
+												let:
+													⟦expandedNode⟧:
+															⦃⦃ParseTreeNode⦄.HasInstance(⦃expandedNode⦄)⦄
+														and:
+															for all ⟦typeIdentifier⟧:
+																if:
+																	⦃⦃{
+																		⦃unicodeCodePoints Symbol⦄,
+																		⦃unicodeCodePoints ValueRange⦄
+																	}⦄.Has(⦃typeIdentifier⦄)⦄
+																then:
+																	⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃expandedNode⦄,⦃node⦄)⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+														and:
+															⦃⦃⦃expandedNode⦄.GetSequencesOfChildNodes()⦄.IsEqualTo(⦃sequencesOfChildNodes⦄)⦄
+												⦃⦃expanded⦄.IsEqualTo(⦃{⦃(⦃expandedNode⦄)⦄}⦄)⦄
+											else:
+												⦃⦃expanded⦄.IsEqualTo(⦃sequencesOfChildNodes⦄)⦄
+						⦃⦃{
+							⦃(
+								⦃⦃node⦄.ExpandSymbols(⦃keptSymbols⦄)⦄
+							)⦄
+						}⦄.IsEqualTo(⦃⦃expand⦄(⦃node⦄)⦄)⦄
+
+
+
+define ⦃NonTerminalParseTreeNode⦄,⦃TerminalParseTreeNode⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Non⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧TerminalParseTreeNode⦄)⦄
+			and:
+				for all ⟦node⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧TerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+					if and only if:
+							⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+						and:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Non⦄)⦄
+							if and only if:
+								not:
+									⦃⦃⦃node⦄.GetSequencesOfChildNodes()⦄.IsEqualTo(⦃{}⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃ParseTreeNode⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

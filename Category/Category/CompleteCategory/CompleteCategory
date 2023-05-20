@@ -1,0 +1,84 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaCompleteCategory⦄,⦃MetaCoCompleteCategory⦄,
+⦃MetaFinitelyCompleteCategory⦄,⦃MetaFinitelyCoCompleteCategory⦄,
+⦃CompleteCategory⦄,⦃CoCompleteCategory⦄,
+⦃FinitelyCompleteCategory⦄,⦃FinitelyCoCompleteCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Finitely⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Co⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧CompleteCategory⦄)⦄
+							and:
+								for all ⟦category⟧:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧CompleteCategory⦄.HasInstance(⦃category⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄
+										and:
+											for all ⟦diagram⟧:
+												if:
+														⦃⦃⦃category⦄.GetDiagrams()⦄.Has(⦃diagram⦄)⦄
+													and:
+														let:
+															⟦typeIdentifier1⟧:
+																if:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																then:
+																	⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Small⦄)⦄
+																else:
+																	⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Finite⦄)⦄
+														⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧Category⦄.HasInstance(⦃⦃diagram⦄.GetDomain()⦄)⦄
+												then:
+													not:
+														⦃⦃⦃diagram⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Limits()⦄.IsEqualTo(⦃{}⦄)⦄
+
+
+
+define ⦃MetaBiCompleteCategory⦄,⦃MetaFinitelyBiCompleteCategory⦄,
+⦃BiCompleteCategory⦄,⦃FinitelyBiCompleteCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Finitely⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧BiCompleteCategory⦄)⦄
+					and:
+						for all ⟦category⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧BiCompleteCategory⦄.HasInstance(⦃category⦄)⦄
+							if and only if:
+								for all ⟦typeIdentifier1⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints ⦄,
+											⦃unicodeCodePoints Co⦄
+										}⦄.Has(⦃typeIdentifier1⦄)⦄
+									then:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧CompleteCategory⦄.HasInstance(⦃category⦄)⦄

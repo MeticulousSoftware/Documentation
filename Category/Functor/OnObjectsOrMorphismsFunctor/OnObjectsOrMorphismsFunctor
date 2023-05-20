@@ -1,0 +1,52 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaInjectiveOnObjectsFunctor⦄,⦃MetaSurjectiveOnObjectsFunctor⦄,⦃MetaBijectiveOnObjectsFunctor⦄,
+⦃MetaInjectiveOnMorphismsFunctor⦄,⦃MetaSurjectiveOnMorphismsFunctor⦄,⦃MetaBijectiveOnMorphismsFunctor⦄,
+⦃InjectiveOnObjectsFunctor⦄,⦃SurjectiveOnObjectsFunctor⦄,⦃BijectiveOnObjectsFunctor⦄,
+⦃InjectiveOnMorphismsFunctor⦄,⦃SurjectiveOnMorphismsFunctor⦄,⦃BijectiveOnMorphismsFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Object⦄,
+						⦃unicodeCodePoints Morphism⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints In⦄,
+								⦃unicodeCodePoints Sur⦄,
+								⦃unicodeCodePoints Bi⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧jectiveOn⟦⟦⦃typeIdentifier0⦄⟧⟧sFunctor⦄)⦄
+							and:
+								for all ⟦functor⟧:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧jectiveOn⟦⟦⦃typeIdentifier0⦄⟧⟧sFunctor⦄.HasInstance(⦃functor⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+										and:
+											let:
+												⟦operation⟧:
+														⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+													and:
+														for all ⟦typeIdentifier1⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints ⦄,
+																	⦃unicodeCodePoints Co⦄
+																}⦄.Has(⦃typeIdentifier1⦄)⦄
+															then:
+																⦃⦃⦃operation⦄.GetShared⟦⟦⦃typeIdentifier1⦄⟧⟧DomainSignatureClass()⦄.IsEqualTo(⦃⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Domain()⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧s()⦄)⦄
+													and:
+														⦃⦃⦃operation⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃⦃functor⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ImageOf⦄)⦄
+											⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧jectiveOperation⦄.HasInstance(⦃operation⦄)⦄

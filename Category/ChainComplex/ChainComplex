@@ -1,0 +1,156 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ChainComplex⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃ChainComplex⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetCategory⟧,
+									⟦GetDifferentialOf⟧,
+									⟦GetNChainOf⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetCategory⦄,⦃GetCategory⦄)⦄,
+											⦃(⦃unicodeCodePoints GetDifferentialOf⦄,⦃GetDifferentialOf⦄)⦄,
+											⦃(⦃unicodeCodePoints GetNChainOf⦄,⦃GetNChainOf⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃⦃GetCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+									and:
+										let:
+											⟦category⟧:
+												⦃⦃category⦄.IsEqualTo(⦃⦃GetCategory⦄()⦄)⦄
+											⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+										and:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Differential⦄,
+														⦃unicodeCodePoints NChain⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⦃Get⟦⟦⦃typeIdentifier⦄⟧⟧Of⦄.GetDomain()⦄.IsEqualTo(⦃⦃Integer⦄.MapToClass()⦄)⦄
+										and:
+											⦃⦃⦃GetDifferentialOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃category⦄.GetObjects()⦄)⦄
+										and:
+											for all ⟦index⟧:
+												if:
+													⦃⦃⦃GetNChainOf⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+												then:
+													let:
+														⟦indexes⟧:
+															⦃⦃indexes⦄.IsEqualTo(⦃(⦃⦃index⦄.Subtract(⦃integer 1⦄)⦄,⦃index⦄)⦄)⦄
+														⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃⦃indexes⦄.MapWith(⦃GetDifferentialOf⦄)⦄)⦄.Has(⦃⦃GetNChainOf⦄(⦃index⦄)⦄)⦄
+													and:
+														⦃⦃⦃category⦄.GetZeroMorphisms()⦄.Has(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⦃⦃indexes⦄.GetReverse()⦄.MapWith(⦃GetNChainOf⦄)⦄)⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦chain⟧:
+									⦃⦃chain⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃ChainComplex⦄.HasInstance(⦃chain⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃chain⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃ChainComplex⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃ChainComplex⦄.MapToClass⦄
+	for all ⟦chain⟧:
+		if:
+			⦃⦃ChainComplex⦄.HasInstance(⦃chain⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃chain⦄,
+				⦃(⦃⦃chain⦄.GetCategory()⦄,⦃⦃chain⦄.GetDifferentialOf⦄,⦃⦃chain⦄.GetNChainOf⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃ChainComplex⦄.GetDifferentials⦄,⦃method ⦃ChainComplex⦄.GetNChains⦄
+	for all ⟦chain⟧:
+		if:
+			⦃⦃ChainComplex⦄.HasInstance(⦃chain⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Differentials⦄,
+						⦃unicodeCodePoints NChains⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃chain⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃⦃chain⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Of⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+
+define ⦃method ⦃ChainComplex⦄.GetNCyclesOf⦄,⦃method ⦃ChainComplex⦄.GetNBoundariesOf⦄
+	for all ⟦chain⟧:
+		if:
+			⦃⦃ChainComplex⦄.HasInstance(⦃chain⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Cycles⦄,
+						⦃unicodeCodePoints Boundaries⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃chain⦄.GetN⟦⟦⦃typeIdentifier⦄⟧⟧Of⦄.GetDomain()⦄.IsEqualTo(⦃⦃Integer⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦index⟧:
+							if:
+								⦃⦃⦃⦃chain⦄.GetN⟦⟦⦃typeIdentifier⦄⟧⟧Of⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+							then:
+								let:
+									⟦typeIdentifier0⟧:
+										if:
+											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Cycles⦄)⦄
+										then:
+											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Kernel⦄)⦄
+										else:
+											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Image⦄)⦄
+								⦃⦃⦃chain⦄.GetN⟦⟦⦃typeIdentifier⦄⟧⟧Of(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃chain⦄.GetCategory()⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧ObjectsOf(⦃⦃chain⦄.GetNChainOf(⦃index⦄)⦄)⦄)⦄
+
+define ⦃method ⦃ChainComplex⦄.IsEmpty⦄
+	for all ⟦chain⟧:
+		if:
+			⦃⦃ChainComplex⦄.HasInstance(⦃chain⦄)⦄
+		then:
+				⦃⦃⦃chain⦄.IsEmpty⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦isEmpty⟧:
+						⦃⦃isEmpty⦄.IsEqualTo(⦃⦃chain⦄.IsEmpty()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isEmpty⦄)⦄
+				and:
+						⦃isEmpty⦄
+					if and only if:
+						for all ⟦index⟧:
+							if:
+								⦃⦃⦃⦃chain⦄.GetDifferentialOf⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+							then:
+								⦃⦃⦃⦃chain⦄.GetCategory()⦄.GetCoTerminalObjects()⦄.Has(⦃⦃chain⦄.GetDifferentialOf(⦃index⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃ChainComplex⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

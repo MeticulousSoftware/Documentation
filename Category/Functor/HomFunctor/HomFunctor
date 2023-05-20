@@ -1,0 +1,76 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsCategoryOfFunctor⟧
+define ⦃IsCategoryOfFunctor⦄
+		⦃⦃Function⦄.HasInstance(⦃IsCategoryOfFunctor⦄)⦄
+	and:
+		⦃⦃⦃IsCategoryOfFunctor⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃MultiFunctor⦄,⦃Category⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsCategoryOfFunctor⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isCategoryOfFunctor⟧:
+						⦃⦃isCategoryOfFunctor⦄.IsEqualTo(⦃⦃IsCategoryOfFunctor⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isCategoryOfFunctor⦄)⦄
+				and:
+						⦃isCategoryOfFunctor⦄
+					if and only if:
+						let:
+							⟦functor⟧,⟦category⟧:
+								⦃⦃(⦃functor⦄,⦃category⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							⟦productCategory⟧:
+									⦃⦃ProductCategory⦄.HasInstance(⦃productCategory⦄)⦄
+								and:
+									⦃⦃⦃productCategory⦄.GetCategories()⦄.IsEqualTo(⦃(
+										⦃⦃category⦄.GetOpposite()⦄,
+										⦃category⦄
+									)⦄)⦄
+							⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃productCategory⦄)⦄
+						and:
+							⦃⦃⦃functor⦄.GetCoDomain()⦄.IsEqualTo(⦃ClassCategory⦄)⦄
+						and:
+							for all ⟦objects⟧:
+								if:
+									⦃⦃⦃⦃functor⦄.GetObjectImageOf⦄.GetDomain()⦄.Has(⦃objects⦄)⦄
+								then:
+									⦃⦃⦃functor⦄.GetObjectImageOf(⦃objects⦄)⦄.IsEqualTo(⦃⦃category⦄.GetMorphismsWithCategoryDomainAndCoDomain(⦃objects⦄)⦄)⦄
+						and:
+							for all ⟦morphisms⟧:
+								if:
+									⦃⦃⦃⦃functor⦄.GetMorphismImageOf⦄.GetDomain()⦄.Has(⦃morphisms⦄)⦄
+								then:
+									let:
+										⟦operation⟧:
+											⦃⦃operation⦄.IsEqualTo(⦃⦃functor⦄.GetMorphismImageOf(⦃morphisms⦄)⦄)⦄
+									for all ⟦morphism⟧:
+										if:
+											⦃⦃⦃operation⦄.GetSharedDomainSignatureClass()⦄.Has(⦃morphism⦄)⦄
+										then:
+											let:
+												⟦morphism0⟧,⟦morphism1⟧:
+													⦃⦃(⦃morphism0⦄,⦃morphism1⦄)⦄.IsEqualTo(⦃morphisms⦄)⦄
+											⦃⦃⦃⦃operation⦄.GetSimplifiedFunction()⦄(⦃morphism⦄)⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation()⦄.ApplyOperationToSequence(⦃morphism0⦄,⦃morphism⦄,⦃morphism1⦄)⦄)⦄
+
+
+
+define ⦃HomFunctor⦄
+		⦃⦃Type⦄.HasInstance(⦃HomFunctor⦄)⦄
+	and:
+		for all ⟦functor⟧:
+				⦃⦃HomFunctor⦄.HasInstance(⦃functor⦄)⦄
+			if and only if:
+				there exists ⟦category⟧:
+					⦃⦃IsCategoryOfFunctor⦄(⦃functor⦄,⦃category⦄)⦄
+
+define ⦃method ⦃HomFunctor⦄.GetCategory⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃HomFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsCategoryOfFunctor⦄(⦃functor⦄,⦃⦃functor⦄.GetCategory()⦄)⦄

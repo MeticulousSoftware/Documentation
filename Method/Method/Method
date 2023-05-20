@@ -1,0 +1,70 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Method⦄
+		⦃⦃Type⦄.HasInstance(⦃Method⦄)⦄
+	and:
+		for all ⟦method⟧:
+				⦃⦃Method⦄.HasInstance(⦃method⦄)⦄
+			if and only if:
+					⦃⦃Function⦄.HasInstance(⦃method⦄)⦄
+				and:
+					⦃⦃⦃method⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃Function⦄.MapToClass()⦄)⦄
+
+define ⦃method ⦃Method⦄.MapToUnaryFunction⦄
+	for all ⟦method⟧:
+		if:
+			⦃⦃Method⦄.HasInstance(⦃method⦄)⦄
+		then:
+			if:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃method⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						⦃⦃⦃⦃x⦄.⦃method⦄⦄.GetDomain()⦄.Has(⦃()⦄)⦄
+			then:
+					⦃⦃⦃⦃method⦄.MapToUnaryFunction⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦unaryFunction⟧:
+							⦃⦃unaryFunction⦄.IsEqualTo(⦃⦃method⦄.MapToUnaryFunction()⦄)⦄
+						⦃⦃Function⦄.HasInstance(⦃unaryFunction⦄)⦄
+					and:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃unaryFunction⦄,⦃method⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+					and:
+						for all ⟦x⟧:
+							if:
+								⦃⦃⦃unaryFunction⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							then:
+								⦃⦃⦃unaryFunction⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃x⦄.⦃method⦄()⦄)⦄
+			else:
+				⦃⦃⦃⦃method⦄.MapToUnaryFunction⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃Method⦄.MapToBinaryFunction⦄
+	for all ⟦method⟧:
+		if:
+			⦃⦃Method⦄.HasInstance(⦃method⦄)⦄
+		then:
+				⦃⦃⦃⦃method⦄.MapToBinaryFunction⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦binaryFunction⟧:
+						⦃⦃binaryFunction⦄.IsEqualTo(⦃⦃method⦄.MapToBinaryFunction()⦄)⦄
+					⦃⦃Function⦄.HasInstance(⦃binaryFunction⦄)⦄
+				and:
+					for all ⟦x⟧:
+							⦃⦃⦃binaryFunction⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+						if and only if:
+							there exists ⟦y⟧,⟦z⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃y⦄,⦃z⦄)⦄,⦃⦃y⦄.⦃method⦄(⦃z⦄)⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Method⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

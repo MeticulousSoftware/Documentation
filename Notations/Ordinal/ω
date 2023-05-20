@@ -1,0 +1,8 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ω⦄
+		⦃⦃Ordinal⦄.HasInstance(⦃ω⦄)⦄
+	and:
+		⦃⦃ω⦄.IsEqualTo(⦃⦃Ordinal⦄(⦃⦃⦃FiniteOrdinal⦄.MapToClass()⦄.GetSize()⦄)⦄)⦄

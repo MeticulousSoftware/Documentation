@@ -1,0 +1,35 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃DiagonalFunctor⦄
+		⦃⦃Type⦄.HasInstance(⦃DiagonalFunctor⦄)⦄
+	and:
+		for all ⟦functor⟧:
+				⦃⦃DiagonalFunctor⦄.HasInstance(⦃functor⦄)⦄
+			if and only if:
+					⦃⦃Functor⦄.HasInstance(⦃functor⦄)⦄
+				and:
+					there exists ⟦functorCategory⟧:
+							⦃⦃FunctorCategory⦄.HasInstance(⦃functorCategory⦄)⦄
+						and:
+							⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃⦃functorCategory⦄.GetCoDomain()⦄)⦄
+						and:
+							⦃⦃⦃functor⦄.GetCoDomain()⦄.IsEqualTo(⦃functorCategory⦄)⦄
+						and:
+							for all ⟦object⟧:
+								if:
+									⦃⦃⦃⦃functor⦄.GetObjectImageOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+								then:
+									let:
+										⟦functor0⟧:
+											⦃⦃functor0⦄.IsEqualTo(⦃⦃functor⦄.GetObjectImageOf(⦃object⦄)⦄)⦄
+										⦃⦃ConstantFunctor⦄.HasInstance(⦃functor0⦄)⦄
+									and:
+										⦃⦃⦃functor0⦄.GetObject()⦄.IsEqualTo(⦃object⦄)⦄
+						and:
+							for all ⟦morphism⟧:
+								if:
+									⦃⦃⦃⦃functor⦄.GetMorphismImageOf⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+								then:
+									⦃⦃⦃⦃⦃functor⦄.GetMorphismImageOf(⦃morphism⦄)⦄.GetComponentOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{⦃morphism⦄}⦄)⦄

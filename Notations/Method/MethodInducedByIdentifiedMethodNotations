@@ -1,0 +1,84 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦GetMethodIdentifier⟧
+define ⦃GetMethodIdentifier⦄
+		⦃⦃Function⦄.HasInstance(⦃GetMethodIdentifier⦄)⦄
+	and:
+		for all ⟦x⟧:
+				⦃⦃⦃GetMethodIdentifier⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+			if and only if:
+				there exists ⟦regularExpression⟧,⟦identifier⟧:
+					⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃regularExpression⦄,⦃identifier⦄)⦄,⦃⦃identifier⦄.GetSubSequence(⦃⦃⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃identifier⦄)⦄(⦃0⦄)⦄.GetValueRange()⦄)⦄)⦄)⦄
+
+
+
+define ⦃MethodInducedByIdentifiedMethodNotations⦄
+	let:
+		⟦regularExpression⟧:
+				⦃⦃RegularExpression⦄.HasInstance(⦃regularExpression⦄)⦄
+			and:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃MethodInducedByIdentifiedMethodNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+		⦃⦃⦃MethodInducedByIdentifiedMethodNotations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+	and:
+		for all ⟦methodInducedByIdentifiedMethodNotation⟧:
+			if:
+				⦃⦃⦃MethodInducedByIdentifiedMethodNotations⦄.GetDomain()⦄.Has(⦃methodInducedByIdentifiedMethodNotation⦄)⦄
+			then:
+				⦃⦃⟦⟦⦃methodInducedByIdentifiedMethodNotation⦄⟧⟧⦄.IsEqualTo(⦃method ⦃MathematicalObject⦄.⟦⟦⦃⦃GetMethodIdentifier⦄(⦃regularExpression⦄,⦃methodInducedByIdentifiedMethodNotation⦄)⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃{⦃MethodInducedByIdentifiedMethodNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃MethodInducedByIdentifiedMethodNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃MethodInducedByIdentifiedMethodNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints method <[^]{}>⦄)⦄
+
+
+
+define ⦃UnaryFunctionInducedByIdentifiedMethodNotations⦄,⦃BinaryFunctionInducedByIdentifiedMethodNotations⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Un⦄,
+				⦃unicodeCodePoints Bin⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			let:
+				⟦regularExpression⟧:
+						⦃⦃RegularExpression⦄.HasInstance(⦃regularExpression⦄)⦄
+					and:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByIdentifiedMethodNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByIdentifiedMethodNotations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+			and:
+				for all ⟦functionInducedByIdentifiedMethodNotation⟧:
+					if:
+						⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByIdentifiedMethodNotations⦄.GetDomain()⦄.Has(⦃functionInducedByIdentifiedMethodNotation⦄)⦄
+					then:
+						let:
+							⟦methodIdentifier⟧:
+								⦃⦃methodIdentifier⦄.IsEqualTo(⦃⦃GetMethodIdentifier⦄(⦃regularExpression⦄,⦃functionInducedByIdentifiedMethodNotation⦄)⦄)⦄
+							⟦class⟧:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Un⦄)⦄
+								then:
+										⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+									and:
+										for all ⟦x⟧:
+												⦃⦃class⦄.Has(⦃x⦄)⦄
+											if and only if:
+												⦃⦃⦃⦃x⦄.⦃method ⟦⟦⦃methodIdentifier⦄⟧⟧⦄⦄.GetDomain()⦄.Has(⦃()⦄)⦄
+								else:
+									⦃⦃class⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+						⦃⦃⟦⟦⦃functionInducedByIdentifiedMethodNotation⦄⟧⟧⦄.IsEqualTo(⦃⦃method ⦃class⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.MapTo⟦⟦⦃typeIdentifier⦄⟧⟧aryFunction()⦄)⦄
+
+define ⦃method ⦃{⦃UnaryFunctionInducedByIdentifiedMethodNotations⦄}⦄.GetPattern⦄,⦃method ⦃{⦃BinaryFunctionInducedByIdentifiedMethodNotations⦄}⦄.GetPattern⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Un⦄,
+				⦃unicodeCodePoints Bin⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByIdentifiedMethodNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧aryFunctionInducedByIdentifiedMethodNotations⦄.GetPattern()⦄.IsEqualTo(⦃⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄.GetConcatenationWith(⦃unicodeCodePoints aryFunction <[^]{}>⦄)⦄)⦄

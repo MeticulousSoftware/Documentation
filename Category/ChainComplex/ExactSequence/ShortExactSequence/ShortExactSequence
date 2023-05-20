@@ -1,0 +1,17 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃ShortExactSequence⦄
+		⦃⦃Type⦄.HasInstance(⦃ExactSequence⦄)⦄
+	and:
+		for all ⟦chain⟧:
+				⦃⦃ShortExactSequence⦄.HasInstance(⦃chain⦄)⦄
+			if and only if:
+					for all ⟦type⟧:
+						if:
+							⦃⦃{⦃ExactSequence⦄,⦃BoundedChainComplex⦄}⦄.Has(⦃type⦄)⦄
+						then:
+							⦃⦃type⦄.HasInstance(⦃chain⦄)⦄
+				and:
+					⦃⦃⦃⦃chain⦄.GetUpperBound()⦄.Subtract(⦃⦃chain⦄.GetLowerBound()⦄)⦄.IsInferiorOrEqualTo(⦃integer 3⦄)⦄

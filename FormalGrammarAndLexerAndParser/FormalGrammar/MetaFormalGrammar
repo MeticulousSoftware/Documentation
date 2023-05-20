@@ -1,0 +1,14 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FormalLanguage⦄,⦃ContextFreeFormalLanguage⦄,⦃UnambiguousContextFreeFormalLanguage⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints ContextFree⦄,
+				⦃unicodeCodePoints UnambiguousContextFree⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FormalLanguage⦄.IsEqualTo(⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FormalGrammar⦄.MapToClass()⦄.MapToClassWith(⦃unaryFunction GetLanguage⦄)⦄.GetGeneratedType()⦄)⦄

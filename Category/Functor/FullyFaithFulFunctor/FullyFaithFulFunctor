@@ -1,0 +1,63 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaFaithFulFunctor⦄,⦃MetaFullFunctor⦄,⦃MetaFullyFaithFulFunctor⦄,
+⦃FaithFulFunctor⦄,⦃FullFunctor⦄,⦃FullyFaithFulFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints FaithFul⦄,
+						⦃unicodeCodePoints Full⦄,
+						⦃unicodeCodePoints FullyFaithFul⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Functor⦄)⦄
+					and:
+						for all ⟦functor⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+								and:
+									let:
+										⟦domain⟧:
+											⦃⦃domain⦄.IsEqualTo(⦃⦃functor⦄.GetDomain()⦄)⦄
+									for all ⟦object0⟧,⟦object1⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃⦃domain⦄.GetObjects()⦄.Has(⦃object⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+											let:
+												⟦operation⟧:
+														⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+													and:
+														⦃⦃⦃operation⦄.GetSharedDomainSignatureClass()⦄.IsEqualTo(⦃⦃domain⦄.GetMorphismsWithDomainAndCoDomain(⦃object0⦄,⦃object1⦄)⦄)⦄
+													and:
+														⦃⦃⦃operation⦄.GetSharedCoDomainSignatureClass()⦄.IsEqualTo(⦃⦃⦃functor⦄.GetCoDomain()⦄.GetMorphismsWithDomainAndCoDomain(⦃⦃(⦃object0⦄,⦃object1⦄)⦄.MapWith(⦃⦃functor⦄.GetObjectImageOf⦄)⦄)⦄)⦄
+													and:
+														⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(
+															⦃⦃operation⦄.GetSimplifiedFunction⦄,
+															⦃⦃functor⦄.GetMorphismImageOf⦄
+														)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+												⟦typeIdentifier1⟧:	
+													if:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints FaithFul⦄)⦄
+													then:
+														⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints In⦄)⦄
+													else if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Full⦄)⦄
+													then:
+														⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Sur⦄)⦄
+													else:
+														⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Bi⦄)⦄
+											⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧jectiveOperation⦄.HasInstance(⦃operation⦄)⦄

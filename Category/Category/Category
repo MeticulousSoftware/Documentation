@@ -1,0 +1,1972 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaCategory⦄,⦃Category⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃EquippedStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦equipments⟧:
+									⦃⦃equipments⦄.IsEqualTo(⦃⦃structure⦄.GetEquipments()⦄)⦄
+								let:
+									⟦category⟧:
+										⦃⦃category⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints category⦄)⦄)⦄
+									⦃⦃Function⦄.HasInstance(⦃category⦄)⦄
+								and:
+									⦃⦃⦃category⦄.GetDomain()⦄.IsEqualTo(⦃{
+										⦃unicodeCodePoints objects⦄,
+										⦃unicodeCodePoints morphisms⦄,
+										⦃unicodeCodePoints getDomainOf⦄,
+										⦃unicodeCodePoints getCoDomainOf⦄,
+										⦃unicodeCodePoints getMorphismsWithDomainAndCoDomain⦄,
+										⦃unicodeCodePoints compositionOperation⦄,
+										⦃unicodeCodePoints getIdentityMorphismOf⦄
+									}⦄)⦄
+								and:
+									let:
+										⟦objects⟧,
+										⟦morphisms⟧,
+										⟦getDomainOf⟧,
+										⟦getCoDomainOf⟧,
+										⟦getMorphismsWithDomainAndCoDomain⟧,
+										⟦compositionOperation⟧,
+										⟦getIdentityMorphismOf⟧:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃⦃category⦄.GetDomain()⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃category⦄(⦃typeIdentifier⦄)⦄)⦄
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints object⦄,
+													⦃unicodeCodePoints morphism⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃Class⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧s⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints DomainOf⦄,
+													⦃unicodeCodePoints CoDomainOf⦄,
+													⦃unicodeCodePoints MorphismsWithDomainAndCoDomain⦄,
+													⦃unicodeCodePoints IdentityMorphismOf⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃Function⦄.HasInstance(⦃get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Co⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⦃get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf⦄.GetCoDomain()⦄.IsEqualTo(⦃objects⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Co⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⦃get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf⦄.GetDomain()⦄.IsEqualTo(⦃morphisms⦄)⦄
+									and:
+											⦃⦃⦃getMorphismsWithDomainAndCoDomain⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃objects⦄,⦃objects⦄)⦄.GetCartesianProduct()⦄)⦄
+										and:
+											for all ⟦x⟧:
+												if:
+													⦃⦃⦃getMorphismsWithDomainAndCoDomain⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+												then:
+													let:
+														⟦morphisms0⟧:
+															⦃⦃morphisms0⦄.IsEqualTo(⦃⦃getMorphismsWithDomainAndCoDomain⦄(⦃x⦄)⦄)⦄
+														⦃⦃Class⦄.HasInstance(⦃morphisms0⦄)⦄
+													and:
+														for all ⟦morphism⟧:
+																⦃⦃morphisms0⦄.Has(⦃morphism⦄)⦄
+															if and only if:
+																	⦃⦃morphisms⦄.Has(⦃morphism⦄)⦄
+																and:
+																	let:
+																		⟦domain⟧,⟦coDomain⟧:
+																			⦃⦃(⦃domain⦄,⦃coDomain⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																	for all ⟦typeIdentifier⟧:
+																		if:
+																			⦃⦃{
+																				⦃unicodeCodePoints ⦄,
+																				⦃unicodeCodePoints Co⦄
+																			}⦄.Has(⦃typeIdentifier⦄)⦄
+																		then:
+																			⦃⦃⦃get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf⦄(⦃morphism⦄)⦄.IsEqualTo(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+									and:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Internal⦄,
+														⦃unicodeCodePoints BinaryUnary⦄,
+														⦃unicodeCodePoints Associative⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.HasInstance(⦃compositionOperation⦄)⦄
+										and:
+											⦃⦃⦃compositionOperation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃morphisms⦄)⦄
+										and:
+											let:
+												⟦compositionFunction⟧:
+													⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃compositionOperation⦄.GetSimplifiedFunction()⦄)⦄
+												for all ⟦morphisms⟧:
+														⦃⦃⦃compositionFunction⦄.GetDomain()⦄.Has(⦃morphisms⦄)⦄
+													if and only if:
+														let:
+															⟦morphism0⟧,⟦morphism1⟧:
+																⦃⦃(⦃morphism0⦄,⦃morphism1⦄)⦄.IsEqualTo(⦃morphisms⦄)⦄
+														⦃⦃⦃getCoDomainOf⦄(⦃morphism1⦄)⦄.IsEqualTo(⦃⦃getDomainOf⦄(⦃morphism0⦄)⦄)⦄
+											and:
+												for all ⟦morphisms⟧:
+													if:
+														⦃⦃⦃compositionFunction⦄.GetDomain()⦄.Has(⦃morphisms⦄)⦄
+													then:
+														let:
+															⟦morphism0⟧,⟦morphism1⟧:
+																⦃⦃(⦃morphism0⦄,⦃morphism1⦄)⦄.IsEqualTo(⦃morphisms⦄)⦄
+														⦃⦃⦃getMorphismsWithDomainAndCoDomain⦄(⦃⦃getDomainOf⦄(⦃morphism1⦄)⦄,⦃⦃getCoDomainOf⦄(⦃morphism0⦄)⦄)⦄.Has(⦃⦃compositionFunction⦄(⦃morphisms⦄)⦄)⦄
+										and:
+												⦃⦃⦃getIdentityMorphismOf⦄.GetDomain()⦄.IsEqualTo(⦃objects⦄)⦄
+											and:
+												for all ⟦object⟧:
+													if:
+														⦃⦃⦃getIdentityMorphismOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+													then:
+														let:
+															⟦identity⟧:
+																⦃⦃identity⦄.IsEqualTo(⦃⦃getIdentityMorphismOf⦄(⦃object⦄)⦄)⦄
+															⦃⦃⦃compositionOperation⦄.GetPartialIdentities()⦄.Has(⦃identity⦄)⦄
+														and:
+															⦃⦃⦃getMorphismsWithDomainAndCoDomain⦄(⦃object⦄,⦃object⦄)⦄.Has(⦃identity⦄)⦄
+							and:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃Category⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaCategory⦄.GetObjects⦄,⦃method ⦃MetaCategory⦄.GetMorphisms⦄,⦃method ⦃MetaCategory⦄.GetCompositionOperation⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Objects⦄,
+						⦃unicodeCodePoints Morphisms⦄,
+						⦃unicodeCodePoints CompositionOperation⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetEquipments()⦄(⦃unicodeCodePoints category⦄)⦄(⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetDomainOf⦄,⦃method ⦃MetaCategory⦄.GetCoDomainOf⦄,⦃method ⦃MetaCategory⦄.GetMorphismsWithDomainAndCoDomain⦄,⦃method ⦃MetaCategory⦄.GetIdentityMorphismOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints DomainOf⦄,
+						⦃unicodeCodePoints CoDomainOf⦄,
+						⦃unicodeCodePoints MorphismsWithDomainAndCoDomain⦄,
+						⦃unicodeCodePoints IdentityMorphismOf⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetEquipments()⦄(⦃unicodeCodePoints category⦄)⦄(⦃unicodeCodePoints get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetHomClasses⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			⦃⦃⦃category⦄.GetHomClasses⦄.IsEqualTo(⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.IsIsoMorphicTo⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.IsIsoMorphicTo⦄.GetDomain()⦄.IsEqualTo(⦃⦃MetaCategory⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦category0⟧:
+					if:
+						⦃⦃⦃⦃category⦄.IsIsoMorphicTo⦄.GetDomain()⦄.Has(⦃category0⦄)⦄
+					then:
+						let
+							⟦isIsoMorphic⟧:
+								⦃⦃isIsoMorphic⦄.IsEqualTo(⦃⦃category⦄.IsIsoMorphicTo(⦃category0⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isIsoMorphic⦄)⦄
+						and:
+								⦃isIsoMorphic⦄
+							if and only if:
+								there exists ⟦functor⟧:
+										⦃⦃InvertibleFunctor⦄.HasInstance(⦃functor⦄)⦄
+									and:
+										⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃category⦄)⦄
+									and:
+										⦃⦃⦃functor⦄.GetCoDomain()⦄.IsEqualTo(⦃category0⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.IsEquivalentTo⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.IsEquivalentTo⦄.GetDomain()⦄.IsEqualTo(⦃⦃MetaCategory⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦category0⟧:
+					if:
+						⦃⦃⦃⦃category⦄.IsEquivalentTo⦄.GetDomain()⦄.Has(⦃category0⦄)⦄
+					then:
+						let
+							⟦isEquivalent⟧:
+								⦃⦃isEquivalent⦄.IsEqualTo(⦃⦃category⦄.IsEquivalentTo(⦃category0⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isEquivalent⦄)⦄
+						and:
+								⦃isEquivalent⦄
+							if and only if:
+								there exists ⟦functor⟧:
+										⦃⦃EssentiallySurjectiveFullyFaithFulFunctor⦄.HasInstance(⦃functor⦄)⦄
+									and:
+										⦃⦃⦃functor⦄.GetDomain()⦄.IsEqualTo(⦃category⦄)⦄
+									and:
+										⦃⦃⦃functor⦄.GetCoDomain()⦄.IsEqualTo(⦃category0⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetOpposite⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetOpposite⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦opposite⟧:
+						⦃⦃opposite⦄.IsEqualTo(⦃⦃category⦄.GetOpposite()⦄)⦄
+					let:
+						⟦typeIdentifier⟧:
+							if:
+								⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+							then:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+							else:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Meta⦄)⦄
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃opposite⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃opposite⦄,⦃category⦄)⦄.MapWith(⦃unaryFunction GetObjects⦄)⦄)⦄
+				and:
+					let:
+						⟦morphisms⟧:
+							⦃⦃morphisms⦄.IsEqualTo(⦃⦃category⦄.GetMorphisms()⦄)⦄
+						⦃⦃morphisms⦄.IsEqualTo(⦃⦃category⦄.GetMorphisms()⦄)⦄
+					and:
+						for all ⟦morphism⟧:
+							if:
+								⦃⦃morphisms⦄.Has(⦃morphism⦄)⦄
+							then:
+								for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+									if:
+										⦃⦃⦃{
+											⦃unicodeCodePoints ⦄,
+											⦃unicodeCodePoints Co⦄
+										}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+									then:
+										⦃⦃⦃opposite⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧DomainOf(⦃morphism⦄)⦄.IsEqualTo(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧DomainOf(⦃morphism⦄)⦄)⦄
+				and:
+					⦃⦃⦃opposite⦄.GetCompositionOperation⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation⦄.GetConverse()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetDiagrams⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetDiagrams⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦diagrams⟧:
+						⦃⦃diagrams⦄.IsEqualTo(⦃⦃category⦄.GetDiagrams()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃diagrams⦄)⦄
+				and:
+					for all ⟦diagram⟧:
+							⦃⦃diagrams⦄.Has(⦃diagram⦄)⦄
+						if and only if:
+								⦃⦃Functor⦄.HasInstance(⦃diagram⦄)⦄
+							and:
+								⦃⦃Category⦄.HasInstance(⦃⦃diagram⦄.GetDomain()⦄)⦄
+							and:
+								⦃⦃⦃diagram⦄.GetCoDomain()⦄.IsEqualTo(⦃category⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetSubCategories⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetSubCategories⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦potentialSubCategories⟧:
+							⦃⦃Class⦄.HasInstance(⦃categories⦄)⦄
+						and:
+							for all ⟦potentialSubCategory⟧:
+									⦃⦃potentialSubCategories⦄.Has(⦃potentialSubCategory⦄)⦄
+								if and only if:
+										let:
+											⟦typeIdentifier⟧:
+												if:
+													⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+												then:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+												else:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Meta⦄)⦄
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃potentialSubCategory⦄)⦄
+									and:
+										let:
+											⟦categories⟧:
+												⦃⦃categories⦄.IsEqualTo(⦃(⦃potentialSubCategory⦄,⦃category⦄)⦄)⦄
+											⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃categories⦄.MapWith(⦃unaryFunction GetObjects⦄)⦄)⦄
+										and:
+											⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃categories⦄.MapWith(⦃method GetMorphismsWithDomainAndCoDomain⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+										and:
+											⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃categories⦄.MapWith(⦃method GetCompositionOperation⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+					⟦subCategories⟧:
+						⦃⦃subCategories⦄.IsEqualTo(⦃⦃category⦄.GetSubCategories()⦄)⦄
+				if:
+					⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+				then:
+					⦃⦃subCategories⦄.IsEqualTo(⦃potentialSubCategories⦄)⦄
+				else:
+					⦃⦃potentialSubCategories⦄.IsSuperMultiClassOf(⦃subCategories⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetInclusionFunctorOfSubCategory⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetInclusionFunctorOfSubCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetSubCategories()⦄)⦄
+			and:
+				for all ⟦subCategory⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetInclusionFunctorOfSubCategory⦄.GetDomain()⦄.Has(⦃subCategory⦄)⦄
+					then:
+						let:
+							⟦inclusionFunctor⟧:
+								⦃⦃inclusionFunctor⦄.IsEqualTo(⦃⦃category⦄.GetInclusionFunctorOfSubCategory(⦃subCategory⦄)⦄)⦄
+							⦃⦃InclusionFunctor⦄.HasInstance(⦃inclusionFunctor⦄)⦄
+						and:
+							⦃⦃⦃inclusionFunctor⦄.GetDomain()⦄.IsEqualTo(⦃subCategory⦄)⦄
+						and:
+							⦃⦃⦃inclusionFunctor⦄.GetCoDomain()⦄.IsEqualTo(⦃category⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃MetaCategory⦄)⦄.GetIntersection⦄
+	for all ⟦categories⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃MetaCategory⦄)⦄.HasInstance(⦃categories⦄)⦄
+		then:
+			let:
+				⟦isParentCategory⟧:
+						⦃⦃Function⦄.HasInstance(⦃isParentCategory⦄)⦄
+					and:
+						⦃⦃⦃isParentCategory⦄.GetDomain()⦄.IsEqualTo(⦃⦃MetaCategory⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦category⟧:
+							if:
+								⦃⦃⦃isParentCategory⦄.GetDomain()⦄.Has(⦃category⦄)⦄
+							then:
+									⦃⦃Boolean⦄.HasInstance(⦃⦃isParentCategory⦄(⦃category⦄)⦄)⦄
+								and:
+										⦃⦃isParentCategory⦄(⦃category⦄)⦄
+									if and only if:
+											⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+										and:
+											⦃⦃categories⦄.IsSubMultiClassOf(⦃⦃category⦄.GetSubCategories()⦄)⦄
+			if:
+				there exists ⟦parentCategory⟧:
+					⦃⦃isParentCategory⦄(⦃parentCategory⦄)⦄
+			then:
+					⦃⦃⦃⦃categories⦄.GetIntersection⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦parentCategory⟧:
+							⦃⦃isParentCategory⦄(⦃parentCategory⦄)⦄
+						⟦category⟧:
+							⦃⦃category⦄.IsEqualTo(⦃⦃categories⦄.GetIntersection()⦄)⦄
+						⦃⦃⦃parentCategory⦄.GetSubCategories()⦄.Has(⦃category⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Object⦄,
+									⦃unicodeCodePoints Morphism⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄.IsEqualTo(⦃⦃⦃categories⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧s⦄)⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetIntersectionWith⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦category0⟧:
+						⦃⦃⦃⦃category⦄.GetIntersectionWith⦄.GetDomain()⦄.Has(⦃category0⦄)⦄
+					if and only if:
+						there exists ⟦parentCategory⟧:
+								⦃⦃MetaCategory⦄.HasInstance(⦃category0⦄)⦄
+							and:
+								⦃⦃{⦃category⦄,⦃category0⦄}⦄.IsSubMultiClassOf(⦃⦃parentCategory⦄.GetSubCategories()⦄)⦄
+			and:
+				for all ⟦category0⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetIntersectionWith⦄.GetDomain()⦄.Has(⦃category0⦄)⦄
+					then:
+						⦃⦃⦃category⦄.GetIntersectionWith(⦃category0⦄)⦄.IsEqualTo(⦃⦃{⦃category⦄,⦃category0⦄}⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetFullSubCategories⦄,⦃method ⦃MetaCategory⦄.GetRepleteSubCategories⦄,⦃method ⦃MetaCategory⦄.GetWideSubCategories⦄,⦃method ⦃MetaCategory⦄.GetEssentiallyWideSubCategories⦄,⦃method ⦃MetaCategory⦄.GetSkeletonSubCategories⦄,⦃method ⦃MetaCategory⦄.GetGroupoidSubCategories⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Full⦄,
+						⦃unicodeCodePoints Replete⦄,
+						⦃unicodeCodePoints Wide⦄,
+						⦃unicodeCodePoints EssentiallyWide⦄,
+						⦃unicodeCodePoints Skeleton⦄,
+						⦃unicodeCodePoints Groupoid⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubCategories⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦subCategories⟧:
+								⦃⦃subCategories⦄.IsEqualTo(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubCategories()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃subCategories⦄)⦄
+						and:
+							for all ⟦subCategory⟧:
+									⦃⦃subCategories⦄.Has(⦃subCategory⦄)⦄
+								if and only if:
+										⦃⦃⦃category⦄.GetSubCategories()⦄.Has(⦃subCategory⦄)⦄
+									and:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Skeleton⦄)⦄
+											then:
+												⦃⦃MetaSkeletalCategory⦄.HasInstance(⦃subCategory⦄)⦄
+											else if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Groupoid⦄)⦄
+											then:
+												⦃⦃MetaGroupoid⦄.HasInstance(⦃subCategory⦄)⦄
+										and:
+											if:
+												not:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Groupoid⦄)⦄
+											then:
+												let:
+													⟦type⟧:
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Full⦄)⦄
+														then:
+															⦃⦃type⦄.IsEqualTo(⦃FullFunctor⦄)⦄
+														else if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Replete⦄)⦄
+														then:
+															⦃⦃type⦄.IsEqualTo(⦃IsoFibration⦄)⦄
+														else if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Wide⦄)⦄
+														then:
+															⦃⦃type⦄.IsEqualTo(⦃BijectiveOnObjectsFunctor⦄)⦄
+														else if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints EssentiallyWide⦄)⦄
+														then:
+															⦃⦃type⦄.IsEqualTo(⦃EssentiallySurjectiveFunctor⦄)⦄
+														else:
+															⦃⦃type⦄.IsEqualTo(⦃EssentiallySurjectiveFullyFaithFulFunctor⦄)⦄
+												⦃⦃type⦄.HasInstance(⦃⦃category⦄.GetInclusionFunctorOfSubCategory(⦃subCategory⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetSubCategoryGeneratedBy⦄,⦃method ⦃MetaCategory⦄.GetFullSubCategoryGeneratedBy⦄,⦃method ⦃MetaCategory⦄.GetRepleteSubCategoryGeneratedBy⦄,⦃method ⦃MetaCategory⦄.GetWideSubCategoryGeneratedBy⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Full⦄,
+						⦃unicodeCodePoints Replete⦄,
+						⦃unicodeCodePoints Wide⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					let:
+						⟦getDomainElements⟧:
+								⦃⦃Function⦄.HasInstance(⦃getDomainElements⦄)⦄
+							and:
+								⦃⦃⦃getDomainElements⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Class⦄,⦃Class⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+							and:
+								for all ⟦x⟧:
+									if:
+										⦃⦃⦃getDomainElements⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+									then:
+										let:
+											⟦objects⟧,⟦morphisms⟧:
+												⦃⦃(⦃objects⦄,⦃morphisms⦄)⦄.IsEqualTo(⦃x⦄)⦄
+											⟦domainElements⟧:
+												⦃⦃domainElements⦄.IsEqualTo(⦃⦃getDomainElements⦄(⦃x⦄)⦄)⦄
+											⦃⦃Class⦄.HasInstance(⦃domainElements⦄)⦄
+										and:
+											for all ⟦domainElement⟧:
+													⦃⦃domainElements⦄.Has(⦃domainElement⦄)⦄
+												if and only if:
+														⦃⦃domainElement⦄.IsEqualTo(⦃(⦃objects⦄,⦃morphisms⦄)⦄)⦄
+													or:
+														if:
+															not:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+														then:
+															there exists ⟦subCategory⟧:
+																	⦃⦃domainElement⦄.IsEqualTo(⦃subCategory⦄)⦄
+																and:
+																	⦃⦃⦃category⦄.GetSubCategories()⦄.Has(⦃subCategory⦄)⦄
+																and:
+																	for all ⟦typeIdentifier⟧:
+																		if:
+																			⦃⦃{
+																				⦃unicodeCodePoints Object⦄,
+																				⦃unicodeCodePoints Morphism⦄
+																			}⦄.Has(⦃typeIdentifier⦄)⦄
+																		then:
+																			⦃⦃⦃subCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄.IsEqualTo(⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧s⦄)⦄
+													or:
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Full⦄)⦄
+														then:
+															⦃⦃domainElement⦄.IsEqualTo(⦃objects⦄)⦄
+														else if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Wide⦄)⦄
+														then:
+															⦃⦃domainElement⦄.IsEqualTo(⦃morphisms⦄)⦄
+						for all ⟦x⟧:
+								⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubCategoryGeneratedBy⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							if and only if:
+								there exists ⟦objects⟧,⟦morphisms⟧:
+										⦃⦃⦃getDomainElements⦄(⦃objects⦄,⦃morphisms⦄)⦄.Has(⦃x⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints Object⦄,
+													⦃unicodeCodePoints Morphism⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧s⦄.IsSubMultiClassOf(⦃⦃subCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄)⦄
+					and:
+						for all ⟦x⟧:
+							if:
+								⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubCategoryGeneratedBy⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+							then:
+								let:
+									⟦subCategoriesWhichIncludeObjectsAndMorphisms⟧:
+											⦃⦃Class⦄.HasInstance(⦃subCategoriesWhichIncludeObjectsAndMorphisms⦄)⦄
+										and:
+											for all ⟦subCategory⟧:
+													⦃⦃subCategoriesWhichIncludeObjectsAndMorphisms⦄.Has(⦃subCategory⦄)⦄
+												if and only if:
+														⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubCategories()⦄.Has(⦃subCategory⦄)⦄
+													and:
+														there exists ⟦objects⟧,⟦morphisms⟧:
+																⦃⦃⦃getDomainElements⦄(⦃objects⦄,⦃morphisms⦄)⦄.Has(⦃x⦄)⦄
+															and:
+																for all ⟦typeIdentifier⟧:
+																	if:
+																		⦃⦃{
+																			⦃unicodeCodePoints Object⦄,
+																			⦃unicodeCodePoints Morphism⦄
+																		}⦄.Has(⦃typeIdentifier⦄)⦄
+																	then:
+																		⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧s⦄.IsSubMultiClassOf(⦃⦃subCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄)⦄
+								⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubCategoryGeneratedBy(⦃x⦄)⦄.IsEqualTo(⦃⦃subCategoriesWhichIncludeObjectsAndMorphisms⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetCore⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetCore⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦groupoidSubCategories⟧:
+						⦃⦃groupoidSubCategories⦄.IsEqualTo(⦃⦃category⦄.GetGroupoidSubCategories()⦄)⦄
+					⟦core⟧:
+						⦃⦃core⦄.IsEqualTo(⦃⦃category⦄.GetCore()⦄)⦄
+					⦃⦃groupoidSubCategories⦄.Has(⦃core⦄)⦄
+				and:
+					⦃⦃groupoidSubCategories⦄.IsSubMultiClassOf(⦃⦃core⦄.GetSubCategories()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetIdentityMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			⦃⦃⦃category⦄.GetIdentityMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetIdentityMorphismOf⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetMonoMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦monoMorphisms⟧:
+							⦃⦃monoMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetMonoMorphisms()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃monoMorphisms⦄)⦄
+					and:
+						for all ⟦monoMorphism⟧:
+								⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+							if and only if:
+									⦃⦃⦃category⦄.GetMorphisms()⦄.Has(⦃monoMorphism⦄)⦄
+								and:
+									for all ⟦morphism0⟧,⟦morphism1⟧:
+										if:
+												there exists ⟦object⟧:
+													for all ⟦index⟧:
+														if:
+															⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+														then:
+															⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(
+																⦃object⦄,
+																⦃⦃category⦄.GetDomainOf(⦃monoMorphism⦄)⦄
+															)⦄.Has(⦃morphism⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+											and:
+												⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+													⦃(⦃monoMorphism⦄,⦃morphism0⦄)⦄,
+													⦃(⦃monoMorphism⦄,⦃morphism1⦄)⦄
+												)⦄.MapWith(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+										then:
+											⦃⦃morphism0⦄.IsEqualTo(⦃morphism1⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetEpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetMonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetLeftInverseOf⦄,⦃method ⦃MetaCategory⦄.GetRightInverseOf⦄,⦃method ⦃MetaCategory⦄.GetIsoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetInverseOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetLeftInverseOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetMorphisms()⦄)⦄
+				and:
+					for all ⟦morphism⟧:
+						if:
+							⦃⦃⦃⦃category⦄.GetLeftInverseOf⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+						then:
+							let:
+								⟦inverses⟧:
+									⦃⦃inverses⦄.IsEqualTo(⦃⦃category⦄.GetLeftInverseOf(⦃morphism⦄)⦄)⦄
+								⦃⦃Class⦄.HasInstance(⦃inverses⦄)⦄
+							and:
+								for all ⟦inverse⟧:
+										⦃⦃inverses⦄.Has(⦃inverse⦄)⦄
+									if and only if:
+										⦃⦃⦃⦃category⦄.GetIdentityMorphismOf⦄.GetCoDomain()⦄.Has(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃inverse⦄,⦃morphism⦄)⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetRightInverseOf⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetLeftInverseOf⦄)⦄
+			and:
+					⦃⦃⦃⦃category⦄.GetIsoMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦isoMorphisms⟧:
+							⦃⦃isoMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetIsoMorphisms()⦄)⦄
+						for all ⟦isoMorphism⟧:
+								⦃⦃isoMorphisms⦄.Has(⦃isoMorphism⦄)⦄
+							if and only if:
+								for all ⟦typeIdentifier⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints Left⦄,
+											⦃unicodeCodePoints Right⦄
+										}⦄.Has(⦃typeIdentifier⦄)⦄
+									then:
+										not:
+											⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧InverseOf(⦃morphism⦄)⦄.IsEqualTo(⦃{}⦄)⦄
+					and:
+							⦃⦃⦃⦃category⦄.GetInverseOf⦄.GetDomain()⦄.IsEqualTo(⦃isoMorphisms⦄)⦄
+						and:
+							for all ⟦morphism⟧:
+								if:
+									⦃⦃⦃⦃category⦄.GetInverseOf⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+								then:
+									⦃⦃{
+										⦃⦃category⦄.GetInverseOf(⦃morphism⦄)⦄
+									}⦄.IsEqualTo(⦃⦃category⦄.GetLeftInverseOf(⦃morphism⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetIsoMorphismClassOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetIsoMorphismClassOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+			and:
+				for all ⟦object⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetIsoMorphismClassOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+					then:
+						let:
+							⟦objects⟧:
+								⦃⦃objects⦄.IsEqualTo(⦃⦃category⦄.GetIsoMorphismClassOf(⦃object⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃objects⦄)⦄
+						and:
+							for all ⟦object0⟧:
+									⦃⦃objects⦄.Has(⦃object0⦄)⦄
+								if and only if:
+									there exists ⟦morphism⟧:
+											⦃⦃⦃category⦄.GetIsoMorphisms()⦄.Has(⦃morphism⦄)⦄
+										and:
+											⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃object0⦄)⦄.Has(⦃morphism⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetEndoMorphismsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetEndoMorphismsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+			and:
+				for all ⟦object⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetEndoMorphismsOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+					then:
+						⦃⦃⦃category⦄.GetEndoMorphismsOf(⦃object⦄)⦄.IsEqualTo(⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃object⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetAutoMorphismsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetAutoMorphismsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+			and:
+				for all ⟦object⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetAutoMorphismsOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+					then:
+						⦃⦃⦃category⦄.GetAutoMorphismsOf(⦃object⦄)⦄.IsEqualTo(⦃⦃⦃category⦄.GetEndoMorphismsOf(⦃object⦄)⦄.GetIntersectionWith(⦃⦃category⦄.GetIsoMorphisms()⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetIdemPotentsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetIdemPotentsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+			and:
+				for all ⟦object⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetIdemPotentsOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+					then:
+						⦃⦃⦃category⦄.GetIdemPotentsOf(⦃object⦄)⦄.IsEqualTo(⦃⦃⦃category⦄.GetEndoMorphismsOf(⦃object⦄)⦄.GetIntersectionWith(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetIdemPotentElements()⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetEndoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetAutoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetIdemPotents⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints EndoMorphism⦄,
+						⦃unicodeCodePoints AutoMorphism⦄,
+						⦃unicodeCodePoints IdemPotent⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s⦄.IsEqualTo(⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧sOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetSplitMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetSplitEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃category⦄.GetSplitMonoMorphisms⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetRightInversesOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetSplitEpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetSplitMonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetTerminalObjects⦄,⦃method ⦃MetaCategory⦄.GetCoTerminalObjects⦄,⦃method ⦃MetaCategory⦄.GetBiTerminalObjects⦄,
+⦃method ⦃MetaCategory⦄.GetStrictTerminalObjects⦄,⦃method ⦃MetaCategory⦄.GetStrictCoTerminalObjects⦄,⦃method ⦃MetaCategory⦄.GetStrictBiTerminalObjects⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Strict⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+							⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧TerminalObjects⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							let:
+								⟦terminalObjects⟧:
+									⦃⦃terminalObjects⦄.IsEqualTo(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧TerminalObjects()⦄)⦄
+								⦃⦃Class⦄.HasInstance(⦃terminalObjects⦄)⦄
+							and:
+								for all ⟦terminalObject⟧:
+										⦃⦃terminalObjects⦄.Has(⦃terminalObject⦄)⦄
+									if and only if:
+										let:
+											⟦objects⟧:
+												⦃⦃objects⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+											⦃⦃objects⦄.Has(⦃terminalObject⦄)⦄
+										and:
+											for all ⟦object⟧:
+												if:
+													⦃⦃objects⦄.Has(⦃object⦄)⦄
+												then:
+													there exists ⟦morphism⟧:
+															⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃terminalObject⦄)⦄.IsEqualTo(⦃{⦃morphism⦄}⦄)⦄
+														and:
+															if:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Strict⦄)⦄
+															then:
+																⦃⦃⦃category⦄.GetIsoMorphisms()⦄.Has(⦃morphism⦄)⦄
+					and:
+						⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧CoTerminalObjects⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧TerminalObjects⦄)⦄
+					and:
+							⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BiTerminalObjects⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧BiTerminalObjects()⦄.IsEqualTo(⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧TerminalObjects()⦄.GetIntersectionWith(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧CoTerminalObjects()⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetLeftZeroMorphisms⦄,⦃method ⦃MetaCategory⦄.GetRightZeroMorphisms⦄,⦃method ⦃MetaCategory⦄.GetZeroMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetLeftZeroMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦zeroMorphisms⟧:
+							⦃⦃zeroMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetLeftZeroMorphisms()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃zeroMorphisms⦄)⦄
+					and:
+						for all ⟦zeroMorphism⟧:
+								⦃⦃zeroMorphisms⦄.Has(⦃zeroMorphism⦄)⦄
+							if and only if:
+									⦃⦃⦃category⦄.GetMorphisms()⦄.Has(⦃zeroMorphism⦄)⦄
+								and:
+									for all ⟦morphism0⟧,⟦morphism1⟧:
+										if:
+											there exists ⟦object⟧:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(
+															⦃object⦄,
+															⦃⦃category⦄.GetDomainOf(⦃morphism⦄)⦄
+														)⦄.Has(⦃morphism⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+											⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+												⦃(⦃zeroMorphism⦄,⦃morphism0⦄)⦄,
+												⦃(⦃zeroMorphism⦄,⦃morphism1⦄)⦄
+											)⦄.MapWith(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetRightZeroMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetLeftZeroMorphisms⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetZeroMorphisms⦄.IsEqualTo(⦃⦃(
+					⦃⦃category⦄.GetLeftZeroMorphisms()⦄,
+					⦃⦃category⦄.GetRightZeroMorphisms()⦄
+				)⦄.GetIntersection⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetImmediateMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetImmediateEpiMorphisms⦄,
+⦃method ⦃MetaCategory⦄.GetExtremalMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetExtremalEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Immediate⦄,
+						⦃unicodeCodePoints Extremal⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+							⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧MonoMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							let:
+								⟦monoMorphisms⟧:
+									⦃⦃monoMorphisms⦄.IsEqualTo(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧MonoMorphisms()⦄)⦄
+								⦃⦃Class⦄.HasInstance(⦃monoMorphisms⦄)⦄
+							and:
+								for all ⟦monoMorphism⟧:
+										⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+									if and only if:
+										let:
+											⟦monoMorphisms⟧:
+												⦃⦃monoMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetMonoMorphisms()⦄)⦄
+											⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+										and:
+											for all ⟦morphism0⟧,⟦morphism1⟧:
+												if:
+														⦃⦃monoMorphism⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃morphism0⦄,⦃morphism1⦄)⦄)⦄
+													and:
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Immediate⦄)⦄
+														then:
+															⦃⦃monoMorphisms⦄.Has(⦃morphism0⦄)⦄
+													and:
+														⦃⦃⦃category⦄.GetEpiMorphisms()⦄.Has(⦃morphism1⦄)⦄
+												then:
+													⦃⦃⦃category⦄.GetIsoMorphisms()⦄.Has(⦃morphism1⦄)⦄
+					and:
+						⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧EpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧MonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetStrongMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetStrongEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetStrongMonoMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦monoMorphisms⟧:
+							⦃⦃monoMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetStrongMonoMorphisms()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃monoMorphisms⦄)⦄
+					and:
+						for all ⟦monoMorphism⟧:
+								⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+							if and only if:
+									⦃⦃⦃category⦄.GetMonoMorphisms()⦄.Has(⦃monoMorphism⦄)⦄
+								and:
+									let:
+										⟦compositionFunction⟧:
+											⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+									for all ⟦morphism0⟧,⟦morphism1⟧,⟦morphism2⟧:
+										if:
+											let:
+												⟦object0⟧,⟦object1⟧:
+													⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object0⦄,⦃object1⦄)⦄.Has(⦃morphism⦄)⦄
+												⦃⦃⦃category⦄.GetEpiMorphisms()⦄.Has(⦃morphism0⦄)⦄
+											and:
+												there exists ⟦object2⟧,⟦object3⟧:
+														⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object2⦄,⦃object3⦄)⦄.Has(⦃morphism0⦄)⦄
+													and:
+														⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object2⦄,⦃object0⦄)⦄.Has(⦃morphism1⦄)⦄
+													and:
+														⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object3⦄,⦃object1⦄)⦄.Has(⦃morphism2⦄)⦄
+													and:
+														⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+															⦃(⦃morphism2⦄,⦃morphism0⦄)⦄,
+															⦃(⦃morphism⦄,⦃morphism1⦄)⦄
+														)⦄.MapWith(⦃compositionFunction⦄)⦄
+										then:
+											there exists ⟦morphism3⟧:
+													⦃⦃⦃compositionFunction⦄(⦃morphism3⦄,⦃morphism0⦄)⦄.IsEqualTo(⦃morphism1⦄)⦄
+												and:
+													⦃⦃⦃compositionFunction⦄(⦃morphism⦄,⦃morphism3⦄)⦄.IsEqualTo(⦃morphism2⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetStrongEpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetStrongMonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetEqualiserMorphismsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃category⦄.GetEqualiserMorphismsOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦object⟧,⟦morphisms⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃object⦄,⦃morphisms⦄)⦄)⦄
+							and:
+								⦃⦃⦃category⦄.GetObjects()⦄.Has(⦃object⦄)⦄
+							and:
+								there exists ⟦object0⟧:
+									⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃object0⦄)⦄.IsSuperMultiClassOf(⦃morphisms⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetEqualiserMorphismsOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦equaliserMorphisms⟧:
+								⦃⦃equaliserMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetEqualiserMorphismsOf(⦃x⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃equaliserMorphisms⦄)⦄
+						and:
+							for all ⟦equaliserMorphism⟧:
+									⦃⦃equaliserMorphisms⦄.HasInstance(⦃equaliserMorphism⦄)⦄
+								if and only if:
+									there exists ⟦diagram⟧:
+										let:
+											⟦object⟧,⟦morphisms⟧:
+												⦃⦃(⦃object⦄,⦃morphisms⦄)⦄.IsEqualTo(⦃x⦄)⦄
+											⟦category0⟧:
+												if:
+													⦃⦃Category⦄.HasInstance(⦃category0⦄)⦄
+												then:
+													⦃⦃category0⦄.IsEqualTo(⦃category⦄)⦄
+												else:
+													⦃⦃category0⦄.IsEqualTo(⦃⦃category⦄.GetCategory()⦄)⦄
+											⟦indexCategory⟧:
+													⦃⦃⦃category0⦄.GetSubCategories()⦄.Has(⦃indexCategory⦄)⦄
+												and:
+													let:
+														⟦objects⟧:
+															⦃⦃objects⦄.IsEqualTo(⦃⦃indexCategory⦄.GetObjects()⦄)⦄
+													if:
+														⦃⦃morphisms⦄.IsEqualTo(⦃{}⦄)⦄
+													then:
+															⦃⦃TerminalCategory⦄.HasInstance(⦃indexCategory⦄)⦄
+														and:
+															⦃⦃objects⦄.IsEqualTo(⦃{⦃object⦄}⦄)⦄
+													else:
+														let:
+															⟦object0⟧:
+																⦃⦃morphisms⦄.IsSubMultiClassOf(⦃⦃category0⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃object0⦄)⦄)⦄
+															⦃⦃objects⦄.IsEqualTo(⦃{⦃object⦄,⦃object0⦄}⦄)⦄
+														and:
+															⦃⦃⦃indexCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃object0⦄)⦄.IsEqualTo(⦃morphisms⦄)⦄
+														and:
+															if:
+																not:
+																	⦃⦃object⦄.IsEqualTo(⦃object0⦄)⦄
+															then:
+																for all ⟦object⟧:
+																	if:
+																		⦃⦃objects⦄.Has(⦃object⦄)⦄
+																	then:
+																		there exists ⟦morphism⟧:
+																			⦃⦃⦃indexCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃object⦄,⦃object⦄)⦄.IsEqualTo(⦃{⦃morphism⦄}⦄)⦄
+											⦃⦃diagram⦄.IsEqualTo(⦃⦃category0⦄.GetInclusionFunctorOfSubCategory(⦃indexCategory⦄)⦄)⦄
+										and:
+											there exists ⟦limit⟧:
+													⦃⦃⦃diagram⦄.GetLimits()⦄.Has(⦃limit⦄)⦄
+												and:
+													⦃⦃equaliserMorphism⦄.IsEqualTo(⦃⦃limit⦄.GetComponentOf(⦃object⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetEqualiserObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃category⦄.GetEqualiserObjectsOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦y⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃⦃⦃category⦄.GetEqualiserMorphismsOf(⦃y⦄)⦄.MapToClassWith(⦃⦃category⦄.GetDomainOf⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetCoEqualiserMorphismsOf⦄,⦃method ⦃MetaCategory⦄.GetCoEqualiserObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Object⦄,
+						⦃unicodeCodePoints Morphism⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃category⦄.GetCoEqualiser⟦⟦⦃typeIdentifier⦄⟧⟧sOf⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetEqualiser⟦⟦⦃typeIdentifier⦄⟧⟧sOf⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetStrictMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetStrictEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃category⦄.GetStrictMonoMorphisms⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetEqualiserMorphismsOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetStrictEpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetStrictMonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetRegularMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetRegularEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetRegularMonoMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦monoMorphisms⟧:
+							⦃⦃monoMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetRegularMonoMorphisms()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃monoMorphisms⦄)⦄
+					and:
+						for all ⟦monoMorphism⟧:
+								⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+							if and only if:
+								there exists ⟦object⟧,⟦morphisms⟧:
+									let:
+										⟦morphism0⟧,⟦morphism1⟧:
+												⦃⦃{⦃morphism0⦄}⦄.IsSubMultiClassOf(⦃morphisms⦄)⦄
+											and:
+												⦃⦃morphisms⦄.IsSubMultiClassOf(⦃{⦃morphism0⦄,⦃morphism1⦄}⦄)⦄
+									⦃⦃⦃category⦄.GetEqualiserMorphismsOf(⦃object⦄,⦃morphisms⦄)⦄.Has(⦃monoMorphism⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetRegularEpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetRegularMonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetObjectsProductLimitsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦objects⟧:
+						⦃⦃⦃⦃category⦄.GetObjectsProductLimitsOf⦄.GetDomain()⦄.Has(⦃objects⦄)⦄
+					if and only if:
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃objects⦄)⦄
+						and:
+							⦃⦃⦃objects⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃category⦄.GetObjects()⦄)⦄
+			and:
+				for all ⟦objects⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetObjectsProductLimitsOf⦄.GetDomain()⦄.Has(⦃objects⦄)⦄
+					then:
+						let:
+							⟦objectsProductLimits⟧:
+								⦃⦃objectsProductLimits⦄.IsEqualTo(⦃⦃category⦄.GetObjectsProductLimitsOf(⦃objects⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃objectsProductLimits⦄)⦄
+						and:
+							for all ⟦objectsProductLimit⟧:
+									⦃⦃objectsProductLimits⦄.HasInstance(⦃objectsProductLimit⦄)⦄
+								if and only if:
+									there exists ⟦object⟧:
+										let:
+											⟦diagram⟧:
+													⦃⦃⦃category⦄.GetDiagrams()⦄.Has(⦃diagram⦄)⦄
+												and:
+													let:
+														⟦indexCategory⟧:
+															⦃⦃indexCategory⦄.IsEqualTo(⦃⦃diagram⦄.GetDomain()⦄)⦄
+														⦃⦃DiscreteCategory⦄.HasInstance(⦃indexCategory⦄)⦄
+													and:
+														let:
+															⟦length⟧:
+																⦃⦃length⦄.IsEqualTo(⦃⦃objects⦄.GetLength()⦄)⦄
+															⟦indexes⟧:
+																⦃⦃indexes⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃length⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄)⦄
+															⦃⦃⦃indexCategory⦄.GetObjects()⦄.IsEqualTo(⦃indexes⦄)⦄
+														and:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃indexes⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃⦃indexCategory⦄.GetIdentityMorphismOf(⦃index⦄)⦄.IsEqualTo(⦃index⦄)⦄
+														and:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃⦃objects⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(⦃⦃diagram⦄.GetObjectImageOf⦄,⦃objects⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄
+														and:
+															⦃⦃⦃diagram⦄.GetObjectImageOf(⦃length⦄)⦄.IsEqualTo(⦃object⦄)⦄
+										⦃⦃⦃diagram⦄.GetLimits()⦄.Has(⦃objectsProductLimit⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetObjectsProductObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃category⦄.GetObjectsProductObjectsOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦objects⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃objects⦄,⦃⦃⦃⦃category⦄.GetObjectsProductLimitsOf(⦃objects⦄)⦄.MapToClassWith(⦃unaryFunction GetDomain⦄)⦄.MapWith(⦃unaryFunction GetObject⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetMorphismsProductsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦morphisms⟧:
+						⦃⦃⦃⦃category⦄.GetMorphismsProductsOf⦄.GetDomain()⦄.Has(⦃morphisms⦄)⦄
+					if and only if:
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃morphisms⦄)⦄
+						and:
+							⦃⦃⦃morphisms⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃category⦄.GetMorphisms()⦄)⦄
+			and:
+				for all ⟦morphisms⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetMorphismsProductsOf⦄.GetDomain()⦄.Has(⦃morphisms⦄)⦄
+					then:
+						let:
+							⟦morphismsProducts⟧:
+								⦃⦃morphismsProducts⦄.IsEqualTo(⦃⦃category⦄.GetMorphismsProductsOf(⦃morphisms⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃morphismsProducts⦄)⦄
+						and:
+							for all ⟦morphismsProduct⟧:
+									⦃⦃morphismsProducts⦄.HasInstance(⦃morphismsProduct⦄)⦄
+								if and only if:
+									there exists ⟦domainObjectsProductLimit⟧,⟦coDomainObjectsProductLimit⟧:
+										let:
+											⟦domainObjects⟧,⟦coDomainObjects⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints ⦄,
+															⦃unicodeCodePoints Co⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Objects⦄.IsEqualTo(⦃⦃morphisms⦄.MapWith(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf⦄)⦄)⦄
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints ⦄,
+														⦃unicodeCodePoints Co⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													let:
+														⟦typeIdentifier0⟧:
+															⦃⦃typeIdentifier0⦄.IsEqualTo(⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+													⦃⦃⦃category⦄.GetObjectsProductLimitsOf(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Objects⦄)⦄.Has(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ObjectsProductLimit⦄)⦄
+										and:
+											let:
+												⟦coDomainDiagram⟧:
+													⦃⦃coDomainDiagram⦄.IsEqualTo(⦃⦃coDomainObjectsProductLimit⦄.GetCoDomain()⦄)⦄
+												⟦cone⟧:
+														⦃⦃⦃coDomainDiagram⦄.GetConesOf(⦃⦃⦃domainObjectsProductLimit⦄.GetDomain()⦄.GetObject()⦄)⦄.Has(⦃cone⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃⦃morphisms⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃⦃cone⦄.GetComponentOf(⦃⦃coDomainObjects⦄(⦃index⦄)⦄)⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃⦃morphisms⦄(⦃index⦄)⦄,⦃⦃domainObjectsProductLimit⦄.GetComponentOf(⦃⦃domainObjects⦄(⦃index⦄)⦄)⦄)⦄)⦄
+											⦃⦃morphismsProduct⦄.IsEqualTo(⦃⦃coDomainDiagram⦄.GetMediatingMorphismOf(⦃coDomainObjectsProductLimit⦄,⦃cone⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetObjectsProductLimits⦄,⦃method ⦃MetaCategory⦄.GetMorphismsProducts⦄,
+⦃method ⦃MetaCategory⦄.GetObjectsCoProductLimitsOf⦄,⦃MetaCategory⦄.GetObjectsCoProductObjectsOf⦄,⦃method ⦃MetaCategory⦄.GetMorphismsCoProductsOf⦄,
+⦃method ⦃MetaCategory⦄.GetObjectsCoProductLimits⦄,⦃method ⦃MetaCategory⦄.GetMorphismsCoProducts⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Object⦄,
+						⦃unicodeCodePoints Morphism⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							if:
+								⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Object⦄)⦄
+							then:
+								⦃⦃{
+									⦃unicodeCodePoints Limit⦄,
+									⦃unicodeCodePoints Object⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							else:
+								⦃⦃{
+									⦃unicodeCodePoints ⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧sProduct⟦⟦⦃typeIdentifier0⦄⟧⟧s⦄.IsEqualTo(⦃⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧sProduct⟦⟦⦃typeIdentifier0⦄⟧⟧sOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+							and:
+								for all ⟦typeIdentifier1⟧:
+									if:
+										let:
+											⟦typeIdentifiers⟧:
+												if:
+													not:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Object⦄)⦄
+												then:
+													⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{
+														⦃unicodeCodePoints ⦄
+													}⦄)⦄
+												else:
+													⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{}⦄)⦄
+										⦃⦃⦃typeIdentifiers⦄.GetUnionWith(⦃{
+											⦃unicodeCodePoints Of⦄
+										}⦄)⦄.Has(⦃typeIdentifier1⦄)⦄
+									then:
+										⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧sCoProduct⟦⟦⦃typeIdentifier0⦄⟧⟧s⟦⟦⦃typeIdentifier1⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧sProduct⟦⟦⦃typeIdentifier0⦄⟧⟧s⟦⟦⦃typeIdentifier1⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetObjectsBiProductObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+					⦃⦃category⦄.GetObjectsBiProductObjectsOf⦄,
+					⦃⦃category⦄.GetObjectsProductLimitsOf⦄
+				)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+			and:
+				for all ⟦objects⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetObjectsBiProductObjectsOf⦄.GetDomain()⦄.Has(⦃objects⦄)⦄
+					then:
+						⦃⦃⦃category⦄.GetObjectsBiProductObjectsOf(⦃objects⦄)⦄.IsEqualTo(⦃⦃⦃{
+							⦃⦃category⦄.GetObjectsProductLimitsOf⦄,
+							⦃⦃category⦄.GetObjectsCoProductLimitsOf⦄
+						}⦄.Apply(⦃objects⦄)⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetWidePullbackLimitsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				for all ⟦x⟧:
+						⦃⦃⦃⦃category⦄.GetWidePullbackLimitsOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦object⟧,⟦morphisms⟧:
+								⦃⦃x⦄.IsEqualTo(⦃(⦃object⦄,⦃morphisms⦄)⦄)⦄
+							and:
+								⦃⦃⦃category⦄.GetObjects()⦄.Has(⦃object⦄)⦄
+							and:
+								⦃⦃TransFiniteSequence⦄.HasInstance(⦃morphisms⦄)⦄
+							and:
+								for all ⟦morphism⟧:
+									if:
+										⦃⦃⦃morphisms⦄.GetCoDomain()⦄.Has(⦃morphism⦄)⦄
+									then:
+										⦃⦃⦃category⦄.GetCoDomainOf(⦃morphism⦄)⦄.IsEqualTo(⦃object⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetWidePullbackLimitsOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦diagram⟧:
+									⦃⦃⦃category⦄.GetDiagrams()⦄.Has(⦃diagram⦄)⦄
+								and:
+									let:
+										⟦object⟧,⟦morphisms⟧:
+											⦃⦃(⦃object⦄,⦃morphisms⦄)⦄.IsEqualTo(⦃x⦄)⦄
+										⟦indexCategory⟧:
+											⦃⦃indexCategory⦄.IsEqualTo(⦃⦃diagram⦄.GetDomain()⦄)⦄
+										⟦length⟧:
+											⦃⦃length⦄.IsEqualTo(⦃⦃morphisms⦄.GetLength()⦄)⦄
+										⟦indexes⟧:
+											⦃⦃indexes⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃length⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄)⦄
+										⦃⦃⦃indexCategory⦄.GetObjects()⦄.IsEqualTo(⦃indexes⦄)⦄
+									and:
+										⦃⦃⦃indexCategory⦄.GetTerminalObjects()⦄.Has(⦃object⦄)⦄
+									and:
+										for all ⟦subCategory⟧:
+											if:
+													⦃⦃⦃indexCategory⦄.GetSubCategories()⦄.Has(⦃subCategory⦄)⦄
+												and:
+													⦃⦃⦃subCategory⦄.GetObjects()⦄.IsEqualTo(⦃indexes⦄)⦄
+											then:
+												⦃⦃DiscreteCategory⦄.HasInstance(⦃subCategory⦄)⦄
+									and:
+										for all ⟦index⟧:
+											if:
+												⦃⦃indexes⦄.Has(⦃index⦄)⦄
+											then:
+												⦃⦃⦃indexCategory⦄.GetIdentityMorphismOf(⦃index⦄)⦄.IsEqualTo(⦃(⦃0⦄,⦃index⦄)⦄)⦄
+									and:
+										⦃⦃⦃diagram⦄.GetObjectImageOf(⦃length⦄)⦄.IsEqualTo(⦃object⦄)⦄
+									and:
+										for all ⟦index⟧:
+											if:
+												⦃⦃⦃morphisms⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+											then:
+												let:
+													⟦morphism⟧:
+														⦃⦃morphism⦄.IsEqualTo(⦃(⦃1⦄,⦃index⦄)⦄)⦄
+													⦃⦃⦃indexCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃index⦄,⦃length⦄)⦄.IsEqualTo(⦃{⦃morphism⦄}⦄)⦄
+												and:
+													⦃⦃⦃diagram⦄.GetMorphismImageOf(⦃morphism⦄)⦄.IsEqualTo(⦃⦃morphisms⦄(⦃index⦄)⦄)⦄
+						⦃⦃⦃category⦄.GetWidePullbackLimitsOf(⦃x⦄)⦄.IsEqualTo(⦃⦃diagram⦄.GetLimits()⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetWidePullbackObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃category⦄.GetWidePullbackObjectsOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦y⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃y⦄,⦃⦃⦃⦃category⦄.GetWidePullbackLimitsOf(⦃y⦄)⦄.MapToClassWith(⦃unaryFunction GetDomain⦄)⦄.MapWith(⦃unaryFunction GetObject⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetWidePullbackLimits⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			⦃⦃⦃category⦄.GetWidePullbackObjects⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetWidePullbackObjectsOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+
+⦃method ⦃MetaCategory⦄.GetWidePushoutLimitsOf⦄,⦃MetaCategory⦄.GetWidePushoutObjectsOf⦄,
+⦃method ⦃MetaCategory⦄.GetWidePushoutLimits⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Limit⦄,
+						⦃unicodeCodePoints Object⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							let:
+								⟦typeIdentifiers⟧:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Limit⦄)⦄
+									then:
+										⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{
+											⦃unicodeCodePoints ⦄
+										}⦄)⦄
+									else:
+										⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{}⦄)⦄
+							⦃⦃⦃typeIdentifiers⦄.GetUnionWith(⦃{
+								⦃unicodeCodePoints Of⦄
+							}⦄)⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							⦃⦃⦃category⦄.GetWidePushout⟦⟦⦃typeIdentifier⦄⟧⟧s⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetWidePullback⟦⟦⦃typeIdentifier⦄⟧⟧s⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetKernelPairsOf⦄,⦃method ⦃MetaCategory⦄.GetKernelPairs⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetKernelPairsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetMorphisms()⦄)⦄
+				and:
+					for all ⟦morphism⟧:
+						if:
+							⦃⦃⦃⦃category⦄.GetKernelPairsOf⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+						then:
+							⦃⦃⦃category⦄.GetKernelPairsOf(⦃morphism⦄)⦄.IsEqualTo(⦃⦃category⦄.GetWidePullbackLimits(⦃⦃category⦄.GetCoDomainOf(⦃morphism⦄)⦄,⦃(⦃morphism⦄,⦃morphism⦄)⦄)⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetKernelPairs⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetKernelPairsOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetCoKernelPairsOf⦄,⦃method ⦃MetaCategory⦄.GetCoKernelPairs⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Of⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃category⦄.GetCoKernelPairs⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetKernelPairs⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetEffectiveMonoMorphisms⦄,⦃method ⦃MetaCategory⦄.GetEffectiveEpiMorphisms⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetEffectiveMonoMorphisms⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦monoMorphisms⟧:
+							⦃⦃monoMorphisms⦄.IsEqualTo(⦃⦃category⦄.GetEffectiveMonoMorphisms()⦄)⦄
+						⦃⦃Class⦄.HasInstance(⦃monoMorphisms⦄)⦄
+					and:
+						for all ⟦monoMorphism⟧:
+								⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+							if and only if:
+									⦃⦃⦃category⦄.GetMorphisms()⦄.Has(⦃monoMorphism⦄)⦄
+								and:
+									there exists ⟦pushout⟧:
+											⦃⦃⦃category⦄.GetCoKernelPairsOf(⦃monoMorphism⦄)⦄.Has(⦃pushout⦄)⦄
+										and:
+											⦃⦃⦃category⦄.GetEqualiserMorphismsOf(⦃⦃⦃pushout⦄.GetDomain()⦄.GetObject()⦄,⦃⦃{⦃0⦄,⦃1⦄}⦄.MapToClassWith(⦃⦃pushout⦄.GetComponentOf⦄)⦄)⦄.Has(⦃monoMorphism⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetEffectiveEpiMorphisms⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetEffectiveMonoMorphisms⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetTransFiniteSequencesIndexedBy⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			let:
+				⟦ordinals⟧:
+					⦃⦃ordinals⦄.IsEqualTo(⦃⦃Ordinal⦄.MapToClass()⦄)⦄
+				⦃⦃⦃⦃category⦄.GetTransFiniteSequencesIndexedBy⦄.GetDomain()⦄.IsEqualTo(⦃ordinals⦄)⦄
+			and:
+				for all ⟦ordinal⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetTransFiniteSequencesIndexedBy⦄.GetDomain()⦄.Has(⦃ordinal⦄)⦄
+					then:
+						let:
+							⟦sequences⟧:
+								⦃⦃sequences⦄.IsEqualTo(⦃⦃category⦄.GetTransFiniteSequencesIndexedBy(⦃ordinal⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃sequences⦄)⦄
+						and:
+							for all ⟦sequence⟧:
+									⦃⦃sequences⦄.Has(⦃sequence⦄)⦄
+								if and only if:
+										⦃⦃⦃category⦄.GetDiagrams()⦄.Has(⦃sequence⦄)⦄
+									and:
+										let:
+											⟦ordinalCategory⟧:
+													⦃⦃SkeletalThinCategory⦄.HasInstance(⦃ordinalCategory⦄)⦄
+												and:
+													⦃⦃⦃ordinalCategory⦄.GetObjects()⦄.IsEqualTo(⦃ordinals⦄)⦄
+												and:
+													for all ⟦ordinal0⟧,⟦ordinal1⟧:
+														if:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃ordinals⦄.Has(⦃ordinal⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+														then:
+																not:
+																	⦃⦃⦃ordinalCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃ordinal0⦄,⦃ordinal1⦄)⦄.IsEqualTo(⦃{}⦄)⦄
+															if and only if:
+																⦃⦃ordinal0⦄.IsInferiorOrEqualTo(⦃ordinal1⦄)⦄
+											⦃⦃⦃sequence⦄.GetDomain()⦄.IsEqualTo(⦃⦃ordinalCategory⦄.GetFullSubCategoryGeneratedBy(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃ordinal⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄)⦄)⦄
+										and:
+											for all ⟦limitOrdinal⟧:
+												if:
+														⦃⦃LimitOrdinal⦄.HasInstance(⦃limitOrdinal⦄)⦄
+													and:
+														⦃⦃limitOrdinal⦄.IsInferiorTo(⦃ordinal⦄)⦄
+												then:
+													there exists ⟦colimit⟧:
+															⦃⦃⦃⦃sequence⦄.GetFunctorInducedBy(⦃⦃ordinalCategory⦄.GetFullSubCategoryGeneratedBy(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃limitOrdinal⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄)⦄.GetCoLimits()⦄.Has(⦃colimit⦄)⦄
+														and:
+															for all ⟦ordinal⟧:
+																if:
+																	⦃⦃⦃⦃colimit⦄.GetComponentOf⦄.GetDomain()⦄.Has(⦃ordinal⦄)⦄
+																then:
+																	let:
+																		⟦morphism⟧:
+																			⦃⦃{⦃morphism⦄}⦄.IsEqualTo(⦃⦃ordinalCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃ordinal⦄,⦃limitOrdinal⦄)⦄)⦄
+																	⦃⦃⦃sequence⦄.GetMorphismImageOf(⦃morphism⦄)⦄.IsEqualTo(⦃⦃colimit⦄.GetComponentOf(⦃ordinal⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetTransFiniteSequences⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			⦃⦃⦃category⦄.GetTransFiniteSequences⦄.IsEqualTo(⦃⦃⦃category⦄.GetTransFiniteSequencesIndexedBy⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetTransFiniteCompositionsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetTransFiniteCompositionsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetTransFiniteSequences()⦄)⦄
+			and:
+				for all ⟦sequence⟧:
+					if:
+						⦃⦃⦃⦃category⦄.GetTransFiniteCompositionsOf⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+					then:
+						let:
+							⟦compositions⟧:
+								⦃⦃compositions⦄.IsEqualTo(⦃⦃category⦄.GetTransFiniteCompositionsOf(⦃sequence⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃compositions⦄)⦄
+						and:
+							for all ⟦composition⟧:
+									⦃⦃compositions⦄.Has(⦃composition⦄)⦄
+								if and only if:
+									there exists ⟦colimit⟧:
+											⦃⦃⦃sequence⦄.GetCoLimits()⦄.Has(⦃colimit⦄)⦄
+										and:
+											⦃⦃composition⦄.IsEqualTo(⦃⦃colimit⦄.GetComponentOf(⦃0⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetPreOrderOfMonoMorphismsOf⦄,⦃method ⦃MetaCategory⦄.GetPreOrderOfEpiMorphismsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetPreOrderOfMonoMorphismsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+				and:
+					for all ⟦object⟧:
+						if:
+							⦃⦃⦃⦃category⦄.GetPreOrderOfMonoMorphismsOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+						then:
+							let:
+								⟦preOrder⟧:
+									⦃⦃preOrder⦄.IsEqualTo(⦃⦃category⦄.GetPreOrderOfMonoMorphismsOf(⦃object⦄)⦄)⦄
+								⦃⦃PreOrder⦄.HasInstance(⦃preOrder⦄)⦄
+							and:
+								let:
+									⟦monoMorphisms⟧:
+											⦃⦃Class⦄.HasInstance(⦃monoMorphisms⦄)⦄
+										and:
+											for all ⟦monoMorphism⟧:
+													⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⦄)⦄
+												if and only if:
+														⦃⦃⦃category⦄.GetMonoMorphisms()⦄.Has(⦃monoMorphism⦄)⦄
+													and:
+														⦃⦃⦃category⦄.GetCoDomainOf(⦃monoMorphism⦄)⦄.IsEqualTo(⦃object⦄)⦄
+									⦃⦃⦃preOrder⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃monoMorphisms⦄)⦄
+								and:
+									for all ⟦monoMorphism0⟧,⟦monoMorphism1⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃monoMorphisms⦄.Has(⦃monoMorphism⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+												⦃⦃⦃preOrder⦄.GetSimplifiedFunction()⦄(⦃monoMorphism0⦄,⦃monoMorphism1⦄)⦄
+											if and only if:
+												there exists ⟦morphism⟧:
+													⦃⦃monoMorphism0⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃monoMorphism1⦄,⦃morphism⦄)⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetPreOrderOfEpiMorphismsOf⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetPreOrderOfMonoMorphismsOf⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetSubObjectsOf⦄,⦃method ⦃MetaCategory⦄.GetSubObjects⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetSubObjectsOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+				and:
+					for all ⟦object⟧:
+						if:
+							⦃⦃⦃⦃category⦄.GetSubObjectsOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+						then:
+							let:
+								⟦preOrder⟧:
+									⦃⦃preOrder⦄.IsEqualTo(⦃⦃category⦄.GetPreOrderOfMonoMorphismsOf(⦃object⦄)⦄)⦄
+							⦃⦃⦃category⦄.GetSubObjectsOf(⦃object⦄)⦄.IsEqualTo(⦃⦃⦃preOrder⦄.GetIntersectionWith(⦃⦃preOrder⦄.GetConverse()⦄)⦄.GetEquivalenceClasses()⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetSubObjects⦄.IsEqualTo(⦃⦃⦃category⦄.GetSubObjectsOf⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetQuotientObjectsOf⦄,⦃method ⦃MetaCategory⦄.GetQuotientObjects⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Of⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃⦃category⦄.GetQuotientObjects⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetSubObjects⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetKernelLimitsOf⦄,⦃method ⦃MetaCategory⦄.GetKernelLimits⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+					⦃⦃⦃⦃category⦄.GetKernelLimitsOf⦄.GetDomain()⦄.Has(⦃⦃category⦄.GetMorphisms()⦄)⦄
+				and:
+					for all ⟦morphism⟧:
+						if:
+							⦃⦃⦃⦃category⦄.GetKernelLimitsOf⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+						then:
+							let:
+								⟦kernelLimits⟧:
+									⦃⦃kernelLimits⦄.IsEqualTo(⦃⦃category⦄.GetKernelLimitsOf(⦃morphism⦄)⦄)⦄
+								⦃⦃Class⦄.HasInstance(⦃kernelLimits⦄)⦄
+							and:
+								for all ⟦kernelLimit⟧:
+										⦃⦃kernelLimits⦄.Has(⦃kernelLimit⦄)⦄
+									if and only if:
+										there exists ⟦coTerminalObject⟧:
+												⦃⦃⦃category⦄.GetCoTerminalObjects()⦄.Has(⦃coTerminalObject⦄)⦄
+											and:
+												let:
+													⟦coDomain⟧:
+														⦃⦃coDomain⦄.IsEqualTo(⦃⦃category⦄.GetCoDomainOf(⦃morphism⦄)⦄)⦄
+													⟦morphism0⟧:
+														⦃⦃{⦃morphism0⦄}⦄.IsEqualTo(⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃coTerminalObject⦄,⦃coDomain⦄)⦄)⦄
+												⦃⦃⦃category⦄.GetWidePullbackLimits(⦃coDomain⦄,⦃(⦃morphism⦄,⦃morphism0⦄)⦄)⦄.Has(⦃kernelLimit⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetKernelLimits⦄.IsEqualTo(⦃⦃⦃⦃category⦄.GetKernelLimitsOf⦄.GetCoDomain()⦄.GetUnion⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetKernelObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃category⦄.GetKernelObjectsOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦morphism⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃morphism⦄,⦃⦃⦃⦃category⦄.GetKernelLimitsOf(⦃morphism⦄)⦄.MapToClassWith(⦃unaryFunction GetDomain⦄)⦄.MapWith(⦃unaryFunction GetObject⦄)⦄)⦄)⦄
+
+⦃method ⦃MetaCategory⦄.GetCoKernelLimitsOf⦄,⦃MetaCategory⦄.GetCoKernelObjectsOf⦄,
+⦃method ⦃MetaCategory⦄.GetCoKernelLimits⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Limit⦄,
+						⦃unicodeCodePoints Object⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							let:
+								⟦typeIdentifiers⟧:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Limit⦄)⦄
+									then:
+										⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{
+											⦃unicodeCodePoints ⦄
+										}⦄)⦄
+									else:
+										⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{}⦄)⦄
+							⦃⦃⦃typeIdentifiers⦄.GetUnionWith(⦃{
+								⦃unicodeCodePoints Of⦄
+							}⦄)⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							⦃⦃⦃category⦄.GetCoKernel⟦⟦⦃typeIdentifier⦄⟧⟧s⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetKernel⟦⟦⦃typeIdentifier⦄⟧⟧s⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetImageSubObjectOf⦄,⦃method ⦃MetaCategory⦄.GetImageSubObjects⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				let:
+					⟦morphisms⟧:
+						⦃⦃morphisms⦄.IsEqualTo(⦃⦃category⦄.GetMorphisms()⦄)⦄
+					⦃⦃⦃⦃category⦄.GetImageSubObjectOf⦄.GetDomain()⦄.IsEqualTo(⦃morphisms⦄)⦄
+				and:
+					for all ⟦morphism⟧:
+						if:
+							⦃⦃⦃⦃category⦄.GetImageSubObjectOf⦄.GetDomain()⦄.Has(⦃morphism⦄)⦄
+						then:
+							let:
+								⟦compositionFunction⟧:
+									⦃⦃compositionFunction⦄.IsEqualTo(⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+								⟦subObjects⟧:
+										⦃⦃Class⦄.HasInstance(⦃subObjects⦄)⦄
+									and:
+										for all ⟦subObject⟧:
+												⦃⦃subObjects⦄.Has(⦃subObject⦄)⦄
+											if and only if:
+													⦃⦃⦃category⦄.GetSubObjectsOf(⦃⦃category⦄.GetCoDomainOf(⦃morphism⦄)⦄)⦄.Has(⦃subObject⦄)⦄
+												and:
+													for all ⟦monoMorphism⟧,⟦morphism0⟧:
+														if:
+																⦃⦃subObject⦄.Has(⦃monoMorphism⦄)⦄
+															and:
+																⦃⦃morphisms⦄.Has(⦃morphism0⦄)⦄
+														then:
+															⦃⦃morphism⦄.IsEqualTo(⦃⦃compositionFunction⦄(⦃monoMorphism⦄,⦃morphism0⦄)⦄)⦄
+								⟦images⟧:
+									⦃⦃images⦄.IsEqualTo(⦃⦃category⦄.GetImageSubObjectOf(⦃morphism⦄)⦄)⦄
+							if:
+								not:
+									⦃⦃subObjects⦄.IsEqualTo(⦃{}⦄)⦄
+							then:
+									⦃⦃subObjects⦄.Has(⦃images⦄)⦄
+								and:
+									for all ⟦subObject⟧:
+										if:
+											⦃⦃subObjects⦄.Has(⦃subObject⦄)⦄
+										then:
+											for all ⟦image⟧,⟦monoMorphism⟧:
+												if:
+														⦃⦃images⦄.Has(⦃image⦄)⦄
+													and:
+														⦃⦃subObject⦄.Has(⦃monoMorphism⦄)⦄
+												then:
+													there exists ⟦morphism⟧:
+														⦃⦃image⦄.IsEqualTo(⦃⦃compositionFunction⦄(⦃monoMorphism⦄,⦃morphism⦄)⦄)⦄
+							else:
+								⦃⦃images⦄.IsEqualTo(⦃{}⦄)⦄
+			and:
+				⦃⦃⦃category⦄.GetImageSubObjects⦄.IsEqualTo(⦃⦃⦃category⦄.GetImageSubObjectOf⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetImageObjectsOf⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃category⦄.GetImageObjectsOf⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦morphism⟧:
+						⦃⦃x⦄.IsEqualTo(⦃(⦃morphism⦄,⦃⦃⦃category⦄.GetImageSubObjectOf(⦃morphism⦄)⦄.MapToClassWith(⦃⦃category⦄.GetDomainOf⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetHomFunctor⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetHomFunctor⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦homFunctor⟧:
+						⦃⦃homFunctor⦄.IsEqualTo(⦃⦃category⦄.GetHomFunctor()⦄)⦄
+					⦃⦃HomFunctor⦄.HasInstance(⦃homFunctor⦄)⦄
+				and:
+					⦃⦃⦃homFunctor⦄.GetCategory()⦄.IsEqualTo(⦃category⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetInjectiveObjects⦄,⦃method ⦃MetaCategory⦄.GetProjectiveObjects⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetInjectiveObjects⦄.GetDomain()⦄.Has(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦objects⟧:
+						⦃⦃objects⦄.IsEqualTo(⦃⦃category⦄.GetInjectiveObjects()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃objects⦄)⦄
+				and:
+					for all ⟦object⟧:
+							⦃⦃objects⦄.Has(⦃object⦄)⦄
+						if and only if:
+								⦃⦃⦃category⦄.GetObjects()⦄.Has(⦃object⦄)⦄
+							and:
+								for all ⟦monoMorphism⟧:
+									if:
+										⦃⦃⦃category⦄.GetMonoMorphisms()⦄.Has(⦃monoMorphism⦄)⦄
+									then:
+										⦃⦃⦃ClassCategory⦄.GetEpiMorphisms()⦄.Has(⦃⦃⦃⦃⦃category⦄.GetHomFunctor()⦄.GetFunctorGeneratedBy(⦃⦃Function⦄(⦃{
+											⦃(⦃1⦄,⦃object⦄)⦄
+										}⦄)⦄)⦄.GetSimplifiedFunctor()⦄.GetMorphismImageOf(⦃monoMorphism⦄)⦄)⦄
+	and:
+		⦃⦃⦃category⦄.GetProjectiveObjects⦄.IsEqualTo(⦃⦃⦃category⦄.GetOpposite()⦄.GetInjectiveObjects⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetArrowCategory⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃MetaCategory⦄.HasInstance(⦃category⦄)⦄
+		then:
+				⦃⦃⦃⦃category⦄.GetArrowCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦arrowCategory⟧:
+						⦃⦃arrowCategory⦄.IsEqualTo(⦃⦃category⦄.GetArrowCategory()⦄)⦄
+					⦃⦃ArrowCategory⦄.HasInstance(⦃arrowCategory⦄)⦄
+				and:
+					⦃⦃⦃arrowCategory⦄.GetCategory()⦄.IsEqualTo(⦃category⦄)⦄
+
+define ⦃method ⦃MetaCategory⦄.GetCategory⦄
+	for all ⟦category⟧:
+		if:
+				⦃⦃MetaCategory⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃Category⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetCategory⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦category⟧:
+						⦃⦃category⦄.IsEqualTo(⦃⦃structure⦄.GetCategory()⦄)⦄
+					⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃category⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃Category⦄}⦄.GetEquipmentsDomain⦄
+		⦃⦃⦃⦃Category⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃Category⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃{⦃unicodeCodePoints category⦄}⦄)⦄
+
+define ⦃method ⦃Category⦄.MapToCategoryWith⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃category⦄.MapToCategoryWith⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦objectToMappedObjectMap⟧,⟦morphismToMappedMorphismMap⟧,⟦mappedCategory⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃objectToMappedObjectMap⦄,⦃morphismToMappedMorphismMap⦄)⦄,⦃mappedCategory⦄)⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Object⦄,
+										⦃unicodeCodePoints Morphism⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									let:
+										⟦typeIdentifierWithFirstUnicodeCodePointToLowerCase⟧:
+											⦃⦃typeIdentifierWithFirstUnicodeCodePointToLowerCase⦄.IsEqualTo(⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃typeIdentifierWithFirstUnicodeCodePointToLowerCase⦄⟧⟧ToMappedObjectMap⦄)⦄
+									and:
+										⦃⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄.IsSubMultiClassOf(⦃⦃⟦⟦⦃typeIdentifierWithFirstUnicodeCodePointToLowerCase⦄⟧⟧ToMappedObjectMap⦄.GetDomain()⦄)⦄
+						and:
+								⦃⦃Category⦄.HasInstance(⦃mappedCategory⦄)⦄
+							and:
+								let:
+									⟦mappedObjects⟧:
+										⦃⦃mappedObjects⦄.IsEqualTo(⦃⦃mappedCategory⦄.GetObjects()⦄)⦄
+									⦃⦃mappedObjects⦄.IsEqualTo(⦃⦃objectToMappedObjectMap⦄.GetCoDomain()⦄)⦄
+								and:
+									for all ⟦mappedDomain⟧,⟦mappedCoDomain⟧:
+										if:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints ⦄,
+														⦃unicodeCodePoints Co⦄
+													}⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃mappedObjects⦄.Has(⦃mapped⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄)⦄
+										then:
+											for all ⟦mappedMorphism⟧:
+													⦃⦃⦃mappedCategory⦄.GetMorphismsWithDomainAndCoDomain(⦃mappedDomain⦄,⦃mappedCoDomain⦄)⦄.Has(⦃mappedMorphism⦄)⦄
+												if and only if:
+													there exists ⟦morphism⟧:
+															⦃⦃mappedMorphism⦄.IsEqualTo(⦃⦃morphismToMappedMorphismMap⦄(⦃morphism⦄)⦄)⦄
+														and:
+															for all ⟦typeIdentifier⟧:
+																if:
+																	⦃⦃{
+																		⦃unicodeCodePoints ⦄,
+																		⦃unicodeCodePoints Co⦄
+																	}⦄.Has(⦃typeIdentifier⦄)⦄
+																then:
+																	⦃⦃mapped⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.IsEqualTo(⦃⦃objectToMappedObjectMap⦄(⦃⦃category⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧DomainOf(⦃morphism⦄)⦄)⦄)⦄
+								and:
+									let:
+										⟦mappedCompositionFunction⟧:
+											⦃⦃mappedCompositionFunction⦄.IsEqualTo(⦃⦃⦃mappedCategory⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄)⦄
+									for all ⟦mappedMorphisms⟧:
+										if:
+											⦃⦃⦃mappedCompositionFunction⦄.GetDomain()⦄.Has(⦃mappedMorphisms⦄)⦄
+										then:
+											let:
+												⟦morphisms⟧:
+														⦃⦃FiniteSequence⦄.HasInstance(⦃morphisms⦄)⦄
+													and:
+														⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃morphisms⦄,⦃mappedMorphisms⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃⦃morphisms⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃⦃morphismToMappedMorphismMap⦄(⦃⦃morphisms⦄(⦃index⦄)⦄)⦄.IsEqualTo(⦃⦃mappedMorphisms⦄(⦃index⦄)⦄)⦄
+											⦃⦃⦃mappedCompositionFunction⦄(⦃mappedMorphisms⦄)⦄.IsEqualTo(⦃⦃morphismToMappedMorphismMap⦄(⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(⦃morphisms⦄)⦄)⦄)⦄
+
+define ⦃method ⦃Category⦄.GetQuotientCategoryInducedBy⦄
+	for all ⟦category⟧:
+		if:
+			⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+		then:
+			for all ⟦congruenceRelation⟧,⟦quotientCategory⟧:
+					⦃⦃⦃⦃category⦄.GetQuotientCategoryInducedBy⦄.GetGraph()⦄.Has(⦃(⦃congruenceRelation⦄,⦃quotientCategory⦄)⦄)⦄
+				if and only if:
+						⦃⦃QuotientCategory⦄.HasInstance(⦃quotientCategory⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Category⦄,
+									⦃unicodeCodePoints CongruenceRelation⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃quotientCategory⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄

@@ -1,0 +1,27 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MultiClassNotations⦄
+		let:
+			⟦regularExpression⟧:
+					⦃⦃RegularExpressionWithVariables⦄.HasInstance(⦃regularExpression⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃regularExpression⦄,⦃MultiClassNotations⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄)⦄
+		⦃⦃⦃MultiClassNotations⦄.GetDomain()⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+	and:
+		for all ⟦multiClassNotation⟧:
+			if:
+				⦃⦃⦃MultiClassNotations⦄.GetDomain()⦄.Has(⦃multiClassNotation⦄)⦄
+			then:
+				let:
+					⟦multiClass⟧:
+						⦃⦃multiClass⦄.IsEqualTo(⦃⟦⟦⦃multiClassNotation⦄⟧⟧⦄)⦄
+					⦃⦃FiniteMultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+					⦃⦃⦃multiClass⦄.GetPermutations()⦄.Has(⦃⦃multiClassNotation⦄.FilterWith(⦃⦃Variable⦄.HasInstance⦄)⦄)⦄
+
+define ⦃method ⦃{⦃MultiClassNotations⦄}⦄.GetPattern⦄
+		⦃⦃⦃⦃MultiClassNotations⦄.GetPattern⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃MultiClassNotations⦄.GetPattern()⦄.IsEqualTo(⦃unicodeCodePoints [#32##9##10#]{}#92#{[#32##9##10#]{}(|(<@x@>[#32##9##10#]{},[#32##9##10#]{}){}<@x@>)[#32##9##10#]{}#92#}[#32##9##10#]{}⦄)⦄

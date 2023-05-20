@@ -1,0 +1,182 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaNaturalTransformation⦄,⦃NaturalTransformation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃NaturalTransformation⦄)⦄
+			and:
+				for all ⟦naturalTransformation⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InfraNaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+						and:
+							⦃⦃⦃naturalTransformation⦄.GetNaturalizer()⦄.IsEqualTo(⦃⦃naturalTransformation⦄.GetFunctorDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaNaturalTransformation⦄.GetHorizontalCompositionWith⦄
+		there exists ⟦naturalTransformationsClasses⟧:
+				⦃⦃Class⦄.HasInstance(⦃naturalTransformationsClasses⦄)⦄
+			and:
+				⦃⦃naturalTransformationsClasses⦄.AreMutuallyDisjoint()⦄
+			and:
+				⦃⦃⦃naturalTransformationsClasses⦄.GetUnion()⦄.IsEqualTo(⦃⦃MetaNaturalTransformation⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦naturalTransformations⟧:
+					if:
+						⦃⦃naturalTransformationsClasses⦄.Has(⦃naturalTransformations⦄)⦄
+					then:
+						there exists ⟦category⟧:
+								⦃⦃Category⦄.HasInstance(⦃category⦄)⦄
+							and:
+								let:
+									⟦categories⟧:
+										⦃⦃categories⦄.IsEqualTo(⦃⦃category⦄.GetObjects()⦄)⦄
+									for all ⟦category⟧:
+											⦃⦃categories⦄.Has(⦃category⦄)⦄
+										if and only if:
+											there exists ⟦naturalTransformation⟧:
+													⦃⦃naturalTransformations⦄.Has(⦃naturalTransformation⦄)⦄
+												and:
+													there exists ⟦typeIdentifier⟧:
+															⦃⦃{
+																⦃unicodeCodePoints ⦄,
+																⦃unicodeCodePoints Co⦄
+															}⦄.Has(⦃typeIdentifier⦄)⦄
+														and:
+															⦃⦃category⦄.IsEqualTo(⦃⦃naturalTransformation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄)⦄
+								and:
+									for all ⟦category0⟧,⟦category1⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃categories⦄.Has(⦃category⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+										then:
+											for all ⟦naturalTransformation⟧:
+													⦃⦃⦃category⦄.GetMorphismsWithDomainAndCoDomain(⦃category0⦄,⦃category1⦄)⦄.Has(⦃naturalTransformation⦄)⦄
+												if and only if:
+														⦃⦃naturalTransformations⦄.Has(⦃naturalTransformation⦄)⦄
+													and:
+														for all ⟦typeIdentifier⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints ⦄,
+																	⦃unicodeCodePoints Co⦄
+																}⦄.Has(⦃typeIdentifier⦄)⦄
+															then:
+																let:
+																	⟦index⟧:
+																		if:
+																			⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																		then:
+																			⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																		else:
+																			⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+																⦃⦃⦃naturalTransformation⦄.GetFunctor⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃category⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+								and:
+									⦃⦃⦃⦃category⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄.IsEqualTo(⦃binaryFunction ⦃naturalTransformations⦄.GetHorizontalCompositionWith⦄)⦄
+	and:
+		for all ⟦naturalTransformation⟧:
+			if:
+					⦃⦃MetaNaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+				and:
+					not:
+						⦃⦃NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+			then:
+				for all ⟦naturalTransformation0⟧,⟦composition⟧:
+					if:
+						⦃⦃⦃⦃naturalTransformation⦄.GetHorizontalCompositionWith⦄.GetGraph()⦄.Has(⦃(⦃naturalTransformation0⦄,⦃composition⦄)⦄)⦄
+					then:
+						⦃⦃⦃⦃⦃naturalTransformation⦄.GetNaturalTransformation()⦄.GetHorizontalCompositionWith⦄.GetGraph()⦄.Has(⦃⦃(⦃naturalTransformation0⦄,⦃composition⦄)⦄.MapWith(⦃unaryFunction GetNaturalTransformation⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃MetaNaturalTransformation⦄)⦄.GetHorizontalComposition⦄
+	for all ⟦naturalTransformations⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃MetaNaturalTransformation⦄)⦄.HasInstance(⦃naturalTransformations⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃naturalTransformations⦄.GetHorizontalComposition⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃⦃naturalTransformations⦄.ReduceWith(⦃binaryFunction GetHorizontalCompositionWith⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaNaturalTransformation⦄.GetLeftWhiskeringWith⦄,⦃method ⦃MetaNaturalTransformation⦄.GetRightWhiskeringWith⦄
+	for all ⟦naturalTransformation⟧:
+		if:
+			⦃⦃MetaNaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦functor⟧,⟦naturalTransformation0⟧:
+							⦃⦃⦃⦃naturalTransformation⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧WhiskeringWith⦄.GetGraph()⦄.Has(⦃(⦃functor⦄,⦃naturalTransformation0⦄)⦄)⦄
+						if and only if:
+								⦃⦃MetaFunctor⦄.HasInstance(⦃functor⦄)⦄
+							and:
+								there exists ⟦identityNaturalTransformation⟧:
+											⦃⦃MetaIdentityNaturalTransformation⦄.HasInstance(⦃identityNaturalTransformation⦄)⦄
+										and:
+											⦃⦃⦃identityNaturalTransformation⦄.GetFunctor()⦄.IsEqualTo(⦃functor⦄)⦄
+									and:
+										let:
+											⟦naturalTransformations⟧:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+												then:
+													⦃⦃naturalTransformations⦄.IsEqualTo(⦃(⦃naturalTransformation⦄,⦃identityNaturalTransformation⦄)⦄)⦄
+												else:
+													⦃⦃naturalTransformations⦄.IsEqualTo(⦃(⦃identityNaturalTransformation⦄,⦃naturalTransformation⦄)⦄)⦄
+										⦃⦃naturalTransformation0⦄.IsEqualTo(⦃⦃naturalTransformations⦄.GetHorizontalComposition()⦄)⦄
+
+
+
+define ⦃method ⦃NaturalTransformation⦄.GetHorizontalCompositionWith⦄
+	for all ⟦naturalTransformation⟧:
+		if:
+			⦃⦃NaturalTransformation⦄.HasInstance(⦃naturalTransformation⦄)⦄
+		then:
+				for all ⟦naturalTransformation0⟧:
+						⦃⦃⦃⦃naturalTransformation⦄.GetHorizontalCompositionWith⦄.GetDomain()⦄.Has(⦃naturalTransformation0⦄)⦄
+					if and only if:
+							⦃⦃NaturalTransformation⦄.HasInstance(⦃naturalTransformation0⦄)⦄
+						and:
+							⦃⦃⦃naturalTransformation0⦄.GetFunctorCoDomain()⦄.IsEqualTo(⦃⦃naturalTransformation⦄.GetFunctorDomain()⦄)⦄
+			and:
+				for all ⟦naturalTransformation0⟧:
+					if:
+						⦃⦃⦃⦃naturalTransformation⦄.GetHorizontalCompositionWith⦄.GetDomain()⦄.Has(⦃naturalTransformation0⦄)⦄
+					then:
+						let:
+							⟦composition⟧:
+								⦃⦃composition⦄.IsEqualTo(⦃⦃naturalTransformation⦄.GetHorizontalCompositionWith(⦃naturalTransformation0⦄)⦄)⦄
+							⦃⦃NaturalTransformation⦄.HasInstance(⦃composition⦄)⦄
+						and:
+							for all ⟦typeIdentifier⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints ⦄,
+										⦃unicodeCodePoints Co⦄
+									}⦄.Has(⦃typeIdentifier⦄)⦄
+								then:
+									⦃⦃⦃composition⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain()⦄.IsEqualTo(⦃⦃⦃(⦃naturalTransformation⦄,⦃naturalTransformation0⦄)⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄)⦄.GetComposition()⦄)⦄
+						and:
+							for all ⟦object⟧:
+								if:
+									⦃⦃⦃⦃composition⦄.GetComponentOf⦄.GetDomain()⦄.Has(⦃object⦄)⦄
+								then:
+									⦃⦃⦃composition⦄.GetComponentOf(⦃object⦄)⦄.IsEqualTo(⦃⦃⦃⦃⦃composition⦄.GetFunctorCoDomain()⦄.GetCompositionOperation()⦄.GetSimplifiedFunction()⦄(
+										⦃⦃naturalTransformation⦄.GetComponentOf(⦃⦃⦃naturalTransformation0⦄.GetCoDomain()⦄.GetObjectImageOf(⦃object⦄)⦄)⦄,
+										⦃⦃⦃naturalTransformation⦄.GetDomain()⦄.GetMorphismImageOf(⦃⦃naturalTransformation0⦄.GetComponentOf(⦃object⦄)⦄)⦄
+									)⦄)⦄

@@ -1,0 +1,34 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃UnambiguousParseTreeNode⦄
+		⦃⦃Type⦄.HasInstance(⦃UnambiguousParseTreeNode⦄)⦄
+	and:
+		for all ⟦node⟧:
+				⦃⦃UnambiguousParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+			if and only if:
+					⦃⦃ParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+				and:
+					for all ⟦node0⟧:
+						if:
+							⦃⦃⦃node⦄.GetAllChildNodes()⦄.Has(⦃node0⦄)⦄
+						then:
+							there exists ⟦childNodes⟧:
+								⦃⦃⦃node0⦄.GetSequencesOfChildNodes()⦄.IsSubMultiClassOf(⦃{⦃childNodes⦄}⦄)⦄
+
+define ⦃method ⦃UnambiguousParseTreeNode⦄.GetChildNodes⦄
+	for all ⟦node⟧:
+		if:
+			⦃⦃UnambiguousParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+		then:
+			if:
+				⦃⦃NonTerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+			then:
+					⦃⦃⦃⦃node⦄.GetChildNodes⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					⦃⦃{
+						⦃⦃node⦄.GetChildNodes()⦄
+					}⦄.IsEqualTo(⦃⦃node⦄.GetSequencesOfChildNodes()⦄)⦄
+			else:
+				⦃⦃⦃⦃node⦄.GetChildNodes⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄

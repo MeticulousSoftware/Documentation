@@ -1,0 +1,95 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦AreInversesOfFunctor⟧,⟦AreWeakInversesOfFunctor⟧
+define ⦃AreInversesOfFunctor⦄,⦃AreWeakInversesOfFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Weak⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Function⦄.HasInstance(⦃Are⟦⟦⦃typeIdentifier⦄⟧⟧InversesOfFunctor⦄)⦄
+			and:
+				⦃⦃⦃Are⟦⟦⦃typeIdentifier⦄⟧⟧InversesOfFunctor⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃MetaFunctor⦄,⦃NonEmptyClass⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄).GetCartesianProduct()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃Are⟦⟦⦃typeIdentifier⦄⟧⟧InversesOfFunctor⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦areInversesOfFunctor⟧:
+								⦃⦃areInversesOfFunctor⦄.IsEqualTo(⦃⦃Are⟦⟦⦃typeIdentifier⦄⟧⟧InversesOfFunctor⦄(⦃x⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃areInversesOfFunctor⦄)⦄
+						and:
+								⦃areInversesOfFunctor⦄
+							if and only if:
+								let:
+									⟦functor⟧,⟦inverses⟧:
+										⦃⦃(⦃functor⦄,⦃inverses⦄)⦄.IsEqualTo(⦃x⦄)⦄
+								⦃⦃inverses⦄.IsEqualTo(⦃⦃(
+									⦃⦃functor⦄.GetLeft⟦⟦⦃typeIdentifier⦄⟧⟧Inverses()⦄,
+									⦃⦃functor⦄.GetRight⟦⟦⦃typeIdentifier⦄⟧⟧Inverses()⦄
+								)⦄.GetIntersection()⦄)⦄
+
+
+
+define ⦃MetaInvertibleFunctor⦄,⦃MetaEssentiallySurjectiveFullyFaithFulFunctor⦄,
+⦃InvertibleFunctor⦄,⦃EssentiallySurjectiveFullyFaithFulFunctor⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Invertible⦄,
+						⦃unicodeCodePoints EssentiallySurjectiveFullyFaithFul⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Functor⦄)⦄
+					and:
+						for all ⟦functor⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Functor⦄.HasInstance(⦃functor⦄)⦄
+								and:
+									there exists ⟦inverses⟧:
+										let:
+											⟦typeIdentifier1⟧:
+												if:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Invertible⦄)⦄
+												then:
+													⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+												else:
+													⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Weak⦄)⦄
+										⦃⦃Are⟦⟦⦃typeIdentifier1⦄⟧⟧InversesOfFunctor⦄(⦃functor⦄,⦃inverses⦄)⦄
+
+
+
+define ⦃method ⦃MetaInvertibleFunctor⦄.GetInverse⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaInvertibleFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetInverse⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃AreInversesOfFunctor⦄(⦃functor⦄,⦃{
+					⦃⦃functor⦄.GetInverse()⦄
+				}⦄)⦄
+
+
+
+define ⦃method ⦃MetaEssentiallySurjectiveFullyFaithFulFunctor⦄.GetWeakInverses⦄
+	for all ⟦functor⟧:
+		if:
+			⦃⦃MetaEssentiallySurjectiveFullyFaithFulFunctor⦄.HasInstance(⦃functor⦄)⦄
+		then:
+				⦃⦃⦃⦃functor⦄.GetWeakInverses⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃AreWeakInversesOfFunctor⦄(⦃functor⦄,⦃⦃functor⦄.GetWeakInverses()⦄)⦄

@@ -1,0 +1,424 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃RegularExpressionsLexer⦄
+		⦃⦃Type⦄.HasInstance(⦃RegularExpressionsLexer⦄)⦄
+	and:
+		⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃RegularExpressionsLexer⦄,⦃Lexer⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetFrom⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetFrom⦄,⦃GetFrom⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃⦃⦃RegularExpressionsLexer⦄.GetLexerAndParserCombination()⦄.GetLanguage()⦄.Has(⦃⦃GetFrom⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦lexer⟧:
+									⦃⦃lexer⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃RegularExpressionsLexer⦄.HasInstance(⦃lexer⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃lexer⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃RegularExpressionsLexer⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+declare ⟦RegularExpressionsLexerLexerAndParserCombination⟧
+define ⦃RegularExpressionsLexerLexerAndParserCombination⦄
+		⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃RegularExpressionsLexerLexerAndParserCombination⦄)⦄
+	and:
+		let:
+			⟦lexer⟧:
+				⦃⦃lexer⦄.IsEqualTo(⦃⦃RegularExpressionsLexerLexerAndParserCombination⦄.GetLexer()⦄)⦄
+			let:
+				⟦regularExpression⟧:
+					⦃⦃regularExpression⦄.IsEqualTo(⦃⦃RegularExpression⦄(⦃unicodeCodePoints (<#92#<([^#92##92##92##47#<>]|(#92##92#|#92##47#)[^]){}#92#>>|<←|→>|<#10#{1,}>|[#32##9#]){}⦄)⦄)⦄
+				⟦language⟧:
+					⦃⦃language⦄.IsEqualTo(⦃⦃lexer⦄.GetLanguage()⦄)⦄
+				⦃⦃language⦄.IsEqualTo(⦃⦃regularExpression⦄.GetLanguage()⦄)⦄
+			and:
+				for all ⟦unicodeCodePoints⟧:
+					if:
+						⦃⦃language⦄.Has(⦃unicodeCodePoints⦄)⦄
+					then:
+						let:
+							⟦captureTree⟧:
+								⦃⦃captureTree⦄.IsEqualTo(⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃unicodeCodePoints⦄)⦄)⦄
+							⟦captureTreeLength⟧:
+								⦃⦃captureTreeLength⦄.IsEqualTo(⦃⦃captureTree⦄.GetLength()⦄)⦄
+							⟦lexWithContext⟧:
+									⦃⦃Function⦄.HasInstance(⦃lexWithContext⦄)⦄
+								and:
+									⦃⦃⦃lexWithContext⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃captureTreeLength⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄,⦃⦃Boolean⦄.MapToClass()⦄)⦄.GetCartesianProduct()⦄)⦄
+								and:
+									for all ⟦x⟧:
+										if:
+											⦃⦃⦃lexWithContext⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+										then:
+											let:
+												⟦index⟧,⟦isBeforeMatchersSeparator⟧:
+													⦃⦃(⦃index⦄,⦃isBeforeMatchersSeparator⦄)⦄.IsEqualTo(⦃x⦄)⦄
+												⟦tokens⟧:
+													⦃⦃tokens⦄.IsEqualTo(⦃⦃lexWithContext⦄(⦃x⦄)⦄)⦄
+											if:
+												⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+											then:
+												⦃⦃tokens⦄.IsEqualTo(⦃()⦄)⦄
+											else:
+												let:
+													⟦token⟧,⟦tokensEndingIsBeforeMatchersSeparator⟧:
+														let:
+															⟦captureTreeNode⟧:
+																⦃⦃captureTreeNode⦄.IsEqualTo(⦃⦃captureTree⦄(⦃⦃index⦄.Subtract(⦃1⦄)⦄)⦄)⦄
+															⟦tokenName⟧,⟦tokenValue⟧:
+																⦃⦃token⦄.IsEqualTo(⦃⦃Token⦄(⦃tokenName⦄,⦃tokenValue⦄,⦃⦃captureTreeNode⦄.GetValueRange()⦄)⦄)⦄
+															let:
+																⟦captureIdentifier⟧:
+																	⦃⦃captureIdentifier⦄.IsEqualTo(⦃⦃captureTreeNode⦄.GetCaptureIdentifier()⦄)⦄
+															if:
+																⦃⦃captureIdentifier⦄.IsEqualTo(⦃0⦄)⦄
+															then:
+																let:
+																	⟦symbol⟧:
+																		let:
+																			⟦capturedUnicodeCodePoints⟧:
+																				⦃⦃capturedUnicodeCodePoints⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄.GetSubSequence(⦃⦃captureTreeNode⦄.GetValueRange()⦄)⦄)⦄
+																		⦃⦃symbol⦄.IsEqualTo(⦃⦃⦃capturedUnicodeCodePoints⦄.GetSubSequence(⦃⦃FiniteOrdinalRange⦄(⦃1⦄,⦃⦃⦃capturedUnicodeCodePoints⦄.GetLength()⦄.Subtract(⦃1⦄)⦄)⦄)⦄.UnEscapeUnicodeCodePoints(⦃{
+																			⦃unicodeCodePoints #92#⦄,
+																			⦃unicodeCodePoints #47#⦄
+																		}⦄)⦄)⦄
+																if:
+																	not:
+																			⦃isBeforeMatchersSeparator⦄
+																		and:
+																			there exists ⟦regularExpression⟧:
+																					⦃⦃regularExpression⦄.IsEqualTo(⦃⦃RegularExpression⦄(⦃symbol⦄)⦄)⦄
+																				and:
+																					not:
+																							⦃⦃⦃regularExpression⦄.GetLanguage()⦄.Has(⦃⦄)⦄
+																						or:
+																							there exists ⟦node⟧:
+																								let:
+																									⟦parseTreeNodes⟧:
+																										⦃⦃parseTreeNodes⦄.IsEqualTo(⦃⦃⦃⦃RegularExpression⦄.GetLexerAndParserCombination()⦄.GetParseTreeOf(⦃symbol⦄)⦄.GetAllChildNodes()⦄)⦄
+																									⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+																								and:
+																									⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints capturing⦄)⦄
+																								and:
+																									there exists ⟦node0⟧:
+																											⦃⦃⦃node⦄.GetAllProperChildNodes()⦄.Has(⦃node0⦄)⦄
+																										and:
+																											⦃⦃⦃node0⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints capturing⦄)⦄
+																then:
+																		⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints token name⦄)⦄
+																	and:
+																		⦃⦃tokenValue⦄.IsEqualTo(⦃symbol⦄)⦄
+																else:
+																		⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints regular expression⦄)⦄
+																	and:
+																		⦃⦃tokenValue⦄.IsEqualTo(⦃⦃RegularExpression⦄(⦃symbol⦄)⦄)⦄
+															else:
+																	if:
+																		⦃⦃captureIdentifier⦄.IsEqualTo(⦃1⦄)⦄
+																	then:
+																		⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints token name to regular expression separator⦄)⦄
+																	else if:
+																		⦃⦃captureIdentifier⦄.IsEqualTo(⦃2⦄)⦄
+																	then:
+																		⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints matchers separator⦄)⦄
+																and:
+																	⦃⦃tokenValue⦄.IsEqualTo(⦃⦄)⦄
+														and:
+															⦃⦃tokensEndingIsBeforeMatchersSeparator⦄.IsEqualTo(⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints matchers separator⦄)⦄)⦄
+												⦃⦃tokens⦄.IsEqualTo(⦃⦃⦃lexWithContext⦄(⦃⦃index⦄.Subtract(⦃1⦄)⦄,⦃tokensEndingIsBeforeMatchersSeparator⦄)⦄.GetConcatenationWith(⦃(⦃token⦄)⦄)⦄)⦄
+						⦃⦃⦃lexer⦄.Lex(⦃unicodeCodePoints⦄)⦄.IsEqualTo(⦃⦃lexWithContext⦄(⦃captureTreeLength⦄,⦃True⦄)⦄)⦄
+		and:
+			let:
+				⟦grammar⟧:
+						⦃⦃ContextFreeFormalGrammar⦄.HasInstance(⦃grammar⦄)⦄
+					and:
+						⦃⦃⦃grammar⦄.GetContextFreeProductionRules()⦄.IsEqualTo(⦃{
+							⦃(⦃unicodeCodePoints lexer⦄,⦃(
+								⦃unicodeCodePoints optional matchers separator⦄,
+								⦃unicodeCodePoints matchers⦄,
+								⦃unicodeCodePoints optional matchers separator⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints lexer⦄,⦃(
+								⦃unicodeCodePoints optional matchers separator⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints matchers⦄,⦃(
+								⦃unicodeCodePoints matchers⦄,
+								⦃unicodeCodePoints matchers separator⦄,
+								⦃unicodeCodePoints matcher⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints matchers⦄,⦃(
+								⦃unicodeCodePoints matcher⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints matcher⦄,⦃(
+								⦃unicodeCodePoints capture matcher⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints matcher⦄,⦃(
+								⦃unicodeCodePoints ignore matcher⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints capture matcher⦄,⦃(
+								⦃unicodeCodePoints token name⦄,
+								⦃unicodeCodePoints token name to regular expression separator⦄,
+								⦃unicodeCodePoints regular expression⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints ignore matcher⦄,⦃(
+								⦃unicodeCodePoints regular expression⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints optional matchers separator⦄,⦃(
+								⦃unicodeCodePoints matchers separator⦄
+							)⦄)⦄,
+							⦃(⦃unicodeCodePoints optional matchers separator⦄,⦃⦄)⦄
+						}⦄)⦄
+					and:
+						⦃⦃⦃grammar⦄.GetTerminalSymbols()⦄.IsEqualTo(⦃⦃lexer⦄.GetTokenNames()⦄)⦄
+					and:
+						⦃⦃⦃grammar⦄.GetBeginningSymbol()⦄.IsEqualTo(⦃unicodeCodePoints lexer⦄)⦄
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃RegularExpressionsLexerLexerAndParserCombination⦄,⦃grammar⦄)⦄.MapWith(⦃unaryFunction GetParser⦄)⦄)⦄
+
+define ⦃method ⦃{⦃RegularExpressionsLexer⦄}⦄.GetLexerAndParserCombination⦄
+		⦃⦃⦃⦃RegularExpressionsLexer⦄.GetLexerAndParserCombination⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		let:
+			⟦lexerAndParserCombination⟧:
+				⦃⦃lexerAndParserCombination⦄.IsEqualTo(⦃⦃RegularExpressionsLexer⦄.GetLexerAndParserCombination()⦄)⦄
+			⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+		and:
+			let:
+				⟦lexer⟧:
+					⦃⦃lexer⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetLexer()⦄)⦄
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃lexer⦄,⦃RegularExpressionsLexerLexerAndParserCombination⦄)⦄.MapWith(⦃unaryFunction GetLanguage⦄)⦄)⦄
+			and:
+				for all ⟦from⟧:
+					if:
+						⦃⦃⦃lexer⦄.GetLanguage()⦄.Has(⦃from⦄)⦄
+					then:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃⦃(
+							⦃lexer⦄,
+							⦃⦃RegularExpressionsLexerLexerAndParserCombination⦄.GetLexer()⦄
+						)⦄.MapWith(⦃method Lex⦄)⦄.Apply(⦃from⦄)⦄)⦄
+		and:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃lexerAndParserCombination⦄,⦃RegularExpressionsLexerLexerAndParserCombination⦄)⦄.MapWith(⦃unaryFunction GetParser⦄)⦄)⦄
+
+define ⦃method ⦃RegularExpressionsLexer⦄.Lex⦄
+	for all ⟦lexer⟧:
+		if:
+			⦃⦃RegularExpressionsLexer⦄.HasInstance(⦃lexer⦄)⦄
+		then:
+			let:
+				⟦tokenNamesMap⟧,⟦regularExpression⟧:
+					let:
+						⟦tokenNamesRangeMap⟧:
+							let:
+								⟦lexerAndParserCombination⟧:
+									⦃⦃lexerAndParserCombination⦄.IsEqualTo(⦃⦃RegularExpressionsLexer⦄.GetLexerAndParserCombination()⦄)⦄
+								⟦node⟧:
+									⦃⦃node⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetParseTreeOf(⦃⦃lexer⦄.GetFrom()⦄)⦄)⦄
+								⟦getTokenNamesRangeMapAndRegularExpression⟧:
+										⦃⦃Function⦄.HasInstance(⦃getTokenNamesRangeMapAndRegularExpression⦄)⦄
+									and:
+										let:
+											⟦parseTreeNodes⟧:
+												⦃⦃parseTreeNodes⦄.IsEqualTo(⦃⦃node⦄.GetAllChildNodes()⦄)⦄
+											for all ⟦x⟧:
+													⦃⦃⦃getTokenNamesRangeMapAndRegularExpression⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+												if and only if:
+													there exists ⟦node⟧,⟦captureIdentifier⟧:
+															⦃⦃x⦄.IsEqualTo(⦃(⦃node⦄,⦃captureIdentifier⦄)⦄)⦄
+														and:
+															⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+														and:
+															⦃⦃{
+																⦃unicodeCodePoints capture matcher⦄,
+																⦃unicodeCodePoints ignore matcher⦄,
+																⦃unicodeCodePoints matcher⦄,
+																⦃unicodeCodePoints matchers⦄,
+																⦃unicodeCodePoints lexer⦄
+															}⦄.Has(⦃⦃node⦄.GetSymbol()⦄)⦄
+														and:
+															⦃⦃FiniteOrdinal⦄.HasInstance(⦃captureIdentifier⦄)⦄
+										and:
+											for all ⟦x⟧:
+												if:
+													⦃⦃⦃getTokenNamesRangeMapAndRegularExpression⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+												then:
+													let:
+														⟦node⟧,⟦captureIdentifier⟧:
+															⦃⦃(⦃node⦄,⦃captureIdentifier⦄)⦄.IsEqualTo(⦃x⦄)⦄
+														⟦symbol⟧:
+															⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+														⟦childNodes⟧:
+															⦃⦃childNodes⦄.IsEqualTo(⦃⦃node⦄.GetChildNodes()⦄)⦄
+														⟦childNodesLength⟧:
+															⦃⦃childNodesLength⦄.IsEqualTo(⦃⦃childNodes⦄.GetLength()⦄)⦄
+														⟦tokenNamesRangeMapAndRegularExpression⟧:
+															⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃⦃getTokenNamesRangeMapAndRegularExpression⦄(⦃x⦄)⦄)⦄
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints capture matcher⦄,
+															⦃unicodeCodePoints ignore matcher⦄
+														}⦄.Has(⦃symbol⦄)⦄
+													then:
+														let:
+															⟦regularExpression⟧:
+																let:
+																	⟦index⟧:
+																		if:
+																			⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints capture matcher⦄)⦄
+																		then:
+																			⦃⦃index⦄.IsEqualTo(⦃2⦄)⦄
+																		else:
+																			⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																⦃⦃regularExpression⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetTokenValueOfPseudoTerminalNode(⦃⦃childNodes⦄(⦃index⦄)⦄)⦄)⦄
+														if:
+															⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints capture matcher⦄)⦄
+														then:
+															⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃(⦃⦃Function⦄(⦃{
+																⦃(⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃⦃Ordinal⦄(⦃⦃⦃⦃⦃regularExpression⦄.GetCapturePatternRangeFromCaptureIdentifier⦄.GetDomain()⦄.GetSize()⦄.Add(⦃1⦄)⦄)⦄,⦃⦃lexerAndParserCombination⦄.GetTokenValueOfPseudoTerminalNode(⦃⦃childNodes⦄(⦃0⦄)⦄)⦄)⦄
+															}⦄)⦄,
+															⦃⦃RegularExpression⦄(⦃⦃(
+																⦃unicodeCodePoints <⦄,
+																⦃⦃regularExpression⦄.GetPattern()⦄,
+																⦃unicodeCodePoints >⦄
+															)⦄.GetConcatenation()⦄)⦄)⦄)⦄
+														else:
+															⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃(⦃⦃Function⦄(⦃{}⦄)⦄,⦃regularExpression⦄)⦄)⦄
+													else if:
+															⦃⦃childNodesLength⦄.IsEqualTo(⦃1⦄)⦄
+														and:
+															not:
+																⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints lexer⦄)⦄
+													then:
+														⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃⦃getTokenNamesRangeMapAndRegularExpression⦄(⦃⦃childNodes⦄(⦃0⦄)⦄)⦄)⦄
+													else if:
+														⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints matchers⦄)⦄
+													then:
+														let:
+															⟦tokenNamesRangeMap0⟧,⟦regularExpression0⟧,
+															⟦tokenNamesRangeMap1⟧,⟦regularExpression1⟧:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦typeIdentifier⟧:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																			⟦index0⟧:
+																				if:
+																					⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																				then:
+																					⦃⦃index0⦄.IsEqualTo(⦃0⦄)⦄
+																				else:
+																					⦃⦃index0⦄.IsEqualTo(⦃2⦄)⦄
+																		⦃⦃(⦃tokenNamesRangeMap⟦⟦⦃typeIdentifier⦄⟧⟧⦄,⦃regularExpression⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄.IsEqualTo(⦃⦃getTokenNamesRangeMapAndRegularExpression⦄(⦃⦃childNodes⦄(⦃index0⦄)⦄)⦄)⦄
+															⟦tokenNamesRangeMap⟧:
+																	⦃⦃Function⦄.HasInstance(⦃tokenNamesRangeMap⦄)⦄
+																and:
+																	for all ⟦x⟧:
+																			⦃⦃⦃tokenNamesRangeMap⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+																		if and only if:
+																				⦃⦃⦃tokenNamesRangeMap0⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+																			or:
+																				there exists ⟦captureIdentifiersRange1⟧,⟦tokenName⟧:
+																						⦃⦃⦃tokenNamesRangeMap1⦄.GetGraph()⦄.Has(⦃(⦃captureIdentifiersRange1⦄,⦃tokenName⦄)⦄)⦄
+																					and:
+																						let:
+																							⟦captureIdentifiersRange⟧:
+																									⦃⦃FiniteOrdinalRange⦄.HasInstance(⦃captureIdentifiersRange⦄)⦄
+																								and:
+																									for all ⟦indexOfBound⟧:
+																										if:
+																											⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃indexOfBound⦄)⦄
+																										then:
+																											let:
+																												⟦upperBound⟧:
+																													let:
+																														⟦ordinals⟧:
+																															⦃⦃ordinals⦄.IsEqualTo(⦃⦃⦃tokenNamesRangeMap0⦄.GetDomain()⦄.MapWith(⦃unaryFunction GetUpperBound⦄)⦄)⦄
+																													if:
+																														not:
+																															⦃⦃ordinals⦄.IsEqualTo(⦃{}⦄)⦄
+																													then:
+																														⦃⦃upperBound⦄.IsEqualTo(⦃⦃ordinals⦄.GetMaximum()⦄)⦄
+																													else:
+																														⦃⦃upperBound⦄.IsEqualTo(⦃0⦄)⦄
+																											⦃⦃⦃⦃FiniteSequence⦄(⦃captureIdentifiersRange⦄)⦄(⦃indexOfBound⦄)⦄.IsEqualTo(⦃⦃⦃⦃FiniteSequence⦄(⦃captureIdentifiersRange1⦄)⦄(⦃indexOfBound⦄)⦄.Add(upperBound)⦄)⦄
+																						⦃⦃x⦄.IsEqualTo(⦃(⦃captureIdentifiersRange⦄,⦃tokenName⦄)⦄)⦄
+														⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃(⦃tokenNamesRangeMap⦄,⦃⦃RegularExpression⦄(⦃⦃⦃(⦃regularExpression0⦄,⦃regularExpression1⦄)⦄.MapWith(⦃unaryFunction GetPattern⦄)⦄.Join(⦃unicodeCodePoints |⦄)⦄)⦄)⦄)⦄
+													else if:
+														⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints lexer⦄)⦄
+													then:
+														if:
+															⦃⦃childNodesLength⦄.IsEqualTo(⦃3⦄)⦄
+														then:
+															⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃⦃getTokenNamesRangeMapAndRegularExpression⦄(⦃⦃childNodes⦄(⦃1⦄)⦄)⦄)⦄
+														else:
+															⦃⦃tokenNamesRangeMapAndRegularExpression⦄.IsEqualTo(⦃(⦃⦃Function⦄(⦃{}⦄)⦄,⦃⦃RegularExpression⦄()⦄)⦄)⦄
+							⦃⦃(⦃tokenNamesRangeMap⦄,⦃regularExpression⦄)⦄.IsEqualTo(⦃⦃getTokenNamesRangeMapAndRegularExpression⦄(⦃node⦄)⦄)⦄
+						⦃⦃Function⦄.HasInstance(⦃tokenNamesMap⦄)⦄
+					and:
+						let:
+							⟦map⟧:
+									⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+								and:
+									for all ⟦x⟧:
+											⦃⦃⦃map⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+										if and only if:
+											there exists ⟦range⟧,⟦y⟧:
+												⦃⦃x⦄.IsEqualTo(⦃(⦃(⦃range⦄,⦃y⦄)⦄,⦃(⦃⦃range⦄.GetLowerBound()⦄,⦃y⦄)⦄)⦄)⦄
+						⦃⦃⦃tokenNamesMap⦄.GetGraph()⦄.IsEqualTo(⦃⦃⦃tokenNamesMap⦄.GetGraph()⦄.MapWith(⦃map⦄)⦄
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃lexer⦄,⦃regularExpression⦄)⦄.MapWith(⦃unaryFunction GetLanguage⦄)⦄)⦄
+			and:
+				for all ⟦unicodeCodePoints⟧:
+					if:
+						⦃⦃⦃lexer⦄.GetLanguage()⦄.Has(⦃unicodeCodePoints⦄)⦄
+					then:
+						let:
+							⟦captureTree⟧:
+								⦃⦃captureTree⦄.IsEqualTo(⦃⦃regularExpression⦄.GetCaptureTreeOf(⦃unicodeCodePoints⦄)⦄)⦄
+							⟦getToken⟧:
+									⦃⦃Function⦄.HasInstance(⦃getToken⦄)⦄
+								and:
+									⦃⦃⦃getToken⦄.GetDomain()⦄.IsEqualTo(⦃⦃captureTree⦄.GetCoDomain()⦄)⦄
+								and:
+									for all ⟦node⟧:
+										if:
+											⦃⦃⦃getToken⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+										then:
+											let:
+												⟦getCapturedPart⟧:
+														⦃⦃Function⦄.HasInstance(⦃getCapturedPart⦄)⦄
+													and:
+														for all ⟦x⟧:
+																⦃⦃⦃getCapturedPart⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+															if and only if:
+																there exists ⟦node⟧:
+																	⦃⦃x⦄.IsEqualTo(⦃(⦃node⦄,⦃⦃unicodeCodePoints⦄.GetSubSequence(⦃⦃node⦄.GetValueRange()⦄)⦄)⦄)⦄
+											⦃⦃⦃getToken⦄(⦃node⦄)⦄.IsEqualTo(⦃⦃Token⦄(⦃⦃tokenNamesMap⦄(⦃⦃node⦄.GetCaptureIdentifier()⦄)⦄,⦃⦃⦃⦃node⦄.GetChildNodes()⦄.MapWith(⦃getCapturedPart⦄)⦄.Concatenation()⦄,⦃⦃node⦄.GetValueRange()⦄)⦄)⦄
+						⦃⦃⦃lexer⦄.Lex(⦃unicodeCodePoints⦄)⦄.IsEqualTo(⦃⦃captureTree⦄.MapWith(⦃getToken⦄)⦄)⦄

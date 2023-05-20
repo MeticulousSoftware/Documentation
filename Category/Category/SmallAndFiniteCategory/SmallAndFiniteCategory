@@ -1,0 +1,54 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaSmallCategory⦄,⦃MetaLocallySmallCategory⦄,
+⦃MetaFiniteCategory⦄,⦃MetaLocallyFiniteCategory⦄,
+⦃SmallCategory⦄,⦃LocallySmallCategory⦄,
+⦃FiniteCategory⦄,⦃LocallyFiniteCategory⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Small⦄,
+						⦃unicodeCodePoints Finite⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Locally⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Category⦄)⦄
+							and:
+								for all ⟦category⟧:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Category⦄.HasInstance(⦃category⦄)⦄
+										and:
+											let:
+												⟦type⟧:
+													if:
+														⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Small⦄)⦄
+													then:
+														⦃⦃type⦄.IsEqualTo(⦃ClassWithSize⦄)⦄
+													else:
+														⦃⦃type⦄.IsEqualTo(⦃FiniteClass⦄)⦄
+												if:
+													⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+												then:
+													⦃⦃type⦄.HasInstance(⦃⦃category⦄.GetObjects()⦄)⦄
+											and:
+												for all ⟦morphisms⟧:
+													if:
+														⦃⦃⦃category⦄.GetHomClasses()⦄.Has(⦃morphisms⦄)⦄
+													then:
+														⦃⦃type⦄.HasInstance(⦃morphisms⦄)⦄
