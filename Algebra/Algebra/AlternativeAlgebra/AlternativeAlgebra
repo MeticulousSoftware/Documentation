@@ -1,0 +1,53 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAlternativeAlgebra⦄,⦃AlternativeAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlternativeAlgebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlternativeAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlternativeAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+define ⦃MetaLeftAlternativeAlgebra⦄,⦃MetaRightAlternativeAlgebra⦄,⦃MetaBiAlternativeAlgebra⦄,
+⦃LeftAlternativeAlgebra⦄,⦃RightAlternativeAlgebra⦄,⦃BiAlternativeAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlternativeAlgebra⦄)⦄
+					and:
+						for all ⟦algebra⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlternativeAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Algebra⦄.HasInstance(⦃algebra⦄)⦄
+								and:
+									⦃⦃AlternativePartialMagma⦄.HasInstance(⦃⦃algebra⦄.GetMultiplicationStructure()⦄)⦄

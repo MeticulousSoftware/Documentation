@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaTorsionFreePartialMagma⦄,⦃TorsionFreePartialMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧TorsionFreePartialMagma⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧TorsionFreePartialMagma⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialMagma⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							⦃⦃⦃⦃structure⦄.GetTorsionSubStructure()⦄.GetClass()⦄.IsEqualTo(⦃⦃structure⦄.GetIdemPotentElements()⦄)⦄

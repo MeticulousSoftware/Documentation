@@ -1,0 +1,13 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Ring⦄
+		⦃⦃Type⦄.HasInstance(⦃Ring⦄)⦄
+	and:
+		for all ⟦structure⟧:
+				⦃⦃Ring⦄.HasInstance(⦃structure⦄)⦄
+			if and only if:
+					⦃⦃SemiRing⦄.HasInstance(⦃structure⦄)⦄
+				and:
+					⦃⦃CommutativeGroup⦄.HasInstance(⦃⦃structure⦄.GetAdditionStructure()⦄)⦄

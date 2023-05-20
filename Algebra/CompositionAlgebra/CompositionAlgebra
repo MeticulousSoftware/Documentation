@@ -1,0 +1,156 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaCompositionAlgebra⦄,⦃CompositionAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧CompositionAlgebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CompositionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧CompositionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+define ⦃MetaLeftCompositionAlgebra⦄,⦃MetaRightCompositionAlgebra⦄,
+⦃LeftCompositionAlgebra⦄,⦃RightCompositionAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧CompositionAlgebra⦄)⦄
+					and:
+						for all ⟦algebra⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧CompositionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+							if and only if:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints InvolutionAlgebra⦄,
+												⦃unicodeCodePoints ModuleEquippedWithNonDegenerateQuadraticForm⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃Meta⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⦄.HasInstance(⦃algebra⦄)⦄
+								and:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									then:
+										⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧CompositionAlgebra⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃{⦃LeftCompositionAlgebra⦄,⦃RightCompositionAlgebra⦄}⦄.GetEquipmentsDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CompositionAlgebra⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CompositionAlgebra⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃(
+					⦃⟦⟦⦃typeIdentifier0⦄⟧⟧InvolutionAlgebra⦄,
+					⦃⟦⟦⦃typeIdentifier0⦄⟧⟧ModuleEquippedWithNonDegenerateQuadraticForm⦄
+				)⦄.MapWith(⦃unaryFunction GetEquipmentsDomain⦄)⦄.GetUnion()⦄)⦄
+
+define ⦃method ⦃CompositionAlgebra⦄.GetSimilarStructures⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃CompositionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+			for all ⟦algebra0⟧:
+					⦃⦃⦃algebra⦄.GetSimilarStructures()⦄.Has(⦃algebra0⦄)⦄
+				if and only if:
+						⦃⦃CompositionAlgebra⦄.HasInstance(⦃algebra0⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints StructureWithInvolution⦄,
+									⦃unicodeCodePoints ModuleWithQuadraticForm⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃⦃algebra⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetSimilarStructures()⦄.Has(⦃⦃algebra0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦algebras⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃algebras⦄)⦄
+					and:
+						⦃⦃⦃algebras⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃CompositionAlgebra⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃algebras⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints StructureWithInvolution⦄,
+									⦃unicodeCodePoints ModuleWithQuadraticForm⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃algebras⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃CompositionAlgebra⦄.GetStructureInducedBy⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃CompositionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃algebra⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedAlgebra⟧:
+							⦃⦃inducedAlgebra⦄.IsEqualTo(⦃⦃algebra⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃CompositionAlgebra⦄.HasInstance(⦃inducedAlgebra⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints StructureWithInvolution⦄,
+									⦃unicodeCodePoints ModuleWithQuadraticForm⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃inducedAlgebra⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃algebra⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃CompositionAlgebra⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃CompositionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃algebra⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					⦃⦃⦃algebra⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄.IsEqualTo(⦃⦃algebra⦄.GetStructureInducedBy(⦃⦃⦃algebra⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄)⦄

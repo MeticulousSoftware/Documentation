@@ -1,0 +1,274 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPartialRing⦄,⦃PartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialRing⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦operations⟧:
+									⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+								⦃⦃⦃operations⦄.GetLength()⦄.IsEqualTo(⦃2⦄)⦄
+							and:
+								⦃⦃⦃operations⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃BinaryUnaryOperation⦄.MapToClass()⦄)⦄
+
+
+
+define ⦃method ⦃MetaPartialRing⦄.GetIdemPotentElements⦄,⦃method ⦃MetaPartialRing⦄.GetNilPotentElements⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Idem⦄,
+						⦃unicodeCodePoints Nil⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+						⦃structure⦄,
+						⦃⦃structure⦄.GetMultiplication()⦄
+					)⦄.MapWith(⦃method Get⟦⟦⦃typeIdentifier⦄⟧⟧PotentElements⦄)⦄)⦄
+
+define ⦃method ⦃MetaPartialRing⦄.GetIrreducibleElements⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetIrreducibleElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦addition⟧,⟦multiplication⟧:
+						⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+				⦃⦃⦃structure⦄.GetIrreducibleElements()⦄.IsEqualTo(⦃⦃⦃multiplication⦄.GetIrreducibleElements()⦄.GetDifferenceWith(⦃⦃addition⦄.GetPartialIdentities()⦄)⦄)⦄
+
+define ⦃method ⦃MetaPartialRing⦄.GetCenter⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetCenter⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦center⟧:
+						⦃⦃center⦄.IsEqualTo(⦃⦃structure⦄.GetCenter()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃center⦄)⦄
+				and:
+					for all ⟦x⟧:
+							⦃⦃center⦄.Has(⦃x⦄)⦄
+						if and only if:
+							let:
+								⟦multiplication⟧:
+									⦃⦃multiplication⦄.IsEqualTo(⦃⦃⦃structure⦄.GetMultiplication()⦄.GetSimplifiedFunction()⦄)⦄
+							for all ⟦sequence⟧:
+								if:
+										⦃⦃⦃multiplication⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+									and:
+										⦃⦃⦃sequence⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+								then:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+										⦃sequence⦄,
+										⦃⦃sequence⦄.GetReverse()⦄
+									)⦄.MapWith(⦃multiplication⦄)⦄)⦄
+
+define ⦃method ⦃MetaPartialRing⦄.GetLeftPartialIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightPartialIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetPartialIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftProperIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightProperIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetProperIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftPrincipalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightPrincipalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetPrincipalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftMinimalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightMinimalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetMinimalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftMaximalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightMaximalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetMaximalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetNilIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetNilPotentIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetIrreducibleIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetPrimaryIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetPrimeIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetCompletelyPrimeIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalProperIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalProperIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalProperIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalPrincipalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalPrincipalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalPrincipalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalMinimalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalMinimalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalMinimalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalMaximalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalMaximalIdeals⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalMaximalIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetUnitalNilIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetUnitalNilPotentIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetUnitalIrreducibleIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetUnitalPrimaryIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetUnitalPrimeIdeals⦄,
+⦃method ⦃MetaPartialRing⦄.GetUnitalCompletelyPrimeIdeals⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Partial⦄,
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Proper⦄,
+								⦃unicodeCodePoints Principal⦄,
+								⦃unicodeCodePoints Minimal⦄,
+								⦃unicodeCodePoints Maximal⦄,
+								⦃unicodeCodePoints Nil⦄,
+								⦃unicodeCodePoints NilPotent⦄,
+								⦃unicodeCodePoints Irreducible⦄,
+								⦃unicodeCodePoints Primary⦄,
+								⦃unicodeCodePoints Prime⦄,
+								⦃unicodeCodePoints CompletelyPrime⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							for all ⟦typeIdentifier1⟧:
+								if:
+									let:
+										⟦typeIdentifiers⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints Partial⦄,
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints Proper⦄,
+													⦃unicodeCodePoints Principal⦄,
+													⦃unicodeCodePoints Minimal⦄,
+													⦃unicodeCodePoints Maximal⦄
+												}⦄.Has(⦃typeIdentifier0⦄)⦄
+											then:
+												⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{
+													⦃unicodeCodePoints Left⦄,
+													⦃unicodeCodePoints Right⦄
+												}⦄)⦄
+											else:
+												⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{}⦄)⦄
+									⦃⦃⦃{
+										⦃unicodeCodePoints ⦄
+									}⦄.GetUnionWith(⦃typeIdentifiers⦄)⦄.Has(⦃typeIdentifier1⦄)⦄
+								then:
+										⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Ideals⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+									and:
+										let:
+											⟦ideals⟧:
+												⦃⦃ideals⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Ideals()⦄)⦄
+											⦃⦃Class⦄.HasInstance(⦃ideals⦄)⦄
+										and:
+											for all ⟦ideal⟧:
+													⦃⦃ideals⦄.Has(⦃ideal⦄)⦄
+												if and only if:
+														⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+													and:
+														⦃⦃⦃ideal⦄.GetStructure()⦄.IsEqualTo(⦃structure⦄)⦄
+
+define ⦃method ⦃MetaPartialRing⦄.GetLeftIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetRightIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetIdealGeneratedBy⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalIdealGeneratedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄,
+								⦃unicodeCodePoints ⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧IdealGeneratedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.GetPower()⦄)⦄
+							and:
+								for all ⟦elements⟧:
+									if:
+										⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧IdealGeneratedBy⦄.GetDomain()⦄.Has(⦃elements⦄)⦄
+									then:
+										⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧IdealGeneratedBy(⦃elements⦄)⦄.IsEqualTo(⦃⦃PartialIdeal⦄(⦃structure⦄,⦃⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideals()⦄.MapWith(⦃unaryFunction GetClass⦄)⦄.FilterWith(⦃⦃elements⦄.IsSubMultiClassOf⦄)⦄.GetIntersection()⦄)⦄)⦄
+
+define ⦃method ⦃MetaPartialRing⦄.GetLeftPrincipalIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetRightPrincipalIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetPrincipalIdealGeneratedBy⦄,
+⦃method ⦃MetaPartialRing⦄.GetLeftUnitalPrincipalIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetRightUnitalPrincipalIdealGeneratedBy⦄,⦃method ⦃MetaPartialRing⦄.GetUnitalPrincipalIdealGeneratedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄,
+								⦃unicodeCodePoints ⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧PrincipalIdealGeneratedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+							and:
+								for all ⟦x⟧:
+									if:
+										⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧PrincipalIdealGeneratedBy⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+									then:
+										⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧PrincipalIdealGeneratedBy(⦃x⦄)⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧IdealGeneratedBy(⦃{⦃x⦄}⦄)⦄)⦄
+
+define ⦃method ⦃MetaPartialRing⦄.GetPrimeElements⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetPrimeElements⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦elements⟧:
+						⦃⦃elements⦄.IsEqualTo(⦃⦃structure⦄.GetPrimeElements()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃elements⦄)⦄
+				and:
+					for all ⟦element⟧:
+							⦃⦃elements⦄.Has(⦃element⦄)⦄
+						if and only if:
+								not:
+									⦃⦃{⦃element⦄}⦄.IsEqualTo(⦃⦃⦃structure⦄.GetAddition()⦄.GetIdentities()⦄)⦄
+							and:
+								⦃⦃⦃structure⦄.GetUnitalPrimeIdeals()⦄.Has(⦃⦃structure⦄.GetUnitalPrincipalIdealGeneratedBy(⦃element⦄)⦄)⦄
+
+
+
+define ⦃method ⦃PartialRing⦄.GetOpposite⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃PartialRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetOpposite⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦oppositeStructure⟧:
+						⦃⦃oppositeStructure⦄.IsEqualTo(⦃⦃structure⦄.GetOpposite()⦄)⦄
+					⦃⦃PartialRing⦄.HasInstance(⦃oppositeStructure⦄)⦄
+				and:
+					let:
+						⟦addition⟧,⟦multiplication⟧:
+							⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+					⦃⦃⦃oppositeStructure⦄.GetOperations()⦄.IsEqualTo(⦃(
+						⦃addition⦄,
+						⦃⦃multiplication⦄.GetConverse()⦄
+					)⦄)⦄

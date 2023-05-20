@@ -1,0 +1,32 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PartialCompletelyPrimeIdeal⦄,⦃CompletelyPrimeIdeal⦄,⦃UnitalCompletelyPrimeIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧CompletelyPrimeIdeal⦄)⦄
+			and:
+				for all ⟦ideal⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CompletelyPrimeIdeal⦄.HasInstance(⦃ideal⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ProperIdeal⦄.HasInstance(⦃ideal⦄)⦄
+						and:
+							let:
+								⟦class⟧:
+									⦃⦃class⦄.IsEqualTo(⦃⦃ideal⦄.GetClass()⦄)⦄
+							for all ⟦sequence⟧:
+								if:
+									⦃⦃class⦄.Has(⦃⦃⦃⦃⦃ideal⦄.GetStructure()⦄.GetMultiplication()⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄
+								then:
+									not:
+										⦃⦃{
+											⦃⦃sequence⦄.GetCoDomain()⦄,
+											⦃class⦄
+										}⦄.AreMutuallyDisjoint()⦄

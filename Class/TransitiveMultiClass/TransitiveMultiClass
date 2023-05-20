@@ -1,0 +1,22 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃TransitiveMultiClass⦄
+		⦃⦃Type⦄.HasInstance(⦃TransitiveMultiClass⦄)⦄
+	and:
+		for all ⟦multiClass⟧:
+				⦃⦃TransitiveMultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+			if and only if:
+					⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+					⦃⦃⦃⦃multiClass⦄.FilterWith(⦃⦃MultiClass⦄.HasInstance⦄)⦄.GetUnion()⦄.IsSubMultiClassOf(⦃multiClass⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.GetTransitiveClosure⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClass⦄.GetTransitiveClosure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃multiClass⦄.GetTransitiveClosure()⦄.IsEqualTo(⦃⦃⦃⦃TransitiveMultiClass⦄.MapToClass()⦄.FilterWith(⦃⦃multiClass⦄.IsSubMultiClassOf⦄)⦄.GetIntersection()⦄)⦄

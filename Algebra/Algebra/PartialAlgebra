@@ -1,0 +1,114 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPartialAlgebra⦄,⦃PartialAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialAlgebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+define ⦃MetaLeftPartialAlgebra⦄,⦃MetaRightPartialAlgebra⦄,
+⦃LeftPartialAlgebra⦄,⦃RightPartialAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialAlgebra⦄)⦄
+					and:
+						for all ⟦algebra⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+							if and only if:
+								for all ⟦typeIdentifier1⟧:
+									if:
+										⦃⦃{
+											⦃unicodeCodePoints ScalarMultiplicationRingStructure⦄,
+											⦃unicodeCodePoints RingScalarMultiplicationStructure⦄
+										}⦄.Has(⦃typeIdentifier1⦄)⦄
+									then:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⦄.HasInstance(⦃module⦄)⦄
+
+
+
+define ⦃MetaBiPartialAlgebra⦄,⦃BiPartialAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiPartialAlgebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiPartialAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiScalarMultiplicationStructure⦄.HasInstance(⦃algebra⦄)⦄
+						and:
+							for all ⟦typeIdentifier0⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Left⦄,
+										⦃unicodeCodePoints Right⦄
+									}⦄.Has(⦃typeIdentifier0⦄)⦄
+								then:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialAlgebra⦄.HasInstance(⦃⦃algebra⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄
+
+
+
+define ⦃method ⦃MetaPartialAlgebra⦄.GetModule⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃MetaPartialAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+				⦃⦃⦃⦃algebra⦄.GetModule⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦module⟧:
+						⦃⦃module⦄.IsEqualTo(⦃⦃algebra⦄.GetModule()⦄)⦄
+					⟦equipments⟧:
+						⦃⦃equipments⦄.IsEqualTo(⦃⦃algebra⦄.GetEquipments()⦄)⦄
+					⟦moduleEquipments⟧:
+						⦃⦃moduleEquipments⦄.IsEqualTo(⦃⦃module⦄.GetEquipments()⦄)⦄
+					⦃⦃MetaPartialModule⦄.HasInstance(⦃module⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃moduleEquipments⦄,⦃equipments⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+								⦃⦃⦃equipments⦄.GetDomain()⦄.Has(⦃typeIdentifier⦄)⦄
+							and:
+								not:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints algebraicStructure⦄)⦄
+						then:
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃moduleEquipments⦄,⦃equipments⦄)⦄.Apply(⦃typeIdentifier⦄)⦄)⦄
+				and:
+					⦃⦃⦃moduleEquipments⦄(⦃unicodeCodePoints algebraicStructure⦄)⦄.IsEqualTo(⦃⦃⦃equipments⦄(⦃unicodeCodePoints algebraicStructure⦄)⦄.GetAdditionStructure()⦄)⦄

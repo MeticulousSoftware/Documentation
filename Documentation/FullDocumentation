@@ -1,0 +1,113 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FullDocumentation⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃FullDocumentation⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetDescription⟧,
+									⟦GetImportDocumentationFormat⟧,
+									⟦GetDocumentation⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetDescription⦄,⦃GetDescription⦄)⦄,
+											⦃(⦃unicodeCodePoints GetImportDocumentationFormat⦄,⦃GetImportDocumentationFormat⦄)⦄,
+											⦃(⦃unicodeCodePoints GetDocumentation⦄,⦃GetDocumentation⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦fullDescription⟧:
+												⦃⦃fullDescription⦄.IsEqualTo(⦃⦃GetDescription⦄()⦄)⦄
+											⟦importDocumentationFormat⟧:
+												⦃⦃importDocumentationFormat⦄.IsEqualTo(⦃⦃GetImportDocumentationFormat⦄()⦄)⦄
+											⟦fullDocumentationDocumentation⟧:
+												⦃⦃fullDocumentationDocumentation⦄.IsEqualTo(⦃⦃GetDocumentation⦄()⦄)⦄
+										there exists ⟦defaultDocumentation⟧:
+												⦃⦃DefaultDocumentation⦄.HasInstance(⦃defaultDocumentation⦄)⦄
+											and:
+												let:
+													⟦defaultDescription⟧:
+														⦃⦃defaultDescription⦄.IsEqualTo(⦃⦃defaultDocumentation⦄.GetDescription()⦄)⦄
+														⦃⦃fullDescription⦄.IsEqualTo(⦃defaultDescription⦄)⦄
+													and:
+														⦃⦃importDocumentationFormat⦄.IsEqualTo(⦃DefaultDocumentation⦄)⦄
+													and:
+														⦃⦃fullDocumentationDocumentation⦄.IsEqualTo(⦃defaultDocumentation⦄)⦄
+												or:
+													there exists ⟦documentation⟧:
+															⦃⦃Documentation⦄.HasInstance(⦃documentation⦄)⦄
+														and:
+															⦃⦃fullDescription⦄.IsEqualTo(⦃(
+																⦃defaultDescription⦄,
+																⦃⦃documentation⦄.GetDescription()⦄
+															)⦄.Join(⦃unicodeCodePoints ~⦄)⦄)⦄
+														and:
+															⦃⦃fullDocumentationDocumentation⦄.IsEqualTo(⦃documentation⦄)⦄
+														and:
+															there exists ⟦stack⟧:
+																	⦃⦃⦃defaultDocumentation⦄.GetTrueStacks()⦄.Has(⦃stack⦄)⦄
+																and:
+																	let:
+																		⟦type⟧:
+																			let:
+																				⟦variable⟧:
+																					⦃⦃(⦃variable⦄)⦄.IsEqualTo(⦃stack⦄)⦄
+																			⦃⦃type⦄.IsEqualTo(⦃⦃variable⦄.GetValue()⦄)⦄
+																		⦃⦃Type⦄.HasInstance(⦃type⦄)⦄
+																	and:
+																		⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃type⦄,⦃Documentation⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+																	and:
+																		⦃⦃importDocumentationFormat⦄.IsEqualTo(⦃type⦄)⦄
+																	and:
+																		⦃⦃type⦄.HasInstance(⦃documentation⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦documentation⟧:
+									⦃⦃documentation⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃FullDocumentation⦄.HasInstance(⦃documentation⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃documentation⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃FullDocumentation⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃FullDocumentation⦄.MapToClass⦄
+	for all ⟦documentation⟧:
+		if:
+			⦃⦃FullDocumentation⦄.HasInstance(⦃documentation⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃documentation⦄,
+				⦃⦃documentation⦄.GetDescription()⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃FullDocumentation⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

@@ -1,0 +1,102 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftNoetherianPartialRing⦄,⦃MetaRightNoetherianPartialRing⦄,
+⦃MetaLeftArtinianPartialRing⦄,⦃MetaRightArtinianPartialRing⦄,
+⦃MetaLeftUnitalNoetherianPartialRing⦄,⦃MetaRightUnitalNoetherianPartialRing⦄,
+⦃MetaLeftUnitalArtinianPartialRing⦄,⦃MetaRightUnitalArtinianPartialRing⦄,
+⦃LeftNoetherianPartialRing⦄,⦃RightNoetherianPartialRing⦄,
+⦃LeftArtinianPartialRing⦄,⦃RightArtinianPartialRing⦄,
+⦃LeftUnitalNoetherianPartialRing⦄,⦃RightUnitalNoetherianPartialRing⦄,
+⦃LeftUnitalArtinianPartialRing⦄,⦃RightUnitalArtinianPartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Noetherian⦄,
+								⦃unicodeCodePoints Artinian⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+							for all ⟦typeIdentifier2⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Left⦄,
+										⦃unicodeCodePoints Right⦄
+									}⦄.Has(⦃typeIdentifier2⦄)⦄
+								then:
+										⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧PartialRing⦄)⦄
+									and:
+										for all ⟦structure⟧:
+												⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄
+											if and only if:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄
+												and:
+													let:
+														⟦relation⟧:
+																⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+															and:
+																⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Ideals()⦄)⦄
+															and:
+																for all ⟦ideals⟧:
+																		⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃ideals⦄)⦄
+																	if and only if:
+																		let:
+																			⟦ideal0⟧,⟦ideal1⟧:
+																				⦃⦃(⦃ideal0⦄,⦃ideal1⦄)⦄.IsEqualTo(⦃ideals⦄)⦄
+																		⦃⦃⦃ideal1⦄.Get⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧SubIdeals()⦄.Has(⦃ideal0⦄)⦄
+													⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄
+
+
+
+define ⦃MetaNoetherianPartialRing⦄,⦃MetaArtinianPartialRing⦄,
+⦃MetaUnitalNoetherianPartialRing⦄,⦃MetaUnitalArtinianPartialRing⦄,
+⦃NoetherianPartialRing⦄,⦃ArtinianPartialRing⦄,
+⦃UnitalNoetherianPartialRing⦄,⦃UnitalArtinianPartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Noetherian⦄,
+								⦃unicodeCodePoints Artinian⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧PartialRing⦄)⦄
+							and:
+								for all ⟦structure⟧:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄
+									if and only if:
+										for all ⟦typeIdentifier2⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints Left⦄,
+													⦃unicodeCodePoints Right⦄
+												}⦄.Has(⦃typeIdentifier2⦄)⦄
+											then:
+												⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄

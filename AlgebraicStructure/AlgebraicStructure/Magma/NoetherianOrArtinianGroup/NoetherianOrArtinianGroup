@@ -1,0 +1,41 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaNoetherianGroup⦄,⦃MetaArtinianGroup⦄,
+⦃NoetherianGroup⦄,⦃ArtinianGroup⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Noetherian⦄,
+						⦃unicodeCodePoints Artinian⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Group⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Group⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Group⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									let:
+										⟦relation⟧:
+												⦃⦃HomogeneousBinaryRelation⦄.HasInstance(⦃relation⦄)⦄
+											and:
+												⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetSubStructures()⦄.GetIntersectionWith(⦃⦃Group⦄.MapToClass()⦄)⦄)⦄
+											and:
+												for all ⟦structures⟧:
+														⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃structures⦄)⦄
+													if and only if:
+														let:
+															⟦structure0⟧,⟦structure1⟧:
+																⦃⦃(⦃structure0⦄,⦃structure1⦄)⦄.IsEqualTo(⦃structures⦄)⦄
+														⦃⦃⦃structure1⦄.GetSubStructures()⦄.Has(⦃structure0⦄)⦄
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧Relation⦄.HasInstance(⦃relation⦄)⦄

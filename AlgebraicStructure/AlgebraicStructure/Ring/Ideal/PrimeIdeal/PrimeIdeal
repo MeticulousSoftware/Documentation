@@ -1,0 +1,37 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PrimeIdeal⦄,⦃UnitalPrimeIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PrimeIdeal⦄)⦄
+			and:
+				for all ⟦ideal⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PrimeIdeal⦄.HasInstance(⦃ideal⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧ProperIdeal⦄.HasInstance(⦃ideal⦄)⦄
+						and:
+							for all ⟦ideal0⟧,⟦ideal1⟧:
+								if:
+									for all ⟦index⟧:
+										if:
+											⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+										then:
+											⦃⦃⦃⦃ideal⦄.GetStructure()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Ideals()⦄.Has(⦃ideal⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+								then:
+									let:
+										⟦subIdeals⟧:
+											⦃⦃subIdeals⦄.IsEqualTo(⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧SubIdeals()⦄)⦄
+									if:
+										⦃⦃subIdeals⦄.Has(⦃⦃(⦃ideal0⦄,⦃ideal1⦄)⦄.GetProduct()⦄)⦄
+									then:
+										there exists ⟦index⟧:
+												⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+											and:
+												⦃⦃subIdeals⦄.Has(⦃ideal⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄

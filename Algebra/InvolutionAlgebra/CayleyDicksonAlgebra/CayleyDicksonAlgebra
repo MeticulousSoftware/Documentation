@@ -1,0 +1,128 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃CayleyDicksonAlgebra⦄
+		⦃⦃Type⦄.HasInstance(⦃CayleyDicksonAlgebra⦄)⦄
+	and:
+		for all ⟦algebra⟧:
+				⦃⦃CayleyDicksonAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+			if and only if:
+				there exists ⟦typeIdentifier⟧:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					and:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CayleyDicksonAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+declare ⟦IsLeftSourceAlgebraOfCayleyDicksonAlgebra⟧,⟦IsRightSourceAlgebraOfCayleyDicksonAlgebra⟧
+define ⦃IsLeftSourceAlgebraOfCayleyDicksonAlgebra⦄,⦃IsRightSourceAlgebraOfCayleyDicksonAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Function⦄.HasInstance(⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧SourceAlgebraOfCayleyDicksonAlgebra⦄)⦄
+			and:
+				⦃⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧SourceAlgebraOfCayleyDicksonAlgebra⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃⟦⟦⦃typeIdentifier⦄⟧⟧InvolutionAlgebra⦄,⦃⟦⟦⦃typeIdentifier⦄⟧⟧InvolutionAlgebra⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+			and:
+				for all ⟦algebras⟧:
+					if:
+						⦃⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧SourceAlgebraOfCayleyDicksonAlgebra⦄.GetDomain()⦄.Has(⦃algebras⦄)⦄
+					then:
+						let:
+							⟦isSourceAlgebraOfCayleyDicksonAlgebra⟧:
+								⦃⦃isSourceAlgebraOfCayleyDicksonAlgebra⦄.IsEqualTo(⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧SourceAlgebraOfCayleyDicksonAlgebra⦄(⦃algebras⦄)⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃isSourceAlgebraOfCayleyDicksonAlgebra⦄)⦄
+						and:
+								⦃isSourceAlgebraOfCayleyDicksonAlgebra⦄
+							if and only if:
+								let:
+									⟦algebra⟧,⟦sourceAlgebra⟧:
+										⦃⦃(⦃algebra⦄,⦃sourceAlgebra⦄)⦄.IsEqualTo(⦃x⦄)⦄
+									⦃⦃⦃algebra⦄.GetModule()⦄.IsEqualTo(⦃⦃⦃(⦃sourceAlgebra⦄,⦃sourceAlgebra⦄)⦄.MapWith(⦃unaryFunction GetModule⦄)⦄.GetDirectSum()⦄)⦄
+								and:
+									let:
+										⟦addition⟧:
+											⦃⦃addition⦄.IsEqualTo(⦃⦃sourceAlgebra⦄.GetAddition()⦄)⦄
+										⟦additionFunction⟧,⟦multiplicationFunction⟧:
+											⦃⦃addition⦄.IsEqualTo(⦃⦃⦃sourceAlgebra⦄.GetOperations()⦄.MapWith(⦃unaryFunction GetSimplifiedFunction⦄)⦄)⦄
+										for all ⟦sequence0⟧,⟦sequence1⟧:
+												⦃⦃⦃⦃⦃algebra⦄.GetMultiplication()⦄.GetSimplifiedFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequence0⦄,⦃sequence1⦄)⦄)⦄
+											if and only if:
+													⦃⦃FiniteSequence⦄.HasInstance(⦃sequence0⦄)⦄
+												and:
+													⦃⦃⦃sequence0⦄.GetLength()⦄.IsEqualTo(⦃2⦄)⦄
+												and:
+													⦃⦃⦃sequence0⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃algebra⦄.GetClass()⦄)⦄
+												and:
+													let:
+														⟦x00⟧,⟦x01⟧,
+														⟦x10⟧,⟦x11⟧:
+															for all ⟦index0⟧,⟦index1⟧:
+																if:
+																	for all ⟦index⟧:
+																		if:
+																			⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																		then:
+																			⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+																then:
+																	⦃⦃x⟦⟦⦃⦃index0⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⟦⟦⦃⦃index1⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃sequence0⦄(⦃index0⦄)⦄(⦃index1⦄)⦄)⦄
+														⟦inverse⟧:
+															⦃⦃{⦃inverse⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetInversesOf(⦃⦃multiplicationFunction⦄(⦃x11⦄,⦃x01⦄)⦄)⦄)⦄
+													⦃⦃sequence1⦄.IsEqualTo(⦃⦃(
+														⦃(⦃⦃multiplicationFunction⦄(⦃x00⦄,⦃x10⦄)⦄,⦃inverse⦄)⦄
+														⦃⦃(
+															⦃(⦃x00⦄,⦃x11⦄)⦄
+															⦃(⦃x10⦄,⦃x01⦄)⦄
+														)⦄.MapWith(⦃multiplicationFunction⦄)⦄
+													)⦄.MapWith(⦃additionFunction⦄)⦄)⦄
+									and:
+										for all ⟦sequence0⟧,⟦sequence1⟧:
+												⦃⦃⦃⦃⦃algebra⦄.GetInvolution()⦄.GetSimplifiedFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequence0⦄,⦃sequence1⦄)⦄)⦄
+											if and only if:
+												let:
+													⟦x0⟧,⟦x1⟧:
+														⦃⦃(⦃x0⦄,⦃x1⦄)⦄.IsEqualTo(⦃sequence⦄)⦄
+													⟦inverse⟧:
+														⦃⦃{⦃inverse⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetInversesOf(⦃x1⦄)⦄)⦄
+												⦃⦃x⦄.IsEqualTo(⦃(⦃x0⦄,⦃inverse⦄)⦄)⦄
+
+
+
+define ⦃LeftCayleyDicksonAlgebra⦄,⦃RightCayleyDicksonAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧CayleyDicksonAlgebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CayleyDicksonAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦sourceAlgebra⟧:
+							⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧SourceAlgebraOfCayleyDicksonAlgebra⦄(⦃algebra⦄,⦃sourceAlgebra⦄)⦄
+
+define ⦃method ⦃LeftCayleyDicksonAlgebra⦄.GetSourceAlgebra⦄,⦃method ⦃RightCayleyDicksonAlgebra⦄.GetSourceAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦algebra⟧:
+				if:
+					⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CayleyDicksonAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+				then:
+						⦃⦃⦃⦃algebra⦄.GetSourceAlgebra⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃Is⟦⟦⦃typeIdentifier⦄⟧⟧ScalarMultiplicationStructureAndCongruenceRelationOfCayleyDicksonAlgebra⦄(⦃algebra⦄,⦃⦃algebra⦄.GetSourceAlgebra()⦄)⦄

@@ -1,0 +1,22 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PartialNilPotentIdeal⦄,⦃NilPotentIdeal⦄,⦃UnitalNilPotentIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧NilPotentIdeal⦄)⦄
+			and:
+				for all ⟦ideal⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧NilPotentIdeal⦄.HasInstance(⦃ideal⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+						and:
+							there exists ⟦ordinal⟧:
+								⦃⦃⦃ideal⦄.GetPower(⦃ordinal⦄)⦄.IsZero()⦄

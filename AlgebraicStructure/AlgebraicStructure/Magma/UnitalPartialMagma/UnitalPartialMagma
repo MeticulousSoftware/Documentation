@@ -1,0 +1,45 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPartialUnitalPartialMagma⦄,⦃MetaUnitalPartialMagma⦄,⦃MetaUnitalMagma⦄,
+⦃PartialUnitalPartialMagma⦄,⦃UnitalPartialMagma⦄,⦃UnitalMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Partial⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							let:
+								⟦typeIdentifiers⟧:
+									if:
+										⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Partial⦄)⦄
+									then:
+										⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{
+											⦃unicodeCodePoints Partial⦄
+										}⦄)⦄
+									else:
+										⦃⦃typeIdentifiers⦄.IsEqualTo(⦃{}⦄)⦄
+							⦃⦃⦃typeIdentifiers⦄.GetUnionWith(⦃{
+								⦃unicodeCodePoints ⦄
+							}⦄)⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧Unital⟦⟦⦃typeIdentifier0⦄⟧⟧Magma⦄)⦄
+							and:
+								for all ⟦structure⟧:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧Unital⟦⟦⦃typeIdentifier0⦄⟧⟧Magma⦄.HasInstance(⦃structure⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Magma⦄.HasInstance(⦃structure⦄)⦄
+										and:
+											not:
+												⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Identities()⦄.IsEqualTo(⦃{}⦄)⦄

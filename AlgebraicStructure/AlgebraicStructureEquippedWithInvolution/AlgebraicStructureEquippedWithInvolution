@@ -1,0 +1,150 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAlgebraicStructureEquippedWithInvolution⦄,⦃AlgebraicStructureEquippedWithInvolution⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructureEquippedWithInvolution⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦equipments⟧:
+									⦃⦃equipments⦄.IsEqualTo(⦃⦃structure⦄.GetEquipments()⦄)⦄
+								let:
+									⟦involution⟧:
+										⦃⦃involution⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints involution⦄)⦄)⦄
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints IdemPotent⦄,
+												⦃unicodeCodePoints Total⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.HasInstance(⦃involution⦄)⦄
+								and:
+									⦃⦃⦃involution⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+							and:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃AlgebraicStructureEquippedWithInvolution⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaAlgebraicStructureEquippedWithInvolution⦄.GetInvolution⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetInvolution⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃structure⦄.GetInvolution()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetEquipments()⦄(⦃unicodeCodePoints involution⦄)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructureEquippedWithInvolution⦄.GetStructureWithInvolution⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaAlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructureWithInvolution⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦structureWithInvolution⟧:
+						⦃⦃structureWithInvolution⦄.IsEqualTo(⦃⦃structure⦄.GetStructureWithInvolution()⦄)⦄
+					⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structureWithInvolution⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃structureWithInvolution⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃AlgebraicStructureEquippedWithInvolution⦄}⦄.GetEquipmentsDomain⦄
+		⦃⦃⦃⦃AlgebraicStructureEquippedWithInvolution⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃AlgebraicStructureEquippedWithInvolution⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃AlgebraicStructure⦄.GetEquipmentsDomain()⦄.GetUnionWith(⦃{⦃unicodeCodePoints involution⦄}⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructureEquippedWithInvolution⦄.GetSimilarStructures⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦structure0⟧:
+					⦃⦃⦃structure⦄.GetSimilarStructures()⦄.Has(⦃structure0⦄)⦄
+				if and only if:
+						⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure0⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Involution⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetSimilarStructures()⦄.Has(⦃⦃structure0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦structures⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+					and:
+						⦃⦃⦃structures⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃AlgebraicStructureEquippedWithInvolution⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃structures⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Involution⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃structures⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructureEquippedWithInvolution⦄.GetStructureInducedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedStructure⟧:
+							⦃⦃inducedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃inducedStructure⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Involution⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃inducedStructure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧().GetStructureInducedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructureEquippedWithInvolution⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructureEquippedWithInvolution⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					⦃⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃⦃⦃structure⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄)⦄

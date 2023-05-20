@@ -1,0 +1,29 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftNearRing⦄,⦃MetaRightNearRing⦄,⦃MetaNearRing⦄,
+⦃LeftNearRing⦄,⦃RightNearRing⦄,⦃NearRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NearRing⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NearRing⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧NearSemiRing⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									⦃⦃Group⦄.HasInstance(⦃⦃structure⦄.GetAdditionStructure()⦄)⦄

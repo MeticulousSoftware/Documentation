@@ -1,0 +1,68 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃NonEmptyMultiClass⦄,
+⦃NonEmptyMultiClassWithSize⦄,
+⦃NonEmptyFiniteMultiClass⦄,
+⦃NonEmptyClass⦄,
+⦃NonEmptyClassWithSize⦄,
+⦃NonEmptyFiniteClass⦄,
+⦃method ⦃{
+	⦃NonEmptyMultiClass⦄,
+	⦃MultiClassWithSize⦄,⦃NonEmptyMultiClassWithSize⦄,
+	⦃FiniteMultiClass⦄,⦃NonEmptyFiniteMultiClass⦄,
+	⦃Class⦄,⦃NonEmptyClass⦄,
+	⦃ClassWithSize⦄,⦃NonEmptyClassWithSize⦄,
+	⦃FiniteClass⦄,⦃NonEmptyFiniteClass⦄
+}⦄.GetTypeInducedBy⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Multi⦄,
+				⦃unicodeCodePoints ⦄,
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+				if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints WithSize⦄,
+						}⦄.Has(⦃typeIdentifier0⦄)⦄
+					and:
+						let:
+							⟦class⟧:
+								if:
+									⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints WithSize⦄)⦄
+								then:
+									⦃⦃class⦄.IsEqualTo(⦃{}⦄)⦄
+								else:
+									⦃⦃class⦄.IsEqualTo(⦃{
+										⦃unicodeCodePoints Finite⦄
+									}⦄)⦄
+						⦃⦃⦃{
+							⦃unicodeCodePoints ⦄
+						}⦄.GetUnionWith(⦃class⦄).Has(⦃typeIdentifier1⦄)⦄
+				then:
+							⦃⦃NonEmpty⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Class⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance(⦃NonEmptyMultiClassWithSize⦄)⦄
+						and:
+							for all ⟦multiClass⟧:
+									⦃⦃NonEmpty⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Class⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance(⦃multiClass⦄)⦄
+								if and only if:
+										⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Class⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance(⦃multiClass⦄)⦄
+									and:
+										not:
+											⦃⦃multiClass⦄.IsEqualTo(⦃{}⦄)⦄
+					and:
+						for all ⟦typeIdentifier2⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ⦄,
+									⦃unicodeCodePoints NonEmpty⦄,
+								}⦄.Has(⦃typeIdentifier2⦄)⦄
+							then:
+								for all ⟦x⟧:
+										⦃⦃⦃⦃⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Class⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetTypeInducedBy⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+									if and only if:
+										there exists ⟦type⟧:
+											⦃⦃x⦄.IsEqualTo(⦃(⦃type⦄,⦃⦃⦃⦃⦃MultiClass⦄.GetTypeInducedBy(⦃type⦄)⦄.MapToClass()⦄.FilterWith(⦃⦃⟦⟦⦃typeIdentifier2⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Class⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance⦄)⦄.GetGeneratedType()⦄)⦄)⦄

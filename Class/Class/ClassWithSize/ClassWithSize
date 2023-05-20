@@ -1,0 +1,52 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsSizeOfClass⟧
+define ⦃IsSizeOfClass⦄
+		⦃⦃Function⦄.HasInstance(⦃IsSizeOfClass⦄)⦄
+	and:
+		⦃⦃⦃IsSizeOfClass⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Class⦄,⦃Cardinal⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsSizeOfClass⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isSizeOfClass⟧:
+						⦃⦃isSizeOfClass⦄.IsEqualTo(⦃⦃IsSizeOfClass⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isSizeOfClass⦄)⦄
+				and:
+						⦃isSizeOfClass⦄
+					if and only if:
+						there exists ⟦function⟧:
+								⦃⦃Function⦄.HasInstance(⦃function⦄)⦄
+							and:
+								let:
+									⟦class⟧,⟦cardinal⟧:
+										⦃⦃(⦃class⦄,⦃cardinal⦄)⦄.IsEqualTo(⦃x⦄)⦄
+									⦃⦃⦃function⦄.GetDomain()⦄.IsEqualTo(⦃class⦄)⦄
+								and:
+									⦃⦃⦃function⦄.GetCoDomain()⦄.IsEqualTo(⦃⦃cardinal⦄.MapToClass()⦄)⦄
+								and:
+									⦃⦃function⦄.IsBijective()⦄
+
+
+
+define ⦃ClassWithSize⦄
+		⦃⦃Type⦄.HasInstance(⦃ClassWithSize⦄)⦄
+	and:
+		for all ⟦class⟧:
+				⦃⦃ClassWithSize⦄.HasInstance(⦃class⦄)⦄
+			if and only if:
+					⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+				and:
+					there exists ⟦cardinal⟧:
+						⦃⦃IsSizeOfClass⦄(⦃class⦄,⦃cardinal⦄)⦄
+
+define ⦃method ⦃ClassWithSize⦄.GetSize⦄
+	for all ⟦class⟧:
+		if:
+			⦃⦃ClassWithSize⦄.HasInstance(⦃class⦄)⦄
+		then:
+			⦃⦃IsSizeOfClass⦄(⦃class⦄,⦃⦃class⦄.GetSize()⦄)⦄

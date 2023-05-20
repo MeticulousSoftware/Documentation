@@ -1,0 +1,858 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAlgebraicStructure⦄,⦃AlgebraicStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃EquippedStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦equipments⟧:
+									⦃⦃equipments⦄.IsEqualTo(⦃⦃structure⦄.GetEquipments()⦄)⦄
+								let:
+									⟦algebraicStructure⟧:
+										⦃⦃algebraicStructure⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints algebraicStructure⦄)⦄)⦄
+									⦃⦃Function⦄.HasInstance(⦃algebraicStructure⦄)⦄
+								and:
+									⦃⦃⦃algebraicStructure⦄.GetDomain()⦄.IsEqualTo(⦃{
+										⦃unicodeCodePoints class⦄,
+										⦃unicodeCodePoints operations⦄
+									}⦄)⦄
+								and:
+									let:
+										⟦class⟧,
+										⟦operations⟧:
+											for all ⟦typeIdentifier⟧:
+												if:
+													⦃⦃⦃algebraicStructure⦄.GetDomain()⦄.Has(⦃typeIdentifier⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃algebraicStructure⦄(⦃typeIdentifier⦄)⦄)⦄
+										⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+									and:
+										⦃⦃TransFiniteSequence⦄.HasInstance(⦃operations⦄)⦄
+									and:
+										for all ⟦operation⟧:
+											if:
+												⦃⦃⦃operations⦄.GetCoDomain()⦄.Has(⦃operation⦄)⦄
+											then:
+													⦃⦃InternalUnaryCoDomainOperation⦄.HasInstance(⦃operation⦄)⦄
+												and:
+													⦃⦃⦃operation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+							and:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃AlgebraicStructure⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetClass⦄,⦃method ⦃MetaAlgebraicStructure⦄.GetOperations⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Class⦄,
+						⦃unicodeCodePoints Operations⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃⦃structure⦄.GetEquipments()⦄(⦃unicodeCodePoints algebraicStructure⦄)⦄(⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetStructures⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructures⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦operations⟧,⟦structures⟧:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Operations⦄,
+									⦃unicodeCodePoints Structures⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+					⦃⦃TransFiniteSequence⦄.HasInstance(⦃structures⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃structures⦄,⦃operations⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+				and:
+					for all ⟦index⟧:
+						if:
+							⦃⦃⦃structures⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+						then:
+							let:
+								⟦structure0⟧:
+									⦃⦃structure0⦄.IsEqualTo(⦃⦃structures⦄(⦃index⦄)⦄)⦄
+								⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure0⦄)⦄
+							and:
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃structure0⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetClass⦄)⦄)⦄
+							and:
+								⦃⦃⦃structure0⦄.GetOperations()⦄.IsEqualTo(⦃(
+									⦃⦃operations⦄(⦃index⦄)⦄
+								)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetAddition⦄,⦃method ⦃MetaAlgebraicStructure⦄.GetMultiplication⦄,
+⦃method ⦃MetaAlgebraicStructure⦄.GetAdditionStructure⦄,⦃method ⦃MetaAlgebraicStructure⦄.GetMultiplicationStructure⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Addition⦄,
+						⦃unicodeCodePoints Multiplication⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ⦄,
+								⦃unicodeCodePoints Structure⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+							let:
+								⟦sequence⟧:
+									let:
+										⟦typeIdentifier0⟧:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											then:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Operation⦄)⦄
+											else:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Structure⦄)⦄
+									⦃⦃sequence⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧s()⦄)⦄
+								⟦index⟧:
+									if:
+										⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Addition⦄)⦄
+									then:
+										⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+									else:
+										⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+							if:
+								⦃⦃index⦄.IsInferiorTo(⦃⦃sequence⦄.GetLength()⦄)⦄
+							then:
+									⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+								and:
+									⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄.IsEqualTo(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+							else:
+								⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.IsEmpty⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.IsEmpty⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃structure⦄.IsEmpty()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.IsEqualTo(⦃{}⦄)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.HasOneElement⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.HasOneElement⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦hasOneElement⟧:
+						⦃⦃hasOneElement⦄.IsEqualTo(⦃⦃structure⦄.HasOneElement()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃hasOneElement⦄)⦄
+				and:
+						⦃hasOneElement⦄
+					if and only if:
+						there exists ⟦x⟧:
+							⦃⦃⦃structure⦄.GetClass()⦄.IsEqualTo(⦃{⦃x⦄}⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetStructureInducedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.GetPower()⦄)⦄
+			and:
+				for all ⟦class⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+					then:
+						let:
+							⟦inducedStructure⟧:
+								⦃⦃inducedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+							let:
+								⟦typeIdentifier⟧:
+									if:
+										⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+									then:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									else:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Meta⦄)⦄
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃inducedStructure⦄)⦄
+						and:
+							⦃⦃⦃inducedStructure⦄.GetClass()⦄.IsEqualTo(⦃class⦄)⦄
+						and:
+							let:
+								⟦operations⟧:
+									⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+								⟦inducedOperations⟧:
+									⦃⦃inducedOperations⦄.IsEqualTo(⦃⦃inducedStructure⦄.GetOperations()⦄)⦄
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃inducedOperations⦄,⦃operations⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+							and:
+								for all ⟦index⟧:
+									if:
+										⦃⦃⦃operations⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃⦃inducedOperations⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃operations⦄(⦃index⦄)⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetSubStructures⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			⦃⦃⦃structure⦄.GetSubStructures⦄.IsEqualTo(⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetCoDomain⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃MetaAlgebraicStructure⦄)⦄.GetIntersection⦄
+	for all ⟦structures⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃MetaAlgebraicStructure⦄)⦄.HasInstance(⦃structures⦄)⦄
+		then:
+			let:
+				⟦isParentStructure⟧:
+						⦃⦃Function⦄.HasInstance(⦃isParentStructure⦄)⦄
+					and:
+						⦃⦃⦃isParentStructure⦄.GetDomain()⦄.IsEqualTo(⦃⦃MetaAlgebraicStructure⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦structure⟧:
+							if:
+								⦃⦃⦃isParentStructure⦄.GetDomain()⦄.Has(⦃structure⦄)⦄
+							then:
+									⦃⦃Boolean⦄.HasInstance(⦃⦃isParentStructure⦄(⦃structure⦄)⦄)⦄
+								and:
+										⦃⦃isParentStructure⦄(⦃structure⦄)⦄
+									if and only if:
+											⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+										and:
+											⦃⦃structures⦄.IsSubMultiClassOf(⦃⦃structure⦄.GetSubStructures()⦄)⦄
+			if:
+				there exists ⟦parentStructure⟧:
+					⦃⦃isParentStructure⦄(⦃parentStructure⦄)⦄
+			then:
+					⦃⦃⦃⦃structures⦄.GetIntersection⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦parentStructure⟧:
+							⦃⦃isParentStructure⦄(⦃parentStructure⦄)⦄
+						⟦structure⟧:
+							⦃⦃structure⦄.IsEqualTo(⦃⦃structures⦄.GetIntersection()⦄)⦄
+						⦃⦃⦃parentStructure⦄.GetSubStructures()⦄.Has(⦃structure⦄)⦄
+					and:
+						⦃⦃⦃structure⦄.GetClass()⦄.IsEqualTo(⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetClass⦄)⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetIntersectionWith⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				for all ⟦structure0⟧:
+						⦃⦃⦃⦃structure⦄.GetIntersectionWith⦄.GetDomain()⦄.Has(⦃structure0⦄)⦄
+					if and only if:
+						there exists ⟦parentStructure⟧:
+								⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure0⦄)⦄
+							and:
+								⦃⦃{⦃structure⦄,⦃structure0⦄}⦄.IsSubMultiClassOf(⦃⦃parentStructure⦄.GetSubStructures()⦄)⦄
+			and:
+				for all ⟦structure0⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.GetIntersectionWith⦄.GetDomain()⦄.Has(⦃structure0⦄)⦄
+					then:
+						⦃⦃⦃structure⦄.GetIntersectionWith(⦃structure0⦄)⦄.IsEqualTo(⦃⦃{⦃structure⦄,⦃structure0⦄}⦄.GetIntersection()⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.GetPower()⦄)⦄
+			and:
+				for all ⟦class⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+					then:
+						let:
+							⟦generatedStructure⟧:
+								⦃⦃generatedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄
+							let:
+								⟦typeIdentifier⟧:
+									if:
+										⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+									then:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									else:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Meta⦄)⦄
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃generatedStructure⦄)⦄
+						and:
+							let:
+								⟦class0⟧:
+									⦃⦃class0⦄.IsEqualTo(⦃⦃generatedStructure⦄.GetClass()⦄)⦄
+								⦃⦃generatedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class0⦄)⦄)⦄
+							and:
+								let:
+									⟦class0Classes⟧:
+											⦃⦃Class⦄.HasInstance(⦃class0Classes⦄)⦄
+										and:
+											for all ⟦class0⟧:
+													⦃⦃class0Classes⦄.Has(⦃class0⦄)⦄
+												if and only if:
+														⦃⦃Class⦄.HasInstance(⦃class0⦄)⦄
+													and:
+														for all ⟦x⟧:
+															if:
+																	⦃⦃class⦄.Has(⦃x⦄)⦄
+																or:
+																	there exists ⟦operation⟧,⟦sequence⟧:
+																			⦃⦃⦃⦃structure⦄.GetOperations()⦄.GetCoDomain()⦄.Has(⦃operation⦄)⦄
+																		and:
+																			⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃class0⦄)⦄
+																		and:
+																			⦃⦃x⦄.IsEqualTo(⦃⦃⦃⦃operation⦄.GetFunction()⦄(⦃sequence⦄)⦄(⦃0⦄)⦄)⦄
+															then:
+																⦃⦃class0⦄.Has(⦃x⦄)⦄
+								if:
+									⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+								then:
+									⦃⦃class0⦄.IsEqualTo(⦃⦃class0Classes⦄.GetIntersection()⦄)⦄
+								else:
+									⦃⦃class0Classes⦄.Has(⦃class0⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetGenerators⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetGenerators⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦generators⟧:
+						⦃⦃generators⦄.IsEqualTo(⦃⦃structure⦄.GetGenerators()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃generators⦄)⦄
+				and:
+					for all ⟦generator⟧:
+							⦃⦃generators⦄.Has(⦃generator⦄)⦄
+						if and only if:
+							⦃⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃generator⦄)⦄.IsEqualTo(⦃structure⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.HasOrderOf⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.HasOrderOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.HasOrderOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						⦃⦃⦃structure⦄.HasOrderOf(⦃x⦄)⦄.IsEqualTo(⦃⦃ClassWithSize⦄.HasInstance(⦃⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃{⦃x⦄}⦄)⦄.GetClass()⦄)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetOrderOf⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetOrderOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.FilterWith(⦃⦃structure⦄.HasOrderOf⦄)⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.GetOrderOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						⦃⦃⦃structure⦄.GetOrderOf(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃{⦃x⦄}⦄)⦄.GetClass()⦄.GetSize()⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructure⦄.GetStructure⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦algebraicStructure⟧:
+						⦃⦃algebraicStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructure()⦄)⦄
+					⦃⦃AlgebraicStructure⦄.HasInstance(⦃algebraicStructure⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃algebraicStructure⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃AlgebraicStructure⦄}⦄.GetEquipmentsDomain⦄
+		⦃⦃⦃⦃AlgebraicStructure⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃AlgebraicStructure⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃{⦃unicodeCodePoints algebraicStructure⦄}⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.GetSimilarStructures⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦structure0⟧:
+					⦃⦃⦃structure⦄.GetSimilarStructures()⦄.Has(⦃structure0⦄)⦄
+				if and only if:
+						⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure0⦄)⦄
+					and:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃structure0⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetClass⦄)⦄)⦄
+					and:
+						let:
+							⟦operations⟧:
+								⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+							⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃operations⦄,⦃operations0⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+						and:
+							for all ⟦index⟧:
+								if:
+									⦃⦃⦃operations⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+								then:
+									⦃⦃⦃⦃operations⦄(⦃index⦄)⦄.GetSimilarStructures()⦄.Has(⦃⦃operations0⦄(⦃index⦄)⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦structures⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+					and:
+						⦃⦃⦃structures⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃AlgebraicStructure⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃structures⦄)⦄
+					if and only if:
+						let:
+							⟦structure0⟧,⟦structure1⟧:
+								⦃⦃(⦃structure0⦄,⦃structure1⦄)⦄.IsEqualTo(⦃structures⦄)⦄
+							⟦operations0⟧:
+								⦃⦃operations0⦄.IsEqualTo(⦃⦃structure0⦄.GetOperations()⦄)⦄
+						for all ⟦index⟧:
+							if:
+								⦃⦃⦃operations0⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+							then:
+								⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃⦃(
+									⦃operations0⦄,
+									⦃⦃structure1⦄.GetOperations()⦄
+								)⦄.MapWith(⦃unaryFunction GetImageOf⦄)⦄.Apply(⦃index⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.IsCompatibleWithTheRelation⦄
+-	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦relation⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.IsCompatibleWithTheRelation⦄.GetDomain()⦄.Has(⦃relation⦄)⦄
+				then:
+						⦃⦃structure⦄.IsCompatibleWithTheRelation(⦃relation⦄)⦄
+					if and only if:
+							⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+						and:
+							for all ⟦operation⟧:
+								if:
+									⦃⦃⦃⦃structure⦄.GetOperations()⦄.GetCoDomain()⦄.Has(⦃operation⦄)⦄
+								then:
+									⦃⦃operation⦄.IsCompatibleWithTheRelation(⦃relation⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.GetTorsionSubStructure⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetTorsionSubStructure⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦class⟧:
+							⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+						and:
+							for all ⟦x⟧:
+									⦃⦃class⦄.Has(⦃x⦄)⦄
+								if and only if:
+									⦃⦃FiniteCardinal⦄.HasInstance(⦃⦃structure⦄.GetOrderOf(⦃x⦄)⦄)⦄
+				⦃⦃⦃structure⦄.GetTorsionSubStructure()⦄.IsEqualTo(⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.IsLeftDistributiveForOver⦄,⦃method ⦃AlgebraicStructure⦄.IsRightDistributiveForOver⦄,⦃method ⦃AlgebraicStructure⦄.IsDistributiveForOver⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Left⦄,
+							⦃unicodeCodePoints Right⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						let:
+							⟦operations⟧:
+								⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+							⟦indexes⟧:
+								⦃⦃indexes⦄.IsEqualTo(⦃⦃⦃OrdinalRange⦄(⦃0⦄,⦃⦃operations⦄.GetLength()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+							⦃⦃⦃⦃structure⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧DistributiveForOver⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃indexes⦄,⦃indexes⦄)⦄.GetCartesianProduct()⦄)⦄
+						and:
+							for all ⟦indexes⟧:
+								if:
+									⦃⦃⦃⦃structure⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧DistributiveForOver⦄.GetDomain()⦄.Has(⦃indexes⦄)⦄
+								then:
+									let:
+										⟦isDistributive⟧:
+											⦃⦃isDistributive⦄.IsEqualTo(⦃⦃structure⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧DistributiveForOver(⦃indexes⦄)⦄)⦄
+										⦃⦃Boolean⦄.HasInstance(⦃isDistributive⦄)⦄
+									and:
+											⦃isDistributive⦄
+										if and only if:
+												for all ⟦index⟧:
+													if:
+														⦃⦃⦃indexes⦄.GetCoDomain()⦄.Has(⦃index⦄)⦄
+													then:
+														⦃⦃⦃⦃operations⦄(⦃index⦄)⦄.GetDomainArity()⦄.IsEqualTo(⦃2⦄)⦄
+											and:
+												for all ⟦x0⟧,⟦x1⟧,⟦x2⟧:
+													if:
+														for all ⟦index⟧:
+															if:
+																⦃⦃{⦃0⦄,⦃1⦄,⦃2⦄}⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃⦃structure⦄.GetClass()⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+													then:
+														let:
+															⟦function0⟧,⟦function0Domain⟧,
+															⟦function1⟧,⟦function1Domain⟧:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦typeIdentifier⟧:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																			⦃⦃function⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃⦃operations⦄(⦃index⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄.GetSimplifiedFunction()⦄)⦄
+																		and:
+																			⦃⦃function⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.IsEqualTo(⦃⦃function⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄)⦄
+														if:
+															⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+														then:
+																	⦃⦃⦃function0Domain⦄.Has(⦃(
+																		⦃x0⦄,
+																		⦃⦃function1⦄(⦃x1⦄,⦃x2⦄)⦄
+																	)⦄)⦄
+																if and only if:
+																	⦃⦃function1Domain⦄.Has(⦃⦃(
+																		⦃(⦃x0⦄,⦃x1⦄)⦄,
+																		⦃(⦃x0⦄,⦃x2⦄)⦄
+																	)⦄.MapWith(⦃function0⦄)⦄)⦄
+															and:
+																if:
+																	⦃⦃⦃function0Domain⦄.Has(⦃(
+																		⦃x0⦄,
+																		⦃⦃function1⦄(⦃x1⦄,⦃x2⦄)⦄
+																	)⦄)⦄
+																then:
+																	⦃⦃⦃function0⦄(
+																		⦃x0⦄,
+																		⦃⦃function1⦄(⦃x1⦄,⦃x2⦄)⦄
+																	)⦄.IsEqualTo(⦃⦃function1⦄(⦃⦃(
+																		⦃(⦃x0⦄,⦃x1⦄)⦄,
+																		⦃(⦃x0⦄,⦃x2⦄)⦄
+																	)⦄.MapWith(⦃function0⦄)⦄)⦄
+														else:
+																	⦃⦃⦃function0Domain⦄.Has(⦃(
+																		⦃⦃function1⦄(⦃x0⦄,⦃x1⦄)⦄,
+																		⦃x2⦄
+																	)⦄)⦄
+																if and only if:
+																	⦃⦃function1Domain⦄.Has(⦃⦃(
+																		⦃(⦃x0⦄,⦃x2⦄)⦄,
+																		⦃(⦃x1⦄,⦃x2⦄)⦄
+																	)⦄.MapWith(⦃function0⦄)⦄)⦄
+															and:
+																if:
+																	⦃⦃⦃function0Domain⦄.Has(⦃(
+																		⦃⦃function1⦄(⦃x0⦄,⦃x1⦄)⦄,
+																		⦃x2⦄
+																	)⦄)⦄
+																then:
+																	⦃⦃⦃function0⦄(
+																		⦃⦃function1⦄(⦃x0⦄,⦃x1⦄)⦄,
+																		⦃x2⦄
+																	)⦄.IsEqualTo(⦃⦃function1⦄(⦃⦃(
+																		⦃(⦃x0⦄,⦃x2⦄)⦄,
+																		⦃(⦃x1⦄,⦃x2⦄)⦄
+																	)⦄.MapWith(⦃function0⦄)⦄)⦄)⦄
+			and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+						⦃⦃structure⦄.IsDistributiveForOver⦄,
+						⦃⦃structure⦄.IsLeftDistributiveForOver⦄
+					)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+				and:
+					for all ⟦indexes⟧:
+						if:
+							⦃⦃⦃⦃structure⦄.IsDistributiveForOver⦄.GetDomain()⦄.Has(⦃indexes⦄)⦄
+						then:
+							let:
+								⟦isDistributive⟧:
+									⦃⦃isDistributive⦄.IsEqualTo(⦃⦃structure⦄.IsDistributiveForOver(⦃indexes⦄)⦄)⦄
+								⦃⦃Boolean⦄.HasInstance(⦃isDistributive⦄)⦄
+							and:
+									⦃isDistributive⦄
+								if and only if:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints Left⦄,
+												⦃unicodeCodePoints Right⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃structure⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧DistributiveForOver(⦃indexes⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.GetQuotientStructureInducedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦congruenceRelation⟧,⟦quotientStructure⟧:
+					⦃⦃⦃⦃structure⦄.GetQuotientStructureInducedBy⦄.GetGraph()⦄.Has(⦃(⦃congruenceRelation⦄,⦃quotientStructure⦄)⦄)⦄
+				if and only if:
+						⦃⦃QuotientAlgebraicStructure⦄.HasInstance(⦃quotientStructure⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints CongruenceRelation⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃quotientStructure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃AlgebraicStructure⦄)⦄.GetDirectSum⦄,⦃method ⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃AlgebraicStructure⦄)⦄.GetDirectProduct⦄
+	for all ⟦structures⟧:
+		if:
+			⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃AlgebraicStructure⦄)⦄.HasInstance(⦃structures⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sum⦄,
+						⦃unicodeCodePoints Product⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					if:
+						there exists ⟦arities⟧:
+							⦃⦃{⦃arities⦄}⦄.IsEqualTo(⦃⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetOperations⦄)⦄.MapWith(⦃unaryFunction GetDomainArity⦄)⦄.GetCodomain()⦄)⦄
+					then:
+							⦃⦃⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							let:
+								⟦structure⟧:
+									⦃⦃structure⦄.IsEqualTo(⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+								⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+							and:
+								let:
+									⟦structure0Operations⟧:
+										⦃⦃structure0Operations⦄.IsEqualTo(⦃⦃⦃structure⦄(⦃0⦄)⦄.GetOperations()⦄)⦄
+									⟦class⟧:
+										⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+									for all ⟦sequence⟧:
+											⦃⦃class⦄.Has(⦃sequence⦄)⦄
+										if and only if:
+												⦃⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetClass⦄)⦄.GetCartesianProduct()⦄.Has(⦃sequence⦄)⦄
+											and:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Sum⦄)⦄
+												then:
+													let:
+														⟦class⟧:
+																⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+															and:
+																for all ⟦index⟧:
+																		⦃⦃class⦄.Has(⦃index⦄)⦄
+																	if and only if:
+																			⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																		and:
+																			not:
+																				⦃⦃⦃⦃⦃⦃structures⦄(⦃index⦄)⦄.GetOperations()⦄.MapWith(⦃unaryFunction GetIdentities⦄)⦄.GetUnion()⦄.Has(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+													⦃⦃FiniteClass⦄.HasInstance(⦃class⦄)⦄
+								and:
+									let:
+										⟦operations⟧:
+											⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+										⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃operations⦄,⦃structure0Operations⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+									and:
+										for all ⟦index⟧:
+											if:
+												⦃⦃⦃operations⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+											then:
+												for all ⟦sequences⟧,⟦sequence⟧:
+														⦃⦃⦃⦃⦃operations⦄(⦃index⦄)⦄.GetFunction()⦄.GetGraph()⦄.Has(⦃(⦃sequences⦄,⦃sequence⦄)⦄)⦄
+													if and only if:
+															⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequences⦄)⦄
+														and:
+															⦃⦃⦃sequences⦄.GetLength()⦄.IsEqualTo(⦃⦃⦃structure0Operations⦄(⦃index⦄)⦄.GetDomainArity()⦄)⦄
+														and:
+															⦃⦃⦃sequences⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃class⦄)⦄
+														and:
+															⦃⦃class⦄.Has(⦃sequence⦄)⦄
+														and:
+															for all ⟦index0⟧:
+																if:
+																	⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index0⦄)⦄
+																then:
+																	⦃⦃⦃sequence⦄(⦃index0⦄)⦄.IsEqualTo(⦃⦃⦃⦃⦃⦃⦃structures⦄(⦃index0⦄)⦄.GetOperations()⦄(⦃index⦄)⦄.GetFunction()⦄(⦃⦃⦃sequences⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃index0⦄)⦄)⦄(⦃0⦄)⦄)⦄
+					else:
+						⦃⦃⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.GetInternalDirectSums⦄,⦃method ⦃AlgebraicStructure⦄.GetInternalDirectProducts⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sum⦄,
+						⦃unicodeCodePoints Product⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃structure⦄.GetInternalDirect⟦⟦⦃typeIdentifier⦄⟧⟧s⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦class⟧:
+								⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetInternalDirect⟦⟦⦃typeIdentifier⦄⟧⟧s()⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+						and:
+							for all ⟦structures⟧:
+									⦃⦃class⦄.Has(⦃structures⦄)⦄
+								if and only if:
+										⦃⦃⦃NonEmptyTransFiniteSequence⦄.GetTypeInducedBy(⦃AlgebraicStructure⦄)⦄.HasInstance(⦃structures⦄)⦄
+									and:
+										⦃⦃⦃structures⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃structure⦄.GetSubStructures()⦄)⦄
+									and:
+										⦃⦃⦃structure⦄.GetGenerators()⦄.Has(⦃⦃⦃structures⦄.MapWith(⦃unaryFunction GetClass⦄)⦄.GetUnion()⦄)⦄
+									and:
+										there exists ⟦operation⟧:
+												⦃⦃TotalUnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+											and:
+												⦃⦃operation⦄.IsIsoMorphicStructurePreversingMapOf(⦃structure⦄,⦃⦃structures⦄.GetDirect⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.GetCongruenceLattice⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetCongruenceLattice⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦congruenceLattice⟧:
+						⦃⦃congruenceLattice⦄.IsEqualTo(⦃⦃structure⦄.GetCongruenceLattice()⦄)⦄
+					⦃⦃Lattice⦄.HasInstance(⦃congruenceLattice⦄)⦄
+				and:
+					let:
+						⟦class⟧:
+							⦃⦃class⦄.IsEqualTo(⦃⦃congruenceLattice⦄.GetSharedSignatureClass()⦄)⦄
+						⦃⦃class⦄.IsEqualTo(⦃⦃⦃structure⦄.GetQuotientStructureInducedBy⦄.GetDomain()⦄)⦄
+					and:
+						for all ⟦congruence0⟧,⟦congruence1⟧:
+							if:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃class⦄.Has(⦃congruence⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+							then:
+								let:
+									⟦congruences⟧:
+										⦃⦃congruences⦄.IsEqualTo(⦃{⦃congruence0⦄,⦃congruence1⦄}⦄)⦄
+									⦃⦃⦃congruenceLattice⦄.GetGreatestLowerBoundsOf(⦃congruences⦄)⦄.IsEqualTo(⦃{
+										⦃⦃congruence0⦄.GetIntersectionWith(⦃congruence1⦄)⦄
+									}⦄)⦄
+								and:
+									let:
+										⟦congruenceClosure⟧:
+												⦃⦃Class⦄.HasInstance(⦃congruenceClosure⦄)⦄
+											and:
+												for all ⟦congruence⟧:
+														⦃⦃congruenceClosure⦄.Has(⦃congruence⦄)⦄
+													if and only if:
+															⦃⦃class⦄.Has(⦃congruence⦄)⦄
+														and:
+															⦃⦃congruence⦄.Contains(⦃⦃congruence0⦄.GetUnionWith(⦃congruence1⦄)⦄)⦄
+									⦃⦃⦃congruenceLattice⦄.GetLeastUpperBoundsOf(⦃congruences⦄)⦄.IsEqualTo(⦃{
+										⦃⦃congruenceClosure⦄.GetIntersection()⦄
+									}⦄)⦄
+
+define ⦃method ⦃AlgebraicStructure⦄.IsAssociativeFor⦄,
+⦃method ⦃AlgebraicStructure⦄.GetSolutionsFor⦄,
+⦃method ⦃AlgebraicStructure⦄.IsSolvableFor⦄,⦃method ⦃AlgebraicStructure⦄.IsAtMostUniquelySolvableFor⦄,⦃method ⦃AlgebraicStructure⦄.IsUniquelySolvableFor⦄,
+⦃method ⦃AlgebraicStructure⦄.IsCommutativeFor⦄,
+⦃method ⦃AlgebraicStructure⦄.GetCancellativeElementsFor⦄,⦃method ⦃AlgebraicStructure⦄.GetCancellativeElements⦄,
+⦃method ⦃AlgebraicStructure⦄.GetPartialIdentities⦄,⦃method ⦃AlgebraicStructure⦄.GetIdentities⦄,
+⦃method ⦃AlgebraicStructure⦄.GetIdemPotentElements⦄,
+⦃method ⦃AlgebraicStructure⦄.GetAbsorbingElementsFor⦄,⦃method ⦃AlgebraicStructure⦄.HasAbsorbingElement⦄,⦃method ⦃AlgebraicStructure⦄.GetAbsorbingElement⦄,
+⦃method ⦃AlgebraicStructure⦄.GetDivisorsForOf⦄,⦃method ⦃AlgebraicStructure⦄.GetDivisorsOf⦄,
+⦃method ⦃AlgebraicStructure⦄.GetPrimalElements⦄,
+⦃method ⦃AlgebraicStructure⦄.GetNilPotentElements⦄,
+⦃method ⦃AlgebraicStructure⦄.GetLeftInversesOf⦄,⦃method ⦃AlgebraicStructure⦄.GetRightInversesOf⦄,⦃method ⦃AlgebraicStructure⦄.GetInversesOf⦄,
+⦃method ⦃AlgebraicStructure⦄.GetIrreducibleElements⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints IsAssociativeFor⦄,
+						⦃unicodeCodePoints GetSolutionsFor⦄,
+						⦃unicodeCodePoints IsSolvableFor⦄,
+						⦃unicodeCodePoints IsAtMostUniquelySolvableFor⦄,
+						⦃unicodeCodePoints IsUniquelySolvableFor⦄,
+						⦃unicodeCodePoints IsCommutativeFor⦄,
+						⦃unicodeCodePoints GetCancellativeElementsFor⦄,
+						⦃unicodeCodePoints GetCancellativeElements⦄,
+						⦃unicodeCodePoints GetPartialIdentities⦄,
+						⦃unicodeCodePoints GetIdentities⦄,
+						⦃unicodeCodePoints GetIdemPotentElements⦄,
+						⦃unicodeCodePoints GetAbsorbingElementsFor⦄,
+						⦃unicodeCodePoints HasAbsorbingElement⦄,
+						⦃unicodeCodePoints GetAbsorbingElement⦄,
+						⦃unicodeCodePoints GetDivisorsForOf⦄,
+						⦃unicodeCodePoints GetDivisorsOf⦄,
+						⦃unicodeCodePoints GetPrimalElements⦄,
+						⦃unicodeCodePoints GetNilPotentElements⦄,
+						⦃unicodeCodePoints GetLeftInversesOf⦄,
+						⦃unicodeCodePoints GetRightInversesOf⦄,
+						⦃unicodeCodePoints GetInversesOf⦄,
+						⦃unicodeCodePoints GetIrreducibleElements⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					let:
+						⟦operations⟧:
+							⦃⦃operations⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+					if:
+						⦃⦃⦃operations⦄.GetLength()⦄.IsEqualTo(⦃1⦄)⦄
+					then:
+						⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+							⦃operations⦄,
+							⦃⦃operations⦄(⦃0⦄)⦄
+						)⦄.MapWith(⦃unaryFunction ⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄

@@ -1,0 +1,229 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FloatingPointReal⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃FloatingPointReal⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetFormat⟧,
+									⟦IsPositive⟧,
+									⟦GetSignificand⟧,
+									⟦GetExponent⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetFormat⦄,⦃GetFormat⦄)⦄,
+											⦃(⦃unicodeCodePoints IsPositive⦄,⦃IsPositive⦄)⦄,
+											⦃(⦃unicodeCodePoints GetSignificand⦄,⦃GetSignificand⦄)⦄,
+											⦃(⦃unicodeCodePoints GetExponent⦄,⦃GetExponent⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦format⟧,⟦significand⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints Format⦄,
+															⦃unicodeCodePoints Significand⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄()⦄)⦄
+											⦃⦃FloatingPointFormat⦄.HasInstance(⦃format⦄)⦄
+										and:
+											⦃⦃Boolean⦄.HasInstance(⦃⦃IsPositive⦄()⦄)⦄
+										and:
+												⦃⦃FiniteSequence⦄.HasInstance(⦃significand⦄)⦄
+											and:
+												⦃⦃⦃significand⦄.GetLength()⦄.IsEqualTo(⦃⦃format⦄.GetPrecision()⦄)⦄
+											and:
+												⦃⦃⦃NonNegativeIntegerRange⦄(⦃integer 0⦄,⦃⦃format⦄.GetBase()⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄
+										and:
+											⦃⦃⦃format⦄.GetExponentRange()⦄.Has(⦃⦃GetExponent⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦floatingPoint⟧:
+									⦃⦃floatingPoint⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃FloatingPointReal⦄.HasInstance(⦃floatingPoint⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃floatingPoint⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃FloatingPointReal⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃FloatingPointReal⦄.MapToClass⦄
+	for all ⟦floatingPoint⟧:
+		if:
+			⦃⦃FloatingPointReal⦄.HasInstance(⦃floatingPoint⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃floatingPoint⦄,
+				⦃(⦃⦃floatingPoint⦄.GetFormat()⦄,⦃⦃floatingPoint⦄.IsPositive()⦄,⦃⦃floatingPoint⦄.GetSignificand()⦄,⦃⦃floatingPoint⦄.GetExponent()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃FloatingPointReal⦄.GetReal⦄
+	for all ⟦floatingPoint⟧:
+		if:
+			⦃⦃FloatingPointReal⦄.HasInstance(⦃floatingPoint⦄)⦄
+		then:
+			for all ⟦floatingPoint⟧:
+					⦃⦃⦃⦃floatingPoint⦄.GetReal⦄.GetGraph()⦄.Has(⦃(⦃()⦄,⦃real⦄)⦄)⦄
+				if and only if:
+						⦃⦃Real⦄.HasInstance(⦃real⦄)⦄
+					and:
+						⦃⦃⦃FloatingPointReal⦄.GetExactFromRealInFormat(⦃real⦄,⦃⦃floatingPoint⦄.GetFormat()⦄)⦄.Has(⦃floatingPoint⦄)⦄
+
+define ⦃method ⦃{⦃FloatingPointReal⦄}⦄.GetFromRealInFormat⦄,⦃method ⦃{⦃FloatingPointReal⦄}⦄.GetExactFromRealInFormat⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Exact⦄
+			}⦄.Has(⦃exponentRange⦄)⦄
+		then:
+				⦃⦃⦃⦃FloatingPointReal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧FromRealInFormat⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃Real⦄,⦃FloatingPointFormat⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃FloatingPointReal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧FromRealInFormat⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦floatingPoints⟧:
+								⦃⦃floatingPoints⦄.IsEqualTo(⦃⦃FloatingPointReal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧FromRealInFormat(⦃x⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃floatingPoints⦄)⦄
+						and:
+							for all ⟦floatingPoint⟧:
+									⦃⦃floatingPoints⦄.Has(⦃floatingPoint⦄)⦄
+								if and only if:
+										⦃⦃FloatingPointReal⦄.HasInstance(⦃floatingPoint⦄)⦄
+									and:
+										let:
+											⟦real⟧,⟦format⟧:
+												⦃⦃(⦃real⦄,⦃format⦄)⦄.IsEqualTo(⦃x⦄)⦄
+											⦃⦃⦃floatingPoint⦄.GetFormat()⦄.IsEqualTo(⦃format⦄)⦄
+										and:
+											let:
+												⟦precision⟧:
+													⦃⦃precision⦄.IsEqualTo(⦃⦃format⦄.GetPrecision()⦄)⦄
+												⟦significand⟧,⟦exponent⟧:
+													for all ⟦typeIdentifier⟧:
+														if:
+															⦃⦃{
+																⦃unicodeCodePoints Significand⦄,
+																⦃unicodeCodePoints Exponent⦄
+															}⦄.Has(⦃exponentRange⦄)⦄
+														then:
+															⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃floatingPoint⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+											if:
+												⦃⦃real⦄.IsEqualTo(⦃integer 0⦄)⦄
+											then:
+													⦃⦃significand⦄.IsEqualTo(⦃⦃integer 0⦄.Repeat(⦃precision⦄)⦄)⦄
+												and:
+													⦃⦃exponent⦄.IsEqualTo(⦃integer 0⦄)⦄
+											else:
+														⦃⦃floatingPoint⦄.IsPositive()⦄
+													if and only if:
+														⦃⦃integer 0⦄.IsInferiorTo(⦃real⦄)⦄
+												and:
+													let:
+														⟦exponentRange⟧:
+															⦃⦃exponentRange⦄.IsEqualTo(⦃⦃format⦄.GetExponentRange()⦄)⦄
+														⟦exponentLowerBound⟧,⟦exponentUpperBound⟧:
+															for all ⟦typeIdentifier⟧:
+																if:
+																	⦃⦃{
+																		⦃unicodeCodePoints Lower⦄,
+																		⦃unicodeCodePoints Upper⦄
+																	}⦄.Has(⦃exponentRange⦄)⦄
+																then:
+																	⦃⦃exponent⟦⟦⦃typeIdentifier⦄⟧⟧Bound⦄.IsEqualTo(⦃⦃exponentRange⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Bound()⦄)⦄
+														⟦significand0⟧,⟦exponent0⟧:
+															⦃⦃(⦃significand0⦄,⦃exponent0⦄)⦄.IsEqualTo(⦃⦃real⦄.MapToSignificandAndMantissaInBase(⦃⦃format⦄.GetBase()⦄)⦄)⦄
+													if:
+														⦃⦃exponentUpperBound⦄.IsInferiorOrEqualTo(⦃exponent0⦄)⦄
+													then:
+															⦃⦃significand⦄.IsEqualTo(⦃⦃integer 0⦄.Repeat(⦃precision⦄)⦄)⦄
+														and:
+															⦃⦃exponent⦄.IsEqualTo(⦃exponentUpperBound⦄)⦄
+													else if:
+														⦃⦃exponent0⦄.IsInferiorOrEqualTo(⦃exponentLowerBound⦄)⦄
+													then:
+															let:
+																⟦representation⟧:
+																	let:
+																		⟦significand0⟧:
+																			⦃⦃⦃⦃base⦄.GetPower(⦃exponent⦄)⦄.Multiply(⦃significand0⦄)⦄.IsEqualTo(⦃real⦄)⦄
+																	⦃⦃representation⦄.IsEqualTo(⦃⦃⦃significand0⦄.MapToRealRepresentationInBase(⦃base⦄)⦄(⦃2⦄)⦄)⦄
+																⟦length⟧:
+																	⦃⦃length⦄.IsEqualTo(⦃⦃representation⦄.GetLength()⦄)⦄
+															if:
+																⦃⦃length⦄.IsInferiorOrEqualTo(⦃precision⦄)⦄
+															then:
+																⦃⦃significand⦄.IsEqualTo(⦃⦃representation⦄.GetConcatenationWith(⦃⦃integer 0⦄.Repeat(⦃⦃precision⦄.Subtract(⦃length⦄)⦄)⦄)⦄)⦄
+															else:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																and:
+																	⦃⦃significand⦄.IsEqualTo(⦃⦃representation⦄.GetBeginningSubSequence(⦃precision⦄)⦄)⦄
+														and:
+															⦃⦃exponent⦄.IsEqualTo(⦃exponentLowerBound⦄)⦄
+													else:
+															let:
+																⟦representation⟧:
+																	let:
+																		⟦isNonNegative⟧,⟦integerRepresentation⟧,⟦fractionalRepresentation⟧:
+																			⦃⦃(⦃isNonNegative⦄,⦃integerRepresentation⦄,⦃fractionalRepresentation⦄)⦄.IsEqualTo(⦃⦃significand⦄.MapToRealRepresentationInBase(⦃base⦄)⦄)⦄
+																	⦃⦃representation⦄.IsEqualTo(⦃⦃integerRepresentation⦄.GetConcatenationWith(⦃fractionalRepresentation⦄)⦄)⦄
+																⟦beginningIndex⟧,⟦precision0⟧:
+																	if:
+																		not:
+																			⦃⦃format⦄.HasImplicitBit()⦄
+																	then:
+																			⦃⦃beginningIndex⦄.IsEqualTo(⦃0⦄)⦄
+																		and:
+																			⦃⦃precision0⦄.IsEqualTo(⦃precision⦄)⦄
+																	else:
+																			⦃⦃beginningIndex⦄.IsEqualTo(⦃1⦄)⦄
+																		and:
+																			⦃⦃precision0⦄.IsEqualTo(⦃⦃precision⦄.Add(⦃1⦄)⦄)⦄
+																⟦significand0⟧:
+																	let:
+																		⟦length⟧:
+																			⦃⦃length⦄.IsEqualTo(⦃⦃representation⦄.GetLength()⦄)⦄
+																	if:
+																		⦃⦃length⦄.IsInferiorOrEqualTo(⦃precision0⦄)⦄
+																	then:
+																		⦃⦃significand0⦄.IsEqualTo(⦃⦃representation⦄.GetConcatenationWith(⦃⦃integer 0⦄.Repeat(⦃⦃precision0⦄.Subtract(⦃length⦄)⦄)⦄)⦄)⦄
+																	else:
+																			⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																		and:
+																			⦃⦃significand0⦄.IsEqualTo(⦃⦃representation⦄.GetBeginningSubSequence(⦃precision0⦄)⦄)⦄
+															⦃⦃significand⦄.IsEqualTo(⦃⦃significand0⦄.GetEndingSubSequence(⦃beginningIndex⦄)⦄)⦄
+														and:
+															⦃⦃exponent⦄.IsEqualTo(⦃exponent0⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃FloatingPointReal⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

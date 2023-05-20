@@ -1,0 +1,453 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MultiClass⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃MultiClass⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetMultiplicityOf⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetMultiplicityOf⦄,⦃GetMultiplicityOf⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										⦃⦃⦃GetMultiplicityOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+									and:
+										⦃⦃⦃GetMultiplicityOf⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃Cardinal⦄.MapToClass()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦multiClass⟧:
+									⦃⦃multiClass⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃multiClass⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃MultiClass⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.MapToClass⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃multiClass⦄,
+				⦃⦃multiClass⦄.GetMultiplicityOf⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.Has⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClass⦄.Has⦄.GetDomain()⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦x⟧:
+					⦃⦃⦃multiClass⦄.Has(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃Cardinal⦄(⦃0⦄)⦄.IsInferiorTo(⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.GetSupport⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClass⦄.GetSupport⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦support⟧:
+						⦃⦃support⦄.IsEqualTo(⦃⦃multiClass⦄.GetSupport()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃support⦄)⦄
+				and:
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃support⦄,⦃multiClass⦄)⦄.MapWith(⦃unaryFunction Has⦄)⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.IsSubMultiClassOf⦄,⦃method ⦃MultiClass⦄.IsSuperMultiClassOf⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sub⦄,
+						⦃unicodeCodePoints Super⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃multiClass⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃MultiClass⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦multiClass0⟧:
+							if:
+								⦃⦃⦃⦃multiClass⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf⦄.GetDomain()⦄.Has(⦃multiClass0⦄)⦄
+							then:
+								let:
+									⟦isSubOrSuperMultiClass⟧:
+										⦃⦃isSubOrSuperMultiClass⦄.IsEqualTo(⦃⦃multiClass⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf(⦃multiClass0⦄)⦄)⦄
+									⦃⦃Boolean⦄.HasInstance(⦃isSubOrSuperMultiClass⦄)⦄
+								and:
+										⦃isSubOrSuperMultiClass⦄
+									if and only if:
+										for all ⟦x⟧:
+											let:
+												⟦multiclasses⟧:
+													if:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Sub⦄)⦄
+													then:
+														⦃⦃multiclasses⦄.IsEqualTo(⦃(⦃multiClass⦄,⦃multiClass0⦄)⦄)⦄
+													else:
+														⦃⦃multiclasses⦄.IsEqualTo(⦃(⦃multiClass0⦄,⦃multiClass⦄)⦄)⦄
+											⦃⦃binaryFunction IsInferiorOrEqualTo⦄(⦃⦃multiclasses⦄.MapWith(⦃method GetMultiplicityOf⦄)⦄.Apply(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.IsProperSubMultiClassOf⦄,⦃method ⦃MultiClass⦄.IsProperSuperMultiClassOf⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sub⦄,
+						⦃unicodeCodePoints Super⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃multiClass⦄.IsProper⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf⦄.GetDomain()⦄.IsEqualTo(⦃⦃MultiClass⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦multiClass0⟧:
+							if:
+								⦃⦃⦃⦃multiClass⦄.IsProper⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf⦄.GetDomain()⦄.Has(⦃multiClass0⦄)⦄
+							then:
+								let:
+									⟦isProperSubOrSuperMultiClass⟧:
+										⦃⦃isProperSubOrSuperMultiClass⦄.IsEqualTo(⦃⦃multiClass⦄.IsProper⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf(⦃multiClass0⦄)⦄)⦄
+									⦃⦃Boolean⦄.HasInstance(⦃isProperSubOrSuperMultiClass⦄)⦄
+								and:
+										⦃isProperSubOrSuperMultiClass⦄
+									if and only if:
+											⦃⦃multiClass⦄.Is⟦⟦⦃typeIdentifier⦄⟧⟧MultiClassOf(⦃multiClass0⦄)⦄
+										and:
+											not:
+												⦃⦃multiClass⦄.IsEqualTo(⦃multiClass0⦄)⦄
+
+define ⦃method ⦃⦃MultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.GetUnion⦄,⦃method ⦃⦃MultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.GetIntersection⦄
+	for all ⟦multiClasses⟧:
+		if:
+			⦃⦃⦃MultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.HasInstance(⦃multiClasses⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Union⦄,
+						⦃unicodeCodePoints Intersection⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					if:
+							not:
+								⦃⦃multiClasses⦄.IsEqualTo(⦃{}⦄)⦄
+						or:
+							⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Union⦄)⦄
+					then:
+							⦃⦃⦃⦃multiClasses⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							let:
+								⟦multiClass⟧:
+									⦃⦃multiClass⦄.IsEqualTo(⦃⦃multiClasses⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+							if:
+								⦃⦃multiClasses⦄.IsEqualTo(⦃{}⦄)⦄
+							then:
+								⦃⦃multiClass⦄.IsEqualTo(⦃{}⦄)⦄
+							else:
+									⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+								and:
+									for all ⟦x⟧:
+										let:
+											⟦getMultiplicityOfX⟧:
+													⦃⦃Function⦄.HasInstance(⦃getMultiplicityOfX⦄)⦄
+												and:
+													for all ⟦y⟧:
+															⦃⦃⦃getMultiplicityOfX⦄.Graph()⦄.Has(⦃y⦄)⦄
+														if and only if:
+															there exists ⟦multiClass⟧:
+																⦃⦃y⦄.IsEqualTo(⦃(⦃multiClass⦄,⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄)⦄
+											⟦typeIdentifier0⟧:
+												if:
+													⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Union⦄)⦄
+												then:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Max⦄)⦄
+												else:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Min⦄)⦄
+										⦃⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃multiClasses⦄.MapWith(⦃getMultiplicityOfX⦄)⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧imum()⦄)⦄
+					else:
+						⦃⦃⦃⦃multiClasses⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃⦃MultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.GetSumOfMultiClasses⦄
+	for all ⟦multiClasses⟧:
+		if:
+			⦃⦃⦃MultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.HasInstance(⦃multiClasses⦄)⦄
+		then:
+			for all ⟦multiClasses⟧:
+					⦃⦃⦃⦃multiClasses⦄.GetSumOfMultiClasses⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦multiClass⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃multiClass⦄)⦄)⦄
+						and:
+							⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+						and:
+							for all ⟦x⟧:
+								let:
+									⟦multiplicitiesOfX⟧:
+										let:
+											⟦hasX⟧:
+													⦃⦃Function⦄.HasInstance(⦃hasX⦄)⦄
+												and:
+													⦃⦃⦃hasX⦄.GetDomain()⦄.IsEqualTo(⦃⦃MultiClass⦄.MapToClass()⦄)⦄
+												and:
+													for all ⟦multiClass⟧:
+														if:
+															⦃⦃⦃hasX⦄.GetDomain()⦄.Has(⦃multiClass⦄)⦄
+														then:
+															⦃⦃⦃hasX⦄(⦃multiClass⦄)⦄.IsEqualTo(⦃⦃multiClass⦄.Has(⦃x⦄)⦄)⦄
+											⟦getMultiplicityOfX⟧:
+													⦃⦃Function⦄.HasInstance(⦃getMultiplicityOfX⦄)⦄
+												and:
+													for all ⟦y⟧:
+															⦃⦃⦃getMultiplicityOfX⦄.Graph()⦄.Has(⦃y⦄)⦄
+														if and only if:
+															there exists ⟦multiClass⟧:
+																⦃⦃y⦄.IsEqualTo(⦃(⦃multiClass⦄,⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄)⦄
+										⦃⦃multiplicitiesOfX⦄.IsEqualTo(⦃⦃⦃multiClasses⦄.FilterWith(⦃hasX⦄)⦄.MapWith(⦃getMultiplicityOfX⦄)⦄)⦄
+									⦃⦃MultiClassWithSize⦄.HasInstance(⦃multiplicitiesOfX⦄)⦄
+								and:
+									⦃⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄.IsEqualTo(⦃⦃multiplicitiesOfX⦄.AddAllCardinals()⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.GetUnionWith⦄,⦃method ⦃MultiClass⦄.GetIntersectionWith⦄,⦃method ⦃MultiClass⦄.GetSumWith⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Union⦄,
+						⦃unicodeCodePoints Intersection⦄,
+						⦃unicodeCodePoints Sum⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃multiClass⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With⦄.GetDomain()⦄.IsEqualTo(⦃⦃MultiClass⦄.MapToClass()⦄)⦄
+					and:
+						for all ⟦multiClass0⟧:
+							if:
+								⦃⦃⦃⦃multiClass⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With⦄.GetDomain()⦄.Has(⦃multiClass0⦄)⦄
+							then:
+								let:
+									⟦typeIdentifier0⟧:
+										if:
+											not:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Sum⦄)⦄
+										then:
+											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃typeIdentifier⦄)⦄
+										else:
+											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧OfMultiClasses⦄)⦄
+								⦃⦃⦃multiClass⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With(⦃multiClass0⦄)⦄.IsEqualTo(⦃⦃{⦃multiClass⦄,⦃multiClass0⦄}⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.GetDifferenceWith⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				for all ⟦multiClass0⟧:
+						⦃⦃⦃⦃multiClass⦄.GetDifferenceWith⦄.GetDomain()⦄.Has(⦃multiClass0⦄)⦄
+					if and only if:
+							⦃⦃MultiClass⦄.HasInstance(⦃multiClass0⦄)⦄
+						and:
+							for all ⟦x⟧:
+								let:
+									⟦multiplicity⟧,⟦multiplicity0⟧:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints 0⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃multiplicity⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃multiClass⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄
+								if:
+									⦃⦃multiplicity0⦄.IsInferiorOrEqualTo(⦃multiplicity⦄)⦄
+								then:
+									⦃⦃⦃⦃multiplicity⦄.Subtract⦄.GetDomain()⦄.Has(⦃multiplicity0⦄)⦄
+			and:
+				for all ⟦multiClass0⟧:
+					if:
+						⦃⦃⦃⦃multiClass⦄.GetDifferenceWith⦄.GetDomain()⦄.Has(⦃multiClass0⦄)⦄
+					then:
+						let:
+							⟦difference⟧:
+								⦃⦃difference⦄.IsEqualTo(⦃⦃multiClass⦄.GetDifferenceWith(⦃multiClass0⦄)⦄)⦄
+							⦃⦃MultiClass⦄.HasInstance(⦃difference⦄)⦄
+						and:
+							for all ⟦x⟧:
+								let:
+									⟦multiplicity⟧,⟦multiplicity0⟧:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints ⦄,
+													⦃unicodeCodePoints 0⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃multiplicity⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃multiClass⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄
+									⟦differenceMultiplicity⟧:
+										⦃⦃differenceMultiplicity⦄.IsEqualTo(⦃⦃difference⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄
+								if:
+									⦃⦃multiplicity0⦄.IsInferiorOrEqualTo(⦃multiplicity⦄)⦄
+								then:
+									⦃⦃differenceMultiplicity⦄.IsEqualTo(⦃⦃multiplicity⦄.Subtract(⦃multiplicity0⦄)⦄)⦄
+								else:
+									⦃⦃differenceMultiplicity⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃0⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.AreMutuallyDisjoint⦄
+	for all ⟦multiClasses⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃MultiClass⦄)⦄.HasInstance(⦃multiClasses⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Union⦄,
+						⦃unicodeCodePoints Intersection⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						⦃⦃⦃⦃multiClasses⦄.AreMutuallyDisjoint⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+					and:
+						let:
+							⟦areMutuallyDisjoint⟧:
+								⦃⦃areMutuallyDisjoint⦄.IsEqualTo(⦃⦃multiClasses⦄.AreMutuallyDisjoint()⦄)⦄
+							⦃⦃Boolean⦄.HasInstance(⦃areMutuallyDisjoint⦄)⦄
+						and:
+								⦃areMutuallyDisjoint⦄
+							if and only if:
+									⦃⦃Class⦄.HasInstance(⦃multiClasses⦄)⦄
+								and:
+									for all ⟦class0⟧,⟦class1⟧:
+										if:
+											for all ⟦index⟧:
+												if:
+													⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+												then:
+													⦃⦃multiClasses⦄.Has(⦃class⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+										then:
+											⦃⦃⦃class0⦄.GetIntersectionWith(⦃class1⦄)⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.GetPower⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClass⦄.GetPower⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃multiClass⦄.GetPower()⦄.IsEqualTo(⦃⦃⦃MultiClass⦄.MapToClass()⦄.FilterWith(⦃⦃multiClass⦄.IsSuperMultiClassOf⦄)⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.MapWith⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+			for all ⟦map⟧,⟦mappedMultiClass⟧:
+					⦃⦃⦃⦃multiClass⦄.MapWith⦄.GetGraph()⦄.Has(⦃(⦃map⦄,⦃mappedMultiClass⦄)⦄)⦄
+				if and only if:
+							⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+						and:
+							⦃⦃⦃multiClass⦄.GetSupport()⦄.IsSubMultiClassOf(⦃⦃map⦄.GetDomain()⦄)⦄
+					and:
+						⦃⦃MultiClass⦄.HasInstance(⦃mappedMultiClass⦄)⦄
+					and:
+						for all ⟦x⟧:
+							let:
+								⟦inverseImage⟧:
+									⦃⦃inverseImage⦄.IsEqualTo(⦃⦃⦃map⦄.GetInverseImageOf(⦃x⦄)⦄.GetIntersectionWith(⦃multiClass⦄)⦄)⦄
+								⦃⦃ClassWithSize⦄.HasInstance(⦃inverseImage⦄)⦄
+							and:
+								let:
+									⟦permutation⟧:
+										⦃⦃⦃inverseImage⦄.GetPermutations()⦄.Has(⦃permutation⦄)⦄
+								⦃⦃⦃mappedMultiClass⦄.GetMultiplicityOf(⦃x⦄)⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃⦃⦃⦃permutation⦄.MapWith(⦃⦃multiClass⦄.GetMultiplicityOf⦄)⦄.MapWith(⦃unaryFunction MapToOrdinal⦄)⦄.AddAllCardinals()⦄)⦄)⦄
+
+define ⦃method ⦃MultiClass⦄.FilterWith⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				for all ⟦test⟧:
+						⦃⦃⦃⦃multiClass⦄.FilterWith⦄.GetDomain()⦄.Has(⦃test⦄)⦄
+					if and only if:
+							⦃⦃Function⦄.HasInstance(⦃test⦄)⦄
+						and:
+							⦃⦃⦃multiClass⦄.GetSupport()⦄.IsSubMultiClassOf(⦃⦃test⦄.GetDomain()⦄)⦄
+						and:
+							⦃⦃⦃test⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃Boolean⦄.MapToClass()⦄)⦄
+			and:
+				for all ⟦test⟧:
+					if:
+						⦃⦃⦃⦃multiClass⦄.FilterWith⦄.GetDomain()⦄.Has(⦃test⦄)⦄
+					then:
+						let:
+							⟦filteredMultiClass⟧:
+								⦃⦃filteredMultiClass⦄.IsEqualTo(⦃⦃multiClass⦄.FilterWith(⦃test⦄)⦄)⦄
+							⦃⦃MultiClass⦄.HasInstance(⦃filteredMultiClass⦄)⦄
+						and:
+							for all ⟦x⟧:
+								let:
+									⟦multiplicity⟧:
+										⦃⦃multiplicity⦄.IsEqualTo(⦃⦃filteredMultiClass⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄
+								if:
+										⦃⦃multiClass⦄.Has(⦃x⦄)⦄
+									and:
+										⦃⦃test⦄(⦃x⦄)⦄
+								then:
+									⦃⦃multiplicity⦄.IsEqualTo(⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄
+								else:
+									⦃⦃multiplicity⦄.IsEqualTo(⦃⦃Cardinal⦄(⦃0⦄)⦄)⦄
+
+define ⦃method ⦃{⦃MultiClass⦄}⦄.GetTypeInducedBy⦄
+		⦃⦃⦃⦃MultiClass⦄.GetTypeInducedBy⦄.GetDomain()⦄.IsEqualTo(⦃⦃Type⦄.MapToClass()⦄)⦄
+	and:
+		for all ⟦type⟧:
+			if:
+				⦃⦃⦃⦃MultiClass⦄.GetTypeInducedBy⦄.GetDomain()⦄.Has(⦃type⦄)⦄
+			then:
+				let:
+					⟦inducedType⟧:
+						⦃⦃inducedType⦄.IsEqualTo(⦃⦃MultiClass⦄.GetTypeInducedBy(⦃type⦄)⦄)⦄
+					⦃⦃Type⦄.HasInstance(⦃inducedType⦄)⦄
+				and:
+					for all ⟦multiClass⟧:
+							⦃⦃inducedType⦄.HasInstance(⦃multiClass⦄)⦄
+						if and only if:
+								⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+							and:
+								⦃⦃⦃multiClass⦄.GetSupport()⦄.IsSubMultiClassOf(⦃⦃type⦄.MapToClass()⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃MultiClass⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

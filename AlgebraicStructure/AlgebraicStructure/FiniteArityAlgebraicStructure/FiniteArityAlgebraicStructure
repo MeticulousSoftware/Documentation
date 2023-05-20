@@ -1,0 +1,49 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaFiniteArityAlgebraicStructure⦄,⦃FiniteArityAlgebraicStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FiniteArityAlgebraicStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FiniteArityAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							for all ⟦operation⟧:
+								if:
+									⦃⦃⦃⦃structure⦄.GetOperations()⦄.GetCoDomain()⦄.Has(⦃operation⦄)⦄
+								then:
+									⦃⦃FiniteArityOperation⦄.HasInstance(⦃operation⦄)⦄
+
+
+
+define ⦃method ⦃FiniteArityAlgebraicStructure⦄.GetConverse⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃FiniteArityAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then
+			let:
+				⟦converse⟧:
+					⦃⦃converse⦄.IsEqualTo(⦃⦃structure⦄.GetConverse()⦄)⦄
+				⦃⦃FiniteArityAlgebraicStructure⦄.HasInstance(⦃converse⦄)⦄
+			and:
+				⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃converse⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetClass⦄)⦄)⦄
+			and:
+				let:
+					⟦converseOperations⟧:
+						⦃⦃converseOperations⦄.IsEqualTo(⦃⦃converse⦄.GetOperations()⦄)⦄
+					⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃converseOperations⦄,⦃operations⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+				and:
+					for all ⟦index⟧:
+						if:
+							⦃⦃⦃converseOperations⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+						then:
+							⦃⦃⦃converseOperations⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃operations⦄(⦃index⦄)⦄.GetConverse()⦄)⦄

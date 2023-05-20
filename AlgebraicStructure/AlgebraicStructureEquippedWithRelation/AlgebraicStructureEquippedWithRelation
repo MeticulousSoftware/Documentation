@@ -1,0 +1,143 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAlgebraicStructureEquippedWithRelation⦄,⦃AlgebraicStructureEquippedWithRelation⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructureEquippedWithRelation⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃MetaAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦equipments⟧:
+									⦃⦃equipments⦄.IsEqualTo(⦃⦃structure⦄.GetEquipments()⦄)⦄
+								let:
+									⟦relation⟧:
+										⦃⦃relation⦄.IsEqualTo(⦃⦃equipments⦄(⦃unicodeCodePoints relation⦄)⦄)⦄
+									⦃⦃HomogeneousRelation⦄.HasInstance(⦃relation⦄)⦄
+								and:
+									⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+							and:
+								if:
+									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+								then:
+									⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃AlgebraicStructureEquippedWithRelation⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃MetaAlgebraicStructureEquippedWithRelation⦄.GetRelation⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaAlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetRelation⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃structure⦄.GetRelation()⦄.IsEqualTo(⦃⦃⦃structure⦄.GetEquipments()⦄(⦃unicodeCodePoints relation⦄)⦄)⦄
+
+define ⦃method ⦃MetaAlgebraicStructureEquippedWithRelation⦄.GetStructureWithRelation⦄
+	for all ⟦structure⟧:
+		if:
+				⦃⦃MetaAlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+			and:
+				not:
+					⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetStructureWithRelation⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦structureWithRelation⟧:
+						⦃⦃structureWithRelation⦄.IsEqualTo(⦃⦃structure⦄.GetStructureWithRelation()⦄)⦄
+					⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structureWithRelation⦄)⦄
+				and:
+					⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃⦃(⦃structureWithRelation⦄,⦃structure⦄)⦄.MapWith(⦃unaryFunction GetEquipments⦄)⦄.MapWith(⦃unaryFunction GetGraph⦄)⦄)⦄
+
+
+
+define ⦃method ⦃{⦃AlgebraicStructureEquippedWithRelation⦄}⦄.GetEquipmentsDomain⦄
+		⦃⦃⦃⦃AlgebraicStructureEquippedWithRelation⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		⦃⦃⦃AlgebraicStructureEquippedWithRelation⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃AlgebraicStructure⦄.GetEquipmentsDomain()⦄.GetUnionWith(⦃{⦃unicodeCodePoints relation⦄}⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructureEquippedWithRelation⦄.GetSimilarStructures⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦structure0⟧:
+					⦃⦃⦃structure⦄.GetSimilarStructures()⦄.Has(⦃structure0⦄)⦄
+				if and only if:
+						⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure0⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Relation⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetSimilarStructures()⦄.Has(⦃⦃structure0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦structures⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃structures⦄)⦄
+					and:
+						⦃⦃⦃structures⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃AlgebraicStructureEquippedWithRelation⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃structures⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Relation⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃structures⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructureEquippedWithRelation⦄.GetStructureInducedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedStructure⟧:
+							⦃⦃inducedStructure⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃inducedStructure⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Structure⦄,
+									⦃unicodeCodePoints Relation⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃inducedStructure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧().GetStructureInducedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃AlgebraicStructureEquippedWithRelation⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃AlgebraicStructureEquippedWithRelation⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃structure⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					⦃⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetStructureInducedBy(⦃⦃⦃structure⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄)⦄

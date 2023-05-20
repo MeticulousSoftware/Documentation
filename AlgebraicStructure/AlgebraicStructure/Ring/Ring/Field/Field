@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaField⦄,⦃Field⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Field⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Field⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CommutativeRing⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦additionStructure⟧,⟦multiplicationStructure⟧:
+									⦃⦃(⦃additionStructure⦄,⦃multiplicationStructure⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetStructures()⦄)⦄
+							⦃⦃CommutativeGroup⦄.HasInstance(⦃⦃multiplicationStructure⦄.GetStructureInducedBy(⦃⦃⦃structure⦄.GetClass()⦄.GetDifferenceWith(⦃⦃additionStructure⦄.GetIdentities()⦄)⦄)⦄)⦄

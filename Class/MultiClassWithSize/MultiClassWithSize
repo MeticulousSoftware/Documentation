@@ -1,0 +1,41 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MultiClassWithSize⦄
+		⦃⦃Type⦄.HasInstance(⦃MultiClassWithSize⦄)⦄
+	and:
+		for all ⟦multiClass⟧:
+				⦃⦃MultiClassWithSize⦄.HasInstance(⦃multiClass⦄)⦄
+			if and only if:
+					⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+					⦃⦃ClassWithSize⦄.HasInstance(⦃⦃multiClass⦄.GetSupport()⦄)⦄
+
+define ⦃method ⦃MultiClassWithSize⦄.GetSize⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃MultiClassWithSize⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+				⦃⦃⦃⦃multiClass⦄.GetSize⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃multiClass⦄.GetSize()⦄.IsEqualTo(⦃⦃⦃⦃multiClass⦄.GetSupport()⦄.MapWith(⦃⦃multiClass⦄.GetMultiplicityOf⦄)⦄.AddAllCardinals()⦄)⦄
+
+define ⦃method ⦃MultiClassWithSize⦄.GetPermutations⦄
+	if:
+		⦃⦃MultiClassWithSize⦄.HasInstance(⦃multiClass⦄)⦄
+	then:
+			⦃⦃⦃⦃multiClass⦄.GetPermutations⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+		and:
+			let:
+				⟦permutations⟧:
+					⦃⦃permutations⦄.IsEqualTo(⦃⦃multiClass⦄.GetPermutations()⦄)⦄
+				⦃⦃Class⦄.HasInstance(⦃permutations⦄)⦄
+			and:
+				for all ⟦permutation⟧:
+						⦃⦃permutations⦄.Has(⦃permutation⦄)⦄
+					if and only if:
+							⦃⦃TransFiniteSequence⦄.HasInstance(⦃permutation⦄)⦄
+						and:
+							for all ⟦x⟧:
+								⦃⦃⦃Cardinal⦄(⦃⦃⦃permutation⦄.FilterWith(⦃⦃x⦄.IsEqualTo⦄)⦄.GetLength()⦄)⦄.IsEqualTo(⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄)⦄

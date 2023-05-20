@@ -1,0 +1,45 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaMonogenousPartialMagma⦄,⦃MetaMonogenousUnitalPartialMagma⦄,
+⦃MonogenousPartialMagma⦄,⦃MonogenousUnitalPartialMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Monogenous⟦⟦⦃typeIdentifier0⦄⟧⟧PartialMagma⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Monogenous⟦⟦⦃typeIdentifier0⦄⟧⟧PartialMagma⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									let:
+										⟦typeIdentifier1⟧:
+											if:
+												⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											then:
+												⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+											else:
+												⦃⦃typeIdentifier1⦄.IsEqualTo(⦃unicodeCodePoints Partial⦄)⦄
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialMagma⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									there exists ⟦x⟧:
+										let:
+											⟦class⟧:
+												if:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+												then:
+													⦃⦃class⦄.IsEqualTo(⦃{}⦄)⦄
+												else:
+													⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetInversesOf(⦃x⦄)⦄)⦄
+										⦃⦃structure⦄.IsEqualTo(⦃⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃⦃{⦃x⦄}⦄.GetUnionWith(⦃class⦄)⦄)⦄)⦄

@@ -1,0 +1,60 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAlgebra⦄,⦃Algebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Algebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Algebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Algebra⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+define ⦃MetaLeftAlgebra⦄,⦃MetaRightAlgebra⦄,⦃MetaBiAlgebra⦄,
+⦃LeftAlgebra⦄,⦃RightAlgebra⦄,⦃BiAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints Bi⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Algebra⦄)⦄
+					and:
+						for all ⟦algebra⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Algebra⦄.HasInstance(⦃algebra⦄)⦄
+							if and only if:
+									for all ⟦type⟧:
+										if:
+											⦃⦃{
+												⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialAlgebra⦄,
+												⦃MetaTotalAlgebraicStructure⦄
+											}⦄.Has(⦃type⦄)⦄
+										then:
+											⦃⦃type⦄.HasInstance(⦃algebra⦄)⦄
+								and:
+									⦃⦃Module⦄.HasInstance(⦃⦃algebra⦄.GetModule()⦄)⦄

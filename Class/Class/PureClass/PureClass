@@ -1,0 +1,18 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PureClass⦄
+		⦃⦃Type⦄.HasInstance(⦃PureClass⦄)⦄
+	and:
+		for all ⟦class⟧:
+				⦃⦃PureClass⦄.HasInstance(⦃class⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints PureMulti⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Class⦄.HasInstance(⦃class⦄)⦄

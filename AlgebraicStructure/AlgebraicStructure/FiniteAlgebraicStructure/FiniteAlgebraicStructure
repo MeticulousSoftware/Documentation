@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaFiniteAlgebraicStructure⦄,⦃FiniteAlgebraicStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FiniteAlgebraicStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FiniteAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦class⟧:
+									⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+								⦃⦃ClassWithSize⦄.HasInstance(⦃class⦄)⦄
+							and:
+								⦃⦃FiniteCardinal⦄.HasInstance(⦃⦃class⦄.GetSize()⦄)⦄

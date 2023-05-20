@@ -1,0 +1,37 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃method ⦃⦃Class⦄.GetTypeInducedBy(⦃Class⦄)⦄.GetGeneratedMooreCollection⦄
+	for all ⟦classes⟧:
+		if:
+			⦃⦃⦃Class⦄.GetTypeInducedBy(⦃Class⦄)⦄.HasInstance(⦃classes⦄)⦄
+		then:
+				⦃⦃⦃⦃classes⦄.GetGeneratedMooreCollection⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦collection⟧:
+						⦃⦃collection⦄.IsEqualTo(⦃⦃classes⦄.GetGeneratedMooreCollection()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃collection⦄)⦄
+				and:
+					for all ⟦class⟧:
+							⦃⦃collection⦄.Has(⦃class⦄)⦄
+						if and only if:
+							there exists ⟦classes0⟧:
+									⦃⦃Class⦄.HasInstance(⦃classes0⦄)⦄
+								and:
+									⦃⦃classes0⦄.IsSubMultiClassOf(⦃classes⦄)⦄
+								and:
+									⦃⦃class⦄.IsEqualTo(⦃⦃classes0⦄.GetIntersection()⦄)⦄
+
+
+
+define ⦃MooreCollection⦄
+		⦃⦃Type⦄.HasInstance(⦃MooreCollection⦄)⦄
+	and:
+		for all ⟦classes⟧:
+				⦃⦃MooreCollection⦄.HasInstance(⦃classes⦄)⦄
+			if and only if:
+					⦃⦃⦃Class⦄.GetTypeInducedBy(⦃Class⦄)⦄.HasInstance(⦃classes⦄)⦄
+				and:
+					⦃⦃classes⦄.IsEqualTo(⦃⦃classes⦄.GetGeneratedMooreCollection()⦄)⦄

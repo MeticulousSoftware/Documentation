@@ -1,0 +1,153 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaInvolutionAlgebra⦄,⦃InvolutionAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧InvolutionAlgebra⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InvolutionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧InvolutionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+define ⦃MetaLeftInvolutionAlgebra⦄,⦃MetaRightInvolutionAlgebra⦄,
+⦃LeftInvolutionAlgebra⦄,⦃RightInvolutionAlgebra⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧InvolutionAlgebra⦄)⦄
+					and:
+						for all ⟦algebra⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧InvolutionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+							if and only if:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints ⟦⟦⦃typeIdentifier0⦄⟧⟧PartialAlgebra⦄,
+												⦃unicodeCodePoints AlgebraicStructureEquippedWithInvolution⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃Meta⟦⟦⦃typeIdentifier⦄⟧⟧⦄.HasInstance(⦃algebra⦄)⦄
+								and:
+									if:
+										⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									then:
+										⦃⦃⦃equipments⦄.GetDomain()⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧InvolutionAlgebra⦄.GetEquipmentsDomain()⦄)⦄
+
+
+
+define ⦃method ⦃{⦃LeftInvolutionAlgebra⦄,⦃RightInvolutionAlgebra⦄}⦄.GetEquipmentsDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Left⦄,
+				⦃unicodeCodePoints Right⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InvolutionAlgebra⦄.GetEquipmentsDomain⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧InvolutionAlgebra⦄.GetEquipmentsDomain()⦄.IsEqualTo(⦃⦃⦃(
+					⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialAlgebra⦄,
+					⦃AlgebraicStructureEquippedWithInvolution⦄
+				)⦄.MapWith(⦃unaryFunction GetEquipmentsDomain⦄)⦄.GetUnion()⦄)⦄
+
+define ⦃method ⦃InvolutionAlgebra⦄.GetSimilarStructures⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃InvolutionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+			for all ⟦algebra0⟧:
+					⦃⦃⦃algebra⦄.GetSimilarStructures()⦄.Has(⦃algebra0⦄)⦄
+				if and only if:
+						⦃⦃InvolutionAlgebra⦄.HasInstance(⦃algebra0⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints StructureWithInvolution⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃⦃algebra⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetSimilarStructures()⦄.Has(⦃⦃algebra0⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃UnaryUnaryOperation⦄.IsPartialStructurePreversingMapOf⦄
+	for all ⟦operation⟧:
+		if:
+			⦃⦃UnaryUnaryOperation⦄.HasInstance(⦃operation⦄)⦄
+		then:
+			for all ⟦algebras⟧:
+				if:
+						⦃⦃⦃⦃operation⦄.IsPartialStructurePreversingMapOf⦄.GetDomain()⦄.Has(⦃algebras⦄)⦄
+					and:
+						⦃⦃⦃algebras⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃InvolutionAlgebra⦄.MapToClass()⦄)⦄
+				then:
+						⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃algebras⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints StructureWithInvolution⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃operation⦄.IsPartialStructurePreversingMapOf(⦃⦃algebras⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄)⦄
+
+define ⦃method ⦃InvolutionAlgebra⦄.GetStructureInducedBy⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃InvolutionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃algebra⦄.GetStructureInducedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					let:
+						⟦inducedAlgebra⟧:
+							⦃⦃inducedAlgebra⦄.IsEqualTo(⦃⦃algebra⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+						⦃⦃InvolutionAlgebra⦄.HasInstance(⦃inducedAlgebra⦄)⦄
+					and:
+						for all ⟦typeIdentifier⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints ScalarMultiplicationStructure⦄,
+									⦃unicodeCodePoints StructureWithInvolution⦄
+								}⦄.Has(⦃typeIdentifier⦄)⦄
+							then:
+								⦃⦃⦃inducedAlgebra⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃⦃algebra⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃InvolutionAlgebra⦄.GetSubStructureGeneratedBy⦄
+	for all ⟦algebra⟧:
+		if:
+			⦃⦃InvolutionAlgebra⦄.HasInstance(⦃algebra⦄)⦄
+		then:
+			for all ⟦class⟧:
+				if:
+					⦃⦃⦃⦃algebra⦄.GetSubStructureGeneratedBy⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+				then:
+					⦃⦃⦃algebra⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄.IsEqualTo(⦃⦃algebra⦄.GetStructureInducedBy(⦃⦃⦃algebra⦄.GetStructure()⦄.GetSubStructureGeneratedBy(⦃class⦄)⦄)⦄)⦄

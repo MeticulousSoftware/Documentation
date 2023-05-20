@@ -1,0 +1,27 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FiniteMultiClass⦄
+		⦃⦃Type⦄.HasInstance(⦃FiniteMultiClass⦄)⦄
+	and:
+		for all ⟦multiClass⟧:
+				⦃⦃FiniteMultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+			if and only if:
+					⦃⦃MultiClassWithSize⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+					⦃⦃⦃multiClass⦄.GetSize()⦄.IsFinite()⦄
+
+define ⦃method ⦃FiniteMultiClass⦄.ReduceWith⦄
+	for all ⟦multiClass⟧:
+		if:
+			⦃⦃FiniteMultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+		then:
+			for all ⟦x⟧,⟦reducedMultiClass⟧:
+					⦃⦃⦃⦃multiClass⦄.ReduceWith⦄.GetGraph()⦄.Has(⦃(⦃x⦄,⦃reducedMultiClass⦄)⦄)⦄
+				if and only if:
+					for all ⟦sequence⟧:
+						if:
+							⦃⦃⦃multiClass⦄.GetPermutations()⦄.Has(⦃sequence⦄)⦄
+						then:
+							⦃⦃reducedMultiClass⦄.IsEqualTo(⦃⦃sequence⦄.ReduceWith(⦃x⦄)⦄)⦄

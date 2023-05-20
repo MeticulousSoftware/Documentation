@@ -1,0 +1,44 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaUniqueFactorizationDomain⦄,⦃UniqueFactorizationDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧UniqueFactorizationDomain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UniqueFactorizationDomain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦class⟧:
+									⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+								⟦addition⟧,⟦multiplication⟧:
+									⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+							for all ⟦x⟧:
+								if:
+										⦃⦃class⦄.HasInstance(⦃x⦄)⦄
+									and:
+										not:
+											⦃⦃{⦃x⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetIdentities()⦄)⦄
+								then:
+									there exists ⟦unit⟧:
+											not:
+												⦃⦃⦃multiplication⦄.GetInversesOf(⦃unit⦄)⦄.IsEqualTo(⦃{}⦄)⦄
+										and:
+												⦃⦃x⦄.IsEqualTo(⦃unit⦄)⦄
+											or:
+												there exists ⟦sequence⟧:
+														⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃structure⦄.GetPrimeElements()⦄)⦄
+													and:
+														⦃⦃x⦄.IsEqualTo(⦃⦃⦃multiplication⦄.GetSimplifiedFunction()⦄(
+															⦃unit⦄,
+															⦃⦃multiplication⦄.ApplyOperationToSequence(⦃sequence⦄)⦄
+														)⦄)⦄

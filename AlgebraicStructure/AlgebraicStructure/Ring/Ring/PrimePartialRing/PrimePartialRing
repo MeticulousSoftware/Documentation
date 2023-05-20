@@ -1,0 +1,39 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPrimePartialRing⦄,⦃PrimePartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PrimePrimePartialRing⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PrimePrimePartialRing⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PrimePartialRing⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							not:
+								⦃⦃structure⦄.HasOneElement()⦄
+						and:
+							let:
+								⟦addition⟧,⟦multiplication⟧:
+									⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+								⟦identities⟧:
+									⦃⦃identities⦄.IsEqualTo(⦃⦃addition⦄.GetPartialIdentities()⦄)⦄
+							for all ⟦x⟧,⟦y⟧:
+								if:
+									for all ⟦z⟧:
+										if:
+											⦃⦃⦃⦃multiplication⦄.ApplyOperationToSequence⦄.GetDomain()⦄.Has(⦃(⦃x⦄,⦃y⦄,⦃z⦄)⦄)⦄
+										then:
+											⦃⦃identities⦄.Has(⦃⦃multiplication⦄.ApplyOperationToSequence(⦃x⦄,⦃y⦄,⦃z⦄)⦄)⦄
+								then:
+									there exists ⟦z⟧:
+											⦃⦃{⦃x⦄,⦃y⦄}⦄.Has(⦃z⦄)⦄
+										and:
+											⦃⦃identities⦄.Has(⦃z⦄)⦄

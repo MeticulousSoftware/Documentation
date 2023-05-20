@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaDomain⦄,⦃Domain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Domain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ring⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							not:
+								⦃⦃structure⦄.HasOneElement()⦄
+						and:
+							⦃⦃⦃structure⦄.GetUnitalCompletelyPrimeIdeals()⦄.Has(⦃⦃structure⦄.GetUnitalIdealGeneratedBy(⦃⦃⦃structure⦄.GetAddition()⦄.GetIdentities()⦄)⦄)⦄

@@ -1,0 +1,46 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftCancellativePartialMagma⦄,⦃MetaRightCancellativePartialMagma⦄,⦃MetaCancellativePartialMagma⦄,
+⦃LeftCancellativePartialMagma⦄,⦃RightCancellativePartialMagma⦄,⦃CancellativePartialMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧CancellativePartialMagma⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧CancellativePartialMagma⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialMagma⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									let:
+										⟦class⟧:
+											⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+									if:
+										not:
+											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+									then:
+										let:
+											⟦index⟧:
+												if:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+												then:
+													⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+												else:
+													⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+										⦃⦃⦃structure⦄.GetCancellativeElementsFor(⦃index⦄)⦄.IsEqualTo(⦃class⦄)⦄
+									else:
+										⦃⦃⦃structure⦄.GetCancellativeElements()⦄.IsEqualTo(⦃class⦄)⦄

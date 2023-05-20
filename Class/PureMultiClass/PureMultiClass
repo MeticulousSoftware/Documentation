@@ -1,0 +1,15 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PureMultiClass⦄
+		⦃⦃Type⦄.HasInstance(⦃PureMultiClass⦄)⦄
+	and:
+		for all ⟦multiClass⟧:
+				⦃⦃PureMultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+			if and only if:
+					⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+						⦃⦃multiClass⦄.IsEqualTo(⦃{}⦄)⦄
+					or:
+						⦃⦃⦃multiClass⦄.GetSupport()⦄.IsSubMultiClassOf(⦃⦃PureMultiClass⦄.MapToClass()⦄)⦄

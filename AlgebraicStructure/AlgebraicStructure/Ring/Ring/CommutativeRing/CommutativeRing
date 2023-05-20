@@ -1,0 +1,79 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaCommutativeRing⦄,⦃CommutativeRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧CommutativeRing⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧CommutativeRing⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ring⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							⦃⦃CommutativeMonoid⦄.HasInstance(⦃⦃structure⦄.GetMultiplicationStructure()⦄)⦄
+
+
+
+define ⦃method ⦃MetaCommutativeRing⦄.GetIntegralClosureOver⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaCommutativeRing⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				for all ⟦class⟧:
+						⦃⦃⦃⦃structure⦄.GetIntegralClosureOver⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+					if and only if:
+						let:
+							⟦structure0⟧:
+								if:
+									⦃⦃CommutativeRing⦄.HasInstance(⦃structure⦄)⦄
+								then:
+									⦃⦃structure0⦄.IsEqualTo(⦃structure⦄)⦄
+								else:
+									⦃⦃structure0⦄.IsEqualTo(⦃⦃structure⦄.GetStructure()⦄)⦄
+						⦃⦃Ring⦄.HasInstance(⦃⦃structure0⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+			and:
+				for all ⟦class⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.GetIntegralClosureOver⦄.GetDomain()⦄.Has(⦃class⦄)⦄
+					then:
+						let:
+							⟦closure⟧:
+								⦃⦃closure⦄.IsEqualTo(⦃⦃structure⦄.GetIntegralClosureOver(⦃class⦄)⦄)⦄
+							⦃⦃Class⦄.HasInstance(⦃closure⦄)⦄
+						and:
+							for all ⟦x⟧:
+									⦃⦃closure⦄.Has(⦃x⦄)⦄
+								if and only if:
+									there exists ⟦sequence⟧:
+											⦃⦃NonEmptyFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+										and:
+											⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃class⦄)⦄
+										and:
+											let:
+												⟦addition⟧,⟦multiplication⟧:
+													⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+												⟦operands⟧:
+														⦃⦃FiniteSequence⦄.HasInstance(⦃operands⦄)⦄
+													and:
+														⦃⦃⦃operands⦄.GetLength()⦄.IsEqualTo(⦃⦃⦃sequence⦄.GetLength()⦄.Add(⦃1⦄)⦄)⦄
+													and:
+														for all ⟦index⟧:
+															if:
+																⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+															then:
+																⦃⦃⦃operands⦄(⦃index⦄)⦄.IsEqualTo(⦃⦃⦃multiplication⦄.GetSimplifiedFunction()⦄(
+																	⦃⦃sequence⦄(⦃index⦄)⦄,
+																	⦃⦃multiplication⦄.ApplyOperationNTimesTo(⦃x⦄,⦃index⦄)⦄
+																)⦄)⦄
+													and:
+														⦃⦃⦃operands⦄(⦃⦃sequence⦄.GetLength()⦄)⦄.IsEqualTo(⦃⦃multiplication⦄.ApplyOperationNTimesTo(⦃x⦄,⦃⦃sequence⦄.GetLength()⦄)⦄)⦄
+											⦃⦃{
+												⦃⦃addition⦄.ApplyOperationToSequence(⦃operands⦄)⦄
+											}⦄.IsEqualTo(⦃⦃addition⦄.GetIdentities()⦄)⦄

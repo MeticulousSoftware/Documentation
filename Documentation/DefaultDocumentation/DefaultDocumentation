@@ -1,0 +1,1039 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃DefaultDocumentation⦄
+		⦃⦃Type⦄.HasInstance(⦃DefaultDocumentation⦄)⦄
+	and:
+		⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃DefaultDocumentation⦄,⦃Documentation⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃DefaultDocumentation⦄.GetLexerAndParserCombination⦄
+	for all ⟦documentation⟧:
+		if:
+			⦃⦃DefaultDocumentation⦄.HasInstance(⦃documentation⦄)⦄
+		then:
+			let:
+				⟦lexerAndParserCombination⟧:
+					⦃⦃lexerAndParserCombination⦄.IsEqualTo(⦃⦃documentation⦄.GetLexerAndParserCombination()⦄)⦄
+				⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+			and:
+				let:
+					⟦lexer⟧:
+						⦃⦃lexer⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetLexer()⦄)⦄
+					⟦language⟧:
+						⦃⦃language⦄.IsEqualTo(⦃⦃lexer⦄.GetLanguage()⦄)⦄
+					⟦optionallyLex⟧:
+							⦃⦃Function⦄.HasInstance(⦃optionallyLex⦄)⦄
+						and:
+							⦃⦃⦃optionallyLex⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.MapToClass()⦄)⦄
+						and:
+							for all ⟦unicodeCodePoints⟧:
+								if:
+									⦃⦃⦃optionallyLex⦄.GetDomain()⦄.Has(⦃unicodeCodePoints⦄)⦄
+								then:
+									let:
+										⟦isValidSimplified⟧:
+												⦃⦃Function⦄.HasInstance(⦃isValidSimplified⦄)⦄
+											and:
+												⦃⦃⦃isValidSimplified⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.MapToClass()⦄)⦄
+											and:
+												for all ⟦simplifiedUnicodeCodePoints⟧:
+													if:
+														⦃⦃⦃isValidSimplified⦄.GetDomain()⦄.Has(⦃simplifiedUnicodeCodePoints⦄)⦄
+													then:
+															⦃⦃Boolean⦄.HasInstance(⦃⦃isValidSimplified⦄(⦃simplifiedUnicodeCodePoints⦄)⦄)⦄
+														and:
+																⦃⦃isValidSimplified⦄(⦃simplifiedUnicodeCodePoints⦄)⦄
+															if and only if:
+																let:
+																	⟦captureTree⟧:
+																		⦃⦃captureTree⦄.IsEqualTo(⦃⦃⦃RegularExpression⦄(⦃(<[^#35##8294#-#8297#]|(#92#|#47#)[^]>|[#8294#-#8297#]|#35#<[^#35#]{}>#35#){}⦄)⦄.GetCaptureTreeOf(⦃unicodeCodePoints⦄)⦄)⦄
+																	⟦mapUnicodeCodePointsPart⟧:
+																			⦃⦃Function⦄.HasInstance(⦃mapUnicodeCodePointsPart⦄)⦄
+																		and:
+																			⦃⦃⦃mapUnicodeCodePointsPart⦄.GetDomain()⦄.IsEqualTo(⦃⦃captureTree⦄.GetCoDomain()⦄)⦄
+																		and:
+																			for all ⟦node⟧:
+																				if:
+																					⦃⦃⦃mapUnicodeCodePointsPart⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																				then:
+																					let:
+																						⟦mappedUnicodeCodePointsPart⟧:
+																							⦃⦃mappedUnicodeCodePointsPart⦄.IsEqualTo(⦃⦃mapUnicodeCodePointsPart⦄(⦃node⦄)⦄)⦄
+																					if:
+																						⦃⦃⦃node⦄.GetCaptureIdentifier()⦄.IsEqualTo(⦃0⦄)⦄
+																					then:
+																						⦃⦃mappedUnicodeCodePointsPart⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄.GetSubSequence(⦃⦃node⦄.GetValueRange()⦄)⦄)⦄
+																					else:
+																						let:
+																							⟦unicodeCodePoint⟧:
+																									⦃⦃UnicodeCodePoint⦄.HasInstance(⦃unicodeCodePoint⦄)⦄
+																								and:
+																									⦃⦃⦃⦃unicodeCodePoint⦄.GetCodePoint()⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄.GetSubSequence(⦃⦃node⦄.GetValueRange()⦄)⦄)⦄
+																						⦃⦃mappedUnicodeCodePointsPart⦄.IsEqualTo(⦃⦃unicodeCodePoint #⦄⦃unicodeCodePoint⦄⦄)⦄
+																⦃⦃simplifiedUnicodeCodePoints⦄.IsEqualTo(⦃⦃⦃captureTree⦄.MapWith(⦃mapUnicodeCodePointsPart⦄)⦄.GetConcatenation()⦄)⦄
+										⟦optionallyLexed⟧:
+											⦃⦃optionallyLexed⦄.IsEqualTo(⦃⦃optionallyLex⦄(⦃unicodeCodePoints⦄)⦄)⦄
+									if:
+										not:
+											there exists ⟦unicodeCodePoints⟧:
+												⦃⦃isValidSimplified⦄(⦃unicodeCodePoints⦄)⦄
+									then:
+										⦃⦃optionallyLexed⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+									else:
+										let:
+											⟦unicodeCodePoints⟧:
+												⦃⦃isValidSimplified⦄(⦃unicodeCodePoints⦄)⦄
+											⟦lexWithContext⟧:
+												let:
+													⟦unicodeCodePointsLength⟧:
+														⦃⦃unicodeCodePointsLength⦄.IsEqualTo(⦃⦃unicodeCodePoints⦄.GetLength()⦄)⦄
+													⦃⦃Function⦄.HasInstance(⦃lexWithContext⦄)⦄
+												and:
+													⦃⦃⦃lexWithContext⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃unicodeCodePointsLength⦄)⦄.GetElements(⦃True⦄,⦃True⦄)⦄,⦃⦃FiniteOrdinal⦄.MapToClass()⦄,⦃⦃Boolean⦄.MapToClass()⦄,⦃⦃FiniteOrdinal⦄.MapToClass()⦄,⦃⦃FiniteOrdinal⦄.MapToClass()⦄,⦃⦃Boolean⦄.MapToClass()⦄,⦃⦃Boolean⦄.MapToClass()⦄)⦄.GetCartesianProduct()⦄)⦄
+												and:
+													for all ⟦x⟧:
+														if:
+															⦃⦃⦃lexWithContext⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+														then:
+															let:
+																⟦tokensBeginningSourceRangeLowerBound⟧,⟦indentationDepth⟧,⟦isInDeclaration⟧,⟦variableDepth⟧,⟦logicalBlockBracketDepth⟧,⟦isInLogicalOperatorOrQuantifier⟧,⟦isInText⟧:
+																	⦃⦃(⦃tokensBeginningSourceRangeLowerBound⦄,⦃indentationDepth⦄,⦃isInDeclaration⦄,⦃variableDepth⦄,⦃logicalBlockBracketDepth⦄,⦃isInLogicalOperatorOrQuantifier⦄,⦃isInText⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																⟦optionalTokens⟧:
+																	⦃⦃optionalTokens⦄.IsEqualTo(⦃⦃lexWithContext⦄(⦃x⦄)⦄)⦄
+															if:
+																⦃⦃tokensBeginningSourceRangeLowerBound⦄.IsEqualTo(⦃unicodeCodePointsLength⦄)⦄
+															then:
+																⦃⦃optionalTokens⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃()⦄)⦄)⦄)⦄
+															else:
+																let:
+																	⟦optionalTokensBeginning⟧,⟦tokensBeginningSourceRangeUpperBound⟧,⟦tokensEndingIndentationDepth⟧,⟦tokensEndingIsInDeclaration⟧,⟦tokensEndingVariableDepth⟧,⟦tokensEndingLogicalBlockBracketDepth⟧,⟦tokensEndingIsInLogicalOperatorOrQuantifier⟧,⟦tokensEndingIsInText⟧:
+																		let:
+																			⟦tokenName⟧:
+																				let:
+																					⟦parsedToken⟧:
+																						let:
+																							⟦tokens⟧:
+																								let:
+																									⟦regularExpressionsLexer⟧:
+																											⦃⦃RegularExpressionsLexer⦄.HasInstance(⦃regularExpressionsLexer⦄)⦄
+																										and:
+																											let:
+																												⟦from⟧:
+																													⦃⦃from⦄.IsEqualTo(⦃⦃regularExpressionsLexer⦄.GetFrom()⦄)⦄
+																												⟦escapedUnicodeCodePoint⟧:
+																													⦃⦃escapedUnicodeCodePoint⦄.IsEqualTo(⦃unicodeCodePoints (#92##92##92##92#|#92##92##92##47#)#92#<[^]#92#>⦄)⦄
+																											if:
+																													not:
+																														⦃isInDeclaration⦄
+																												and:
+																													⦃⦃variableDepth⦄.IsEqualTo(⦃0⦄)⦄
+																												and:
+																													not:
+																														⦃isInText⦄
+																											then:
+																												⦃⦃from⦄.IsEqualTo(⦃⦃⦃unicodeCodePoints 
+																													<declare operator> → <declare>
+																													<define operator> → <define>
+																													<import operator> → <import>
+																													<export operator> → <export>
+																													<list separator> → <,>
+																													<notation declaration opening bracket> → <#10214##10214#>
+																													<notation declaration closing bracket> → <#10215##10215#>
+																													<variable declaration opening bracket> → <#10214#>
+																													<variable declaration closing bracket> → <#10215#>
+																													<get variable value opening bracket> → <#10627#>
+																													<get variable value closing bracket> → <#10628#>
+																													<logical block opening bracket> → <#92#<:#92#>{,1}#32#{}(#92##92#(|#92##92#{)>
+																													<logical block closing bracket> → <#92##92#)|#92##92#}>
+																													<text statement opening bracket> → <#10629#>
+																													<text statement closing bracket> → <#10630#>
+																													
+																													<negation operator> → <not|!|¬>
+																													<conjunction operator> → <and|&|∧>
+																													<disjunction operator> → <or|#92##92#||∨>
+																													<material conditional operator> → <implies|⇒|⇐>
+																													<material biconditional operator> → <if and only if|is equivalent to|⇔>
+																													<if operator> → <if>
+																													<then operator> → <then>
+																													<else if operator> → <else if>
+																													<else operator> → <else>
+																													<universal operator> → <for all|∀>
+																													<existential operator> → <there exists|∃>
+																													<let operator> → <let>
+																													
+																													<source statement content> → <"(#92#<[^"]#92#>|⦄⦃escapedUnicodeCodePoint⦄⦃unicodeCodePoints ){}">
+																													<separator> → <#92#<:{,1}#92#>#10#(#32#|#92#<[#9##10#]#92#>){}>
+																													
+																													<whitespace> → <#32#{1,}>
+																													<invalid> → <[^]{1,}>
+																												⦄⦄.GetConcatenation()⦄)⦄
+																											else if:
+																												⦃isInDeclaration⦄
+																											then:
+																												⦃⦃from⦄.IsEqualTo(⦃⦃⦃unicodeCodePoints 
+																													<notation declaration opening bracket> → <#10214##10214#>
+																													<notation declaration closing bracket> → <#10215##10215#>
+																													<variable declaration opening bracket> → <#10214#>
+																													<variable declaration closing bracket> → <#10215#>
+																													<text content> → <(#92#<[^#10214##10215#]#92#>|⦄⦃escapedUnicodeCodePoint⦄⦃unicodeCodePoints ){}>
+																												⦄⦄.GetConcatenation()⦄)⦄
+																											else if:
+																												⦃⦃0⦄.IsInferiorTo(⦃variableDepth⦄)⦄
+																											then:
+																												⦃⦃from⦄.IsEqualTo(⦃⦃⦃unicodeCodePoints 
+																													<get variable value opening bracket> → <#10627#>
+																													<get variable value closing bracket> → <#10628#>
+																													<expand variable identifier opening bracket> → <#10214##10214#>
+																													<expand variable identifier closing bracket> → <#10215##10215#>
+																													<get variable opening bracket> → <#10214#>
+																													<get variable closing bracket> → <#10215#>
+																													<text content> → <(#92#<[^#10627##10628##10214##10215#]#92#>|⦄⦃escapedUnicodeCodePoint⦄⦃unicodeCodePoints ){}>
+																												⦄⦄.GetConcatenation()⦄)⦄
+																											else:
+																												⦃⦃from⦄.IsEqualTo(⦃⦃⦃unicodeCodePoints 
+																													<get variable value opening bracket> → <#10627#>
+																													<get variable value closing bracket> → <#10628#>
+																													<text statement opening bracket> → <#10629#>
+																													<text statement closing bracket> → <#10630#>
+																													<text content> → <(#92#<[^#10627#-#10630#]#92#>|⦄⦃escapedUnicodeCodePoint⦄⦃unicodeCodePoints ){}>
+																												⦄⦄.GetConcatenation()⦄)⦄
+																								⦃⦃tokens⦄.IsEqualTo(⦃⦃regularExpressionsLexer⦄.Lex(⦃⦃unicodeCodePoints⦄.GetEndingSubSequence(⦃tokensBeginningSourceRangeLowerBound⦄)⦄)⦄)⦄
+																						⦃⦃parsedToken⦄.IsEqualTo(⦃⦃tokens⦄(⦃0⦄)⦄)⦄
+																					⟦parsedTokenValue⟧:
+																						⦃⦃parsedTokenValue⦄.IsEqualTo(⦃⦃parsedToken⦄.GetValue()⦄)⦄
+																					⦃⦃tokenName⦄.IsEqualTo(⦃⦃parsedToken⦄.GetName()⦄)⦄
+																				and:
+																					if:
+																							⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints invalid⦄)⦄
+																						or:
+																								⦃⦃{
+																									⦃unicodeCodePoints logical block opening bracket⦄,
+																									⦃unicodeCodePoints separator⦄
+																								}⦄.Has(⦃tokenName⦄)⦄
+																							and:
+																								not:
+																									⦃isInLogicalOperatorOrQuantifier⦄
+																							and:
+																								⦃⦃⦃parsedTokenValue⦄(⦃0⦄)⦄.IsEqualTo(⦃unicodeCodePoint :⦄)⦄
+																					then:
+																						⦃⦃optionalTokensBeginning⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																					else:
+																						let:
+																							⟦tokenSourceRange⟧:
+																								⦃⦃tokenSourceRange⦄.IsEqualTo(⦃⦃parsedToken⦄.GetSourceRange()⦄)⦄
+																							⟦token⟧:
+																								let:
+																									⟦tokenValue⟧:
+																										if:
+																											⦃⦃{
+																												⦃unicodeCodePoints source statement content⦄,
+																												⦃unicodeCodePoints text content⦄
+																											}⦄.Has(⦃tokenName⦄)⦄
+																										then:
+																											⦃⦃tokenValue⦄.IsEqualTo(⦃parsedTokenValue⦄)⦄
+																										else:
+																											⦃⦃tokenValue⦄.IsEqualTo(⦃⦄)⦄
+																								⦃⦃token⦄.IsEqualTo(⦃⦃Token⦄(⦃tokenName⦄,⦃tokenValue⦄,⦃⦃parsedToken⦄.GetSourceRange()⦄)⦄)⦄
+																							⦃⦃tokensBeginningSourceRangeUpperBound⦄.IsEqualTo(⦃⦃tokenSourceRange⦄.GetUpperBound()⦄)⦄
+																						and:
+																							let:
+																								⟦optionalToken⟧:
+																									if:
+																										⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints whitespace⦄)⦄
+																									then:
+																										⦃⦃optionalToken⦄.IsEqualTo(⦃()⦄)⦄
+																									else:
+																										⦃⦃optionalToken⦄.IsEqualTo(⦃(⦃token⦄)⦄)⦄
+																								⟦optionalIndentTokens⟧:
+																									if:
+																										not:
+																											⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints separator⦄)⦄
+																									then:
+																										⦃⦃optionalIndentTokens⦄.IsEqualTo(⦃()⦄)⦄
+																									else:
+																										let:
+																											⟦isIndent⟧:
+																												⦃⦃isIndent⦄.IsEqualTo(⦃⦃indentationDepth⦄.IsInferiorTo(⦃tokensEndingIndentationDepth⦄)⦄)⦄
+																											⟦indentDepthVariation⟧:
+																												if:
+																													⦃isIndent⦄
+																												then:
+																													⦃⦃indentDepthVariation⦄.IsEqualTo(⦃⦃tokensEndingIndentationDepth⦄.Subtract(⦃indentationDepth⦄)⦄)⦄
+																												else:
+																													⦃⦃indentDepthVariation⦄.IsEqualTo(⦃⦃indentationDepth⦄.Subtract(⦃tokensEndingIndentationDepth⦄)⦄)⦄
+																											⦃⦃FiniteSequence⦄.HasInstance(⦃optionalIndentTokens⦄)⦄
+																										and:
+																											⦃⦃⦃optionalIndentTokens⦄.GetLength()⦄.IsEqualTo(⦃indentDepthVariation⦄)⦄
+																										and:
+																											let:
+																												⟦tokenName⟧:
+																													if:
+																														⦃isIndent⦄
+																													then:
+																														⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints logical block opening bracket⦄)⦄
+																													else:
+																														⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints logical block closing bracket⦄)⦄
+																											⦃⦃⦃optionalIndentTokens⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃{
+																												⦃⦃Token⦄(⦃tokenName⦄,⦃⦄,⦃⦃FiniteOrdinalRange⦄(⦃tokensBeginningSourceRangeUpperBound⦄,⦃tokensBeginningSourceRangeUpperBound⦄)⦄)⦄
+																											}⦄)⦄
+																							⦃⦃optionalTokensBeginning⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃⦃optionalToken⦄.GetConcatenationWith(⦃optionalIndentTokens⦄)⦄)⦄)⦄)⦄
+																		and:
+																				if:
+																						⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints separator⦄)⦄
+																					and:
+																						⦃⦃logicalBlockBracketDepth⦄.IsEqualTo(⦃0⦄)⦄
+																				then:
+																					⦃⦃tokensEndingIndentationDepth⦄.IsEqualTo(⦃⦃binaryFunction Subtract⦄(⦃⦃⦃FiniteSequence⦄(⦃⦃⦃⦃⦃RegularExpression⦄(⦃unicodeCodePoints [^#10#]{}<>|[^]{}#10#<#9#{}>[^#10#]{}⦄)⦄.GetCaptureTreeOf(⦃parsedTokenValue⦄)⦄(⦃0⦄)⦄.GetValueRange()⦄)⦄.GetReverse()⦄)⦄)⦄
+																				else:
+																					⦃⦃tokensEndingIndentationDepth⦄.IsEqualTo(⦃indentationDepth⦄)⦄
+																			and:
+																				let:
+																					⟦getTokensEndingContext⟧:
+																							⦃⦃Function⦄.HasInstance(⦃getTokensEndingContext⦄)⦄
+																						and:
+																							⦃⦃⦃getTokensEndingContext⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃⦃MathematicalObject⦄.MapToClass()⦄,⦃⦃MathematicalObject⦄.MapToClass()⦄,⦃⦃⦃(⦃Boolean⦄,⦃FiniteOrdinal⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetUnion()⦄)⦄.GetCartesianProduct()⦄)⦄
+																						and:
+																							for all ⟦x⟧:
+																								if:
+																									⦃⦃⦃getTokensEndingContext⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																								then:
+																									let:
+																										⟦openingBracket⟧,⟦closingBracket⟧,⟦context⟧:
+																											⦃⦃(⦃openingBracket⦄,⦃closingBracket⦄,⦃context⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																										⟦isOrHasTokenName⟧:
+																												⦃⦃Function⦄.HasInstance(⦃isOrHasTokenName⦄)⦄
+																											and:
+																												⦃⦃⦃isOrHasTokenName⦄.GetDomain()⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+																											and:
+																												for all ⟦x⟧:
+																													if:
+																														⦃⦃⦃isOrHasTokenName⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																													then:
+																															⦃⦃Boolean⦄.HasInstance(⦃⦃isOrHasTokenName⦄(⦃x⦄)⦄)⦄
+																														and:
+																																⦃⦃isOrHasTokenName⦄(⦃x⦄)⦄
+																															if and only if:
+																																	⦃⦃x⦄.IsEqualTo(⦃tokenName⦄)⦄
+																																or:
+																																	let:
+																																		⟦tokenNames⟧:
+																																			⦃⦃tokenNames⦄.IsEqualTo(⦃x⦄)⦄
+																																		⦃⦃Class⦄.HasInstance(⦃tokenNames⦄)⦄
+																																	and:
+																																		⦃⦃tokenNames⦄.Has(⦃tokenName⦄)⦄
+																										⟦tokensEndingContext⟧:
+																											⦃⦃tokensEndingContext⦄.IsEqualTo(⦃⦃getTokensEndingContext⦄(⦃x⦄)⦄)⦄
+																									if:
+																										⦃⦃isOrHasTokenName⦄(⦃openingBracket⦄)⦄
+																									then:
+																										if:
+																											⦃⦃Boolean⦄.HasInstance(⦃context⦄)⦄
+																										then:
+																											⦃⦃tokensEndingContext⦄.IsEqualTo(⦃True⦄)⦄
+																										else:
+																											⦃⦃tokensEndingContext⦄.IsEqualTo(⦃⦃context⦄.Add(⦃1⦄)⦄)⦄
+																									else if:
+																										⦃⦃isOrHasTokenName⦄(⦃closingBracket⦄)⦄
+																									then:
+																										if:
+																											⦃⦃Boolean⦄.HasInstance(⦃context⦄)⦄
+																										then:
+																											⦃⦃tokensEndingContext⦄.IsEqualTo(⦃False⦄)⦄
+																										else:
+																											if:
+																												⦃⦃context⦄.IsEqualTo(⦃0⦄)⦄
+																											then:
+																												⦃⦃tokensEndingContext⦄.IsEqualTo(⦃0⦄)⦄
+																											else:
+																												⦃⦃tokensEndingContext⦄.IsEqualTo(⦃⦃context⦄.Subtract(⦃1⦄)⦄)⦄
+																									else:
+																										⦃⦃tokensEndingContext⦄.IsEqualTo(⦃context⦄)⦄
+																					⦃⦃tokensEndingIsInDeclaration⦄.IsEqualTo(⦃⦃getTokensEndingContext⦄(⦃{
+																						⦃unicodeCodePoints variable declaration opening bracket⦄,
+																						⦃unicodeCodePoints notation declaration opening bracket⦄
+																					}⦄,⦃{
+																						⦃unicodeCodePoints variable declaration closing bracket⦄,
+																						⦃unicodeCodePoints notation declaration closing bracket⦄
+																					}⦄,⦃isInDeclaration⦄)⦄)⦄
+																				and:
+																					⦃⦃tokensEndingVariableDepth⦄.IsEqualTo(⦃⦃getTokensEndingContext⦄(⦃unicodeCodePoints get variable value opening bracket⦄,⦃unicodeCodePoints get variable value closing bracket⦄,⦃variableDepth⦄)⦄)⦄
+																				and:
+																					⦃⦃tokensEndingLogicalBlockBracketDepth⦄.IsEqualTo(⦃⦃getTokensEndingContext⦄(⦃unicodeCodePoints logical block opening bracket⦄,⦃unicodeCodePoints logical block closing bracket⦄,⦃logicalBlockBracketDepth⦄)⦄)⦄
+																				and:
+																					⦃⦃tokensEndingIsInText⦄.IsEqualTo(⦃⦃getTokensEndingContext⦄(⦃unicodeCodePoints text statement opening bracket⦄,⦃unicodeCodePoints text statement closing bracket⦄,⦃isInText⦄)⦄)⦄
+																			and:
+																				if:
+																						not:
+																								⦃⦃indentationDepth⦄.IsEqualTo(⦃0⦄)⦄
+																							and:
+																								⦃⦃logicalBlockBracketDepth⦄.IsEqualTo(⦃0⦄)⦄
+																					and:
+																						⦃⦃{
+																							⦃unicodeCodePoints variable declaration opening bracket⦄,
+																							⦃unicodeCodePoints notation declaration opening bracket⦄,
+																							⦃unicodeCodePoints negation operator⦄,
+																							⦃unicodeCodePoints conjunction operator⦄,
+																							⦃unicodeCodePoints disjunction operator⦄,
+																							⦃unicodeCodePoints material conditional operator⦄,
+																							⦃unicodeCodePoints material biconditional operator⦄,
+																							⦃unicodeCodePoints if operator⦄,
+																							⦃unicodeCodePoints then operator⦄,
+																							⦃unicodeCodePoints else if operator⦄,
+																							⦃unicodeCodePoints else operator⦄,
+																							⦃unicodeCodePoints if and only if⦄,
+																							⦃unicodeCodePoints universal operator⦄,
+																							⦃unicodeCodePoints existential operator⦄,
+																							⦃unicodeCodePoints let operator⦄
+																						}⦄.Has(⦃tokenName⦄)⦄
+																				then:
+																					⦃⦃tokensEndingIsInLogicalOperatorOrQuantifier⦄.IsEqualTo(⦃True⦄)⦄
+																				else if:
+																						not:
+																							⦃⦃tokensEndingIndentationDepth⦄.IsEqualTo(⦃indentationDepth⦄)⦄
+																					or:
+																						⦃⦃tokenName⦄.IsEqualTo(⦃unicodeCodePoints logical block opening bracket⦄)⦄
+																				then:
+																					⦃⦃tokensEndingIsInLogicalOperatorOrQuantifier⦄.IsEqualTo(⦃False⦄)⦄
+																				else:
+																					⦃⦃tokensEndingIsInLogicalOperatorOrQuantifier⦄.IsEqualTo(⦃isInLogicalOperatorOrQuantifier⦄)⦄
+																if:
+																	not:
+																		⦃⦃optionalTokensBeginning⦄.IsSome()⦄
+																then:
+																	⦃⦃optionalTokens⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																else:
+																	let:
+																		⟦optionalTokensEnding⟧:
+																			⦃⦃optionalTokensEnding⦄.IsEqualTo(⦃⦃lexWithContext⦄(⦃tokensBeginningSourceRangeUpperBound⦄,⦃tokensEndingIndentationDepth⦄,⦃tokensEndingIsInDeclaration⦄,⦃tokensEndingVariableDepth⦄,⦃tokensEndingLogicalBlockBracketDepth⦄,⦃tokensEndingIsInLogicalOperatorOrQuantifier⦄,⦃tokensEndingIsInText⦄)⦄)⦄
+																	if:
+																		not:
+																			⦃⦃optionalTokensEnding⦄.IsSome()⦄
+																	then:
+																		⦃⦃optionalTokens⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																	else:
+																		⦃⦃tokens⦄.IsEqualTo(⦃⦃⦃(⦃optionalTokensBeginning⦄,⦃optionalTokensEnding⦄)⦄.MapWith(⦃unaryFunction Get⦄)⦄.GetConcatenation()⦄)⦄
+										⦃⦃optionallyLexed⦄.IsEqualTo(⦃⦃lexWithContext⦄(⦃0⦄,⦃0⦄,⦃False⦄,⦃0⦄,⦃0⦄,⦃False⦄,⦃False⦄)⦄)⦄
+				for all ⟦x⟧:
+						⦃⦃⦃⦃language⦄.Lex⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+					if and only if:
+						there exists ⟦unicodeCodePoints⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃unicodeCodePoints⦄,⦃⦃⦃optionallyLex⦄(⦃unicodeCodePoints⦄)⦄.Get()⦄)⦄)⦄
+			and:
+				let:
+					⟦specification⟧:
+							⦃⦃ExtendedBackusNaurForm⦄.HasInstance(⦃specification⦄)⦄
+						and:
+							let:
+								⟦getOperatorRule⟧:
+										⦃⦃Function⦄.HasInstance(⦃getOperatorRule⦄)⦄
+									and:
+										for all ⟦x⟧:
+												⦃⦃⦃getOperatorRule⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+											if and only if:
+												there exists ⟦operator⟧,⟦position⟧,⟦hasDeclarationList⟧:
+														⦃⦃x⦄.IsEqualTo(⦃(⦃operator⦄,⦃position⦄,⦃hasDeclarationList⦄)⦄)⦄
+													and:
+														⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄.HasInstance(⦃operator⦄)⦄
+													and:
+														there exists ⟦typeIdentifier⟧:
+																⦃⦃{
+																	⦃unicodeCodePoints pre⦄,
+																	⦃unicodeCodePoints inf⦄,
+																	⦃unicodeCodePoints post⦄
+																}⦄.Has(⦃typeIdentifier⦄)⦄
+															and:
+																⦃⦃position⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧fix⦄)⦄
+													and:
+														⦃⦃Boolean⦄.HasInstance(⦃hasDeclarationList⦄)⦄
+									and:
+										for all ⟦x⟧:
+											if:
+												⦃⦃⦃getOperatorRule⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+											then:
+												let:
+													⟦operator⟧,⟦position⟧,⟦hasDeclarationList⟧:
+														⦃⦃(⦃operator⦄,⦃position⦄,⦃hasDeclarationList⦄)⦄.IsEqualTo(⦃x⦄)⦄
+													⟦wrappedOperatorSymbol⟧,⟦wrappedOptionallySeparatedOperatorSymbol⟧:
+														let:
+															⟦operatorSymbol⟧:
+																⦃⦃operatorSymbol⦄.IsEqualTo(⦃⦃(
+																	⦃operator⦄,
+																	⦃unicodeCodePoints operator⦄
+																)⦄.Join(⦃unicodeCodePoints  ⦄)⦄)⦄
+															⟦optionallySeparatedOperatorSymbol⟧:
+																if:
+																	not:
+																		⦃hasDeclarationList⦄
+																then:
+																	⦃⦃optionallySeparatedOperatorSymbol⦄.IsEqualTo(⦃⦃(
+																		⦃unicodeCodePoints optionally separated⦄,
+																		⦃operatorSymbol⦄
+																	)⦄.Join(⦃unicodeCodePoints  ⦄)⦄)⦄
+																else:
+																	⦃⦃optionallySeparatedOperatorSymbol⦄.IsEqualTo(⦃⦃(
+																		⦃unicodeCodePoints optionally separated⦄,
+																		⦃operator⦄,
+																		⦃unicodeCodePoints quantifier⦄
+																	)⦄.Join(⦃unicodeCodePoints  ⦄)⦄)⦄
+														for all ⟦typeIdentifier⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints ⦄,
+																	⦃unicodeCodePoints OptionallySeparated⦄
+																}⦄.Has(⦃typeIdentifier⦄)⦄
+															then:
+																⦃⦃wrapped⟦⟦⦃typeIdentifier⦄⟧⟧OperatorSymbol⦄.IsEqualTo(⦃⦃(
+																	⦃unicodeCodePoints <⦄,
+																	⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Operator⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Symbol⦄,
+																	⦃unicodeCodePoints >⦄
+																)⦄.GetConcatenation()⦄)⦄
+													⟦declaration⟧:
+														if:
+															⦃hasDeclarationList⦄
+														then:
+															⦃⦃declaration⦄.IsEqualTo(⦃unicodeCodePoints <optional separator> <variable or notation declaration list>⦄)⦄
+														else:
+															⦃⦃declaration⦄.IsEqualTo(⦃⦄)⦄
+													⟦prefixOptionalSeparator⟧,⟦postfixOptionalSeparator⟧:
+														for all ⟦typeIdentifier⟧:
+															if:
+																⦃⦃{
+																	⦃unicodeCodePoints pre⦄,
+																	⦃unicodeCodePoints post⦄
+																}⦄.Has(⦃typeIdentifier⦄)⦄
+															then:
+																if:
+																	not:
+																		⦃⦃position⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧fix⦄)⦄
+																then:
+																	⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧fixOptionalSeparator⦄.IsEqualTo(⦃unicodeCodePoints <optional separator>⦄)⦄
+																else:
+																	⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧fixOptionalSeparator⦄.IsEqualTo(⦃⦄)⦄
+												⦃⦃⦃getOperatorRule⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃(
+													⦃wrappedOptionallySeparatedOperatorSymbol⦄,
+													⦃unicodeCodePoints →⦄,
+													⦃prefixOptionalSeparator⦄,
+													⦃wrappedOperatorSymbol⦄,
+													⦃declaration⦄,
+													⦃postfixOptionalSeparator⦄,
+													⦃unicodeCodePoints #10#⦄,
+												)⦄.GetConcatenation()⦄)⦄
+							⦃⦃⦃specification⦄.GetDescription()⦄.IsEqualTo(⦃⦃unicodeCodePoints 
+								<documentation> → <optional separator> <main statement> (<separator> <main statement>){} <optional separator> | <optional separator>
+								<main statement> → <declare statement> | <define statement> | <import statement> | <export statement>
+								<declare statement> → <declare operator> <optional separator> <variable or notation declaration list>
+								<define statement> → <define operator> (<optional separator> <variable value list>){,1} <separator> <formula>
+								<import statement> → <import operator> <optional separator> <source statement> (<optional separator> <variable or notation declaration list>){,1}
+								<export statement> → <export operator> <optional separator> <variable value list>
+								
+								<variable or notation declaration list> → <variable or notation declaration> (<optionally separated list separator> <variable or notation declaration>){}
+								<variable or notation declaration> → <variable declaration> | <notation declaration>
+								<variable declaration> → <variable declaration opening bracket> <variable identifier> <variable declaration closing bracket>
+								<notation declaration> → <notation declaration opening bracket> <variable identifier> <notation declaration closing bracket>
+								
+								<variable value list> → <variable value> (<optionally separated list separator> <variable value>){}
+								<variable value> → <get variable value opening bracket> <variable identifier> <get variable value closing bracket>
+								<variable> → <get variable opening bracket> <variable value> <get variable closing bracket>
+								<variable identifier to expand> → <expand variable identifier opening bracket> <variable value> <expand variable identifier closing bracket>
+								
+								<variable identifier> → (<variable> | <variable value> | <variable identifier to expand> | <text>){}
+								
+								<formula> → <formula block>
+								<formula block> → <logical block opening bracket> <optional separator> <formula operation> <optional separator> <logical block closing bracket>
+								<formula operation> → <negation operation> | <conjunction operation> | <disjunction operation> | <material conditional operation> | <material biconditional operation> | <if then else operation> | <universal operation> | <existential operation> | <let operation> | <predicate> | <text statement>
+								
+								<negation operation> → <optionally separated negation operator> <formula block>
+								
+								<conjunction operation> → <formula block> <optionally separated conjunction operator> <formula block> (<optionally separated conjunction operator> <formula block>){}
+								
+								<disjunction operation> → <formula block> <optionally separated disjunction operator> <formula block> (<optionally separated disjunction operator> <formula block>){}
+								
+								<material conditional operation> → <formula block> <optionally separated material conditional operator> <formula block>
+								
+								<material biconditional operation> → <formula block> <optionally separated material biconditional operator> <formula block> (<optionally separated material biconditional operator> <formula block>){}
+								
+								<if then else operation> → <optionally separated if operator> <formula block> <optionally separated then operator> <formula block> (<optionally separated else if operator> <formula block> <optionally separated then operator> <formula block>){} (<optionally separated else operator> <formula block>){,1}
+								
+								<universal operation> → <optionally separated universal quantifier> <formula block>
+								
+								<existential operation> → <optionally separated existential quantifier> <formula block>
+								
+								<let operation> → <optionally separated let operator> <logical block opening bracket> <optional separator> <let declaration operation> (<optional separator> <let declaration operation>){} <optional separator> <logical block closing bracket> <optional separator> <formula operation>
+								<let declaration operation> → <optionally separated let declaration quantifier> <formula block>
+								
+								<predicate> → <variable value> | <text statement>
+								<text statement> → <text statement opening bracket> <text statement content> <text statement closing bracket>
+								<text statement content> → (<variable value> | <text>){}
+								
+								<optionally separated list separator> → <optional separator> <list separator> <optional separator>
+								<source statement> → <source statement content>
+								<text> → <text content>
+								<optional separator> → <separator>{,1}
+							⦄.GetConcatenationWith(⦃⦃⦃(
+								⦃(⦃unicodeCodePoints negation⦄,⦃unicodeCodePoints prefix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints conjunction⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints disjunction⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints material conditional⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints material biconditional⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints if⦄,⦃unicodeCodePoints prefix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints then⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints else if⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints else⦄,⦃unicodeCodePoints infix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints universal⦄,⦃unicodeCodePoints prefix⦄,⦃True⦄)⦄,
+								⦃(⦃unicodeCodePoints existential⦄,⦃unicodeCodePoints prefix⦄,⦃True⦄)⦄,
+								⦃(⦃unicodeCodePoints let⦄,⦃unicodeCodePoints prefix⦄,⦃False⦄)⦄,
+								⦃(⦃unicodeCodePoints let declaration⦄,⦃unicodeCodePoints prefix⦄,⦃True⦄)⦄
+							)⦄.MapWith(⦃getOperatorRule⦄)⦄.GetConcatenation()⦄)⦄)⦄
+				⦃⦃⦃lexerAndParserCombination⦄.GetParser()⦄.IsEqualTo(⦃⦃specification⦄.GetGeneratedParser()⦄)⦄
+
+define ⦃method ⦃DefaultDocumentation⦄.MapToSourceIdentifier⦄
+	for all ⟦documentation⟧:
+		if:
+			⦃⦃DefaultDocumentation⦄.HasInstance(⦃documentation⦄)⦄
+		then:
+			for all ⟦node⟧:
+				if:
+					⦃⦃⦃⦃documentation⦄.MapToSourceIdentifier⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+				then:
+					⦃⦃⦃documentation⦄.MapToSourceIdentifier(⦃node⦄)⦄.IsEqualTo(⦃⦃⦃documentation⦄.GetLexerAndParserCombination()⦄.GetTokenValueOfPseudoTerminalNode(⦃node⦄)⦄)⦄
+
+define ⦃method ⦃DefaultDocumentation⦄.GetLogicallyValidStacksAtTheEndingOfScope⦄
+	for all ⟦documentation⟧:
+		if:
+			⦃⦃DefaultDocumentation⦄.HasInstance(⦃documentation⦄)⦄
+		then:
+			let:
+				⟦scopes⟧:
+					⦃⦃scopes⦄.IsEqualTo(⦃⦃documentation⦄.GetMiddleNodes()⦄)⦄
+			for all ⟦scope⟧:
+				if:
+					⦃⦃scopes⦄.Has(⦃scope⦄)⦄
+				then:
+					let:
+						⟦isLastChildScope⟧:
+								⦃⦃Function⦄.HasInstance(⦃isLastChildScope⦄)⦄
+							and:
+								⦃⦃⦃isLastChildScope⦄.GetDomain()⦄.IsEqualTo(⦃scopes⦄)⦄
+							and:
+								for all ⟦scope0⟧:
+									if:
+										⦃⦃⦃isLastChildScope⦄.GetDomain()⦄.Has(⦃scope0⦄)⦄
+									then:
+											⦃⦃Boolean⦄.HasInstance(⦃⦃isLastChildScope⦄(⦃scope0⦄)⦄)⦄
+										and:
+												⦃⦃isLastChildScope⦄(⦃scope0⦄)⦄
+											if and only if:
+												⦃⦃⦃⦃⦃⦃scope⦄.GetChildNodes()⦄.FilterWith(⦃⦃scopes⦄.Has⦄)⦄.GetReverse()⦄(⦃0⦄)⦄.IsEqualTo(⦃scope0⦄)⦄
+					if:
+						there exists ⟦scope⟧:
+							⦃⦃isLastChildScope⦄(⦃scope⦄)⦄
+					then:
+						let:
+							⟦lastChildScope⟧:
+								⦃⦃isLastChildScope⦄(⦃lastChildScope⦄)⦄
+							⟦stacksAtTheEnding⟧:
+								⦃⦃stacksAtTheEnding⦄.IsEqualTo(⦃⦃documentation⦄.GetLogicallyValidStacksAtTheEndingOfScope(⦃scope⦄)⦄)⦄
+						if:
+							let:
+								⟦symbol⟧:
+									⦃⦃symbol⦄.IsEqualTo(⦃⦃scope⦄.GetSymbol()⦄)⦄
+								there exists ⟦operator⟧:
+										⦃⦃{
+											⦃unicodeCodePoints universal⦄,
+											⦃unicodeCodePoints existential⦄,
+											⦃unicodeCodePoints let declaration⦄
+										}⦄.Has(⦃operator⦄)⦄
+									and:
+										⦃⦃symbol⦄.IsEqualTo(⦃⦃(
+											⦃unicodeCodePoints optionally separated⦄,
+											⦃operator⦄,
+											⦃unicodeCodePoints quantifier⦄
+										)⦄.Join(⦃unicodeCodePoints  ⦄)⦄)⦄
+							or:
+								⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints let declaration operation⦄)⦄
+						then:
+							⦃⦃stacksAtTheEnding⦄.IsEqualTo(⦃⦃documentation⦄.GetLogicallyValidStacksAtTheEndingOfScope(⦃lastChildScope⦄)⦄)⦄
+						else:
+							⦃⦃stacksAtTheEnding⦄.IsEqualTo(⦃⦃documentation⦄.GetLogicallyValidStacksAtTheBeginningOfScope(⦃lastChildScope⦄)⦄)⦄
+
+define ⦃method ⦃DefaultDocumentation⦄.ResolveLogicallyTrueStacksOfScope⦄
+	for all ⟦documentation⟧:
+		if:
+			⦃⦃DefaultDocumentation⦄.HasInstance(⦃documentation⦄)⦄
+		then:
+			let:
+				⟦scopes⟧:
+					⦃⦃scopes⦄.IsEqualTo(⦃⦃documentation⦄.GetMiddleNodes()⦄)⦄
+			for all ⟦scope⟧:
+				if:
+					⦃⦃scopes⦄.Has(⦃scope⦄)⦄
+				then:
+					let:
+						⟦symbol⟧:
+							⦃⦃symbol⦄.IsEqualTo(⦃⦃scope⦄.GetSymbol()⦄)⦄
+						⟦childScopes⟧:
+							⦃⦃childScopes⦄.IsEqualTo(⦃⦃⦃scope⦄.GetChildNodes()⦄.FilterWith(⦃⦃scopes⦄.Has⦄)⦄)⦄
+						⟦operationTypes⟧:
+							⦃⦃operationTypes⦄.IsEqualTo(⦃{
+								⦃unicodeCodePoints negation⦄,
+								⦃unicodeCodePoints conjunction⦄,
+								⦃unicodeCodePoints disjunction⦄,
+								⦃unicodeCodePoints material conditional⦄,
+								⦃unicodeCodePoints material biconditional⦄,
+								⦃unicodeCodePoints if then else⦄,
+								⦃unicodeCodePoints universal⦄,
+								⦃unicodeCodePoints existential⦄,
+								⦃unicodeCodePoints let⦄
+							}⦄)⦄
+						⟦resolvedLogicallyTrueStacksOfScope⟧:
+							⦃⦃resolvedLogicallyTrueStacksOfScope⦄.IsEqualTo(⦃⦃documentation⦄.ResolveLogicallyTrueStacksOfScope(⦃scope⦄)⦄
+					if:
+						there exists ⟦operationType⟧:
+								⦃⦃operationTypes⦄.Has(⦃operationType⦄)⦄
+							and:
+								⦃⦃symbol⦄.IsEqualTo(⦃⦃(
+									⦃operationType⦄,
+									⦃unicodeCodePoints operation⦄
+								)⦄.Join(⦃unicodeCodePoints  ⦄)⦄)⦄
+					then:
+						let:
+							⟦resolveLogicallyTrueStacksOfOperation⟧:
+									⦃⦃Function⦄.HasInstance(⦃resolveLogicallyTrueStacksOfOperation⦄)⦄
+								and:
+									for all ⟦x⟧:
+											⦃⦃⦃resolveLogicallyTrueStacksOfOperation⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+										if and only if:
+											there exists ⟦scope⟧:
+													⦃⦃scopes⦄.Has(⦃scope⦄)⦄
+												and:
+														⦃⦃x⦄.IsEqualTo(⦃scope⦄)⦄
+													or:
+														there exists ⟦operationType⟧,⟦operands⟧:
+																⦃⦃x⦄.IsEqualTo(⦃(⦃scope⦄,⦃operationType⦄,⦃operands⦄)⦄)⦄
+															and:
+																⦃⦃operationTypes⦄.Has(⦃operationType⦄)⦄
+															and:
+																⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃⦃⦃resolveLogicallyTrueStacksOfOperation⦄.GetDomain()⦄.GetGeneratedType()⦄)⦄.Has(⦃operands⦄)⦄
+															and:
+																let:
+																	⟦operandsLength⟧:
+																		⦃⦃operandsLength⦄.IsEqualTo(⦃⦃operands⦄.GetLength()⦄)⦄
+																if:
+																	⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints negation⦄)⦄
+																then:
+																	⦃⦃operandsLength⦄.IsEqualTo(⦃1⦄)⦄
+																else if:
+																	⦃⦃{
+																		⦃unicodeCodePoints conjunction⦄,
+																		⦃unicodeCodePoints disjunction⦄,
+																		⦃unicodeCodePoints material biconditional⦄,
+																		⦃unicodeCodePoints if then⦄
+																	}⦄.Has(⦃operationType⦄)⦄
+																then:
+																	⦃⦃2⦄.IsInferiorOrEqualTo(⦃operandsLength⦄)⦄
+																else if:
+																	⦃⦃{
+																		⦃unicodeCodePoints material conditional⦄,
+																		⦃unicodeCodePoints universal⦄,
+																		⦃unicodeCodePoints existential⦄
+																	}⦄.Has(⦃operationType⦄)⦄
+																then:
+																	⦃⦃operandsLength⦄.IsEqualTo(⦃2⦄)⦄
+																else if:
+																	⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints if then else⦄)⦄
+																then:
+																	⦃⦃3⦄.IsInferiorOrEqualTo(⦃operandsLength⦄)⦄
+																else if:
+																	⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints let⦄)⦄
+																then:
+																	⦃⦃⦃⦃⦃operandsLength⦄.Subtract(⦃3⦄)⦄.DivideWithRemainder(⦃2⦄)⦄(⦃1⦄)⦄.IsEqualTo(⦃0⦄)⦄
+								and:
+									for all ⟦x⟧:
+										if:
+											⦃⦃⦃resolveLogicallyTrueStacksOfOperation⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+										then:
+											let:
+												⟦resolvedLogicallyTrueStacksOfOperation⟧:
+													⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃x⦄)⦄)⦄
+											if:
+												⦃⦃scopes⦄.Has(⦃x⦄)⦄
+											then:
+												let:
+													⟦operand⟧:
+														⦃⦃operand⦄.IsEqualTo(⦃x⦄)⦄
+												⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃documentation⦄.ResolveLogicallyTrueStacksOfScope(⦃operand⦄)⦄)⦄
+											else:
+												let:
+													⟦scope⟧,⟦operationType⟧,⟦operands⟧:
+														⦃⦃(⦃scope⦄,⦃operationType⦄,⦃operands⦄)⦄.IsEqualTo(⦃x⦄)⦄
+													⟦operandsLength⟧:
+														⦃⦃operandsLength⦄.IsEqualTo(⦃⦃operands⦄.GetLength()⦄)⦄
+													⟦getOperandScope⟧:
+															⦃⦃Function⦄.HasInstance(⦃getOperandScope⦄)⦄
+														and:
+															⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃getOperandScope⦄,⦃resolveLogicallyTrueStacksOfOperation⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+														and:
+															for all ⟦operand⟧:
+																if:
+																	⦃⦃⦃getOperandScope⦄.GetDomain()⦄.Has(⦃operand⦄)⦄
+																then:
+																	let:
+																		⟦scope⟧:
+																			⦃⦃scope⦄.IsEqualTo(⦃⦃getOperandScope⦄(⦃operand⦄)⦄)⦄
+																	if:
+																		⦃⦃scopes⦄.Has(⦃operand⦄)⦄
+																	then:
+																		⦃⦃scope⦄.IsEqualTo(⦃operand⦄)⦄
+																	else:
+																		⦃⦃scope⦄.IsEqualTo(⦃⦃operand⦄(⦃0⦄)⦄)⦄
+												if:
+													⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints negation⦄)⦄
+												then:
+													⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃⦃documentation⦄.GetLogicallyValidStacksAtTheBeginningOfScope(⦃scope⦄)⦄.GetDifferenceWith(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃⦃operands⦄(⦃0⦄)⦄)⦄)⦄)⦄
+												else if:
+													⦃⦃{
+														⦃unicodeCodePoints conjunction⦄,
+														⦃unicodeCodePoints disjunction⦄,
+														⦃unicodeCodePoints material conditional⦄,
+														⦃unicodeCodePoints material biconditional⦄
+													}⦄.Has(⦃operationType⦄)⦄
+												then:
+													let:
+														⟦operand0⟧,⟦operand1⟧:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃operand⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.IsEqualTo(⦃⦃operands⦄(⦃index⦄)⦄)⦄
+													if:
+														⦃⦃operandsLength⦄.IsEqualTo(⦃2⦄)⦄
+													then:
+														if:
+															⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints conjunction⦄)⦄
+														then:
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃⦃(⦃operand0⦄,⦃operand1⦄)⦄.MapWith(⦃resolveLogicallyTrueStacksOfOperation⦄)⦄.GetIntersection()⦄)⦄
+														else if:
+															⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints disjunction⦄)⦄
+														then:
+															let:
+																⟦mapToOperand⟧:
+																		⦃⦃Function⦄.HasInstance(⦃mapToOperand⦄)⦄
+																	and:
+																		for all ⟦x⟧:
+																				⦃⦃⦃mapToOperand⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+																			if and only if:
+																				there exists ⟦operand⟧:
+																					⦃⦃x⦄.IsEqualTo(⦃(⦃operand⦄,⦃(⦃⦃getOperandScope⦄(⦃operand⦄)⦄,⦃unicodeCodePoints negation⦄,⦃(⦃operand⦄)⦄)⦄)⦄)⦄
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints negation⦄,⦃(
+																⦃(⦃scope⦄,⦃unicodeCodePoints conjunction⦄,⦃⦃operands⦄.MapWith(⦃mapToOperand⦄)⦄)⦄
+															)⦄)⦄)⦄
+														else if:
+															⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints material conditional⦄)⦄
+														then:
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints disjunction⦄,⦃(
+																⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints negation⦄,⦃(⦃operand0⦄)⦄)⦄,
+																⦃operand1⦄
+															)⦄)⦄)⦄
+														else if:
+															⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints material biconditional⦄)⦄
+														then:
+															let:
+																⟦mapToOperand⟧:
+																		⦃⦃Function⦄.HasInstance(⦃mapToOperand⦄)⦄
+																	and:
+																		for all ⟦x⟧:
+																				⦃⦃⦃mapToOperand⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+																			if and only if:
+																				there exists ⟦operands⟧:
+																					⦃⦃x⦄.IsEqualTo(⦃(⦃operands⦄,⦃(⦃scope⦄,⦃unicodeCodePoints material conditional⦄,⦃operands⦄)⦄)⦄)⦄
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints conjunction⦄,⦃⦃(
+																⦃operands⦄,
+																⦃⦃operands⦄.GetReverse()⦄
+															)⦄.MapWith(⦃mapToOperand⦄)⦄)⦄)⦄
+													else:
+														⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃operationType⦄,⦃(
+															⦃operand0⦄,
+															⦃(⦃⦃getOperandScope⦄(⦃operand1⦄)⦄,⦃operationType⦄,⦃⦃operands⦄.GetEndingSubSequence(⦃1⦄)⦄)⦄
+														)⦄)⦄)⦄
+												else if:
+													⦃⦃{
+														⦃unicodeCodePoints if then⦄,
+														⦃unicodeCodePoints if then else⦄
+													}⦄.Has(⦃operationType⦄)⦄
+												then:
+													let:
+														⟦operand0⟧,⟦operand1⟧:
+															for all ⟦index⟧:
+																if:
+																	⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																then:
+																	⦃⦃operand⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.IsEqualTo(⦃⦃operands⦄(⦃index⦄)⦄)⦄
+													if:
+																⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints if then⦄)⦄
+															and:
+																⦃⦃operandsLength⦄.IsEqualTo(⦃2⦄)⦄
+														or:
+																⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints if then else⦄)⦄
+															and:
+																⦃⦃operandsLength⦄.IsEqualTo(⦃3⦄)⦄
+													then:
+														if:
+															⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints if then⦄)⦄
+														then:
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints disjunction⦄,⦃(
+																⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints negation⦄,⦃(⦃operand0⦄)⦄)⦄,
+																⦃operand1⦄
+															)⦄)⦄)⦄
+														else:
+															let:
+																⟦operand2⟧:
+																	⦃⦃operand2⦄.IsEqualTo(⦃⦃operands⦄(⦃2⦄)⦄)⦄
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints conjunction⦄,⦃(
+																⦃(⦃scope⦄,⦃unicodeCodePoints if then⦄,⦃(⦃operand0⦄,⦃operand1⦄)⦄)⦄,
+																⦃(⦃scope⦄,⦃unicodeCodePoints if then⦄,⦃(
+																	⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints negation⦄,⦃(⦃operand0⦄)⦄)⦄,
+																	⦃operand2⦄
+																)⦄)⦄
+															)⦄)⦄)⦄
+													else:
+														let:
+															⟦operand2⟧:
+																⦃⦃operand2⦄.IsEqualTo(⦃⦃operands⦄(⦃2⦄)⦄)⦄
+														⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints conjunction⦄,⦃(
+															⦃(⦃scope⦄,⦃unicodeCodePoints if then⦄,⦃(⦃operand0⦄,⦃operand1⦄)⦄)⦄,
+															⦃(⦃scope⦄,⦃operationType⦄,⦃⦃(
+																⦃(
+																	⦃(⦃scope⦄,⦃unicodeCodePoints conjunction⦄,⦃(
+																		⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints negation⦄,⦃(⦃operand0⦄)⦄)⦄,
+																		⦃operand2⦄
+																	)⦄)⦄
+																)⦄,
+																⦃⦃operands⦄.GetEndingSubSequence(⦃2⦄)⦄
+															)⦄.GetConcatenation()⦄)⦄
+														)⦄)⦄)⦄
+												else if:
+													⦃⦃{
+														⦃unicodeCodePoints universal⦄,
+														⦃unicodeCodePoints existential⦄
+													}⦄.Has(⦃operationType⦄)⦄
+												then:
+													for all ⟦stack⟧:
+															⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.Has(⦃stack⦄)⦄
+														if and only if:
+																⦃⦃FiniteSequence⦄.HasInstance(⦃stack⦄)⦄
+															and:
+																let:
+																	⟦stackOfScope⟧:
+																		⦃⦃⦃documentation⦄.GetLogicallyValidStacksAtTheBeginningOfScope(⦃scope⦄)⦄.Has(⦃stackOfScope⦄)⦄
+																⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃stack⦄,⦃stackOfScope⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+															and:
+																let:
+																	⟦operand1⟧:
+																		⦃⦃operand1⦄.IsEqualTo(⦃⦃operands⦄(⦃1⦄)⦄)⦄
+																if:
+																	⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints universal⦄)⦄
+																then:
+																	for all ⟦stackEnding⟧:
+																		if:
+																			⦃⦃⦃documentation⦄.GetLogicallyValidStacksAtTheBeginningOfScope(⦃⦃getOperandScope⦄(⦃operand1⦄)⦄)⦄.Has(⦃⦃stack⦄.GetConcatenationWith(⦃stackEnding⦄)⦄)⦄
+																		then:
+																			⦃⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃operand1⦄)⦄.Has(⦃⦃stack⦄.GetConcatenationWith(⦃stackEnding⦄)⦄)⦄
+																else:
+																	there exists ⟦stackEnding⟧:
+																		⦃⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃operand1⦄)⦄.Has(⦃⦃stack⦄.GetConcatenationWith(⦃stackEnding⦄)⦄)⦄
+												else:
+													let:
+														⟦getExistential⟧:
+																⦃⦃Function⦄.HasInstance(⦃getExistential⦄)⦄
+															and:
+																⦃⦃⦃getExistential⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃FiniteOrdinalRange⦄(⦃0⦄,⦃⦃operandsLength⦄.Subtract(⦃2⦄)⦄)⦄.GetElements(⦃True⦄,⦃False⦄)⦄)⦄
+															and:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃⦃getExistential⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦operand0⟧,⟦operand1⟧:
+																				for all ⟦index0⟧:
+																					if:
+																						⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index0⦄)⦄
+																					then:
+																						⦃⦃operand⟦⟦⦃⦃index0⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄.IsEqualTo(⦃⦃operands⦄(⦃⦃index⦄.Add(⦃index0⦄)⦄)⦄)⦄
+																			⟦operands⟧:
+																				⦃⦃operands⦄.IsEqualTo(⦃(⦃operand0⦄,⦃operand1⦄)⦄)⦄
+																			⟦existential⟧:
+																				⦃⦃existential⦄.IsEqualTo(⦃⦃getExistential⦄(⦃index⦄)⦄)⦄
+																		if:
+																			⦃⦃index⦄.IsEqualTo(⦃⦃operandsLength⦄.Subtract(⦃3⦄)⦄)⦄
+																		then:
+																			⦃⦃existential⦄.IsEqualTo(⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints existential⦄,⦃operands⦄)⦄)⦄
+																		else:
+																			⦃⦃existential⦄.IsEqualTo(⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints conjunction⦄,⦃(
+																				⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints existential⦄,⦃operands⦄)⦄,
+																				⦃⦃getExistential⦄(⦃⦃index⦄.Add(⦃2⦄)⦄)⦄
+																			)⦄)⦄)⦄
+														⟦getUniversal⟧:
+																⦃⦃Function⦄.HasInstance(⦃getUniversal⦄)⦄
+															and:
+																⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃getUniversal⦄,⦃operands⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+															and:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃⦃getUniversal⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦operand0⟧:
+																				⦃⦃operand0⦄.IsEqualTo(⦃⦃operands⦄(⦃index⦄)⦄)⦄
+																			⟦universal⟧:
+																				⦃⦃universal⦄.IsEqualTo(⦃⦃getUniversal⦄(⦃index⦄)⦄)⦄
+																		if:
+																			⦃⦃index⦄.IsEqualTo(⦃⦃operandsLength⦄.Subtract(⦃1⦄)⦄)⦄
+																		then:
+																			⦃⦃universal⦄.IsEqualTo(⦃operand0⦄)⦄
+																		else:
+																			let:
+																				⟦operand1⟧:
+																					⦃⦃operand1⦄.IsEqualTo(⦃⦃operands⦄(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄)⦄
+																			⦃⦃universal⦄.IsEqualTo(⦃(⦃⦃getOperandScope⦄(⦃operand0⦄)⦄,⦃unicodeCodePoints universal⦄,⦃(
+																				⦃operand0⦄,
+																				⦃(⦃⦃getOperandScope⦄(⦃operand1⦄)⦄,⦃unicodeCodePoints if then⦄,⦃(
+																					⦃operand1⦄,
+																					⦃⦃getUniversal⦄(⦃⦃index⦄.Add(⦃2⦄)⦄)⦄
+																				)⦄)⦄
+																			)⦄)⦄)⦄
+													⦃⦃resolvedLogicallyTrueStacksOfOperation⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃unicodeCodePoints conjunction⦄,⦃⦃(⦃getExistential⦄,⦃getUniversal⦄)⦄.Apply(⦃0⦄)⦄)⦄
+							⟦operationType⟧:
+								if:
+										⦃⦃childScopes⦄.IsEqualTo(⦃unicodeCodePoints if then else operation⦄)⦄
+									and:
+										not:
+											⦃⦃⦃⦃⦃childScopes⦄.GetReverse()⦄(⦃2⦄)⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints optionally separated else operator⦄)⦄
+								then:
+									⦃⦃operationType⦄.IsEqualTo(⦃unicodeCodePoints if then⦄)⦄
+								else:
+									⦃⦃operationType⦄.IsEqualTo(⦃⦃symbol⦄.GetBeginningSubSequence(⦃⦃⦃symbol⦄.GetLength()⦄.Subtract(⦃10⦄)⦄)⦄)⦄
+							⟦isOperand⟧:
+									⦃⦃Function⦄.HasInstance(⦃isOperand⦄)⦄
+								and:
+									⦃⦃⦃isOperand⦄.GetDomain()⦄.IsEqualTo(⦃scopes⦄)⦄
+								and:
+									for all ⟦scope⟧:
+										if:
+											⦃⦃⦃isOperand⦄.GetDomain()⦄.Has(⦃scope⦄)⦄
+										then:
+											⦃⦃⦃isOperand⦄(⦃scope⦄)⦄.IsEqualTo(⦃⦃{
+												⦃unicodeCodePoints formula block⦄,
+												⦃unicodeCodePoints formula operation⦄,
+												⦃unicodeCodePoints optionally separated universal quantifier⦄,
+												⦃unicodeCodePoints optionally separated existential quantifier⦄,
+												⦃unicodeCodePoints let declaration operation⦄
+											}⦄.Has(⦃⦃scope⦄.GetSymbol()⦄)⦄)⦄
+						⦃⦃resolvedLogicallyTrueStacksOfScope⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfOperation⦄(⦃scope⦄,⦃operationType⦄,⦃⦃childScopes⦄.FilterWith(⦃isOperand⦄)⦄)⦄)⦄
+					else if:
+						⦃⦃{
+							⦃unicodeCodePoints formula block⦄,
+							⦃unicodeCodePoints formula operation⦄
+						}⦄.Has(⦃symbol⦄)⦄
+					then:
+						⦃⦃resolvedLogicallyTrueStacksOfScope⦄.IsEqualTo(⦃⦃documentation⦄.ResolveLogicallyTrueStacksOfScope(⦃⦃childScopes⦄(⦃0⦄)⦄)⦄)⦄

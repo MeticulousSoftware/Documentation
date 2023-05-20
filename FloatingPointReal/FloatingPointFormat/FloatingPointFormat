@@ -1,0 +1,92 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃FloatingPointFormat⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃FloatingPointFormat⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetBase⟧,
+									⟦GetPrecision⟧,
+									⟦GetExponentRange⟧,
+									⟦HasImplicitBit⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetBase⦄,⦃GetBase⦄)⦄,
+											⦃(⦃unicodeCodePoints GetPrecision⦄,⦃GetPrecision⦄)⦄,
+											⦃(⦃unicodeCodePoints GetExponentRange⦄,⦃GetExponentRange⦄)⦄,
+											⦃(⦃unicodeCodePoints HasImplicitBit⦄,⦃HasImplicitBit⦄)⦄
+										}⦄)⦄)⦄
+									and:
+											let:
+												⟦base⟧:
+													⦃⦃base⦄.IsEqualTo(⦃⦃GetBase⦄()⦄)⦄
+												⦃⦃PositiveInteger⦄.HasInstance(⦃base⦄)⦄
+											and:
+												⦃⦃integer 1⦄.IsInferiorTo(⦃base⦄)⦄
+										and:
+											⦃⦃FiniteOrdinal⦄.HasInstance(⦃⦃GetPrecision⦄()⦄)⦄
+										and:
+											⦃⦃IntegerRange⦄.HasInstance(⦃⦃GetExponentRange⦄()⦄)⦄
+										and:
+											let:
+												⟦hasImplicitBit⟧:
+													⦃⦃hasImplicitBit⦄.IsEqualTo(⦃⦃HasImplicitBit⦄()⦄)⦄
+												⦃⦃Boolean⦄.HasInstance(⦃hasImplicitBit⦄)⦄
+											and:
+												if:
+													not:
+														⦃⦃base⦄.IsEqualTo(⦃integer 2⦄)⦄
+												then:
+													not:
+														⦃hasImplicitBit⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦format⟧:
+									⦃⦃format⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃FloatingPointFormat⦄.HasInstance(⦃format⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃format⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃FloatingPointFormat⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃FloatingPointFormat⦄.MapToClass⦄
+	for all ⟦format⟧:
+		if:
+			⦃⦃FloatingPointFormat⦄.HasInstance(⦃format⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃format⦄,
+				⦃(⦃⦃format⦄.GetBase()⦄,⦃⦃format⦄.GetPrecision()⦄,⦃⦃format⦄.GetExponentRange()⦄,⦃⦃format⦄.HasImplicitBit()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃FloatingPointFormat⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

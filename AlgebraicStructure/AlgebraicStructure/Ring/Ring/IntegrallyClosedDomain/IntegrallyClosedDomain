@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaIntegrallyClosedDomain⦄,⦃IntegrallyClosedDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegrallyClosedDomain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegrallyClosedDomain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦fieldOfFractions⟧:
+									⦃⦃fieldOfFractions⦄.IsEqualTo(⦃⦃structure⦄.GetFieldOfFractions()⦄)⦄
+								⟦class⟧:
+									⦃⦃class⦄.IsEqualTo(⦃⦃⦃structure⦄.GetClass()⦄.MapWith(⦃⦃structure⦄.GetFieldOfFractionsEmbeddingOf⦄)⦄)⦄
+							⦃⦃⦃fieldOfFractions⦄.GetIntegralClosureOver(⦃class⦄)⦄.IsEqualTo(⦃class⦄)⦄

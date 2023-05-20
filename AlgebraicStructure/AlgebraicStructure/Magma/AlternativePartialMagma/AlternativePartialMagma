@@ -1,0 +1,92 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftAlternativePartialMagma⦄,⦃LeftAlternativePartialMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧LeftAlternativePartialMagma⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧LeftAlternativePartialMagma⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialMagma⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦function⟧:
+									⦃⦃function⦄.IsEqualTo(⦃⦃structure⦄.GetSimplifiedFunction()⦄)⦄
+							for all ⟦x0⟧,⟦x1⟧:
+								if:
+									for all ⟦sequence⟧:
+										if:
+											⦃⦃⦃{
+												⦃(
+													⦃⦃function⦄(⦃x0⦄,⦃x0⦄)⦄,
+													⦃x1⦄
+												)⦄,
+												⦃(
+													⦃x0⦄,
+													⦃⦃function⦄(⦃x0⦄,⦃x1⦄)⦄
+												)⦄
+											}⦄.Has(⦃sequence⦄)⦄
+										then:
+											⦃⦃⦃function⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+								then:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+										⦃(
+											⦃⦃function⦄(⦃x0⦄,⦃x0⦄)⦄,
+											⦃x1⦄
+										)⦄,
+										⦃(
+											⦃x0⦄,
+											⦃⦃function⦄(⦃x0⦄,⦃x1⦄)⦄
+										)⦄
+									)⦄.MapWith(⦃function⦄)⦄)⦄
+
+
+
+define ⦃MetaRightAlternativePartialMagma⦄,⦃RightAlternativePartialMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧RightAlternativePartialMagma⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧RightAlternativePartialMagma⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialMagma⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧LeftAlternativePartialMagma⦄.HasInstance(⦃⦃structure⦄.GetConverse()⦄)⦄
+
+
+
+define ⦃MetaAlternativePartialMagma⦄,⦃AlternativePartialMagma⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlternativePartialMagma⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlternativePartialMagma⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlternativePartialMagma⦄.HasInstance(⦃structure⦄)⦄

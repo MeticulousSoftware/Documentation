@@ -1,0 +1,34 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPointedClass⦄,⦃PointedClass⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PointedClass⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PointedClass⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦operation⟧:
+									⦃⦃(⦃operation⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+							⦃⦃ConstantOperation⦄.HasInstance(⦃operation⦄)⦄
+
+
+
+define ⦃method ⦃MetaPointedClass⦄.GetBasePoint⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaPointedClass⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetBasePoint⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃{⦃⦃structure⦄.GetBasePoint()⦄}⦄.IsEqualTo(⦃⦃⦃⦃structure⦄.GetAddition()⦄.GetSimplifiedFunction()⦄.GetCoDomain()⦄)⦄

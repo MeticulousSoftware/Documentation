@@ -1,0 +1,1651 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦VariablesAndNotations⟧
+define ⦃VariablesAndNotations⦄
+	⦃⦃VariablesAndNotations⦄.IsEqualTo(⦃⦃⦃⦃(⦃Variable⦄,⦃Notation⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetUnion()⦄.GetGeneratedType()⦄)⦄
+
+declare ⟦FiniteSequenceOfVariablesAndNotations⟧
+define ⦃FiniteSequenceOfVariablesAndNotations⦄
+	⦃⦃FiniteSequenceOfVariablesAndNotations⦄.IsEqualTo(⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃VariablesAndNotations⦄)⦄)⦄
+
+
+
+define ⦃Documentation⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Documentation⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧,⟦GetImportedDocumentation⟧,⟦GetTopNodes⟧,⟦GetIdentifierFromStack⟧,⟦GetTopDeclarationNodesStack⟧,⟦GetTopDeclarationsStackSubStackLengthFromNode⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦typeIdentifier⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints ImportedDocumentation⦄,
+								⦃unicodeCodePoints TopNodes⦄,
+								⦃unicodeCodePoints IdentifierFromStack⦄,
+								⦃unicodeCodePoints TopDeclarationNodesStack⦄,
+								⦃unicodeCodePoints TopDeclarationsStackSubStackLengthFromNode⦄
+							}⦄.Has(⦃typeIdentifier⦄)⦄
+						then:
+								⦃⦃Method⦄.HasInstance(⦃Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+							and:
+								⦃⦃⦃Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃⦃Documentation⦄.MapToClass()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+							and:
+								there exists
+									⟦GetDescription⟧,
+									⟦GetLexerAndParserCombination⟧,
+									⟦MapToSourceIdentifier⟧,
+									⟦ImportDocumentation⟧,
+									⟦getImportedDocumentation⟧,
+									⟦getTopNodes⟧,
+									⟦GetMiddleNodes⟧,
+									⟦getIdentifierFromStack⟧,
+									⟦getTopDeclarationNodesStack⟧,
+									⟦getTopDeclarationsStackSubStackLengthFromNode⟧,
+									⟦GetTrueStacks⟧,
+									⟦GetLogicallyValidStacksAtTheBeginningOfScope⟧,
+									⟦GetLogicallyValidStacksAtTheEndingOfScope⟧,
+									⟦ResolveLogicallyTrueStacksOfScope⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetDescription⦄,⦃GetDescription⦄)⦄,
+											⦃(⦃unicodeCodePoints GetLexerAndParserCombination⦄,⦃GetLexerAndParserCombination⦄)⦄,
+											⦃(⦃unicodeCodePoints MapToSourceIdentifier⦄,⦃MapToSourceIdentifier⦄)⦄,
+											⦃(⦃unicodeCodePoints ImportDocumentation⦄,⦃ImportDocumentation⦄)⦄,
+											⦃(⦃unicodeCodePoints getImportedDocumentation⦄,⦃getImportedDocumentation⦄)⦄,
+											⦃(⦃unicodeCodePoints getTopNodes⦄,⦃getTopNodes⦄)⦄,
+											⦃(⦃unicodeCodePoints GetMiddleNodes⦄,⦃GetMiddleNodes⦄)⦄,
+											⦃(⦃unicodeCodePoints getIdentifierFromStack⦄,⦃getIdentifierFromStack⦄)⦄,
+											⦃(⦃unicodeCodePoints getTopDeclarationNodesStack⦄,⦃getTopDeclarationNodesStack⦄)⦄,
+											⦃(⦃unicodeCodePoints getTopDeclarationsStackSubStackLengthFromNode⦄,⦃getTopDeclarationsStackSubStackLengthFromNode⦄)⦄,
+											⦃(⦃unicodeCodePoints GetTrueStacks⦄,⦃GetTrueStacks⦄)⦄,
+											⦃(⦃unicodeCodePoints GetLogicallyValidStacksAtTheBeginningOfScope⦄,⦃GetLogicallyValidStacksAtTheBeginningOfScope⦄)⦄,
+											⦃(⦃unicodeCodePoints GetLogicallyValidStacksAtTheEndingOfScope⦄,⦃GetLogicallyValidStacksAtTheEndingOfScope⦄)⦄,
+											⦃(⦃unicodeCodePoints ResolveLogicallyTrueStacksOfScope⦄,⦃ResolveLogicallyTrueStacksOfScope⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										for all ⟦typeIdentifier⟧:
+											if:
+												⦃⦃{
+													⦃unicodeCodePoints GetDescription⦄,
+													⦃unicodeCodePoints GetLexerAndParserCombination⦄,
+													⦃unicodeCodePoints GetMiddleNodes⦄,
+													⦃unicodeCodePoints getTopDeclarationNodesStack⦄,
+													⦃unicodeCodePoints GetTrueStacks⦄
+												}⦄.Has(⦃typeIdentifier⦄)⦄
+											then:
+												⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+									and:
+										let:
+											⟦description⟧:
+												⦃⦃description⦄.IsEqualTo(⦃⦃GetDescription⦄()⦄)⦄
+											⟦lexerAndParserCombination⟧:
+												⦃⦃lexerAndParserCombination⦄.IsEqualTo(⦃⦃GetLexerAndParserCombination⦄()⦄)⦄
+												⦃⦃UnambiguousLexerAndParserCombination⦄.HasInstance(⦃lexerAndParserCombination⦄)⦄
+											and:
+												⦃⦃⦃lexerAndParserCombination⦄.GetLanguage()⦄.Has(⦃description⦄)⦄
+										and:
+											let:
+												⟦parseTree⟧:
+													⦃⦃parseTree⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetParseTreeOf(⦃description⦄)⦄)⦄
+												⟦parseTreeNodes⟧:
+													⦃⦃parseTreeNodes⦄.IsEqualTo(⦃⦃parseTree⦄.GetAllChildNodes()⦄)⦄
+													for all ⟦node⟧:
+															⦃⦃⦃MapToSourceIdentifier⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+														if and only if:
+																⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+															and:
+																⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints source statement⦄)⦄
+												and:
+													⦃⦃⦃MapToSourceIdentifier⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃ImportDocumentation⦄.GetDomain()⦄)⦄
+												and:
+													⦃⦃⦃ImportDocumentation⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃Documentation⦄.MapToClass()⦄)⦄
+											and:
+												let:
+													⟦getMatchingNodeFromParseTree⟧,⟦getMatchingNodeFromASpecificationParseTree⟧,⟦specificationParseTree⟧,⟦specificationParseTreeNodes⟧:
+															⦃⦃specificationParseTree⦄.IsEqualTo(⦃⦃getMatchingNodeFromASpecificationParseTree⦄(⦃parseTree⦄)⦄)⦄
+														and:
+															⦃⦃specificationParseTreeNodes⦄.IsEqualTo(⦃⦃specificationParseTree⦄.GetAllChildNodes()⦄)⦄
+														and:
+															for all ⟦typeIdentifier⟧:
+																if:
+																	⦃⦃{
+																		⦃unicodeCodePoints ⦄,
+																		⦃unicodeCodePoints ASpecification⦄
+																	}⦄.Has(⦃typeIdentifier⦄)⦄
+																then:
+																		⦃⦃Function⦄.HasInstance(⦃getMatchingNodeFrom⟦⟦⦃typeIdentifier⦄⟧⟧ParseTree⦄)⦄
+																	and:
+																		for all ⟦node⟧:
+																				⦃⦃⦃getMatchingNodeFrom⟦⟦⦃typeIdentifier⦄⟧⟧ParseTree⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																			if and only if:
+																					there exists ⟦typeIdentifier⟧:
+																							⦃⦃{
+																								⦃unicodeCodePoints ⦄,
+																								⦃unicodeCodePoints specification⦄
+																							}⦄.Has(⦃typeIdentifier⦄)⦄
+																						and:
+																							⦃⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Parse⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧TreeNodes⦄.Has(⦃node⦄)⦄
+																				and:
+																					⦃⦃{
+																						⦃unicodeCodePoints documentation⦄,
+																						⦃unicodeCodePoints declare statement⦄,
+																						⦃unicodeCodePoints define statement⦄,
+																						⦃unicodeCodePoints export statement⦄,
+																						⦃unicodeCodePoints import statement⦄,
+																						⦃unicodeCodePoints variable or notation declaration list⦄,
+																						⦃unicodeCodePoints variable declaration⦄,
+																						⦃unicodeCodePoints notation declaration⦄,
+																						⦃unicodeCodePoints variable value list⦄,
+																						⦃unicodeCodePoints variable value⦄,
+																						⦃unicodeCodePoints variable identifier⦄,
+																						⦃unicodeCodePoints variable⦄,
+																						⦃unicodeCodePoints variable identifier to expand⦄,
+																						⦃unicodeCodePoints formula⦄,
+																						⦃unicodeCodePoints predicate⦄,
+																						⦃unicodeCodePoints text statement⦄,
+																						⦃unicodeCodePoints text statement content⦄,
+																						⦃unicodeCodePoints source statement⦄,
+																						⦃unicodeCodePoints text⦄
+																					}⦄.Has(⦃⦃node⦄.GetSymbol()⦄)⦄
+														and:
+															there exists ⟦specification⟧:
+																	⦃⦃ExtendedBackusNaurForm⦄.HasInstance(⦃specification⦄)⦄
+																and:
+																	let:
+																		⟦specificationParser⟧:
+																			⦃⦃specificationParser⦄.IsEqualTo(⦃⦃specification⦄.GetGeneratedParser()⦄)⦄
+																		⦃⦃UnambiguousParser⦄.HasInstance(⦃specificationParser⦄)⦄
+																	and:
+																		there exists ⟦topSpecification⟧,⟦bottomSpecifications⟧:
+																					⦃⦃ExtendedBackusNaurForm⦄.HasInstance(⦃topSpecification⦄)⦄
+																				and:
+																					⦃⦃⦃topSpecification⦄.GetDescription()⦄.IsEqualTo(⦃unicodeCodePoints 
+																						<documentation> → <optional separator> <main statement> (<separator> <main statement>){} <optional separator> | <optional separator>
+																						<main statement> → <declare statement> | <define statement> | <import statement> | <export statement>
+																						<declare statement> → <declare operator> <optional separator> <variable or notation declaration list>
+																						<define statement> → <define operator> (<optional separator> <variable value list>){,1} <separator> <formula>
+																						<import statement> → <import operator> <optional separator> <source statement> (<optional separator> <variable or notation declaration list>){,1}
+																						<export statement> → <export operator> <optional separator> <variable value list>
+																						
+																						<variable or notation declaration list> → <variable or notation declaration> (<variable or notation declaration list separator> <variable or notation declaration>){}
+																						<variable or notation declaration> → <variable declaration> | <notation declaration>
+																						<variable declaration> → <variable declaration opening bracket> <variable identifier> <variable declaration closing bracket>
+																						<notation declaration> → <notation declaration opening bracket> <variable identifier> <notation declaration closing bracket>
+																						
+																						<variable value list> → <variable value> (<variable value list separator> <variable value>){}
+																						<variable value> → <get variable value opening bracket> <variable identifier> <get variable value closing bracket>
+																						<variable> → <get variable opening bracket> <variable value> <get variable closing bracket>
+																						<variable identifier to expand> → <expand variable identifier opening bracket> <variable value> <expand variable identifier closing bracket>
+																						
+																						<variable identifier> → (<variable> | <variable value> | <variable identifier to expand> | <text>){}
+																						
+																						<formula> → <formula inner>
+																						<formula inner> → <formula part> (<optional separator> <formula inner>){,1}
+																						<formula part> → <logical block opening bracket> <formula inner> <logical block closing bracket> | <logical operator or quantifier> | <predicate>
+																						<logical operator or quantifier> → <logical operator> | (<logical operator> <optional separator>){,1} <variable or notation declaration list>
+																						<predicate> → <variable value> | <text statement>
+																						<text statement> → <text statement opening bracket> <text statement content> <text statement closing bracket>
+																						<text statement content> → (<variable value> | <text>){}
+																						
+																						<source statement> → <source statement content>
+																						<text> → <text content>
+																						<optional separator> → <separator>{,1}
+																					⦄)⦄
+																			and:
+																					⦃⦃FiniteSequence⦄.HasInstance(⦃bottomSpecifications⦄)⦄
+																				and:
+																					for all ⟦bottomSpecification⟧:
+																						if:
+																							⦃⦃⦃bottomSpecifications⦄.GetCoDomain()⦄.Has(⦃bottomSpecification⦄)⦄
+																						then:
+																								⦃⦃ExtendedBackusNaurForm⦄.HasInstance(⦃bottomSpecification⦄)⦄
+																							and:
+																								⦃⦃⦃⦃⦃(⦃bottomSpecification⦄,⦃topSpecification⦄)⦄.MapWith(⦃unaryFunction GetGeneratedParser⦄)⦄.MapWith(⦃unaryFunction GetSymbols⦄)⦄.GetIntersection()⦄.IsSubMultiClassOf(⦃{
+																									⦃unicodeCodePoints declare operator⦄,
+																									⦃unicodeCodePoints define operator⦄,
+																									⦃unicodeCodePoints import operator⦄,
+																									⦃unicodeCodePoints export operator⦄,
+																									⦃unicodeCodePoints variable or notation declaration list separator⦄,
+																									⦃unicodeCodePoints variable value list separator⦄,
+																									⦃unicodeCodePoints variable declaration opening bracket⦄,
+																									⦃unicodeCodePoints variable declaration closing bracket⦄,
+																									⦃unicodeCodePoints notation declaration opening bracket⦄,
+																									⦃unicodeCodePoints notation declaration closing bracket⦄,
+																									⦃unicodeCodePoints get variable value opening bracket⦄,
+																									⦃unicodeCodePoints get variable value closing bracket⦄,
+																									⦃unicodeCodePoints get variable opening bracket⦄,
+																									⦃unicodeCodePoints get variable closing bracket⦄,
+																									⦃unicodeCodePoints expand variable identifier opening bracket⦄,
+																									⦃unicodeCodePoints expand variable identifier closing bracket⦄,
+																									⦃unicodeCodePoints logical block opening bracket⦄,
+																									⦃unicodeCodePoints logical block closing bracket⦄,
+																									⦃unicodeCodePoints text statement opening bracket⦄,
+																									⦃unicodeCodePoints text statement closing bracket⦄,
+																									⦃unicodeCodePoints logical operator⦄,
+																									⦃unicodeCodePoints source statement content⦄,
+																									⦃unicodeCodePoints text content⦄,
+																									⦃unicodeCodePoints separator⦄
+																								}⦄)⦄
+																			and:
+																				⦃⦃⦃specification⦄.GetDescription()⦄.IsEqualTo(⦃⦃⦃topSpecification⦄.GetDescription()⦄.GetConcatenationWith(⦃⦃⦃bottomSpecifications⦄.MapWith(⦃unaryFunction GetDescription⦄)⦄.Join(⦃unicodeCodePoints #10#⦄)⦄)⦄)⦄
+																	and:
+																		for all ⟦typeIdentifier⟧:
+																			if:
+																				⦃⦃{
+																					⦃unicodeCodePoints ⦄,
+																					⦃unicodeCodePoints ASpecification⦄
+																				}⦄.Has(⦃typeIdentifier⦄)⦄
+																			then:
+																				let:
+																					⟦parser⟧:
+																						if:
+																							⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																						then:
+																							⦃⦃parser⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetParser()⦄)⦄
+																						else:
+																							⦃⦃parser⦄.IsEqualTo(⦃specificationParser⦄)⦄
+																					⟦tokenNames⟧:
+																						⦃⦃tokenNames⦄.IsEqualTo(⦃⦃⦃lexerAndParserCombination⦄.GetLexer()⦄.LexToTokenNames(⦃description⦄)⦄)⦄
+																					⦃⦃⦃parser⦄.GetLanguage()⦄.Has(⦃tokenNames⦄)⦄
+																				and:
+																					for all ⟦node⟧:
+																						if:
+																							⦃⦃⦃getMatchingNodeFrom⟦⟦⦃typeIdentifier⦄⟧⟧ParseTree⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																						then:
+																							let:
+																								⟦matchingNode⟧:
+																										⦃⦃⦃⦃parser⦄.GetParseTreeOf(⦃tokenNames⦄)⦄.GetAllChildNodes()⦄.Has(⦃matchingNode⦄)⦄
+																									and:
+																										for all ⟦typeIdentifier⟧:
+																											if:
+																												⦃⦃{
+																													⦃unicodeCodePoints Symbol⦄,
+																													⦃unicodeCodePoints ValueRange⦄
+																												}⦄.Has(⦃typeIdentifier⦄)⦄
+																											then:
+																												⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃matchingNode⦄,⦃node⦄)⦄.MapWith(⦃unaryFunction Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+																							⦃⦃⦃getMatchingNodeFrom⟦⟦⦃typeIdentifier⦄⟧⟧ParseTree⦄(⦃node⦄)⦄.IsEqualTo(⦃matchingNode⦄)⦄
+														and:
+															there exists ⟦expandedParseTree⟧,⟦expandParseTree0⟧,⟦expandParseTree1⟧:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+																	then:
+																		let:
+																			⟦typeIdentifier⟧:
+																				⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+																			⟦typeIdentifier0⟧:
+																				if:
+																					⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+																				then:
+																					⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																				else:
+																					⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints specification⦄)⦄
+																			⟦expandParseTreeMaps⟧:
+																					⦃⦃Class⦄.HasInstance(⦃expandParseTreeMaps⦄)⦄
+																				and:
+																					for all ⟦expandParseTree⟧:
+																							⦃⦃expandParseTreeMaps⦄.Has(⦃expandParseTree⦄)⦄
+																						if and only if:
+																								⦃⦃Function⦄.HasInstance(⦃expandParseTree⦄)⦄
+																							and:
+																								⦃⦃⦃expandParseTree⦄.GetDomain()⦄.IsEqualTo(⦃⦃UnambiguousParseTreeNode⦄.MapToClass()⦄)⦄
+																							and:
+																								for all ⟦node⟧:
+																									if:
+																										⦃⦃⦃expandParseTree⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																									then:
+																										let:
+																											⟦expanded⟧:
+																												⦃⦃expanded⦄.IsEqualTo(⦃⦃expandParseTree⦄(⦃node⦄)⦄)⦄
+																										if:
+																											⦃⦃TerminalParseTreeNode⦄.HasInstance(⦃node⦄)⦄
+																										then:
+																											⦃⦃expanded⦄.IsEqualTo(⦃(⦃node⦄)⦄)⦄
+																										else:
+																											let:
+																												⟦symbol⟧:
+																													⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+																												⟦expandedChildNodes⟧:
+																													⦃⦃expandedChildNodes⦄.IsEqualTo(⦃⦃⦃⦃node⦄.GetChildNodes()⦄.MapWith(⦃expandParseTree⦄)⦄.GetConcatenation()⦄)⦄
+																												⟦symbolsToKeep⟧:
+																													⦃⦃symbolsToKeep⦄.IsEqualTo(⦃{
+																														⦃unicodeCodePoints documentation⦄,
+																														⦃unicodeCodePoints declare statement⦄,
+																														⦃unicodeCodePoints define statement⦄,
+																														⦃unicodeCodePoints export statement⦄,
+																														⦃unicodeCodePoints import statement⦄,
+																														⦃unicodeCodePoints variable or notation declaration list⦄,
+																														⦃unicodeCodePoints variable declaration⦄,
+																														⦃unicodeCodePoints notation declaration⦄,
+																														⦃unicodeCodePoints variable value list⦄,
+																														⦃unicodeCodePoints variable value⦄,
+																														⦃unicodeCodePoints variable identifier⦄,
+																														⦃unicodeCodePoints variable⦄,
+																														⦃unicodeCodePoints variable identifier to expand⦄,
+																														⦃unicodeCodePoints formula⦄,
+																														⦃unicodeCodePoints predicate⦄,
+																														⦃unicodeCodePoints source statement⦄,
+																														⦃unicodeCodePoints text statement⦄,
+																														⦃unicodeCodePoints text⦄
+																													}⦄)⦄
+																												there exists ⟦expandedNode⟧:
+																														⦃⦃UnambiguousParseTreeNode⦄.HasInstance(⦃expandedNode⦄)⦄
+																													and:
+																														let:
+																															⟦expandedNodeSymbol⟧:
+																																⦃⦃expandedNodeSymbol⦄.IsEqualTo(⦃⦃expandedNode⦄.GetSymbol()⦄)⦄
+																															⦃⦃expandedNodeSymbol⦄.IsEqualTo(⦃symbol⦄)⦄
+																														or:
+																															not:
+																																	⦃⦃symbolsToKeep⦄.Has(⦃symbol⦄)⦄
+																																or:
+																																	⦃⦃symbolsToKeep⦄.Has(⦃expandedNodeSymbol⦄)⦄
+																													and:
+																														⦃⦃⦃expandedNode⦄.GetChildNodes()⦄.IsEqualTo(⦃expandedChildNodes⦄)⦄
+																													and:
+																														⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃expandedNode⦄,⦃node⦄)⦄.MapWith(⦃unaryFunction GetValueRange⦄)⦄)⦄
+																													and:
+																														if:
+																															⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints documentation⦄)⦄
+																														then:
+																															⦃⦃expanded⦄.IsEqualTo(⦃expandedNode⦄)⦄
+																														else:
+																															⦃⦃expanded⦄.IsEqualTo(⦃(⦃expandedNode⦄)⦄)⦄
+																											or:
+																													not:
+																															⦃⦃symbolsToKeep⦄.Has(⦃symbol⦄)⦄
+																														or:
+																															⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints logical operator or quantifier⦄)⦄
+																												and:
+																													⦃⦃expanded⦄.IsEqualTo(⦃expandedChildNodes⦄)⦄
+																			⦃⦃expandParseTreeMaps⦄.Has(⦃expandParseTree⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+																		and:
+																			⦃⦃expandedParseTree⦄.IsEqualTo(⦃⦃expandParseTree⟦⟦⦃typeIdentifier⦄⟧⟧⦄(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier0⦄⟧⟧Parse⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧Tree⦄)⦄)⦄
+													⟦specificationNodeHasParentNodeWithSymbolIn⟧:
+															⦃⦃Function⦄.HasInstance(⦃specificationNodeHasParentNodeWithSymbolIn⦄)⦄
+														and:
+															⦃⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃specificationParseTreeNodes⦄,⦃⦃Class⦄.MapToClass()⦄,⦃⦃Boolean⦄.MapToClass()⦄)⦄.GetCartesianProduct()⦄)⦄
+														and:
+															for all ⟦x⟧:
+																if:
+																	⦃⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																then:
+																		⦃⦃Boolean⦄.HasInstance(⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄(⦃x⦄)⦄)⦄
+																	and:
+																			⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄(⦃x⦄)⦄
+																		if and only if:
+																			there exists ⟦parentNode⟧:
+																					⦃⦃specificationParseTreeNodes⦄.Has(⦃parentNode⦄)⦄
+																				and:
+																					let:
+																						⟦node⟧,⟦symbols⟧,⟦isProper⟧:
+																							⦃⦃(⦃node⦄,⦃symbols⦄,⦃isProper⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																						⦃⦃symbols⦄.Has(⦃⦃parentNode⦄.GetSymbol()⦄)⦄
+																					and:
+																						let:
+																							⟦typeIdentifier⟧:
+																								if:
+																									⦃isProper⦄
+																								then:
+																									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Proper⦄)⦄
+																								else:
+																									⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																						⦃⦃⦃parentNode⦄.GetAll⟦⟦⦃typeIdentifier⦄⟧⟧ChildNodes()⦄.Has(⦃node⦄)⦄
+													⟦nodeHasMainSpecificationMatchingNodeOrChildNode⟧:
+															⦃⦃Function⦄.HasInstance(⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄)⦄
+														and:
+															⦃⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃parseTreeNodes⦄,⦃specificationParseTreeNodes⦄)⦄.GetCartesianProduct()⦄)⦄
+														and:
+															for all ⟦nodes⟧:
+																if:
+																	⦃⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄.GetDomain()⦄.Has(⦃nodes⦄)⦄
+																then:
+																		⦃⦃Boolean⦄.HasInstance(⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄(⦃nodes⦄)⦄)⦄
+																	and:
+																			⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄(⦃nodes⦄)⦄
+																		if and only if:
+																			let:
+																				⟦node⟧,⟦specificationNode⟧:
+																					⦃⦃(⦃node⦄,⦃specificationNode⦄)⦄.IsEqualTo(⦃nodes⦄)⦄
+																				⦃⦃{
+																					⦃unicodeCodePoints documentation⦄,
+																					⦃unicodeCodePoints formula⦄,
+																					⦃unicodeCodePoints import statement⦄,
+																					⦃unicodeCodePoints variable declaration⦄,
+																					⦃unicodeCodePoints notation declaration⦄,
+																					⦃unicodeCodePoints variable value⦄,
+																					⦃unicodeCodePoints logical operator or quantifier⦄,
+																					⦃unicodeCodePoints predicate⦄
+																				}⦄.Has(⦃⦃specificationNode⦄.GetSymbol()⦄)⦄
+																			and:
+																				not:
+																					⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄(⦃specificationNode⦄,⦃{
+																						⦃unicodeCodePoints variable value⦄
+																					}⦄,⦃True⦄)⦄
+																			and:
+																				⦃⦃⦃node⦄.GetAllChildNodes()⦄.Has(⦃⦃getMatchingNodeFromParseTree⦄(⦃specificationNode⦄)⦄)⦄
+													⟦mainNodes⟧:
+															⦃⦃Class⦄.HasInstance(⦃mainNodes⦄)⦄
+														and:
+															for all ⟦node⟧:
+																	⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																if and only if:
+																		⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+																	and:
+																		there exists ⟦specificationNode⟧:
+																			⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄(⦃node⦄,⦃specificationNode⦄)⦄
+													⟦logicalNodes⟧:
+															⦃⦃Class⦄.HasInstance(⦃logicalNodes⦄)⦄
+														and:
+															for all ⟦node⟧:
+																	⦃⦃logicalNodes⦄.Has(⦃node⦄)⦄
+																if and only if:
+																		⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																	and:
+																		there exists ⟦specificationNode⟧:
+																				⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄(⦃node⦄,⦃specificationNode⦄)⦄
+																			and:
+																				if:
+																					⦃⦃⦃specificationNode⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints variable value⦄)⦄
+																				then:
+																					⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄(⦃specificationNode⦄,⦃{
+																						⦃unicodeCodePoints formula⦄
+																					}⦄,⦃True⦄)⦄
+																			and:
+																				not:
+																					⦃⦃specificationNodeHasParentNodeWithSymbolIn⦄(⦃specificationNode⦄,⦃{
+																						⦃unicodeCodePoints text statement⦄
+																					}⦄,⦃False⦄)⦄
+													⟦topNodes⟧:
+														⦃⦃topNodes⦄.IsEqualTo(⦃⦃getTopNodes⦄()⦄)⦄
+													⟦topDeclarationNodes⟧:
+															⦃⦃Class⦄.HasInstance(⦃topDeclarationNodes⦄)⦄
+														and:
+															for all ⟦node⟧:
+																	⦃⦃topDeclarationNodes⦄.Has(⦃node⦄)⦄
+																if and only if:
+																		⦃⦃topNodes⦄.Has(⦃node⦄)⦄
+																	and:
+																		there exists ⟦typeIdentifier⟧:
+																				⦃⦃{
+																					⦃unicodeCodePoints variable⦄,
+																					⦃unicodeCodePoints notation⦄
+																				}⦄.Has(⦃typeIdentifier⦄)⦄
+																			and:
+																				⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧declaration⦄)⦄
+													⟦middleNodes⟧:
+														⦃⦃middleNodes⦄.IsEqualTo(⦃⦃GetMiddleNodes⦄()⦄)⦄
+													⟦bottomNodes⟧:
+															⦃⦃Class⦄.HasInstance(⦃bottomNodes⦄)⦄
+														and:
+															for all ⟦node⟧:
+																	⦃⦃bottomNodes⦄.Has(⦃node⦄)⦄
+																if and only if:
+																		⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																	and:
+																		if:
+																			⦃⦃topNodes⦄.Has(⦃node⦄)⦄
+																		then:
+																			⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints formula⦄)⦄
+														⦃⦃Class⦄.HasInstance(⦃topNodes⦄)⦄
+													and:
+														for all ⟦node⟧:
+																⦃⦃topNodes⦄.Has(⦃node⦄)⦄
+															if and only if:
+																	⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																and:
+																	not:
+																		there exists ⟦parentNode⟧:
+																				⦃⦃parseTreeNodes⦄.Has(⦃parentNode⦄)⦄
+																			and:
+																				⦃⦃⦃parentNode⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints formula⦄)⦄
+																			and:
+																				⦃⦃⦃parentNode⦄.GetAllProperChildNodes()⦄.Has(⦃node⦄)⦄
+												and:
+														⦃⦃Class⦄.HasInstance(⦃middleNodes⦄)⦄
+													and:
+														for all ⟦node⟧:
+																⦃⦃middleNodes⦄.Has(⦃node⦄)⦄
+															if and only if:
+																	⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																and:
+																	not:
+																		⦃⦃topNodes⦄.Has(⦃node⦄)⦄
+																and:
+																	there exists ⟦specificationNode⟧:
+																			⦃⦃nodeHasMainSpecificationMatchingNodeOrChildNode⦄(⦃node⦄,⦃specificationNode⦄)⦄
+																		and:
+																			⦃⦃{
+																				⦃unicodeCodePoints logical operator or quantifier⦄,
+																				⦃unicodeCodePoints predicate⦄
+																			}⦄.Has(⦃⦃specificationNode⦄.GetSymbol()⦄)⦄
+												and:
+													let:
+														⟦resolveText⟧:
+																⦃⦃Function⦄.HasInstance(⦃resolveText⦄)⦄
+															and:
+																for all ⟦node⟧:
+																		⦃⦃⦃resolveText⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																	if and only if:
+																			⦃⦃parseTreeNodes⦄.Has(⦃node⦄)⦄
+																		and:
+																			⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints text⦄)⦄
+															and:
+																for all ⟦node⟧:
+																	if:
+																		⦃⦃⦃resolveText⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																	then:
+																		let:
+																			⟦resolvedTextParts⟧:
+																				⦃⦃resolvedTextParts⦄.IsEqualTo(⦃⦃lexerAndParserCombination⦄.GetTokenValuesOfNode(⦃node⦄)⦄)⦄
+																			⦃⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃⦃FiniteSequence⦄.GetTypeInducedBy(⦃UnicodeCodePoint⦄)⦄)⦄.HasInstance(⦃resolvedTextParts⦄)⦄
+																		and:
+																			⦃⦃⦃resolveText⦄(⦃node⦄)⦄.IsEqualTo(⦃⦃resolvedTextParts⦄.GetConcatenation()⦄)⦄
+														⟦getVariableFromStack⟧:
+																⦃⦃Function⦄.HasInstance(⦃getVariableFromStack⦄)⦄
+															and:
+																for all ⟦x⟧:
+																		⦃⦃⦃getVariableFromStack⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																	if and only if:
+																		there exists ⟦stack⟧,⟦identifier⟧:
+																				⦃⦃x⦄.IsEqualTo(⦃(⦃stack⦄,⦃identifier⦄)⦄)⦄
+																			and:
+																				⦃⦃FiniteSequenceOfVariablesAndNotations⦄.HasInstance(⦃stack⦄)⦄
+																			and:
+																				⦃⦃⦃unaryFunction ⦃Variable⦄.GetIdentifier⦄.GetCoDomain()⦄.Has(⦃identifier⦄)⦄
+															and:
+																for all ⟦x⟧:
+																	if:
+																		⦃⦃⦃getVariableFromStack⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																	then:
+																		let:
+																			⟦stack⟧,⟦identifier⟧:
+																				⦃⦃(⦃stack⦄,⦃identifier⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																			⟦isOrHasAVariableWithIdentifier⟧:
+																					⦃⦃Function⦄.HasInstance(⦃isOrHasAVariableWithIdentifier⦄)⦄
+																				and:
+																					⦃⦃⦃isOrHasAVariableWithIdentifier⦄.GetDomain()⦄.IsEqualTo(⦃⦃VariablesAndNotations⦄.MapToClass()⦄)⦄
+																				and:
+																					for all ⟦variableOrNotation⟧:
+																						if:
+																							⦃⦃⦃isOrHasAVariableWithIdentifier⦄.GetDomain()⦄.Has(⦃variableOrNotation⦄)⦄
+																						then:
+																								⦃⦃Boolean⦄.HasInstance(⦃⦃isOrHasAVariableWithIdentifier⦄(⦃variableOrNotation⦄)⦄)⦄
+																							and:
+																									⦃⦃isOrHasAVariableWithIdentifier⦄(⦃variableOrNotation⦄)⦄
+																								if and only if:
+																									if:
+																										⦃⦃Variable⦄.HasInstance(⦃variableOrNotation⦄)⦄
+																									then:
+																										let:
+																											⟦variable⟧:
+																												⦃⦃variable⦄.IsEqualTo(⦃variableOrNotation⦄)⦄
+																										⦃⦃⦃variable⦄.GetIdentifier()⦄.IsEqualTo(⦃identifier⦄)⦄
+																									else:
+																										let:
+																											⟦notation⟧:
+																												⦃⦃notation⦄.IsEqualTo(⦃variableOrNotation⦄)⦄
+																										⦃⦃⦃notation⦄.GetDomain()⦄.Has(⦃identifier⦄)⦄
+																			⟦getVariable⟧:
+																					⦃⦃Function⦄.HasInstance(⦃getVariable⦄)⦄
+																				and:
+																					⦃⦃⦃getVariable⦄.GetDomain()⦄.IsEqualTo(⦃⦃VariablesAndNotations⦄.MapToClass()⦄)⦄
+																				and:
+																					for all ⟦variableOrNotation⟧:
+																						if:
+																							⦃⦃⦃getVariable⦄.GetDomain()⦄.Has(⦃variableOrNotation⦄)⦄
+																						then:
+																							let:
+																								⟦variable⟧:
+																									⦃⦃variable⦄.IsEqualTo(⦃⦃getVariable⦄(⦃variableOrNotation⦄)⦄)⦄
+																							if:
+																								⦃⦃Variable⦄.HasInstance(⦃variableOrNotation⦄)⦄
+																							then:
+																								⦃⦃variable⦄.IsEqualTo(⦃variableOrNotation⦄)⦄
+																							else:
+																								let:
+																									⟦notation⟧:
+																										⦃⦃notation⦄.IsEqualTo(⦃variableOrNotation⦄)⦄
+																								⦃⦃variable⦄.IsEqualTo(⦃⦃notation⦄(⦃identifier⦄)⦄)⦄
+																		⦃⦃⦃getVariableFromStack⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃⦃stack⦄.FindLastWith(⦃isOrHasAVariableWithIdentifier⦄)⦄.MapWith(⦃getVariable⦄)⦄)⦄
+															for all ⟦x⟧:
+																	⦃⦃⦃getIdentifierFromStack⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																if and only if:
+																	there exists ⟦stack⟧,⟦node⟧:
+																			⦃⦃x⦄.IsEqualTo(⦃(⦃stack⦄,⦃node⦄)⦄)⦄
+																		and:
+																			⦃⦃FiniteSequenceOfVariablesAndNotations⦄.HasInstance(⦃stack⦄)⦄
+																		and:
+																				⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																			and:
+																				⦃⦃{
+																					⦃unicodeCodePoints variable declaration⦄,
+																					⦃unicodeCodePoints notation declaration⦄,
+																					⦃unicodeCodePoints variable value⦄
+																				}⦄.Has(⦃⦃node⦄.GetSymbol()⦄)⦄
+														and:
+															for all ⟦x⟧:
+																if:
+																	⦃⦃⦃getIdentifierFromStack⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																then:
+																	let:
+																		⟦stack⟧,⟦node⟧:
+																			⦃⦃(⦃stack⦄,⦃node⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																		⟦buildIdentifierFromStack⟧:
+																				⦃⦃Function⦄.HasInstance(⦃buildIdentifierFromStack⦄)⦄
+																			and:
+																				for all ⟦node⟧:
+																						⦃⦃⦃buildIdentifierFromStack⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																					if and only if:
+																							⦃⦃specificationParseTreeNodes⦄.Has(⦃node⦄)⦄
+																						and:
+																							⦃⦃{
+																								⦃unicodeCodePoints variable identifier⦄,
+																								⦃unicodeCodePoints variable⦄,
+																								⦃unicodeCodePoints variable value⦄,
+																								⦃unicodeCodePoints variable identifier to expand⦄
+																							}⦄.Has(⦃⦃node⦄.GetSymbol()⦄)⦄
+																			and:
+																				for all ⟦node⟧:
+																					if:
+																						⦃⦃⦃buildIdentifierFromStack⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																					then:
+																						let:
+																							⟦symbol⟧:
+																								⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+																							⟦builtIdentifier⟧:
+																								⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃buildIdentifierFromStack⦄(⦃node⦄)⦄)⦄
+																						if:
+																							⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable identifier⦄)⦄
+																						then:
+																							if:
+																								there exists ⟦childNode⟧:
+																										⦃⦃⦃⦃node⦄.GetChildNodes()⦄.GetCoDomain()⦄.Has(⦃childNode⦄)⦄
+																									and:
+																										⦃⦃⦃buildIdentifierFromStack⦄.GetDomain()⦄.Has(⦃childNode⦄)⦄
+																									and:
+																										not:
+																											⦃⦃⦃buildIdentifierFromStack⦄(⦃childNode⦄)⦄.IsSome()⦄
+																							then:
+																								⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																							else:
+																								let:
+																									⟦getIdentifierPart⟧:
+																											⦃⦃Function⦄.HasInstance(⦃getIdentifierPart⦄)⦄
+																										and:
+																											for all ⟦node⟧:
+																													⦃⦃⦃getIdentifierPart⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																												if and only if:
+																														⦃⦃⦃buildIdentifierFromStack⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																													or:
+																														⦃⦃⦃resolveText⦄.GetDomain()⦄.Has(⦃⦃getMatchingNodeFromParseTree⦄(⦃node⦄)⦄)⦄
+																										and:
+																											for all ⟦node⟧:
+																												if:
+																													⦃⦃⦃getIdentifierPart⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																												then:
+																													let:
+																														⟦symbol⟧:
+																															⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+																														⟦identifierPart⟧:
+																															⦃⦃identifierPart⦄.IsEqualTo(⦃⦃getIdentifierPart⦄(⦃node⦄)⦄)⦄
+																													if:
+																														⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints text⦄)⦄
+																													then:
+																														⦃⦃identifierPart⦄.IsEqualTo(⦃⦃resolveText⦄(⦃⦃getMatchingNodeFromParseTree⦄(⦃node⦄)⦄)⦄)⦄
+																													else:
+																														let:
+																															⟦resolvedVariable⟧:
+																																⦃⦃resolvedVariable⦄.IsEqualTo(⦃⦃⦃buildIdentifierFromStack⦄(⦃node⦄)⦄.Get()⦄)⦄
+																														if:
+																															⦃⦃{
+																																⦃unicodeCodePoints variable⦄,
+																																⦃unicodeCodePoints variable value⦄
+																															}⦄.Has(⦃symbol⦄)⦄
+																														then:
+																															⦃⦃identifierPart⦄.IsEqualTo(⦃(⦃resolvedVariable⦄)⦄)⦄
+																														else if:
+																															⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable identifier to expand⦄)⦄
+																														then:
+																															⦃⦃identifierPart⦄.IsEqualTo(⦃resolvedVariable⦄)⦄
+																								⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃⦃⦃⦃node⦄.GetChildNodes()⦄.MapWith(⦃getIdentifierPart⦄)⦄.GetConcatenation()⦄)⦄)⦄)⦄
+																						else:
+																							let:
+																								⟦optionalBuiltIdentifierFromWrappedNode⟧:
+																									⦃⦃optionalBuiltIdentifierFromWrappedNode⦄.IsEqualTo(⦃⦃buildIdentifierFromStack⦄(⦃⦃⦃node⦄.GetChildNodes()⦄(⦃1⦄)⦄)⦄)⦄
+																							if:
+																								not:
+																									⦃⦃optionalBuiltIdentifierFromWrappedNode⦄.IsSome()⦄
+																							then:
+																								⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																							else:
+																								let:
+																									⟦builtIdentifierFromWrappedNode⟧:
+																										⦃⦃builtIdentifierFromWrappedNode⦄.IsEqualTo(⦃⦃optionalBuiltIdentifierFromWrappedNode⦄.Get()⦄)⦄
+																								if:
+																									⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable⦄)⦄
+																								then:
+																									let:
+																										⟦variable⟧:
+																												⦃⦃Variable⦄.HasInstance(⦃variable⦄)⦄
+																											and:
+																												⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃variable⦄,⦃builtIdentifierFromWrappedNode⦄)⦄.MapWith(⦃unaryFunction GetIdentifier⦄)⦄)⦄
+																											and:
+																												⦃⦃⦃variable⦄.GetValue()⦄.IsEqualTo(⦃builtIdentifierFromWrappedNode⦄)⦄
+																									⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃variable⦄)⦄)⦄)⦄
+																								else if:
+																									⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable value⦄)⦄
+																								then:
+																									⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃getVariableFromStack⦄(⦃stack⦄,⦃builtIdentifierFromWrappedNode⦄)⦄)⦄
+																								else if:
+																									⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable identifier to expand⦄)⦄
+																								then:
+																									let:
+																										⟦identifier⟧:
+																											⦃⦃identifier⦄.IsEqualTo(⦃⦃builtIdentifierFromWrappedNode⦄.GetValue()⦄)⦄
+																									if:
+																										⦃⦃⦃unaryFunction ⦃Variable⦄.GetIdentifier⦄.GetCoDomain()⦄.Has(⦃identifier⦄)⦄
+																									then:
+																										⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃identifier⦄)⦄)⦄)⦄
+																									else:
+																										⦃⦃builtIdentifier⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																	⦃⦃⦃getIdentifierFromStack⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃buildIdentifierFromStack⦄(⦃⦃⦃⦃getMatchingNodeFromASpecificationParseTree⦄(⦃node⦄)⦄.GetChildNodes()⦄(⦃1⦄)⦄)⦄)⦄
+													and:
+														let:
+															⟦getImportedDocumentation⟧:
+																	⦃⦃Function⦄.HasInstance(⦃getImportedDocumentation⦄)⦄
+																and:
+																	for all ⟦node⟧:
+																			⦃⦃⦃getImportedDocumentation⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																		if and only if:
+																				⦃⦄mainNodes⦄.Has(⦃node⦄)⦄
+																			and:
+																				⦃⦃⦃node⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints import statement⦄)⦄
+																and:
+																	for all ⟦node⟧:
+																		if:
+																			⦃⦃⦃getImportedDocumentation⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																		then:
+																			⦃⦃⦃getImportedDocumentation⦄(⦃node⦄)⦄.IsEqualTo(⦃⦃ImportDocumentation⦄(⦃⦃getMatchingNodeFromParseTree⦄(⦃⦃⦃⦃getMatchingNodeFromASpecificationParseTree⦄(⦃node⦄)⦄.GetChildNodes()⦄(⦃2⦄)⦄)⦄)⦄)⦄
+															⟦getStacksFromDeclarations⟧:
+																	⦃⦃Function⦄.HasInstance(⦃getStacksFromDeclarations⦄)⦄
+																and:
+																	for all ⟦x⟧:
+																			⦃⦃⦃getStacksFromDeclarations⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																		if and only if:
+																			there exists ⟦declarations⟧,⟦node⟧,⟦canHaveImport⟧:
+																					⦃⦃x⦄.IsEqualTo(⦃(⦃declarations⦄,⦃node⦄,⦃canHaveImport⦄)⦄)⦄
+																				and:
+																					⦃⦃FiniteSequenceOfVariablesAndNotations⦄.HasInstance(⦃declarations⦄)⦄
+																				and:
+																					⦃⦃topDeclarationNodes⦄.Has(⦃node⦄)⦄
+																				and:
+																					⦃⦃Boolean⦄.HasInstance(⦃canHaveImport⦄)⦄
+																and:
+																	for all ⟦x⟧:
+																		if:
+																			⦃⦃⦃getStacksFromDeclarations⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																		then:
+																			let:
+																				⟦declarations⟧,⟦node⟧,⟦canHaveImport⟧:
+																					⦃⦃(⦃declarations⦄,⦃node⦄,⦃canHaveImport⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																				⟦stacks⟧:
+																					⦃⦃stacks⦄.IsEqualTo(⦃⦃getStacksFromDeclarations⦄(⦃x⦄)⦄)⦄
+																				⦃⦃Class⦄.HasInstance(⦃stacks⦄)⦄
+																			and:
+																				for all ⟦stack⟧:
+																						⦃⦃stacks⦄.Has(⦃stack⦄)⦄
+																					if and only if:
+																						there exists ⟦variable⟧,⟦optionalImport⟧:
+																									⦃⦃Variable⦄.HasInstance(⦃variable⦄)⦄
+																								and:
+																									⦃⦃⦃variable⦄.GetIdentifier()⦄.IsEqualTo(⦃⦃⦃getIdentifierFromStack⦄(⦃declarations⦄,⦃node⦄)⦄.Get()⦄)⦄
+																							and:
+																								let:
+																									⟦hasImport⟧:
+																											⦃⦃Function⦄.HasInstance(⦃hasImport⦄)⦄
+																										and:
+																											⦃⦃⦃hasImport⦄.GetDomain()⦄.IsEqualTo(⦃⦃Documentation⦄.MapToClass()⦄)⦄
+																										and:
+																											for all ⟦import⟧:
+																												if:
+																													⦃⦃⦃hasImport⦄.GetDomain()⦄.Has(⦃import⦄)⦄
+																												then:
+																														⦃⦃Boolean⦄.HasInstance(⦃⦃hasImport⦄(⦃import⦄)⦄)⦄
+																													and:
+																															⦃⦃hasImport⦄(⦃import⦄)⦄
+																														if and only if:
+																															there exists ⟦importStatement⟧:
+																																	⦃⦃⦃importStatement⦄.GetAllChildNodes()⦄.Has(⦃node⦄)⦄
+																																and:
+																																	⦃⦃import⦄.IsEqualTo(⦃⦃getImportedDocumentation⦄(⦃importStatement⦄)⦄)⦄
+																								if:
+																									there exists ⟦import⟧:
+																										⦃⦃hasImport⦄(⦃import⦄)⦄
+																								then:
+																									let:
+																										⟦import⟧:
+																											⦃⦃hasImport⦄(⦃import⦄)⦄
+																									⦃⦃optionalImport⦄.IsEqualTo(⦃⦃Optional⦄(⦃(⦃import⦄)⦄)⦄)⦄
+																								else:
+																									⦃⦃optionalImport⦄.IsEqualTo(⦃⦃Optional⦄()⦄)⦄
+																							and:
+																								let:
+																									⟦symbol⟧:
+																										⦃⦃symbol⦄.IsEqualTo(⦃⦃node⦄.GetSymbol()⦄)⦄
+																									⟦x⟧:
+																										if:
+																											⦃canHaveImport⦄
+																										then:
+																											⦃⦃x⦄.IsEqualTo(⦃(⦃variable⦄,⦃optionalImport⦄)⦄)⦄
+																										else:
+																											⦃⦃x⦄.IsEqualTo(⦃variable⦄)⦄
+																								if:
+																									⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable declaration⦄)⦄
+																								then:
+																									⦃⦃stack⦄.IsEqualTo(⦃(⦃x⦄)⦄)⦄
+																								else if:
+																									⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints notation declaration⦄)⦄
+																								then:
+																									let:
+																										⟦y⟧:
+																											let:
+																												⟦notation⟧:
+																														⦃⦃Notation⦄.HasInstance(⦃notation⦄)⦄
+																													and:
+																														⦃⦃notation⦄.IsEqualTo(⦃⦃variable⦄.GetValue()⦄)⦄
+																											if:
+																												⦃canHaveImport⦄
+																											then:
+																												⦃⦃y⦄.IsEqualTo(⦃(⦃notation⦄,⦃optionalImport⦄)⦄)⦄
+																											else:
+																												⦃⦃y⦄.IsEqualTo(⦃notation⦄)⦄
+																									⦃⦃stack⦄.IsEqualTo(⦃(⦃y⦄,⦃x⦄)⦄)⦄
+																	⦃⦃⦃getTopDeclarationsStackSubStackLengthFromNode⦄.GetDomain()⦄.IsEqualTo(⦃mainNodes⦄)⦄
+																and:
+																	let:
+																		⟦declarationNodesStack⟧:
+																			⦃⦃declarationNodesStack⦄.IsEqualTo(⦃⦃getTopDeclarationNodesStack⦄()⦄)⦄
+																			⦃⦃FiniteSequence⦄.HasInstance(⦃declarationNodesStack⦄)⦄
+																		and:
+																			⦃⦃⦃declarationNodesStack⦄.GetCoDomain()⦄.IsEqualTo(⦃topDeclarationNodes⦄)⦄
+																		and:
+																			⦃⦃⦃declarationNodesStack⦄.GetLength()⦄.IsEqualTo(⦃⦃Ordinal⦄(⦃⦃⦃declarationNodesStack⦄.GetCoDomain()⦄.GetSize()⦄)⦄)⦄
+																		and:
+																			for all ⟦index0⟧,⟦index1⟧:
+																				if:
+																					⦃⦃binaryFunction IsInferiorTo⦄(⦃⦃⦃⦃(⦃index0⦄,⦃index1⦄)⦄.MapWith(⦃⦃declarationNodesStack⦄.GetImageOf⦄)⦄.MapWith(⦃unaryFunction GetValueRange⦄)⦄.MapWith(⦃unaryFunction GetLowerBound⦄)⦄)⦄
+																				then:
+																					⦃⦃index0⦄.IsInferiorTo(⦃index1⦄)⦄
+																	and:
+																		for all ⟦node⟧:
+																			if:
+																				⦃⦃mainNodes⦄.Has(⦃node⦄)⦄
+																			then:
+																				let:
+																					⟦optionalPreviousNodeIndex⟧:
+																						let:
+																							⟦test⟧:
+																									⦃⦃Function⦄.HasInstance(⦃test⦄)⦄
+																								and:
+																									⦃⦃⦃test⦄.GetDomain()⦄.IsEqualTo(⦃⦃MathematicalObject⦄.MapToClass()⦄)⦄
+																								and:
+																									for all ⟦indexAndElement⟧:
+																										if:
+																											⦃⦃⦃test⦄.GetDomain()⦄.Has(⦃indexAndElement⦄)⦄
+																										then:
+																												⦃⦃Boolean⦄.HasInstance(⦃⦃test⦄(⦃indexAndElement⦄)⦄)⦄
+																											and:
+																													⦃⦃test⦄(⦃indexAndElement⦄)⦄
+																												if and only if:
+																													⦃⦃⦃indexAndElement⦄(⦃1⦄)⦄.IsInferiorTo(⦃⦃⦃node⦄.GetValueRange()⦄.GetLowerBound()⦄)⦄
+																						⦃⦃optionalPreviousNodeIndex⦄.IsEqualTo(⦃⦃⦃⦃⦃⦃⦃declarationNodesStack⦄.MapWith(⦃unaryFunction GetValueRange⦄)⦄.MapWith(⦃unaryFunction GetLowerBound⦄)⦄.GetIndexAndElements()⦄.FindLastWith(⦃test⦄)⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃0⦄)⦄)⦄
+																					⟦stackSubStackLengthFromNode⟧:
+																						⦃⦃stackSubStackLengthFromNode⦄.IsEqualTo(⦃⦃getTopDeclarationsStackSubStackLengthFromNode⦄(⦃node⦄)⦄)⦄
+																				if:
+																					not:
+																						⦃⦃optionalPreviousNodeIndex⦄.IsSome()⦄
+																				then:
+																					⦃⦃stackSubStackLengthFromNode⦄.IsEqualTo(⦃0⦄)⦄
+																				else:
+																					let:
+																						⟦stackSubStackLengthFromDeclaration⟧,⟦lengthAdded⟧:
+																							let:
+																								⟦previousNode⟧:
+																									⦃⦃previousNode⦄.IsEqualTo(⦃⦃declarationNodesStack⦄(⦃⦃optionalPreviousNodeIndex⦄.Get()⦄)⦄)⦄
+																								⦃⦃stackSubStackLengthFromDeclaration⦄.IsEqualTo(⦃⦃getTopDeclarationsStackSubStackLengthFromNode⦄(⦃previousNode⦄)⦄)⦄
+																							and:
+																								if:
+																									⦃⦃⦃previousNode⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints variable declaration⦄)⦄
+																								then:
+																									⦃⦃lengthAdded⦄.IsEqualTo(⦃1⦄)⦄
+																								else:
+																									⦃⦃lengthAdded⦄.IsEqualTo(⦃2⦄)⦄
+																					⦃⦃stackSubStackLengthFromNode⦄.IsEqualTo(⦃⦃stackSubStackLengthFromDeclaration⦄.Add(⦃lengthAdded⦄)⦄)⦄
+															and:
+																let:
+																	⟦trueStacks⟧:
+																		⦃⦃trueStacks⦄.IsEqualTo(⦃⦃GetTrueStacks⦄()⦄)⦄
+																	⦃⦃Class⦄.HasInstance(⦃trueStacks⦄)⦄
+																and:
+																	for all ⟦stack⟧:
+																			⦃⦃trueStacks⦄.Has(⦃stack⦄)⦄
+																		if and only if:
+																			there exists ⟦mapWithImports⟧,⟦mapWithoutImports⟧:
+																					for all ⟦typeIdentifier⟧:
+																						if:
+																							⦃⦃{
+																								⦃unicodeCodePoints ⦄,
+																								⦃unicodeCodePoints out⦄
+																							}⦄.Has(⦃typeIdentifier⦄)⦄
+																						then:
+																								⦃⦃Function⦄.HasInstance(⦃mapWith⟦⟦⦃typeIdentifier⦄⟧⟧Imports⦄)⦄
+																							and:
+																								let:
+																									⟦allDocumentations⟧:
+																										let:
+																											⟦allDocumentationsClasses⟧:
+																													⦃⦃Class⦄.HasInstance(⦃allDocumentationsClasses⦄)⦄
+																												and:
+																													for all ⟦allDocumentations⟧:
+																															⦃⦃allDocumentationsClasses⦄.Has(⦃allDocumentations⦄)⦄
+																														if and only if:
+																																⦃⦃Class⦄.HasInstance(⦃allDocumentations⦄)⦄
+																															and:
+																																for all ⟦documentation⟧:
+																																		⦃⦃allDocumentations⦄.Has(⦃documentation⦄)⦄
+																																	if and only if:
+																																			⦃⦃documentation⦄.IsEqualTo(⦃methods⦄)⦄
+																																		or:
+																																			there exists ⟦method⟧:
+																																						⦃⦃method⦄.IsEqualTo(⦃getImportedDocumentation⦄)⦄
+																																					or:
+																																						there exists ⟦documentation⟧:
+																																								⦃⦃allDocumentations⦄.Has(⦃documentation⦄)⦄
+																																							and:
+																																								⦃⦃method⦄.IsEqualTo(⦃⦃documentation⦄.⦃GetImportedDocumentation⦄⦄)⦄
+																																				and:
+																																					⦃⦃⦃method⦄.GetDomain()⦄.Has(⦃documentation⦄)⦄
+																										⦃⦃allDocumentations⦄.IsEqualTo(⦃⦃allDocumentationsClasses⦄.GetIntersection()⦄)⦄
+																								⦃⦃⦃mapWith⟦⟦⦃typeIdentifier⦄⟧⟧Imports⦄.GetDomain()⦄.IsEqualTo(⦃allDocumentations⦄)⦄
+																				and:
+																					for all ⟦documentation⟧:
+																						if:
+																							⦃⦃⦃mapWithImports⦄.GetDomain()⦄.Has(⦃documentation⦄)⦄
+																						then:
+																							let:
+																								⟦GetDescription⟧,
+																								⟦GetLexerAndParserCombination⟧,
+																								⟦MapToSourceIdentifier⟧,
+																								⟦ImportDocumentation⟧,
+																								⟦getImportedDocumentation⟧,
+																								⟦getTopNodes⟧,
+																								⟦GetMiddleNodes⟧,
+																								⟦getIdentifierFromStack⟧,
+																								⟦getTopDeclarationNodesStack⟧,
+																								⟦getTopDeclarationsStackSubStackLengthFromNode⟧,
+																								⟦GetTrueStacks⟧,
+																								⟦GetLogicallyValidStacksAtTheBeginningOfScope⟧,
+																								⟦GetLogicallyValidStacksAtTheEndingOfScope⟧,
+																								⟦ResolveLogicallyTrueStacksOfScope⟧:
+																									let:
+																										⟦methods0⟧:
+																											if:
+																												not:
+																													⦃⦃Documentation⦄.HasInstance(⦃documentation⦄)⦄
+																											then:
+																												⦃⦃methods0⦄.IsEqualTo(⦃methods⦄)⦄
+																											else:
+																													⦃⦃Function⦄.HasInstance(⦃methods0⦄)⦄
+																												and:
+																													⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃methods0⦄,⦃methods⦄)⦄.MapWith(⦃unaryFunction GetDomain⦄)⦄)⦄
+																												and:
+																													for all ⟦methodIdentifier⟧:
+																														if:
+																															⦃⦃⦃methods0⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+																														then:
+																															let:
+																																⟦methodIdentifierWithFirstUnicodeCodePointToUpperCase⟧:
+																																	⦃⦃methodIdentifierWithFirstUnicodeCodePointToUpperCase⦄.IsEqualTo(⦃⦃methodIdentifier⦄.GetWithFirstUnicodeCodePointToUpperCase()⦄)⦄
+																																⟦method⟧:
+																																	⦃⦃method⦄.IsEqualTo(⦃⦃methods0⦄(⦃methodIdentifier⦄)⦄)⦄
+																															if:
+																																⦃⦃methodIdentifier⦄.IsEqualTo(⦃methodIdentifierWithFirstUnicodeCodePointToUpperCase⦄)⦄
+																															then:
+																																⦃⦃method⦄.IsEqualTo(⦃⦃documentation⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+																															else:
+																																⦃⦃method⦄.IsEqualTo(⦃⦃documentation⦄.⦃⟦⟦⦃methodIdentifierWithFirstUnicodeCodePointToUpperCase⦄⟧⟧⦄⦄)⦄
+																									⦃⦃⦃Function⦄(⦃{
+																										⦃(⦃unicodeCodePoints GetDescription⦄,⦃GetDescription⦄)⦄,
+																										⦃(⦃unicodeCodePoints GetLexerAndParserCombination⦄,⦃GetLexerAndParserCombination⦄)⦄,
+																										⦃(⦃unicodeCodePoints MapToSourceIdentifier⦄,⦃MapToSourceIdentifier⦄)⦄,
+																										⦃(⦃unicodeCodePoints ImportDocumentation⦄,⦃ImportDocumentation⦄)⦄,
+																										⦃(⦃unicodeCodePoints getImportedDocumentation⦄,⦃getImportedDocumentation⦄)⦄,
+																										⦃(⦃unicodeCodePoints getTopNodes⦄,⦃getTopNodes⦄)⦄,
+																										⦃(⦃unicodeCodePoints GetMiddleNodes⦄,⦃GetMiddleNodes⦄)⦄,
+																										⦃(⦃unicodeCodePoints getIdentifierFromStack⦄,⦃getIdentifierFromStack⦄)⦄,
+																										⦃(⦃unicodeCodePoints getTopDeclarationNodesStack⦄,⦃getTopDeclarationNodesStack⦄)⦄,
+																										⦃(⦃unicodeCodePoints getTopDeclarationsStackSubStackLengthFromNode⦄,⦃getTopDeclarationsStackSubStackLengthFromNode⦄)⦄,
+																										⦃(⦃unicodeCodePoints GetTrueStacks⦄,⦃GetTrueStacks⦄)⦄,
+																										⦃(⦃unicodeCodePoints GetLogicallyValidStacksAtTheBeginningOfScope⦄,⦃GetLogicallyValidStacksAtTheBeginningOfScope⦄)⦄,
+																										⦃(⦃unicodeCodePoints GetLogicallyValidStacksAtTheEndingOfScope⦄,⦃GetLogicallyValidStacksAtTheEndingOfScope⦄)⦄,
+																										⦃(⦃unicodeCodePoints ResolveLogicallyTrueStacksOfScope⦄,⦃ResolveLogicallyTrueStacksOfScope⦄)⦄
+																									}⦄)⦄.IsEqualTo(⦃methods0⦄)⦄
+																								⟦declarationNodesStack⟧:
+																									⦃⦃declarationNodesStack⦄.IsEqualTo(⦃⦃getTopDeclarationNodesStack⦄()⦄)⦄
+																							there exists ⟦mapDeclarationNodeToStack⟧:
+																								let:
+																									⟦stack⟧:
+																										⦃⦃stack⦄.IsEqualTo(⦃⦃mapWithImports⦄(⦃documentation⦄)⦄)⦄
+																										⦃⦃Function⦄.HasInstance(⦃mapDeclarationNodeToStack⦄)⦄
+																									and:
+																										⦃⦃⦃mapDeclarationNodeToStack⦄.GetDomain()⦄.IsEqualTo(⦃⦃declarationNodesStack⦄.GetCoDomain()⦄)⦄
+																									and:
+																										for all ⟦node⟧:
+																											if:
+																												⦃⦃⦃mapDeclarationNodeToStack⦄.GetDomain()⦄.Has(⦃node⦄)⦄
+																											then:
+																												⦃⦃⦃getStacksFromDeclarations⦄(⦃⦃stack⦄.GetBeginningSubSequence(⦃⦃getTopDeclarationsStackSubStackLengthFromNode⦄(⦃node⦄)⦄)⦄,⦃node⦄,⦃True⦄)⦄.Has(⦃⦃mapDeclarationNodeToStack⦄(⦃node⦄)⦄)⦄
+																								and:
+																										⦃⦃stack⦄.IsEqualTo(⦃⦃declarationNodesStack⦄.MapWith(⦃mapDeclarationNodeToStack⦄)⦄)⦄
+																									and:
+																										let:
+																											⟦topNodes⟧:
+																												⦃⦃topNodes⦄.IsEqualTo(⦃⦃getTopNodes⦄()⦄)⦄
+																											for all ⟦value⟧:
+																												if:
+																														⦃⦃topNodes⦄.Has(⦃value⦄)⦄
+																													and:
+																														⦃⦃⦃value⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints variable value⦄)⦄
+																												then:
+																													⦃⦃⦃getIdentifierFromStack⦄(⦃⦃stack⦄.GetBeginningSubSequence(⦃⦃getTopDeclarationsStackSubStackLengthFromNode⦄(⦃value⦄)⦄)⦄,⦃value⦄)⦄.IsSome()⦄
+																										and:
+																											for all ⟦formula⟧:
+																												if:
+																														⦃⦃topNodes⦄.Has(⦃formula⦄)⦄
+																													and:
+																														⦃⦃⦃formula⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints formula⦄)⦄
+																												then:
+																													let:
+																														⟦topStack⟧:
+																															⦃⦃topStack⦄.IsEqualTo(⦃⦃stack⦄.GetBeginningSubSequence(⦃⦃getTopDeclarationsStackSubStackLengthFromNode⦄(⦃formula⦄)⦄)⦄)⦄
+																													⦃⦃ResolveLogicallyTrueStacksOfScope⦄(⦃topStack⦄,⦃formula⦄)⦄.Has(⦃topStack⦄)⦄
+																									and:
+																										for all ⟦index⟧:
+																											if:
+																												⦃⦃⦃stack⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																											then:
+																												let:
+																													⟦variableOrNotation⟧,⟦optionalImport⟧:
+																														⦃⦃(⦃variableOrNotation⦄,⦃optionalImport⦄)⦄.IsEqualTo(⦃⦃stack⦄(⦃index⦄)⦄)⦄
+																												if:
+																														⦃⦃Variable⦄.HasInstance(⦃variableOrNotation⦄)⦄
+																													and:
+																														⦃⦃optionalImport⦄.IsSome()⦄
+																												then:
+																													let:
+																														⟦variable⟧:
+																															⦃⦃variable⦄.IsEqualTo(⦃variableOrNotation⦄)⦄
+																														⟦variables⟧:
+																																⦃⦃Class⦄.HasInstance(⦃variables⦄)⦄
+																															and:
+																																for all ⟦variable⟧:
+																																		⦃⦃variables⦄.Has(⦃variable⦄)⦄
+																																	if and only if:
+																																		there exists ⟦value⟧:
+																																			let:
+																																				⟦import⟧:
+																																					⦃⦃import⦄.IsEqualTo(⦃⦃optionalImport⦄.Get()⦄)⦄
+																																				⟦exportValues⟧:
+																																						⦃⦃Class⦄.HasInstance(⦃exportValues⦄)⦄
+																																					and:
+																																						for all ⟦value⟧:
+																																								⦃⦃exportValues⦄.Has(⦃value⦄)⦄
+																																							if and only if:
+																																								let:
+																																									⟦topNodes⟧:
+																																										⦃⦃topNodes⦄.IsEqualTo(⦃⦃import⦄.⦃GetTopNodes⦄()⦄)⦄
+																																									⦃⦃topNodes⦄.Has(⦃value⦄)⦄
+																																								and:
+																																									⦃⦃⦃value⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints variable value⦄)⦄
+																																								and:
+																																									there exists ⟦parentNode⟧:
+																																											⦃⦃topNodes⦄.Has(⦃parentNode⦄)⦄
+																																										and:
+																																											⦃⦃⦃parentNode⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints export statement⦄)⦄
+																																										and:
+																																											⦃⦃⦃parentNode⦄.GetAllChildNodes()⦄.Has(⦃value⦄)⦄
+																																				⦃⦃exportValues⦄.Has(⦃value⦄)⦄
+																																			and:
+																																				let:
+																																					⟦stack⟧:
+																																						⦃⦃stack⦄.IsEqualTo(⦃⦃mapWithoutImports⦄(⦃import⦄)⦄)⦄
+																																					⟦subStack⟧:
+																																						⦃⦃subStack⦄.IsEqualTo(⦃⦃stack⦄.GetBeginningSubSequence(⦃⦃import⦄.⦃GetTopDeclarationsStackSubStackLengthFromNode⦄(⦃value⦄)⦄)⦄)⦄
+																																					⟦identifier⟧:
+																																						⦃⦃identifier⦄.IsEqualTo(⦃⦃⦃import⦄.⦃GetIdentifierFromStack⦄(⦃subStack⦄,⦃value⦄)⦄.Get()⦄)⦄
+																																					not:
+																																						there exists ⟦value0⟧:
+																																								⦃⦃exportValues⦄.Has(⦃value0⦄)⦄
+																																							and:
+																																								⦃⦃⦃⦃import⦄.⦃GetIdentifierFromStack⦄(⦃⦃stack⦄.GetBeginningSubSequence(⦃⦃import⦄.⦃GetTopDeclarationsStackSubStackLengthFromNode⦄(⦃value0⦄)⦄)⦄,⦃value0⦄)⦄.Get()⦄.IsEqualTo(⦃identifier⦄)⦄
+																																							and:
+																																								⦃⦃binaryFunction IsInferiorTo⦄(⦃⦃⦃(⦃value⦄,⦃value0⦄)⦄.MapWith(⦃unaryFunction GetValueRange⦄)⦄.MapWith(⦃unaryFunction GetLowerBound⦄)⦄)⦄
+																																				and:
+																																					⦃⦃variable⦄.IsEqualTo(⦃⦃getVariableFromStack⦄(⦃subStack⦄,⦃identifier⦄)⦄)⦄
+																													⦃⦃variable⦄.IsEqualTo(⦃⦃⦃unaryFunction ⦃variables⦄.GetIdentifier⦄.GetInverse()⦄(⦃⦃variable⦄.GetIdentifier()⦄)⦄)⦄
+																									and:
+																										⦃⦃⦃mapWithoutImports⦄(⦃documentation⦄)⦄.IsEqualTo(⦃⦃⦃stack⦄.MapWith(⦃method GetImageOf⦄)⦄.Apply(⦃0⦄)⦄)⦄
+																				and:
+																					⦃⦃stack⦄.IsEqualTo(⦃⦃mapWithoutImports⦄(⦃documentation⦄)⦄)⦄
+														and:
+																for all ⟦typeIdentifier⟧:
+																	if:
+																		⦃⦃{
+																			⦃unicodeCodePoints GetLogicallyValidStacksAtThe⦄,
+																			⦃unicodeCodePoints ResolveLogicallyTrueStacks⦄
+																		}⦄.Has(⦃typeIdentifier⦄)⦄
+																	then:
+																		for all ⟦typeIdentifier0⟧:
+																			if:
+																				if:
+																					⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints GetLogicallyValidStacksAtThe⦄)⦄
+																				then:
+																					⦃⦃{
+																						⦃unicodeCodePoints Beginning⦄,
+																						⦃unicodeCodePoints Ending⦄
+																					}⦄.Has(⦃typeIdentifier0⦄)⦄
+																				else:
+																					⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																			then:
+																				for all ⟦x⟧:
+																						⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧OfScope⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																					if and only if:
+																						there exists ⟦stackBeginning⟧,⟦scope⟧:
+																								⦃⦃x⦄.IsEqualTo(⦃(⦃stackBeginning⦄,⦃scope⦄)⦄)⦄
+																							and:
+																								⦃⦃FiniteSequenceOfVariablesAndNotations⦄.HasInstance(⦃stackBeginning⦄)⦄
+																							and:
+																								for all ⟦nodes⟧:
+																									if:
+																										⦃⦃{⦃bottomNodes⦄,⦃logicalNodes⦄}⦄.Has(⦃nodes⦄)⦄
+																									then:
+																										⦃⦃nodes⦄.Has(⦃scope⦄)⦄
+															and:
+																for all ⟦stackBeginning⟧:
+																	if:
+																		⦃⦃FiniteSequenceOfVariablesAndNotations⦄.HasInstance(⦃stackBeginning⦄)⦄
+																	then:
+																		there exists
+																			⟦getAvailableStacksAtTheBeginningOfScope⟧,⟦getAvailableStacksAtTheEndingOfScope⟧,
+																			⟦resolveLogicallyValidStacksAtTheBeginningOfScope⟧,⟦resolveLogicallyValidStacksAtTheEndingOfScope⟧,
+																			⟦getLogicallyValidStacksAtTheBeginningOfScope⟧,⟦getLogicallyValidStacksAtTheEndingOfScope⟧,
+																			⟦resolveLogicallyTrueStacksOfScope⟧:
+																					for all ⟦typeIdentifier⟧:
+																						if:
+																							⦃⦃{
+																								⦃unicodeCodePoints getAvailableStacksAtThe⦄,
+																								⦃unicodeCodePoints resolveLogicallyValidStacksAtThe⦄,
+																								⦃unicodeCodePoints getLogicallyValidStacksAtThe⦄,
+																								⦃unicodeCodePoints resolveLogicallyTrueStacks⦄
+																							}⦄.Has(⦃typeIdentifier⦄)⦄
+																						then:
+																							for all ⟦typeIdentifier0⟧:
+																								if:
+																									if:
+																										not:
+																											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints resolveLogicallyTrueStacks⦄)⦄
+																									then:
+																										⦃⦃{
+																											⦃unicodeCodePoints Beginning⦄,
+																											⦃unicodeCodePoints Ending⦄
+																										}⦄.Has(⦃typeIdentifier0⦄)⦄
+																									else:
+																										⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																								then:
+																										⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧OfScope⦄)⦄
+																									and:
+																										⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧OfScope⦄.GetDomain()⦄.IsEqualTo(⦃bottomNodes⦄)⦄
+																				and:
+																					for all ⟦scope⟧:
+																						if:
+																							⦃⦃bottomNodes⦄.Has(⦃scope⦄)⦄
+																						then:
+																							let:
+																								⟦symbol⟧:
+																									⦃⦃symbol⦄.IsEqualTo(⦃⦃scope⦄.GetSymbol()⦄)⦄
+																								let:
+																									⟦stacksAtTheBeginning⟧,⟦stacksAtTheEnding⟧:
+																										for all ⟦typeIdentifier⟧:
+																											if:
+																												⦃⦃{
+																													⦃unicodeCodePoints Beginning⦄,
+																													⦃unicodeCodePoints Ending⦄
+																												}⦄.Has(⦃typeIdentifier⦄)⦄
+																											then:
+																												⦃⦃stacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃getAvailableStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄(⦃scope⦄)⦄)⦄
+																									let:
+																										⟦isPreviousSiblingScope⟧:
+																												⦃⦃Function⦄.HasInstance(⦃isPreviousSiblingScope⦄)⦄
+																											and:
+																												⦃⦃⦃isPreviousSiblingScope⦄.GetDomain()⦄.IsEqualTo(⦃bottomNodes⦄)⦄
+																											and:
+																												for all ⟦scope0⟧:
+																													if:
+																														⦃⦃⦃isPreviousSiblingScope⦄.GetDomain()⦄.Has(⦃scope0⦄)⦄
+																													then:
+																															⦃⦃Boolean⦄.HasInstance(⦃⦃isPreviousSiblingScope⦄(⦃scope0⦄)⦄)⦄
+																														and:
+																																⦃⦃isPreviousSiblingScope⦄(⦃scope0⦄)⦄
+																															if and only if:
+																																there exists ⟦parentScope⟧,⟦index⟧:
+																																		⦃⦃bottomNodes⦄.Has(⦃parentScope⦄)⦄
+																																	and:
+																																		let:
+																																			⟦childScopes⟧:
+																																				⦃⦃childScopes⦄.IsEqualTo(⦃⦃⦃parentScope⦄.GetChildNodes()⦄.FilterWith(⦃⦃bottomNodes⦄.Has⦄)⦄)⦄
+																																			⦃⦃⦃childScopes⦄(⦃index⦄)⦄.IsEqualTo(⦃scope0⦄)⦄
+																																		and:
+																																			⦃⦃⦃childScopes⦄(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄.IsEqualTo(⦃scope⦄)⦄
+																									if:
+																										not:
+																											there exists ⟦scope⟧:
+																												⦃⦃isPreviousSiblingScope⦄(⦃scope⦄)⦄
+																									then:
+																										if:
+																											⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints formula⦄)⦄
+																										then:
+																											⦃⦃stacksAtTheBeginning⦄.IsEqualTo(⦃{⦃stackBeginning⦄}⦄)⦄
+																										else:
+																											let:
+																												⟦parentScope⟧:
+																														⦃⦃bottomNodes⦄.Has(⦃parentScope⦄)⦄
+																													and:
+																														⦃⦃⦃⦃parentScope⦄.GetChildNodes()⦄.GetCoDomain()⦄.Has(⦃scope⦄)⦄
+																											⦃⦃stacksAtTheBeginning⦄.IsEqualTo(⦃⦃getAvailableStacksAtTheBeginningOfScope⦄(⦃parentScope⦄)⦄)⦄
+																									else:
+																										let:
+																											⟦scope⟧:
+																												⦃⦃isPreviousSiblingScope⦄(⦃scope⦄)⦄
+																										⦃⦃stacksAtTheBeginning⦄.IsEqualTo(⦃⦃getAvailableStacksAtTheEndingOfScope⦄(⦃scope⦄)⦄)⦄
+																								and:
+																										⦃⦃Class⦄.HasInstance(⦃stacksAtTheEnding⦄)⦄
+																									and:
+																										let:
+																											⟦isLastChildScope⟧:
+																													⦃⦃Function⦄.HasInstance(⦃isLastChildScope⦄)⦄
+																												and:
+																													⦃⦃⦃isLastChildScope⦄.GetDomain()⦄.IsEqualTo(⦃bottomNodes⦄)⦄
+																												and:
+																													for all ⟦scope0⟧:
+																														if:
+																															⦃⦃⦃isLastChildScope⦄.GetDomain()⦄.Has(⦃scope0⦄)⦄
+																														then:
+																																⦃⦃Boolean⦄.HasInstance(⦃⦃isLastChildScope⦄(⦃scope0⦄)⦄)⦄
+																															and:
+																																	⦃⦃isLastChildScope⦄(⦃scope0⦄)⦄
+																																if and only if:
+																																	⦃⦃⦃⦃⦃⦃scope⦄.GetChildNodes()⦄.FilterWith(⦃⦃bottomNodes⦄.Has⦄)⦄.GetReverse()⦄(⦃0⦄)⦄.IsEqualTo(⦃scope0⦄)⦄
+																										if:
+																											not:
+																												there exists ⟦scope⟧:
+																													⦃⦃isLastChildScope⦄(⦃scope⦄)⦄
+																										then:
+																											if:
+																												there exists ⟦typeIdentifier⟧:
+																														⦃⦃{
+																															⦃unicodeCodePoints variable⦄,
+																															⦃unicodeCodePoints notation⦄
+																														}⦄.Has(⦃typeIdentifier⦄)⦄
+																													and:
+																														⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧declaration⦄)⦄
+																											then:
+																												for all ⟦stack⟧:
+																														⦃⦃stacksAtTheEnding⦄.Has(⦃stack⦄)⦄
+																													if and only if:
+																														there exists ⟦stackAtTheBeginning⟧,⟦stackFromDeclaration⟧:
+																																⦃⦃stacksAtTheBeginning⦄.Has(⦃stackAtTheBeginning⦄)⦄
+																															and:
+																																⦃⦃⦃getStacksFromDeclarations⦄(⦃stackAtTheBeginning⦄,⦃node⦄,⦃False⦄)⦄.Has(⦃stackFromDeclaration⦄)⦄
+																															and:
+																																⦃⦃stack⦄.IsEqualTo(⦃⦃stackAtTheBeginning⦄.GetConcatenationWith(⦃stackFromDeclaration⦄)⦄)⦄
+																											else:
+																												⦃⦃stacksAtTheEnding⦄.IsEqualTo(⦃stacksAtTheBeginning⦄)⦄
+																										else:
+																											let:
+																												⟦stacksAtTheEndingOfLastChildScope⟧:
+																													let:
+																														⟦scope⟧:
+																															⦃⦃isLastChildScope⦄(⦃scope⦄)⦄
+																													⦃⦃stacksAtTheEndingOfLastChildScope⦄.IsEqualTo(⦃⦃getAvailableStacksAtTheEndingOfScope⦄(⦃scope⦄)⦄)⦄
+																											if:
+																												⦃⦃⦃GetMiddleNodes⦄()⦄.Has(⦃scope⦄)⦄
+																											then:
+																												there exists ⟦index⟧:
+																														⦃⦃FiniteOrdinal⦄.HasInstance(⦃index⦄)⦄
+																													and:
+																														let:
+																															⟦stack⟧:
+																																⦃⦃stacksAtTheBeginning⦄.Has(⦃stack⦄)⦄
+																														⦃⦃⦃stack⦄.GetLength()⦄.IsInferiorOrEqualTo(⦃index⦄)⦄
+																													and:
+																														for all ⟦stack⟧:
+																																⦃⦃stacksAtTheEnding⦄.Has(⦃stack⦄)⦄
+																															if and only if:
+																																there exists ⟦stackAtTheEndingOfLastChildScope⟧:
+																																		⦃⦃stacksAtTheEndingOfLastChildScope⦄.Has(⦃stackAtTheEndingOfLastChildScope⦄)⦄
+																																	and:
+																																		⦃⦃stack⦄.IsEqualTo(⦃⦃stackAtTheEndingOfLastChildScope⦄.GetBeginningSubSequence(⦃index⦄)⦄)⦄
+																											else:
+																												⦃⦃stacksAtTheEnding⦄.IsEqualTo(⦃stacksAtTheEndingOfLastChildScope⦄)⦄
+																							and:
+																								let:
+																									⟦getStacks⟧:
+																											⦃⦃Function⦄.HasInstance(⦃getStacks⦄)⦄
+																										and:
+																											for all ⟦x⟧:
+																													⦃⦃⦃getStacks⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																												if and only if:
+																													there exists ⟦mode⟧,⟦initialScopeToStacksMap⟧,⟦scopeToStacksMap⟧:
+																															⦃⦃x⦄.IsEqualTo(⦃(⦃mode⦄,⦃initialScopeToStacksMap⦄,⦃scopeToStacksMap⦄)⦄)⦄
+																														and:
+																															⦃⦃{
+																																⦃unicodeCodePoints is decreasing boolean⦄,
+																																⦃unicodeCodePoints is increasing⦄,
+																																⦃unicodeCodePoints is decreasing true⦄
+																															}⦄.Has(⦃mode⦄)⦄
+																														and:
+																															for all ⟦typeIdentifier⟧:
+																																if:
+																																	⦃⦃{
+																																		⦃unicodeCodePoints initial⦄,
+																																		⦃unicodeCodePoints ⦄
+																																	}⦄.Has(⦃typeIdentifier⦄)⦄
+																																then:
+																																	let:
+																																		⟦map⟧:
+																																			⦃⦃map⦄.IsEqualTo(⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Scope⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧ToStacksMap⦄)⦄
+																																		⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+																																	and:
+																																		⦃⦃⦃map⦄.GetDomain()⦄.IsEqualTo(⦃bottomNodes⦄)⦄
+																										and:
+																											for all ⟦x⟧:
+																												if:
+																													⦃⦃⦃getStacks⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																												then:
+																													let:
+																														⟦mode⟧,⟦initialScopeToStacksMap⟧,⟦scopeToStacksMap⟧:
+																															⦃⦃(⦃mode⦄,⦃initialScopeToStacksMap⦄,⦃scopeToStacksMap⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																														⟦isDecreasingDepth⟧:
+																																⦃⦃Boolean⦄.HasInstance(⦃isDecreasingDepth⦄)⦄
+																															and:
+																																	⦃isDecreasingDepth⦄
+																																if and only if:
+																																	not:
+																																		⦃⦃mode⦄.IsEqualTo(⦃unicodeCodePoints is increasing⦄)⦄
+																														⟦stacks⟧:
+																															⦃⦃stacks⦄.IsEqualTo(⦃⦃getStacks⦄(⦃x⦄)⦄)⦄
+																														⦃⦃Class⦄.HasInstance(⦃stacks⦄)⦄
+																													and:
+																														for all ⟦stack⟧:
+																																⦃⦃stacks⦄.Has(⦃stack⦄)⦄
+																															if and only if:
+																																	⦃⦃⦃initialScopeToStacksMap⦄(⦃scope⦄)⦄.Has(⦃stack⦄)⦄
+																																and:
+																																	if:
+																																		⦃⦃symbol⦄.IsEqualTo(⦃unicodeCodePoints variable value⦄)⦄
+																																	then:
+																																		there exists ⟦variable⟧:
+																																				⦃⦃variable⦄.IsEqualTo(⦃⦃⦃getIdentifierFromStack⦄(⦃stack⦄,⦃scope⦄)⦄.Get()⦄)⦄
+																																			and:
+																																				if:
+																																					⦃⦃logicalNodes⦄.Has(⦃scope⦄)⦄
+																																				then:
+																																					if:
+																																						not:
+																																							⦃⦃mode⦄.IsEqualTo(⦃unicodeCodePoints is decreasing true⦄)⦄
+																																					then:
+																																						⦃⦃Boolean⦄.HasInstance(⦃⦃variable⦄.GetValue()⦄)⦄
+																																					else:
+																																						⦃⦃⦃variable⦄.GetValue()⦄.IsEqualTo(⦃True⦄)⦄
+																																and:
+																																	let:
+																																		⟦scopeHasCompatibleStack⟧:
+																																				⦃⦃Function⦄.HasInstance(⦃scopeHasCompatibleStack⦄)⦄
+																																			and:
+																																				for all ⟦x⟧:
+																																						⦃⦃⦃scopeHasCompatibleStack⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																																					if and only if:
+																																						there exists ⟦scope⟧,⟦stack⟧:
+																																								⦃⦃x⦄.IsEqualTo(⦃(⦃scope⦄,⦃stack⦄)⦄)⦄
+																																							and:
+																																								⦃⦃bottomNodes⦄.Has(⦃scope⦄)⦄
+																																							and:
+																																								⦃⦃FiniteSequence⦄.Has(⦃stack⦄)⦄
+																																			and:
+																																				for all ⟦x⟧:
+																																					if:
+																																						⦃⦃⦃scopeHasCompatibleStack⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																																					then:
+																																							⦃⦃Boolean⦄.HasInstance(⦃⦃scopeHasCompatibleStack⦄(⦃x⦄)⦄)⦄
+																																						and:
+																																								⦃⦃scopeHasCompatibleStack⦄(⦃x⦄)⦄
+																																							if and only if:
+																																								there exists ⟦stack0⟧:
+																																									let:
+																																										⟦scope⟧,⟦stack⟧:
+																																											⦃⦃(⦃scope⦄,⦃stack⦄)⦄.IsEqualTo(⦃x⦄)⦄
+																																										⦃⦃⦃scopeToStacksMap⦄(⦃scope⦄)⦄.Has(⦃stack0⦄)⦄
+																																									and:
+																																										there exists ⟦typeIdentifier0⟧,⟦typeIdentifier1⟧:
+																																												⦃⦃⦃{
+																																													⦃unicodeCodePoints ⦄,
+																																													⦃unicodeCodePoints 0⦄
+																																												}⦄.GetPermutations()⦄.Has(⦃(⦃typeIdentifier0⦄,⦃typeIdentifier1⦄)⦄)⦄
+																																											and:
+																																												⦃⦃stack⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.IsEqualTo(⦃⦃stack⟦⟦⦃typeIdentifier1⦄⟧⟧⦄.GetBeginningSubSequence(⦃⦃stack⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.GetLength()⦄)⦄)⦄
+																																		let:
+																																			⟦isPreviousSiblingScopeAndNextSiblingScope⟧:
+																																					⦃⦃Function⦄.HasInstance(⦃isPreviousSiblingScopeAndNextSiblingScope⦄)⦄
+																																				and:
+																																					⦃⦃⦃isPreviousSiblingScopeAndNextSiblingScope⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃bottomNodes⦄,⦃bottomNodes⦄)⦄.GetCartesianProduct()⦄)⦄
+																																				and:
+																																					for all ⟦scopes⟧:
+																																						if:
+																																							⦃⦃⦃isPreviousSiblingScopeAndNextSiblingScope⦄.GetDomain()⦄.Has(⦃scopes⦄)⦄
+																																						then:
+																																								⦃⦃Boolean⦄.HasInstance(⦃⦃isPreviousSiblingScopeAndNextSiblingScope⦄(⦃scopes⦄)⦄)⦄
+																																							and:
+																																									⦃⦃isPreviousSiblingScopeAndNextSiblingScope⦄(⦃scopes⦄)⦄
+																																								if and only if:
+																																									there exists ⟦parentScope⟧,⟦index⟧:
+																																											⦃⦃bottomNodes⦄.Has(⦃parentScope⦄)⦄
+																																										and:
+																																											let:
+																																												⟦scope0⟧,⟦scope1⟧:
+																																													⦃⦃(⦃scope0⦄,⦃scope1⦄)⦄.IsEqualTo(⦃scopes⦄)⦄
+																																												⟦childScopes⟧:
+																																													⦃⦃childScopes⦄.IsEqualTo(⦃⦃⦃parentScope⦄.GetChildNodes()⦄.FilterWith(⦃⦃bottomNodes⦄.Has⦄)⦄)⦄
+																																												⦃⦃⦃childScopes⦄(⦃index⦄)⦄.IsEqualTo(⦃scope0⦄)⦄
+																																											and:
+																																												⦃⦃⦃childScopes⦄(⦃⦃index⦄.Add(⦃1⦄)⦄)⦄.IsEqualTo(⦃scope1⦄)⦄
+																																		if:
+																																			there exists ⟦previousOrNextSiblingScope⟧:
+																																				let:
+																																					⟦scopes⟧:
+																																						if:
+																																							⦃isDecreasingDepth⦄
+																																						then:
+																																							⦃⦃scopes⦄.IsEqualTo(⦃(⦃scope⦄,⦃previousOrNextSiblingScope⦄)⦄)⦄
+																																						else:
+																																							⦃⦃scopes⦄.IsEqualTo(⦃(⦃previousOrNextSiblingScope⦄,⦃scope⦄)⦄)⦄
+																																				⦃⦃isPreviousSiblingScopeAndNextSiblingScope⦄(⦃scopes⦄)⦄
+																																		then:
+																																			let:
+																																				⟦previousOrNextSiblingScope⟧:
+																																					let:
+																																						⟦scopes⟧:
+																																							if:
+																																								⦃isDecreasingDepth⦄
+																																							then:
+																																								⦃⦃scopes⦄.IsEqualTo(⦃(⦃scope⦄,⦃previousOrNextSiblingScope⦄)⦄)⦄
+																																							else:
+																																								⦃⦃scopes⦄.IsEqualTo(⦃(⦃previousOrNextSiblingScope⦄,⦃scope⦄)⦄)⦄
+																																					⦃⦃isPreviousSiblingScopeAndNextSiblingScope⦄(⦃scopes⦄)⦄
+																																			⦃⦃scopeHasCompatibleStack⦄(⦃previousOrNextSiblingScope⦄,⦃stack⦄)⦄
+																																	and:
+																																		let:
+																																			⟦isParentScopeAndFirstChildScope⟧:
+																																					⦃⦃Function⦄.HasInstance(⦃isParentScopeAndFirstChildScope⦄)⦄
+																																				and:
+																																					⦃⦃⦃isParentScopeAndFirstChildScope⦄.GetDomain()⦄.IsEqualTo(⦃⦃(⦃bottomNodes⦄,⦃bottomNodes⦄)⦄.GetCartesianProduct()⦄)⦄
+																																				and:
+																																					for all ⟦scopes⟧:
+																																						if:
+																																							⦃⦃⦃isParentScopeAndFirstChildScope⦄.GetDomain()⦄.Has(⦃scopes⦄)⦄
+																																						then:
+																																								⦃⦃Boolean⦄.HasInstance(⦃⦃isParentScopeAndFirstChildScope⦄(⦃scopes⦄)⦄)⦄
+																																							and:
+																																									⦃⦃isParentScopeAndFirstChildScope⦄(⦃scopes⦄)⦄
+																																								if and only if:
+																																									let:
+																																										⟦scope0⟧,⟦scope1⟧:
+																																											⦃⦃(⦃scope0⦄,⦃scope1⦄)⦄.IsEqualTo(⦃scopes⦄)⦄
+																																									⦃⦃⦃⦃⦃scope0⦄.GetChildNodes()⦄.FilterWith(⦃⦃bottomNodes⦄.Has⦄)⦄(⦃0⦄)⦄.IsEqualTo(⦃scope1⦄)⦄
+																																		if:
+																																			there exists ⟦parentOrFirstChildScope⟧:
+																																				let:
+																																					⟦scopes⟧:
+																																						if:
+																																							⦃isDecreasingDepth⦄
+																																						then:
+																																							⦃⦃scopes⦄.IsEqualTo(⦃(⦃scope⦄,⦃parentOrFirstChildScope⦄)⦄)⦄
+																																						else:
+																																							⦃⦃scopes⦄.IsEqualTo(⦃(⦃parentOrFirstChildScope⦄,⦃scope⦄)⦄)⦄
+																																				⦃⦃isParentScopeAndFirstChildScope⦄(⦃scopes⦄)⦄
+																																		then:
+																																			let:
+																																				⟦parentOrFirstChildScope⟧:
+																																					let:
+																																						⟦scopes⟧:
+																																							if:
+																																								⦃isDecreasingDepth⦄
+																																							then:
+																																								⦃⦃scopes⦄.IsEqualTo(⦃(⦃scope⦄,⦃parentOrFirstChildScope⦄)⦄)⦄
+																																							else:
+																																								⦃⦃scopes⦄.IsEqualTo(⦃(⦃parentOrFirstChildScope⦄,⦃scope⦄)⦄)⦄
+																																					⦃⦃isParentScopeAndFirstChildScope⦄(⦃scopes⦄)⦄
+																																			⦃⦃scopeHasCompatibleStack⦄(⦃parentOrFirstChildScope⦄,⦃stack⦄)⦄
+																									for all ⟦typeIdentifier⟧:
+																										if:
+																											⦃⦃{
+																												⦃unicodeCodePoints Beginning⦄,
+																												⦃unicodeCodePoints Ending⦄
+																											}⦄.Has(⦃typeIdentifier⦄)⦄
+																										then:
+																												⦃⦃⦃resolveLogicallyValidStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄(⦃scope⦄)⦄.IsEqualTo(⦃⦃getStacks⦄(⦃unicodeCodePoints is decreasing boolean⦄,⦃getAvailableStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄,⦃resolveLogicallyValidStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄)⦄)⦄
+																											and:
+																												⦃⦃⦃getLogicallyValidStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄(⦃scope⦄)⦄.IsEqualTo(⦃⦃getStacks⦄(⦃unicodeCodePoints is increasing⦄,⦃resolveLogicallyValidStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄,⦃getLogicallyValidStacksAtThe⟦⟦⦃typeIdentifier⦄⟧⟧OfScope⦄)⦄)⦄
+																								and:
+																									let:
+																										⟦resolvedLogicallyTrueStacksOfScope⟧:
+																											⦃⦃resolvedLogicallyTrueStacksOfScope⦄.IsEqualTo(⦃⦃resolveLogicallyTrueStacksOfScope⦄(⦃scope⦄)⦄)⦄
+																										⦃⦃⦃getLogicallyValidStacksAtTheBeginningOfScope⦄(⦃scope⦄)⦄.IsSuperMultiClassOf(⦃resolvedLogicallyTrueStacksOfScope⦄)⦄
+																									and:
+																										if:
+																												there exists ⟦selfOrParentScope⟧:
+																														⦃⦃bottomNodes⦄.Has(⦃selfOrParentScope⦄)⦄
+																													and:
+																														⦃⦃⦃selfOrParentScope⦄.GetSymbol()⦄.IsEqualTo(⦃unicodeCodePoints predicate⦄)⦄
+																													and:
+																														⦃⦃⦃selfOrParentScope⦄.GetAllChildNodes()⦄.Has(⦃scope⦄)⦄
+																											or:
+																												⦃⦃topNodes⦄.Has(⦃scope⦄)⦄
+																										then:
+																											⦃⦃resolvedLogicallyTrueStacksOfScope⦄.IsEqualTo(⦃⦃getStacks⦄(⦃unicodeCodePoints is decreasing true⦄,⦃getLogicallyValidStacksAtTheBeginningOfScope⦄,⦃resolveLogicallyTrueStacksOfScope⦄)⦄)⦄
+																			and:
+																				for all ⟦scope⟧:
+																					let:
+																						⟦x⟧:
+																							⦃⦃x⦄.IsEqualTo(⦃(⦃stackBeginning⦄,⦃scope⦄)⦄)⦄
+																					if:
+																						⦃⦃⦃ResolveLogicallyTrueStacksOfScope⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+																					then:
+																						for all ⟦typeIdentifier⟧:
+																							if:
+																								⦃⦃{
+																									⦃unicodeCodePoints GetLogicallyValidStacksAtThe⦄,
+																									⦃unicodeCodePoints ResolveLogicallyTrueStacks⦄
+																								}⦄.Has(⦃typeIdentifier⦄)⦄
+																							then:
+																								for all ⟦typeIdentifier0⟧:
+																									if:
+																										if:
+																											⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints GetLogicallyValidStacksAtThe⦄)⦄
+																										then:
+																											⦃⦃{
+																												⦃unicodeCodePoints Beginning⦄,
+																												⦃unicodeCodePoints Ending⦄
+																											}⦄.Has(⦃typeIdentifier0⦄)⦄
+																										else:
+																											⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints ⦄)⦄
+																									then:
+																										⦃⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧OfScope⦄(⦃x⦄)⦄.IsEqualTo(⦃⦃⟦⟦⦃⦃typeIdentifier⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧OfScope⦄(⦃scope⦄)⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦documentation⟧:
+									⦃⦃documentation⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃Documentation⦄.HasInstance(⦃documentation⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										let:
+											⟦methodIdentifierWithFirstUnicodeCodePointToUpperCase⟧:
+												⦃⦃methodIdentifierWithFirstUnicodeCodePointToUpperCase⦄.IsEqualTo(⦃⦃methodIdentifier⦄.GetWithFirstUnicodeCodePointToUpperCase()⦄)⦄
+											⟦method⟧:
+												⦃⦃method⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+										if:
+											⦃⦃methodIdentifier⦄.IsEqualTo(⦃methodIdentifierWithFirstUnicodeCodePointToUpperCase⦄)⦄
+										then:
+											⦃⦃⦃documentation⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃method⦄)⦄
+										else:
+											⦃⦃⦃documentation⦄.⦃⟦⟦⦃methodIdentifierWithFirstUnicodeCodePointToUpperCase⦄⟧⟧⦄⦄.IsEqualTo(⦃method⦄)⦄
+		⦃⦃⦃Documentation⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃Documentation⦄.MapToClass⦄
+	for all ⟦documentation⟧:
+		if:
+			⦃⦃Documentation⦄.HasInstance(⦃documentation⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃documentation⦄,
+				⦃(⦃⦃documentation⦄.GetDescription()⦄,⦃⦃documentation⦄.GetLexerAndParserCombination()⦄,⦃⦃documentation⦄.MapToSourceIdentifier⦄,⦃⦃documentation⦄.ImportDocumentation⦄,⦃⦃documentation⦄.GetLogicallyValidStacksAtTheEndingOfScope⦄,⦃⦃documentation⦄.ResolveLogicallyTrueStacksOfScope⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Documentation⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

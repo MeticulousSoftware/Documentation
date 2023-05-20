@@ -1,0 +1,21 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PartialNilIdeal⦄,⦃NilIdeal⦄,⦃UnitalNilIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧NilIdeal⦄)⦄
+			and:
+				for all ⟦ideal⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧NilIdeal⦄.HasInstance(⦃ideal⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+						and:
+							⦃⦃⦃ideal⦄.GetClass()⦄.IsSubMultiClassOf(⦃⦃⦃ideal⦄.GetStructure()⦄.GetNilPotentElements()⦄)⦄

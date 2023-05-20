@@ -1,0 +1,58 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LeftMinimalIdeal⦄,⦃RightMinimalIdeal⦄,⦃MinimalIdeal⦄,
+⦃LeftMaximalIdeal⦄,⦃RightMaximalIdeal⦄,⦃MaximalIdeal⦄,
+⦃LeftUnitalMinimalIdeal⦄,⦃RightUnitalMinimalIdeal⦄,⦃UnitalMinimalIdeal⦄,
+⦃LeftUnitalMaximalIdeal⦄,⦃RightUnitalMaximalIdeal⦄,⦃UnitalMaximalIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Min⦄,
+						⦃unicodeCodePoints Max⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄,
+								⦃unicodeCodePoints ⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧imalIdeal⦄)⦄
+							and:
+								for all ⟦ideal⟧:
+										⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧imalIdeal⦄.HasInstance(⦃ideal⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+										and:
+											not:
+													⦃⦃ideal⦄.IsZero()⦄
+												or:
+													there exists ⟦ideal0⟧:
+															⦃⦃⦃⦃ideal⦄.GetStructure()⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Ideals()⦄.Has(⦃ideal0⦄)⦄
+														and:
+															not:
+																⦃⦃ideal0⦄.IsEqualTo(⦃ideal⦄)⦄
+														and:
+															let:
+																⟦ideal1⟧,⟦ideal2⟧:
+																	let:
+																		⟦ideals⟧:
+																			⦃⦃ideals⦄.IsEqualTo(⦃(⦃ideal1⦄,⦃ideal2⦄)⦄)⦄
+																	if:
+																		⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Min⦄)⦄
+																	then:
+																		⦃⦃ideals⦄.IsEqualTo(⦃(⦃ideal⦄,⦃ideal0⦄)⦄)⦄
+																	else:
+																		⦃⦃ideals⦄.IsEqualTo(⦃(⦃ideal0⦄,⦃ideal⦄)⦄)⦄
+															⦃⦃⦃ideal1⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧SubIdeals()⦄.Has(⦃ideal2⦄)⦄

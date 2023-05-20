@@ -1,0 +1,30 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaCommutativePartialMagma⦄,⦃MetaCommutativeMagma⦄,⦃MetaCommutativeMonoid⦄,⦃MetaCommutativeGroup⦄,
+⦃CommutativePartialMagma⦄,⦃CommutativeMagma⦄,⦃CommutativeMonoid⦄,⦃CommutativeGroup⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints PartialMagma⦄,
+						⦃unicodeCodePoints Magma⦄,
+						⦃unicodeCodePoints Monoid⦄,
+						⦃unicodeCodePoints Group⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Commutative⟦⟦⦃typeIdentifier0⦄⟧⟧⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Commutative⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									⦃⦃CommutativeOperation⦄.HasInstance(⦃⦃structure⦄.GetAddition()⦄)⦄

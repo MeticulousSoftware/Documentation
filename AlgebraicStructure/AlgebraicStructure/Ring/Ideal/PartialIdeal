@@ -1,0 +1,334 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃PartialIdeal⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃PartialIdeal⦄)⦄
+	and:
+		let:
+			⟦buildingMap⟧:
+					⦃⦃Function⦄.HasInstance(⦃buildingMap⦄)⦄
+				and:
+					for all ⟦methods⟧:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						if and only if:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+											⦃⦃Function⦄.HasInstance(⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄)⦄
+										and:
+											⦃⦃⦃⟦⟦⦃methodIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								there exists
+									⟦GetStructure⟧,
+									⟦GetClass⟧:
+										⦃⦃methods⦄.IsEqualTo(⦃⦃Function⦄(⦃{
+											⦃(⦃unicodeCodePoints GetStructure⦄,⦃GetStructure⦄)⦄,
+											⦃(⦃unicodeCodePoints GetClass⦄,⦃GetClass⦄)⦄
+										}⦄)⦄)⦄
+									and:
+										let:
+											⟦structure⟧:
+												⦃⦃structure⦄.IsEqualTo(⦃⦃GetStructure⦄()⦄)⦄
+											⦃⦃MetaPartialRing⦄.HasInstance(⦃structure⦄)⦄
+										and:
+											⦃⦃⦃structure⦄.GetClass()⦄.IsSuperMultiClassOf(⦃⦃GetClass⦄()⦄)⦄
+				and:
+					for all ⟦methods⟧:
+						if:
+							⦃⦃⦃buildingMap⦄.GetDomain()⦄.Has(⦃methods⦄)⦄
+						then:
+							let:
+								⟦ideal⟧:
+									⦃⦃ideal⦄.IsEqualTo(⦃⦃buildingMap⦄(⦃methods⦄)⦄)⦄
+								⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+							and:
+								for all ⟦methodIdentifier⟧:
+									if:
+										⦃⦃⦃methods⦄.GetDomain()⦄.Has(⦃methodIdentifier⦄)⦄
+									then:
+										⦃⦃⦃ideal⦄.⟦⟦⦃methodIdentifier⦄⟧⟧⦄.IsEqualTo(⦃⦃methods⦄(⦃methodIdentifier⦄)⦄)⦄
+		⦃⦃⦃PartialIdeal⦄.MapToClass()⦄.IsEqualTo(⦃⦃buildingMap⦄.GetCoDomain()⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.MapToClass⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+			⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+				⦃ideal⦄,
+				⦃(⦃⦃ideal⦄.GetStructure()⦄,⦃⦃ideal⦄.GetClass()⦄)⦄
+			)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.IsEmpty⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+				⦃⦃⦃⦃ideal⦄.IsEmpty⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃ideal⦄.IsEmpty()⦄.IsEqualTo(⦃⦃⦃ideal⦄.GetClass()⦄.IsEqualTo(⦃{}⦄)⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.HasOneElement⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+				⦃⦃⦃⦃ideal⦄.HasOneElement⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦hasOneElement⟧:
+						⦃⦃hasOneElement⦄.IsEqualTo(⦃⦃ideal⦄.HasOneElement()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃hasOneElement⦄)⦄
+				and:
+						⦃hasOneElement⦄
+					if and only if:
+						there exists ⟦x⟧:
+							⦃⦃⦃ideal⦄.GetClass()⦄.IsEqualTo(⦃{⦃x⦄}⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.IsZero⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+				⦃⦃⦃⦃ideal⦄.IsZero⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦isZero⟧:
+						⦃⦃isZero⦄.IsEqualTo(⦃⦃ideal⦄.IsZero()⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isZero⦄)⦄
+				and:
+						⦃isZero⦄
+					if and only if:
+						there exists ⟦x⟧:
+							⦃⦃⦃ideal⦄.GetClass()⦄.IsSubMultiClassOf(⦃⦃⦃⦃ideal⦄.GetStructure()⦄.GetAddition()⦄.GetPartialIdentities()⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.GetLeftSubIdeals⦄,⦃method ⦃PartialIdeal⦄.GetRightSubIdeals⦄,⦃method ⦃PartialIdeal⦄.GetSubIdeals⦄,
+⦃method ⦃PartialIdeal⦄.GetLeftUnitalSubIdeals⦄,⦃method ⦃PartialIdeal⦄.GetRightUnitalSubIdeals⦄,⦃method ⦃PartialIdeal⦄.GetUnitalSubIdeals⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					for all ⟦typeIdentifier0⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄,
+								⦃unicodeCodePoints ⦄
+							}⦄.Has(⦃typeIdentifier0⦄)⦄
+						then:
+								⦃⦃⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧SubIdeals()⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+							and:
+								let:
+									⟦subIdeals⟧:
+										⦃⦃subIdeals⦄.IsEqualTo(⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧SubIdeals()⦄)⦄
+									⦃⦃Class⦄.HasInstance(⦃subIdeals⦄)⦄
+								and:
+									for all ⟦subIdeal⟧:
+											⦃⦃subIdeals⦄.Has(⦃subIdeal⦄)⦄
+										if and only if:
+												⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃subIdeal⦄)⦄
+											and:
+												⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃subIdeal⦄,⦃ideal⦄)⦄.MapWith(⦃unaryFunction GetStructure⦄)⦄)⦄
+											and:
+												⦃⦃binaryFunction IsSubMultiClassOf⦄(⦃⦃(⦃subIdeal⦄,⦃ideal⦄)⦄.MapWith(⦃unaryFunction GetClass⦄)⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.GetSum⦄,⦃method ⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.GetIntersection⦄
+	for all ⟦ideals⟧:
+		if:
+			⦃⦃⦃NonEmptyMultiClass⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.HasInstance(⦃ideals⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sum⦄,
+						⦃unicodeCodePoints Intersection⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+					if:
+						there exists ⟦structure⟧:
+							⦃⦃{⦃structure⦄}⦄.IsEqualTo(⦃⦃ideals⦄.MapToClassWith(⦃unaryFunction GetStructure⦄)⦄)⦄
+					then:
+							⦃⦃⦃⦃ideals⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+						and:
+							let:
+								⟦structure⟧:
+									let:
+										⟦ideal⟧:
+											⦃⦃ideals⦄.Has(⦃ideal⦄)⦄
+									⦃⦃structure⦄.IsEqualTo(⦃⦃ideal⦄.GetStructure()⦄)⦄
+								⟦class⟧:
+										⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+									and:
+										for all ⟦x⟧:
+												⦃⦃class⦄.Has(⦃x⦄)⦄
+											if and only if:
+												there exists ⟦sequence⟧:
+														let:
+															⟦typeIdentifier0⟧:
+																if:
+																	⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Sum⦄)⦄
+																then:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Union⦄)⦄
+																else:
+																	⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Intersection⦄)⦄
+														⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃⦃ideals⦄.MapToClassWith(⦃unaryFunction GetClass⦄)⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄)⦄
+													and:
+														⦃⦃x⦄.IsEqualTo(⦃⦃⦃structure⦄.GetAddition()⦄.ApplyOperationToSequence(⦃sequence⦄)⦄)⦄
+							⦃⦃⦃ideals⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄.IsEqualTo(⦃⦃PartialIdeal⦄(⦃structure⦄,⦃class⦄)⦄)⦄
+					else:
+						⦃⦃⦃⦃ideals⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.GetProduct⦄
+	for all ⟦ideals⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.HasInstance(⦃ideals⦄)⦄
+		then:
+			if:
+				there exists ⟦structure⟧:
+					⦃⦃{⦃structure⦄}⦄.IsEqualTo(⦃⦃⦃ideals⦄.GetCoDomain()⦄.MapToClassWith(⦃unaryFunction GetStructure⦄)⦄)⦄
+			then:
+					⦃⦃⦃⦃ideals⦄.GetProduct⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+				and:
+					let:
+						⟦structure⟧:
+							let:
+								⟦ideal⟧:
+									⦃⦃ideals⦄.Has(⦃ideal⦄)⦄
+							⦃⦃structure⦄.IsEqualTo(⦃⦃ideal⦄.GetStructure()⦄)⦄
+						⟦class⟧:
+								⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+							and:
+								for all ⟦x⟧:
+										⦃⦃class⦄.Has(⦃x⦄)⦄
+									if and only if:
+										there exists ⟦sequence⟧:
+											let:
+												⟦addition⟧,⟦multiplication⟧:
+													⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+												for all ⟦x⟧:
+													if:
+														⦃⦃⦃sequence⦄.GetCoDomain()⦄.Has(⦃x⦄)⦄
+													then:
+														there exists ⟦sequence⟧:
+																⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃sequence⦄,⦃ideals⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+															and:
+																for all ⟦index⟧:
+																	if:
+																		⦃⦃⦃sequence⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+																	then:
+																		⦃⦃⦃⦃ideals⦄(⦃index⦄)⦄.GetClass()⦄.Has(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+															and:
+																⦃⦃x⦄.IsEqualTo(⦃⦃multiplication⦄.ApplyOperationToSequence(⦃sequence⦄)⦄)⦄
+											and:
+												⦃⦃x⦄.IsEqualTo(⦃⦃addition⦄.ApplyOperationToSequence(⦃sequence⦄)⦄)⦄
+					⦃⦃⦃ideals⦄.GetProduct()⦄.IsEqualTo(⦃⦃PartialIdeal⦄(⦃structure⦄,⦃class⦄)⦄)⦄
+			else:
+				⦃⦃⦃⦃ideals⦄.GetProduct⦄.GetDomain()⦄.IsEqualTo(⦃{}⦄)⦄
+
+define ⦃method ⦃⦃NonEmptyFiniteMultiClass⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.GetProduct⦄
+	for all ⟦ideals⟧:
+		if:
+			⦃⦃⦃NonEmptyFiniteMultiClass⦄.GetTypeInducedBy(⦃PartialIdeal⦄)⦄.HasInstance(⦃ideals⦄)⦄
+		then:
+			for all ⟦x⟧:
+					⦃⦃⦃⦃ideals⦄.GetProduct⦄.GetGraph()⦄.Has(⦃x⦄)⦄
+				if and only if:
+					there exists ⟦ideal⟧:
+							⦃⦃x⦄.IsEqualTo(⦃(⦃()⦄,⦃ideal⦄)⦄)⦄
+						and:
+							for all ⟦idealsSequence⟧:
+									⦃⦃⦃ideals⦄.GetPermutations()⦄.Has(⦃idealsSequence⦄)⦄
+								and:
+									⦃⦃ideal⦄.IsEqualTo(⦃⦃idealsSequence⦄.GetProduct()⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.GetPower⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+				⦃⦃⦃⦃ideal⦄.GetPower⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃FiniteOrdinal⦄.MapToClass()⦄.GetDifferenceWith(⦃0⦄)⦄)⦄
+			and:
+				for all ⟦ordinal⟧:
+					if:
+						⦃⦃⦃⦃ideal⦄.GetPower⦄.GetDomain()⦄.Has(⦃ordinal⦄)⦄
+					then:
+						⦃⦃⦃structure⦄.GetPower(⦃ordinal⦄)⦄.IsEqualTo(⦃⦃⦃ideal⦄.Repeat(⦃ordinal⦄)⦄.GetProduct()⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.GetSumWith⦄,⦃method ⦃PartialIdeal⦄.GetProductWith⦄,⦃method ⦃PartialIdeal⦄.GetIntersectionWith⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+			for all ⟦typeIdentifier⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Sum⦄,
+						⦃unicodeCodePoints Product⦄,
+						⦃unicodeCodePoints Intersection⦄
+					}⦄.Has(⦃typeIdentifier⦄)⦄
+				then:
+						for all ⟦ideal0⟧:
+								⦃⦃⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With⦄.GetDomain()⦄.Has(⦃ideal0⦄)⦄
+							if and only if:
+									⦃⦃PartialIdeal⦄.HasInstance(⦃ideal0⦄)⦄
+								and:
+									⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃ideal0⦄,⦃ideal⦄)⦄.MapWith(⦃unaryFunction GetStructure⦄)⦄)⦄
+					and:
+						for all ⟦ideal0⟧:
+							if:
+								⦃⦃⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With⦄.GetDomain()⦄.Has(⦃ideal0⦄)⦄
+							then:
+								let:
+									⟦ideals⟧:
+										if:
+											not:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Product⦄)⦄
+										then:
+											⦃⦃ideals⦄.IsEqualTo(⦃{⦃ideal⦄,⦃ideal0⦄}⦄)⦄
+										else:
+											⦃⦃ideals⦄.IsEqualTo(⦃(⦃ideal⦄,⦃ideal0⦄)⦄)⦄
+								⦃⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧With(⦃ideal0⦄)⦄.IsEqualTo(⦃⦃ideals⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧()⦄)⦄
+
+define ⦃method ⦃PartialIdeal⦄.GetRadical⦄
+	for all ⟦ideal⟧:
+		if:
+			⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+		then:
+				⦃⦃⦃⦃ideal⦄.GetRadical⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦radical⟧:
+						⦃⦃radical⦄.IsEqualTo(⦃⦃ideal⦄.GetRadical()⦄)⦄
+					⦃⦃PartialIdeal⦄.HasInstance(⦃radical⦄)⦄
+				and:
+					let:
+						⟦structure⟧:
+							⦃⦃structure⦄.IsEqualTo(⦃⦃radical⦄.GetStructure()⦄)⦄
+						⦃⦃structure⦄.IsEqualTo(⦃⦃ideal⦄.GetStructure()⦄)⦄
+					and:
+						for all ⟦x⟧:
+								⦃⦃⦃radical⦄.GetClass()⦄.Has(⦃x⦄)⦄
+							if and only if:
+								there exists ⟦ordinal⟧:
+										⦃⦃0⦄.IsInferiorTo(⦃ordinal⦄)⦄
+									and:
+										⦃⦃⦃ideal⦄.GetClass()⦄.Has(⦃⦃⦃structure⦄.GetMultiplication()⦄.ApplyOperationNTimesTo(⦃x⦄,⦃ordinal⦄)⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃PartialIdeal⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

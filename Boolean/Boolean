@@ -1,0 +1,35 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Boolean⦄
+		⦃⦃MutuallyDisjointType⦄.HasInstance(⦃Boolean⦄)⦄
+	and:
+		⦃⦃⦃Boolean⦄.MapToClass()⦄.IsEqualTo(⦃{⦃False⦄,⦃True⦄}⦄)⦄
+
+define ⦃method ⦃Boolean⦄.IsEqualTo⦄
+	not:
+		⦃⦃False⦄.IsEqualTo(⦃True⦄)⦄
+
+define ⦃method ⦃Boolean⦄.GetOpposite⦄
+		for all ⟦boolean⟧:
+			if:
+				⦃⦃Boolean⦄.HasInstance(⦃boolean⦄)⦄
+			then:
+				⦃⦃⦃⦃boolean⦄.GetOpposite⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+	and:
+		for all ⟦boolean0⟧,⟦boolean1⟧:
+			if:
+				⦃⦃⦃⦃Boolean⦄.MapToClass()⦄.GetPermutations()⦄.Has(⦃(⦃boolean0⦄,⦃boolean1⦄)⦄)⦄
+			then:
+				⦃⦃⦃boolean0⦄.GetOpposite()⦄.IsEqualTo(⦃boolean1⦄)⦄
+
+
+
+declare ⟦UnionOfTypes⟧
+define ⦃UnionOfTypes⦄
+	⦃⦃UnionOfTypes⦄.IsEqualTo(⦃⦃Boolean⦄.MapToClass()⦄)⦄
+
+
+
+export ⦃UnionOfTypes⦄

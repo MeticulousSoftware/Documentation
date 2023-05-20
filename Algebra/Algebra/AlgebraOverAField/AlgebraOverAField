@@ -1,0 +1,78 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAlgebraOverAField⦄,⦃AlgebraOverAField⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraOverAField⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraOverAField⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+						there exists ⟦typeIdentifier0⟧:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄,
+									⦃unicodeCodePoints Bi⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							and:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlgebraOverAField⦄.HasInstance(⦃algebra⦄)⦄
+
+
+
+define ⦃MetaLeftAlgebraOverAField⦄,⦃MetaRightAlgebraOverAField⦄,
+⦃LeftAlgebraOverAField⦄,⦃RightAlgebraOverAField⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlgebraOverAField⦄)⦄
+					and:
+						for all ⟦algebra⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlgebraOverAField⦄.HasInstance(⦃algebra⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Algebra⦄.HasInstance(⦃algebra⦄)⦄
+								and:
+									⦃⦃Field⦄.HasInstance(⦃⦃algebra⦄.GetScalarStructure()⦄)⦄
+
+
+
+define ⦃MetaBiAlgebraOverAField⦄,⦃BiAlgebraOverAField⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiAlgebraOverAField⦄)⦄
+			and:
+				for all ⟦algebra⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiAlgebraOverAField⦄.HasInstance(⦃algebra⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧BiScalarMultiplicationStructure⦄.HasInstance(⦃algebra⦄)⦄
+						and:
+							for all ⟦typeIdentifier0⟧:
+								if:
+									⦃⦃{
+										⦃unicodeCodePoints Left⦄,
+										⦃unicodeCodePoints Right⦄
+									}⦄.Has(⦃typeIdentifier0⦄)⦄
+								then:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧AlgebraOverAField⦄.HasInstance(⦃⦃algebra⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄

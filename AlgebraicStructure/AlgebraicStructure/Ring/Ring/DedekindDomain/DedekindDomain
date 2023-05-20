@@ -1,0 +1,30 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaDedekindDomain⦄,⦃DedekindDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧DedekindDomain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧DedekindDomain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							for all ⟦ideal⟧:
+								if:
+										⦃⦃⦃structure⦄.GetUnitalProperIdeals()⦄.Has(⦃ideal⦄)⦄
+									and:
+										not:
+											⦃⦃ideal⦄.IsZero()⦄
+								then:
+									there exists ⟦ideals⟧:
+											⦃⦃⦃NonEmptyFiniteSequence⦄.GetTypeInducedBy(⦃UnitalPrimeIdeals⦄)⦄.HasInstance(⦃ideals⦄)⦄
+										and:
+											⦃⦃ideal⦄.IsEqualTo(⦃⦃ideals⦄.GetProduct()⦄)⦄

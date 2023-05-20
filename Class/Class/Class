@@ -1,0 +1,61 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃Class⦄
+		⦃⦃Type⦄.HasInstance(⦃Class⦄)⦄
+	and:
+		for all ⟦multiClass⟧:
+				⦃⦃Class⦄.HasInstance(⦃multiClass⦄)⦄
+			if and only if:
+					⦃⦃MultiClass⦄.HasInstance(⦃multiClass⦄)⦄
+				and:
+					for all ⟦x⟧:
+						⦃⦃⦃multiClass⦄.GetMultiplicityOf(⦃x⦄)⦄.IsInferiorOrEqualTo(⦃⦃Cardinal⦄(⦃1⦄)⦄)⦄
+
+define ⦃method ⦃Class⦄.GetGeneratedType⦄
+	for all ⟦class⟧:
+		if:
+			⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+		then:
+				⦃⦃⦃⦃class⦄.GetGeneratedType⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃⦃class⦄.GetGeneratedType()⦄.IsEqualTo(⦃⦃Type⦄(⦃class⦄)⦄)⦄
+
+define ⦃method ⦃Class⦄.GetIdentityFunction⦄
+	for all ⟦class⟧:
+		if:
+			⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+		then:
+				⦃⦃⦃⦃class⦄.GetIdentityFunction⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦identityFunction⟧:
+						⦃⦃identityFunction⦄.IsEqualTo(⦃⦃class⦄.GetIdentityFunction()⦄)⦄
+					⦃⦃Function⦄.HasInstance(⦃identityFunction⦄)⦄
+				and:
+					⦃⦃⦃identityFunction⦄.GetDomain()⦄.IsEqualTo(⦃class⦄)⦄
+				and:
+					for all ⟦x⟧:
+						if:
+							⦃⦃⦃identityFunction⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+						then:
+							⦃⦃⦃identityFunction⦄(⦃x⦄)⦄.IsEqualTo(⦃x⦄)⦄
+
+define ⦃method ⦃Class⦄.MapToClassWith⦄
+	for all ⟦class⟧:
+		if:
+			⦃⦃Class⦄.HasInstance(⦃class⦄)⦄
+		then:
+				for all ⟦map⟧:
+						⦃⦃⦃⦃class⦄.MapToClassWith⦄.GetDomain()⦄.Has(⦃map⦄)⦄
+					if and only if:
+							⦃⦃Function⦄.HasInstance(⦃map⦄)⦄
+						and:
+							⦃⦃class⦄.IsSubMultiClassOf(⦃⦃map⦄.GetDomain()⦄)⦄
+			and:
+				for all ⟦map⟧:
+					if:
+						⦃⦃⦃⦃class⦄.MapToClassWith⦄.GetDomain()⦄.Has(⦃map⦄)⦄
+					then:
+						⦃⦃⦃class⦄.MapToClassWith(⦃map⦄)⦄.IsEqualTo(⦃⦃map⦄.GetImageOfTheClass(⦃class⦄)⦄)⦄

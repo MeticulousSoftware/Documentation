@@ -1,0 +1,52 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaAdditionIdemPotentPartialRing⦄,⦃MetaMultiplicationIdemPotentPartialRing⦄,
+⦃AdditionIdemPotentPartialRing⦄,⦃MultiplicationIdemPotentPartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Addition⦄,
+						⦃unicodeCodePoints Multiplication⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧IdemPotentPartialRing⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧IdemPotentPartialRing⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									⦃⦃IdemPotentPartialMagma⦄.HasInstance(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧Structure()⦄)⦄
+
+
+
+define ⦃MetaIdemPotentPartialRing⦄,⦃IdemPotentPartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧IdemPotentPartialRing⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IdemPotentPartialRing⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Addition⦄,
+									⦃unicodeCodePoints Multiplication⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧IdemPotentPartialRing⦄.HasInstance(⦃structure⦄)⦄

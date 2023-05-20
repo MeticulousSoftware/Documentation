@@ -1,0 +1,97 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+declare ⟦IsStructureAndCongruenceRelationOfQuotientStructure⟧
+define ⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄
+		⦃⦃Function⦄.HasInstance(⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄)⦄
+	and:
+		⦃⦃⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄.GetDomain()⦄.IsEqualTo(⦃⦃⦃(⦃AlgebraicStructure⦄,⦃AlgebraicStructure⦄,⦃EquivalenceRelation⦄)⦄.MapWith(⦃unaryFunction MapToClass⦄)⦄.GetCartesianProduct()⦄)⦄
+	and:
+		for all ⟦x⟧:
+			if:
+				⦃⦃⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+			then:
+				let:
+					⟦isStructureAndCongruenceRelationOfQuotientStructure⟧:
+						⦃⦃isStructureAndCongruenceRelationOfQuotientStructure⦄.IsEqualTo(⦃⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄(⦃x⦄)⦄)⦄
+					⦃⦃Boolean⦄.HasInstance(⦃isStructureAndCongruenceRelationOfQuotientStructure⦄)⦄
+				and:
+						⦃isStructureAndCongruenceRelationOfQuotientStructure⦄
+					if and only if:
+						let:
+							⟦quotientStructure⟧,⟦structure⟧,⟦congruenceRelation⟧:
+								⦃⦃(⦃quotientStructure⦄,⦃structure⦄,⦃congruenceRelation⦄)⦄.IsEqualTo(⦃x⦄)⦄
+							⦃⦃structure⦄.IsCompatibleWithTheRelation(⦃congruenceRelation⦄)⦄
+						and:
+							⦃⦃⦃quotientStructure⦄.GetClass()⦄.IsEqualTo(⦃⦃congruenceRelation⦄.GetEquivalenceClasses()⦄)⦄
+						and:
+							let:
+								⟦operations⟧,⟦quotientOperations⟧:
+									for all ⟦typeIdentifier⟧:
+										if:
+											⦃⦃{
+												⦃unicodeCodePoints ⦄,
+												⦃unicodeCodePoints Quotient⦄
+											}⦄.Has(⦃typeIdentifier⦄)⦄
+										then:
+											⦃⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧s⦄.IsEqualTo(⦃⦃⟦⟦⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Structure⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.GetOperations()⦄)⦄
+								⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(⦃quotientOperations⦄,⦃operations⦄)⦄.MapWith(⦃unaryFunction GetLength⦄)⦄)⦄
+							and:
+								for all ⟦index⟧:
+									if:
+										⦃⦃⦃operations⦄.GetDomain()⦄.Has(⦃index⦄)⦄
+									then:
+										let:
+											⟦operation⟧,⟦quotientOperation⟧:
+												for all ⟦typeIdentifier⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints ⦄,
+															⦃unicodeCodePoints Quotient⦄
+														}⦄.Has(⦃typeIdentifier⦄)⦄
+													then:
+														let:
+															⟦typeIdentifier0⟧:
+																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃⦃unicodeCodePoints ⟦⟦⦃typeIdentifier⦄⟧⟧Operation⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄)⦄
+														⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧s⦄.IsEqualTo(⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⦄(⦃index⦄)⦄)⦄
+											⟦arity⟧:
+												⦃⦃arity⦄.IsEqualTo(⦃⦃operation⦄.GetDomainArity()⦄)⦄
+											⦃⦃⦃quotientOperation⦄.GetDomainArity()⦄.IsEqualTo(⦃arity⦄)⦄
+										and:
+											for all ⟦sequence⟧:
+												if:
+														⦃⦃TransFiniteSequence⦄.HasInstance(⦃sequence⦄)⦄
+													and:
+														⦃⦃⦃sequence⦄.GetLength()⦄.IsEqualTo(⦃arity⦄)⦄
+													and:
+														⦃⦃⦃sequence⦄.GetCoDomain()⦄.IsSubMultiClassOf(⦃⦃structure⦄.GetClass()⦄)⦄
+												then:
+													⦃⦃⦃⦃quotientOperation⦄.GetSimplifiedFunction()⦄(⦃⦃sequence⦄.MapWith(⦃⦃congruenceRelation⦄.GetEquivalenceClassOf⦄)⦄)⦄.IsEqualTo(⦃⦃congruenceRelation⦄.GetEquivalenceClassOf(⦃⦃⦃operation⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄)⦄)⦄
+
+
+
+define ⦃QuotientAlgebraicStructure⦄
+		⦃⦃Type⦄.HasInstance(⦃QuotientAlgebraicStructure⦄)⦄
+	and:
+		for all ⟦structure⟧:
+				⦃⦃QuotientAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+			if and only if:
+				there exists ⟦x⟧:
+					⦃⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄(⦃⦃(⦃structure⦄)⦄.GetConcatenationWith(⦃x⦄)⦄)⦄
+
+define ⦃method ⦃QuotientAlgebraicStructure⦄.GetStructure⦄,⦃method ⦃QuotientAlgebraicStructure⦄.GetCongruenceRelation⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃QuotientAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints Structure⦄,
+							⦃unicodeCodePoints CongruenceRelation⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				⦃⦃IsStructureAndCongruenceRelationOfQuotientStructure⦄(⦃structure⦄,⦃⦃structure⦄.GetStructure()⦄,⦃⦃structure⦄.GetCongruenceRelation()⦄)⦄

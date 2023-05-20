@@ -1,0 +1,129 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LeftIdeal⦄,⦃RightIdeal⦄,
+⦃LeftUnitalIdeal⦄,⦃RightUnitalIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄)⦄
+					and:
+						for all ⟦ideal⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+							if and only if:
+									⦃⦃PartialIdeal⦄.HasInstance(⦃ideal⦄)⦄
+								and:
+									let:
+										⟦structure⟧,⟦class⟧:
+											for all ⟦typeIdentifier0⟧:
+												if:
+													⦃⦃{
+														⦃unicodeCodePoints Structure⦄,
+														⦃unicodeCodePoints Class⦄
+													}⦄.Has(⦃typeIdentifier0⦄)⦄
+												then:
+													⦃⦃⟦⟦⦃⦃typeIdentifier0⦄.GetWithFirstUnicodeCodePointToLowerCase()⦄⟧⟧⦄.IsEqualTo(⦃⦃ideal⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧()⦄)⦄
+										⟦additionStructure⟧,⟦multiplicationStructure⟧:
+											⦃⦃(⦃additionStructure⦄,⦃multiplicationStructure⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetStructures()⦄)⦄
+										let:
+											⟦inducedAdditionStructure⟧:
+												⦃⦃inducedAdditionStructure⦄.IsEqualTo(⦃⦃additionStructure⦄.GetStructureInducedBy(⦃class⦄)⦄)⦄
+											⦃⦃class⦄.IsEqualTo(⦃⦃inducedAdditionStructure⦄.GetClass()⦄)⦄
+										and:
+											if:
+												⦃⦃typeIdentifier⦄.IsEqualTo(⦃unicodeCodePoints Unital⦄)⦄
+											then:
+													⦃⦃PartialUnitalPartialMagma⦄.HasInstance(⦃inducedAdditionStructure⦄)⦄
+												and:
+													for all ⟦x⟧:
+														if:
+															⦃⦃class⦄.Has(⦃x⦄)⦄
+														then:
+															⦃⦃⦃additionStructure⦄.GetInversesOf(⦃x⦄)⦄.IsSubMultiClassOf(⦃class⦄)⦄
+									and:
+										let:
+											⟦multiplication⟧:
+												⦃⦃multiplication⦄.IsEqualTo(⦃⦃⦃multiplicationStructure⦄.GetOperation()⦄.GetSimplifiedFunction()⦄)⦄
+										for all ⟦x⟧,⟦y⟧:
+											if:
+													⦃⦃⦃multiplication⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+												and:
+													let:
+														⟦index⟧:
+															if:
+																⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+															then:
+																⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+															else:
+																⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+													⦃⦃class⦄.Has(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+											then:
+												⦃⦃class⦄.Has(⦃⦃multiplication⦄(⦃sequence⦄)⦄)⦄
+									and:
+										if:
+											⦃⦃MetaScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+										then:
+											if:
+												not:
+													⦃⦃MetaBiScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+											then:
+												for all ⟦x⟧,⟦y⟧:
+													if:
+															⦃⦃⦃scalarMultiplication⦄.GetDomain()⦄.Has(⦃sequence⦄)⦄
+														and:
+															let:
+																⟦index⟧:
+																	if:
+																		⦃⦃MetaLeftScalarMultiplicationStructure⦄.HasInstance(⦃structure⦄)⦄
+																	then:
+																		⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+																	else:
+																		⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+															⦃⦃class⦄.Has(⦃⦃sequence⦄(⦃index⦄)⦄)⦄
+													then:
+														⦃⦃class⦄.Has(⦃⦃scalarMultiplication⦄(⦃sequence⦄)⦄)⦄
+											else:
+												for all ⟦typeIdentifier1⟧:
+													if:
+														⦃⦃{
+															⦃unicodeCodePoints Left⦄,
+															⦃unicodeCodePoints Right⦄
+														}⦄.Has(⦃typeIdentifier1⦄)⦄
+													then:
+														⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃⦃PartialIdeal⦄(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧Structure()⦄,⦃class⦄)⦄)⦄
+
+
+
+define ⦃Ideal⦄,⦃UnitalIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄)⦄
+			and:
+				for all ⟦ideal⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄

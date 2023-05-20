@@ -1,0 +1,45 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaGreatestCommonDivisorDomain⦄,⦃GreatestCommonDivisorDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧GreatestCommonDivisorDomain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧GreatestCommonDivisorDomain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							for all ⟦x0⟧,⟦x1⟧:
+								if:
+									for all ⟦index⟧:
+										if:
+											⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+										then:
+											⦃⦃⦃structure⦄.GetClass()⦄.Has(⦃x⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+								then:
+									there exists ⟦ideal⟧:
+										let:
+											⟦ideals⟧:
+													⦃⦃Class⦄.HasInstance(⦃ideals⦄)⦄
+												and:
+													for all ⟦ideal⟧:
+															⦃⦃ideals⦄.Has(⦃ideal⦄)⦄
+														if and only if:
+																⦃⦃⦃structure⦄.GetUnitalPrincipalIdeals()⦄.Has(⦃ideal⦄)⦄
+															and:
+																⦃⦃⦃ideal⦄.GetUnitalSubIdeals()⦄.Has(⦃⦃structure⦄.GetUnitalIdealGeneratedBy(⦃{⦃x0⦄,⦃x1⦄}⦄)⦄)⦄
+											⦃⦃ideals⦄.Has(⦃ideal⦄)⦄
+										and:
+											for all ⟦ideal0⟧:
+												if:
+													⦃⦃ideals⦄.Has(⦃ideal0⦄)⦄
+												then:
+													⦃⦃⦃ideal0⦄.GetUnitalSubIdeals()⦄.Has(⦃ideal⦄)⦄

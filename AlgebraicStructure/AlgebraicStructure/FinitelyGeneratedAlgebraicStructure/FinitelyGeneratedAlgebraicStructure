@@ -1,0 +1,23 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaFinitelyGeneratedAlgebraicStructure⦄,⦃FinitelyGeneratedAlgebraicStructure⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧FinitelyGeneratedAlgebraicStructure⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧FinitelyGeneratedAlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧AlgebraicStructure⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							there exists ⟦elements⟧:
+									⦃⦃FiniteClass⦄.HasInstance(⦃elements⦄)⦄
+								and:
+									⦃⦃structure⦄.IsEqualTo(⦃⦃structure⦄.GetSubStructureGeneratedBy(⦃elements⦄)⦄)⦄

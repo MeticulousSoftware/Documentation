@@ -1,0 +1,34 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃IrreducibleIdeal⦄,⦃UnitalIrreducibleIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧IrreducibleIdeal⦄)⦄
+			and:
+				for all ⟦ideal⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IrreducibleIdeal⦄.HasInstance(⦃ideal⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+						and:
+							not:
+								there exists ⟦ideal0⟧,⟦ideal1⟧:
+										for all ⟦index⟧:
+											if:
+												⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+											then:
+												let:
+													⟦typeIdentifier⟧:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+													⦃⦃⦃⦃ideal⦄.GetStructure()⦄.Get⟦⟦⦃typeIdentifier⦄⟧⟧Ideals()⦄.Has(⦃ideal⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+												and:
+													not:
+														⦃⦃ideal⟦⟦⦃typeIdentifier⦄⟧⟧⦄.IsEqualTo(⦃ideal⦄)⦄
+									and:
+										⦃⦃ideal⦄.IsEqualTo(⦃⦃ideal0⦄.GetIntersectionWith(⦃ideal1⦄)⦄)⦄

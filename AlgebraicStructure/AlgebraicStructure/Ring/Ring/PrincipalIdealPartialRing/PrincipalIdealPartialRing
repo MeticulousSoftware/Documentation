@@ -1,0 +1,38 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftPrincipalIdealPartialRing⦄,⦃MetaRightPrincipalIdealPartialRing⦄,⦃MetaPrincipalIdealPartialRing⦄,
+⦃MetaLeftUnitalPrincipalIdealPartialRing⦄,⦃MetaRightUnitalPrincipalIdealPartialRing⦄,⦃MetaUnitalPrincipalIdealPartialRing⦄,
+⦃LeftPrincipalIdealPartialRing⦄,⦃RightPrincipalIdealPartialRing⦄,⦃PrincipalIdealPartialRing⦄,
+⦃LeftUnitalPrincipalIdealPartialRing⦄,⦃RightUnitalPrincipalIdealPartialRing⦄,⦃UnitalPrincipalIdealPartialRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints ⦄,
+						⦃unicodeCodePoints Unital⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+					for all ⟦typeIdentifier1⟧:
+						if:
+							⦃⦃{
+								⦃unicodeCodePoints Left⦄,
+								⦃unicodeCodePoints Right⦄,
+								⦃unicodeCodePoints ⦄
+							}⦄.Has(⦃typeIdentifier1⦄)⦄
+						then:
+								⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PrincipalIdealPartialRing⦄)⦄
+							and:
+								for all ⟦structure⟧:
+										⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PrincipalIdealPartialRing⦄.HasInstance(⦃structure⦄)⦄
+									if and only if:
+											⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PartialRing⦄.HasInstance(⦃structure⦄)⦄
+										and:
+											⦃⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧Ideals()⦄.IsEqualTo(⦃⦃structure⦄.Get⟦⟦⦃typeIdentifier1⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧PrincipalIdeals()⦄)⦄

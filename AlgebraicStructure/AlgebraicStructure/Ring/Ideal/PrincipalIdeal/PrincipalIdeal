@@ -1,0 +1,30 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LeftPrincipalIdeal⦄,⦃RightPrincipalIdeal⦄,⦃PrincipalIdeal⦄,
+⦃LeftUnitalPrincipalIdeal⦄,⦃RightUnitalPrincipalIdeal⦄,⦃UnitalPrincipalIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧PrincipalIdeal⦄)⦄
+					and:
+						for all ⟦ideal⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧PrincipalIdeal⦄.HasInstance(⦃ideal⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+								and:
+									there exists ⟦x⟧:
+										⦃⦃ideal⦄.IsEqualTo(⦃⦃⦃ideal⦄.GetStructure()⦄.Get⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧IdealGeneratedBy(⦃{⦃x⦄}⦄)⦄)⦄

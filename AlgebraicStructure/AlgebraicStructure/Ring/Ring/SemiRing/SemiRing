@@ -1,0 +1,25 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaSemiRing⦄,⦃SemiRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧SemiRing⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧SemiRing⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧NearSemiRing⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							let:
+								⟦additionStructure⟧,⟦multiplicationStructure⟧:
+									⦃⦃(⦃additionStructure⦄,⦃multiplicationStructure⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetStructures()⦄)⦄
+								⦃⦃CommutativeMonoid⦄.HasInstance(⦃additionStructure⦄)⦄
+							and:
+								⦃⦃Monoid⦄.HasInstance(⦃multiplicationStructure⦄)⦄

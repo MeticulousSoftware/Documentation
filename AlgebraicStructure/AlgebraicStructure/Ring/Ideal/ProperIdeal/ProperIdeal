@@ -1,0 +1,31 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃LeftPartialProperIdeal⦄,⦃RightPartialProperIdeal⦄,⦃PartialProperIdeal⦄,
+⦃LeftProperIdeal⦄,⦃RightProperIdeal⦄,⦃ProperIdeal⦄,
+⦃LeftUnitalProperIdeal⦄,⦃RightUnitalProperIdeal⦄,⦃UnitalProperIdeal⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Partial⦄,
+				⦃unicodeCodePoints ⦄,
+				⦃unicodeCodePoints Unital⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧ProperIdeal⦄)⦄
+					and:
+						for all ⟦ideal⟧:
+								⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧ProperIdeal⦄.HasInstance(⦃ideal⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier0⦄⟧⟧⟦⟦⦃typeIdentifier⦄⟧⟧Ideal⦄.HasInstance(⦃ideal⦄)⦄
+								and:
+									⦃⦃⦃ideal⦄.GetClass()⦄.IsProperSubMultiClassOf(⦃⦃⦃ideal⦄.GetStructure()⦄.GetClass()⦄)⦄

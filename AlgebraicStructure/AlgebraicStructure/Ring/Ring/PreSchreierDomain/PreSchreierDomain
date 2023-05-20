@@ -1,0 +1,20 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaPreSchreierDomain⦄,⦃PreSchreierDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧PreSchreierDomain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧PreSchreierDomain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+							⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+						and:
+							⦃⦃⦃⦃structure⦄.GetMultiplication()⦄.GetPrimalElements()⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄

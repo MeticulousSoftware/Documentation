@@ -1,0 +1,29 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftLoopNearRing⦄,⦃MetaRightLoopNearRing⦄,⦃MetaLoopNearRing⦄,
+⦃LeftLoopNearRing⦄,⦃RightLoopNearRing⦄,⦃LoopNearRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄,
+						⦃unicodeCodePoints ⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧LoopNearRing⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧LoopNearRing⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧UnitalNearRing⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									⦃⦃Loop⦄.HasInstance(⦃⦃structure⦄.GetAdditionStructure()⦄)⦄

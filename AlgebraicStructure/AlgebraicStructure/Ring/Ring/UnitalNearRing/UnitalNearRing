@@ -1,0 +1,69 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaLeftUnitalNearRing⦄,⦃MetaRightUnitalNearRing⦄,
+⦃LeftUnitalNearRing⦄,⦃RightUnitalNearRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+			for all ⟦typeIdentifier0⟧:
+				if:
+					⦃⦃{
+						⦃unicodeCodePoints Left⦄,
+						⦃unicodeCodePoints Right⦄
+					}⦄.Has(⦃typeIdentifier0⦄)⦄
+				then:
+						⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧UnitalNearRing⦄)⦄
+					and:
+						for all ⟦structure⟧:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧UnitalNearRing⦄.HasInstance(⦃structure⦄)⦄
+							if and only if:
+									⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧DistributivePartialRing⦄.HasInstance(⦃structure⦄)⦄
+								and:
+									let:
+										⟦class⟧:
+											⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+										⟦additionStructure⟧,⟦multiplicationStructure⟧:
+											⦃⦃(⦃additionStructure⦄,⦃multiplicationStructure⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetStructures()⦄)⦄
+										⦃⦃UnitalMagma⦄.HasInstance(⦃additionStructure⦄)⦄
+									and:
+										⦃⦃SemiGroup⦄.HasInstance(⦃multiplicationStructure⦄)⦄
+									and:
+										let:
+											⟦index⟧:
+												if:
+													⦃⦃typeIdentifier0⦄.IsEqualTo(⦃unicodeCodePoints Left⦄)⦄
+												then:
+													⦃⦃index⦄.IsEqualTo(⦃0⦄)⦄
+												else:
+													⦃⦃index⦄.IsEqualTo(⦃1⦄)⦄
+										⦃⦃⦃additionStructure⦄.GetIdentities()⦄.IsSubMultiClassOf(⦃⦃multiplicationStructure⦄.GetAbsorbingElementsFor(⦃index⦄)⦄)⦄
+
+
+
+define ⦃MetaUnitalNearRing⦄,⦃UnitalNearRing⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitalNearRing⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧UnitalNearRing⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Left⦄,
+									⦃unicodeCodePoints Right⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧UnitalNearRing⦄.HasInstance(⦃structure⦄)⦄

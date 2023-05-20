@@ -1,0 +1,205 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃MetaIntegralDomain⦄,⦃IntegralDomain⦄
+	for all ⟦typeIdentifier⟧:
+		if:
+			⦃⦃{
+				⦃unicodeCodePoints Meta⦄,
+				⦃unicodeCodePoints ⦄
+			}⦄.Has(⦃typeIdentifier⦄)⦄
+		then:
+				⦃⦃Type⦄.HasInstance(⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄)⦄
+			and:
+				for all ⟦structure⟧:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧IntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+					if and only if:
+						for all ⟦typeIdentifier0⟧:
+							if:
+								⦃⦃{
+									⦃unicodeCodePoints Domain⦄,
+									⦃unicodeCodePoints CommutativeRing⦄
+								}⦄.Has(⦃typeIdentifier0⦄)⦄
+							then:
+								⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧⟦⟦⦃typeIdentifier0⦄⟧⟧⦄.HasInstance(⦃structure⦄)⦄
+
+
+
+define ⦃method ⦃MetaIntegralDomain⦄.GetFieldOfFractions⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaIntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetFieldOfFractions⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦field⟧:
+						⦃⦃field⦄.IsEqualTo(⦃⦃structure⦄.GetFieldOfFractions()⦄)⦄
+					⦃⦃Field⦄.HasInstance(⦃field⦄)⦄
+				and:
+					let:
+						⟦addition⟧,⟦multiplication⟧:
+							⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+						⟦multiplicationFunction⟧:
+							⦃⦃multiplicationFunction⦄.IsEqualTo(⦃⦃multiplication⦄.GetSimplifiedFunction()⦄)⦄
+						⟦relation⟧,⟦relationSignatureClass⟧:
+								⦃⦃EquivalenceRelation⦄.HasInstance(⦃relation⦄)⦄
+							and:
+								⦃⦃relationSignatureClass⦄.IsEqualTo(⦃⦃relation⦄.GetSharedSignatureClass()⦄)⦄
+							and:
+								let:
+									⟦class⟧:
+										⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+								⦃⦃relationSignatureClass⦄.IsEqualTo(⦃⦃(
+									⦃class⦄,
+									⦃⦃class⦄.GetDifferenceWith(⦃⦃addition⦄.GetIdentities()⦄)⦄
+								)⦄.GetCartesianProduct()⦄)⦄
+							and:
+								for all ⟦sequence0⟧,⟦sequence1⟧:
+										⦃⦃⦃relation⦄.GetSimplifiedFunction()⦄(⦃sequence0⦄,⦃sequence1⦄)⦄
+									if and only if:
+										let:
+											⟦x00⟧,⟦x01⟧,
+											⟦x10⟧,⟦x11⟧:
+												for all ⟦index⟧:
+													if:
+														⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+													then:
+														let:
+															⟦typeIdentifier⟧:
+																⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+														⦃⦃(
+															⦃x⟦⟦⦃typeIdentifier⦄⟧⟧0⦄,
+															⦃x⟦⟦⦃typeIdentifier⦄⟧⟧1⦄
+														)⦄.IsEqualTo(⦃sequence⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+										⦃⦃binaryFunction IsEqualTo⦄(⦃⦃(
+											⦃(⦃x00⦄,⦃x11⦄)⦄,
+											⦃(⦃x10⦄,⦃x01⦄)⦄
+										)⦄.MapWith(⦃multiplicationFunction⦄)⦄)⦄
+						⦃⦃⦃field⦄.GetClass()⦄.IsEqualTo(⦃⦃relation⦄.GetEquivalenceClasses()⦄)⦄
+					and:
+						for all ⟦sequence0⟧,⟦sequence1⟧:
+							if:
+								for all ⟦index⟧:
+									if:
+										⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+									then:
+										⦃⦃relationSignatureClass⦄.Has(⦃sequence⟦⟦⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄⟧⟧⦄)⦄
+							then:
+								let:
+									⟦x00⟧,⟦x01⟧,
+									⟦x10⟧,⟦x11⟧:
+										for all ⟦index⟧:
+											if:
+												⦃⦃{⦃0⦄,⦃1⦄}⦄.Has(⦃index⦄)⦄
+											then:
+												let:
+													⟦typeIdentifier⟧:
+														⦃⦃typeIdentifier⦄.IsEqualTo(⦃⦃index⦄.MapToUnicodeRepresentationInBase(⦃10⦄)⦄)⦄
+												⦃⦃(
+													⦃x⟦⟦⦃typeIdentifier⦄⟧⟧0⦄,
+													⦃x⟦⟦⦃typeIdentifier⦄⟧⟧1⦄
+												)⦄.IsEqualTo(⦃sequence⟦⟦⦃typeIdentifier⦄⟧⟧⦄)⦄
+									⟦sequence⟧:
+										⦃⦃sequence⦄.IsEqualTo(⦃⦃(⦃sequence0⦄,⦃sequence1⦄)⦄.MapWith(⦃⦃relation⦄.GetEquivalenceClassOf⦄)⦄)⦄
+									⟦fieldAddition⟧,⟦fieldMultiplication⟧:
+										⦃⦃(⦃fieldAddition⦄,⦃fieldMultiplication⦄)⦄.IsEqualTo(⦃⦃field⦄.GetOperations()⦄)⦄
+									⦃⦃⦃⦃fieldAddition⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄.IsEqualTo(⦃⦃relation⦄.GetEquivalenceClassOf(⦃(
+										⦃⦃⦃addition⦄.GetSimplifiedFunction()⦄(⦃⦃(
+											⦃(⦃x00⦄,⦃x11⦄)⦄,
+											⦃(⦃x10⦄,⦃x01⦄)⦄
+										)⦄.MapWith(⦃multiplicationFunction⦄)⦄)⦄,
+										⦃⦃multiplicationFunction⦄(⦃x01⦄,⦃x11⦄)⦄
+									)⦄)⦄)⦄
+								and:
+									⦃⦃⦃⦃fieldMultiplication⦄.GetSimplifiedFunction()⦄(⦃sequence⦄)⦄.IsEqualTo(⦃⦃relation⦄.GetEquivalenceClassOf(⦃⦃(
+										⦃(⦃x00⦄,⦃x10⦄)⦄,
+										⦃(⦃x01⦄,⦃x11⦄)⦄
+									)⦄.MapWith(⦃multiplicationFunction⦄)⦄)⦄)⦄
+
+define ⦃method ⦃MetaIntegralDomain⦄.GetFieldOfFractionsEmbeddingOf⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaIntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+		then:
+			let:
+				⟦class⟧:
+					⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+				⦃⦃⦃⦃structure⦄.GetFieldOfFractionsEmbeddingOf⦄.GetDomain()⦄.IsEqualTo(⦃class⦄)⦄
+			and:
+				for all ⟦x⟧:
+					if:
+						⦃⦃⦃⦃structure⦄.GetFieldOfFractionsEmbeddingOf⦄.GetDomain()⦄.Has(⦃x⦄)⦄
+					then:
+						let:
+							⟦embedding⟧:
+								⦃⦃embedding⦄.IsEqualTo(⦃⦃structure⦄.GetFieldOfFractionsEmbeddingOf(⦃x⦄)⦄)⦄
+							⦃⦃⦃⦃structure⦄.GetFieldOfFractions()⦄.GetClass()⦄.Has(⦃embedding⦄)⦄
+						and:
+							let:
+								⟦addition⟧,⟦multiplication⟧:
+									⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+							for all ⟦y⟧:
+								if:
+										⦃⦃class⦄.Has(⦃y⦄)⦄
+									and:
+										not:
+											⦃⦃{⦃y⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetIdentities()⦄)⦄
+								then:
+									⦃⦃embedding⦄.Has(⦃(
+										⦃⦃⦃multiplication⦄.GetSimplifiedFunction()⦄(⦃y⦄,⦃x⦄)⦄,
+										⦃y⦄
+									)⦄)⦄
+
+define ⦃method ⦃MetaIntegralDomain⦄.GetEuclideanRelations⦄
+	for all ⟦structure⟧:
+		if:
+			⦃⦃MetaIntegralDomain⦄.HasInstance(⦃structure⦄)⦄
+		then:
+				⦃⦃⦃⦃structure⦄.GetEuclideanRelations⦄.GetDomain()⦄.IsEqualTo(⦃{⦃()⦄}⦄)⦄
+			and:
+				let:
+					⟦relations⟧:
+						⦃⦃relations⦄.IsEqualTo(⦃⦃structure⦄.GetEuclideanRelations()⦄)⦄
+					⦃⦃Class⦄.HasInstance(⦃relations⦄)⦄
+				and:
+					for all ⟦relation⟧:
+							⦃⦃relations⦄.Has(⦃relation⦄)⦄
+						if and only	if:
+								for all ⟦type⟧:
+									if:
+										⦃⦃{⦃ArtinianRelation⦄,⦃NonStrictWeakOrder⦄}⦄.Has(⦃type⦄)⦄
+									then:
+										⦃⦃type⦄.HasInstance(⦃relation⦄)⦄
+							and:
+								let:
+									⟦class⟧:
+										⦃⦃class⦄.IsEqualTo(⦃⦃structure⦄.GetClass()⦄)⦄
+									⦃⦃⦃relation⦄.GetSharedSignatureClass()⦄.IsEqualTo(⦃class⦄)⦄
+								and:
+									let:
+										⟦addition⟧,⟦multiplication⟧:
+											⦃⦃(⦃addition⦄,⦃multiplication⦄)⦄.IsEqualTo(⦃⦃structure⦄.GetOperations()⦄)⦄
+									for all ⟦x⟧,⟦y⟧:
+										if:
+												⦃⦃class⦄.Has(⦃x⦄)⦄
+											and:
+													⦃⦃class⦄.Has(⦃y⦄)⦄
+												and:
+													not:
+														⦃⦃{⦃y⦄}⦄.IsEqualTo(⦃⦃addition⦄.GetIdentities()⦄)⦄
+										then:
+											there exists ⟦quotient⟧,⟦remainder⟧:
+													⦃⦃x⦄.IsEqualTo(⦃⦃⦃addition⦄.GetSimplifiedFunction()⦄(
+														⦃⦃⦃multiplication⦄.GetSimplifiedFunction()⦄(⦃y⦄,⦃quotient⦄)⦄,
+														⦃remainder⦄
+													)⦄)⦄
+												and:
+													let:
+														⟦function⟧:
+															⦃⦃function⦄.IsEqualTo(⦃⦃relation⦄.GetSimplifiedFunction()⦄)⦄
+														⦃⦃function⦄(⦃remainder⦄,⦃quotient⦄)⦄
+													and:
+														not:
+															⦃⦃function⦄(⦃quotient⦄,⦃remainder⦄)⦄

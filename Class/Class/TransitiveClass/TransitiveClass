@@ -1,0 +1,18 @@
+import "./declare" ⟦⟦All⟧⟧
+
+
+
+define ⦃TransitiveClass⦄
+		⦃⦃Type⦄.HasInstance(⦃TransitiveClass⦄)⦄
+	and:
+		for all ⟦class⟧:
+				⦃⦃TransitiveClass⦄.HasInstance(⦃class⦄)⦄
+			if and only if:
+				for all ⟦typeIdentifier⟧:
+					if:
+						⦃⦃{
+							⦃unicodeCodePoints ⦄,
+							⦃unicodeCodePoints TransitiveMulti⦄
+						}⦄.Has(⦃typeIdentifier⦄)⦄
+					then:
+						⦃⦃⟦⟦⦃typeIdentifier⦄⟧⟧Class⦄.HasInstance(⦃class⦄)⦄
